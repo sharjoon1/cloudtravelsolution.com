@@ -5,7 +5,7 @@ export const Inquiries: CollectionConfig = {
   admin: {
     useAsTitle: "fullName",
     group: "Business",
-    defaultColumns: ["fullName", "destinationCountry", "visaType", "status", "createdAt"],
+    defaultColumns: ["fullName", "type", "destinationCountry", "visaType", "status", "createdAt"],
   },
   access: {
     read: ({ req }) => !!req.user,
@@ -15,6 +15,19 @@ export const Inquiries: CollectionConfig = {
   },
   fields: [
     {
+      name: "type",
+      type: "select",
+      defaultValue: "visa-inquiry",
+      admin: {
+        position: "sidebar",
+      },
+      options: [
+        { label: "Visa Inquiry", value: "visa-inquiry" },
+        { label: "Callback", value: "callback" },
+        { label: "Contact", value: "contact" },
+      ],
+    },
+    {
       name: "fullName",
       type: "text",
       required: true,
@@ -22,7 +35,6 @@ export const Inquiries: CollectionConfig = {
     {
       name: "email",
       type: "email",
-      required: true,
     },
     {
       name: "phone",

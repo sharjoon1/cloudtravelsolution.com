@@ -1,34 +1,36 @@
 import { NextResponse } from "next/server";
 import { getPayload } from "payload";
 import config from "@payload-config";
-import { callbackSchema } from "@/lib/validations";
-import { sendCallbackNotification } from "@/lib/email";
+import { contactSchema } from "@/lib/validations";
+import { sendContactNotification, sendContactConfirmation } from "@/lib/email";
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const validated = callbackSchema.parse(body);
+    const validated = contactSchema.parse(body);
 
     const payload = await getPayload({ config });
     await payload.create({
       collection: "inquiries",
       data: {
-        type: "callback",
+        type: "contact",
         fullName: validated.name,
+        email: validated.email,
         phone: validated.phone,
-        notes: [
-          validated.preferredTime && `Preferred time: ${validated.preferredTime}`,
-          validated.service && `Service: ${validated.service}`,
-        ].filter(Boolean).join("\n"),
+        city: validated.city,
+        purposeOfVisit: `Subject: ${validated.subject}\n\n${validated.message}`,
       },
     });
 
-    // Fire-and-forget email notification (team only — no user email)
-    sendCallbackNotification(validated);
+    // Fire-and-forget email notifications
+    Promise.allSettled([
+      sendContactNotification(validated),
+      sendContactConfirmation(validated),
+    ]);
 
     return NextResponse.json(
-      { success: true, message: "Callback request submitted successfully" },
-      { status: 200 }
+      { success: true, message: "Message sent successfully" },
+      { status: 201 }
     );
   } catch (error) {
     if (error instanceof Error && error.name === "ZodError") {
@@ -38,7 +40,7 @@ export async function POST(request: Request) {
       );
     }
 
-    console.error("Callback submission error:", error);
+    console.error("Contact submission error:", error);
     return NextResponse.json(
       { success: false, message: "Internal server error" },
       { status: 500 }

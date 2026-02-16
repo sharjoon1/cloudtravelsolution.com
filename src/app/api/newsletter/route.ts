@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { newsletterSchema } from "@/lib/validations";
+import { sendNewsletterWelcome } from "@/lib/email";
 
 export async function POST(request: Request) {
   try {
@@ -7,8 +8,9 @@ export async function POST(request: Request) {
     const validated = newsletterSchema.parse(body);
 
     // TODO: Add to email marketing list (Resend audience or Mailchimp)
-    // TODO: Send welcome email
-    console.log("Newsletter subscription:", validated);
+
+    // Fire-and-forget welcome email
+    sendNewsletterWelcome(validated.email);
 
     return NextResponse.json(
       { success: true, message: "Subscribed successfully" },
@@ -22,6 +24,7 @@ export async function POST(request: Request) {
       );
     }
 
+    console.error("Newsletter subscription error:", error);
     return NextResponse.json(
       { success: false, message: "Internal server error" },
       { status: 500 }

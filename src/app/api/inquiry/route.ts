@@ -1,19 +1,37 @@
 import { NextResponse } from "next/server";
+import { getPayload } from "payload";
+import config from "@payload-config";
 import { visaInquirySchema } from "@/lib/validations";
+import { sendInquiryNotification, sendInquiryConfirmation } from "@/lib/email";
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
     const validated = visaInquirySchema.parse(body);
 
-    // In production, this would:
-    // 1. Save to Payload CMS (Inquiries collection)
-    // 2. Send confirmation email via Resend
-    // 3. Send notification to CTS team
-    // 4. Push to Zoho CRM (Phase 2)
-    // 5. Send WhatsApp notification (Phase 2)
+    const payload = await getPayload({ config });
+    await payload.create({
+      collection: "inquiries",
+      data: {
+        type: "visa-inquiry",
+        fullName: validated.fullName,
+        email: validated.email,
+        phone: validated.phone,
+        city: validated.city,
+        destinationCountry: validated.destinationCountry,
+        visaType: validated.visaType,
+        numberOfTravelers: validated.numberOfTravelers,
+        preferredTravelDate: validated.preferredTravelDate,
+        purposeOfVisit: validated.purposeOfVisit,
+        preferredContactMethod: validated.preferredContactMethod,
+      },
+    });
 
-    console.log("New visa inquiry:", validated);
+    // Fire-and-forget email notifications
+    Promise.allSettled([
+      sendInquiryNotification(validated),
+      sendInquiryConfirmation(validated),
+    ]);
 
     return NextResponse.json(
       { success: true, message: "Inquiry submitted successfully" },
@@ -27,6 +45,7 @@ export async function POST(request: Request) {
       );
     }
 
+    console.error("Inquiry submission error:", error);
     return NextResponse.json(
       { success: false, message: "Internal server error" },
       { status: 500 }

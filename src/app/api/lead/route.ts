@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { getPayload } from "payload";
 import config from "@payload-config";
 import { heroLeadSchema } from "@/lib/validations";
+import { sendLeadNotification, sendLeadConfirmation } from "@/lib/email";
 
 export async function POST(request: Request) {
   try {
@@ -16,6 +17,12 @@ export async function POST(request: Request) {
         source: "hero-form",
       },
     });
+
+    // Fire-and-forget email notifications
+    Promise.allSettled([
+      sendLeadNotification(validated),
+      sendLeadConfirmation(validated),
+    ]);
 
     return NextResponse.json(
       { success: true, message: "Lead submitted successfully", id: lead.id },
