@@ -1,4 +1,6 @@
 import { NextResponse } from "next/server";
+import { getPayload } from "payload";
+import config from "@payload-config";
 import { heroLeadSchema } from "@/lib/validations";
 
 export async function POST(request: Request) {
@@ -6,15 +8,17 @@ export async function POST(request: Request) {
     const body = await request.json();
     const validated = heroLeadSchema.parse(body);
 
-    // TODO: In production, this would:
-    // 1. Save to Payload CMS (Leads collection)
-    // 2. Send notification email to CTS team
-    // 3. Trigger WhatsApp/SMS follow-up
-
-    console.log("New hero lead:", validated);
+    const payload = await getPayload({ config });
+    const lead = await payload.create({
+      collection: "leads",
+      data: {
+        ...validated,
+        source: "hero-form",
+      },
+    });
 
     return NextResponse.json(
-      { success: true, message: "Lead submitted successfully" },
+      { success: true, message: "Lead submitted successfully", id: lead.id },
       { status: 201 }
     );
   } catch (error) {
@@ -25,6 +29,7 @@ export async function POST(request: Request) {
       );
     }
 
+    console.error("Lead submission error:", error);
     return NextResponse.json(
       { success: false, message: "Internal server error" },
       { status: 500 }

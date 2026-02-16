@@ -12,6 +12,7 @@ import { BlogPosts } from "@/collections/BlogPosts";
 import { Testimonials } from "@/collections/Testimonials";
 import { FAQs } from "@/collections/FAQs";
 import { Inquiries } from "@/collections/Inquiries";
+import { Leads } from "@/collections/Leads";
 import { TeamMembers } from "@/collections/TeamMembers";
 import { Media } from "@/collections/Media";
 import { Users } from "@/collections/Users";
@@ -35,6 +36,7 @@ export default buildConfig({
     Testimonials,
     FAQs,
     Inquiries,
+    Leads,
     TeamMembers,
     Media,
   ],
