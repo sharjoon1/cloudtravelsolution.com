@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.fcmtravel.com)",
+      "WebFetch(domain:www.riyatravel.com)",
+      "WebFetch(domain:www.thomascook.in)",
+      "WebFetch(domain:www.sotc.in)",
+      "WebSearch",
+      "Bash(git init:*)",
+      "Bash(git checkout:*)",
+      "Bash(wc:*)",
+      "Bash(node --version:*)",
+      "Bash(npm --version:*)",
+      "Bash(npx --version:*)",
+      "Bash(npx create-next-app@latest:*)"
+    ]
+  }
+}
