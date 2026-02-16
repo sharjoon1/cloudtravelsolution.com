@@ -102,6 +102,39 @@ export const NAV_ITEMS = [
   { label: "Contact", href: "/contact" },
 ] as const;
 
+export const TRAVEL_MONTHS = [
+  "March 2026",
+  "April 2026",
+  "May 2026",
+  "June 2026",
+  "July 2026",
+  "August 2026",
+  "September 2026",
+  "October 2026",
+  "November 2026",
+  "December 2026",
+  "January 2027",
+  "February 2027",
+  "I'm flexible",
+] as const;
+
+export const TRIP_DURATIONS = [
+  "1-7 days",
+  "8-14 days",
+  "15-30 days",
+  "1-3 months",
+  "3+ months",
+  "Not sure",
+] as const;
+
+export const TRAVELER_COUNTS = [
+  "1 person",
+  "2 persons",
+  "3 persons",
+  "4 persons",
+  "5+ persons",
+] as const;
+
 export const SERVICES = [
   {
     title: "Visa Consulting",

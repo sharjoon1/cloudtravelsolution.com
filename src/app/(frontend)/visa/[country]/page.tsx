@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { MapPin, Globe, AlertTriangle } from "lucide-react";
+import { MapPin, Globe, AlertTriangle, ChevronRight } from "lucide-react";
 
 import { getCountryBySlug, getAllCountrySlugs } from "@/lib/visa-data";
 import { generateFAQSchema } from "@/lib/seo";

@@ -63,3 +63,20 @@ export const newsletterSchema = z.object({
 });
 
 export type NewsletterFormData = z.infer<typeof newsletterSchema>;
+
+export const heroLeadSchema = z.object({
+  // Step 1: Travel Details
+  destination: z.string().min(1, "Please select a destination"),
+  travelMonth: z.string().min(1, "Please select a travel month"),
+  duration: z.string().min(1, "Please select trip duration"),
+  travelers: z.string().min(1, "Please select number of travelers"),
+  // Step 2: Contact Info
+  fullName: z
+    .string()
+    .min(2, "Name must be at least 2 characters")
+    .max(100, "Name must be less than 100 characters"),
+  phone: z.string().regex(phoneRegex, "Please enter a valid Indian phone number"),
+  email: z.string().email("Please enter a valid email address"),
+});
+
+export type HeroLeadFormData = z.infer<typeof heroLeadSchema>;
