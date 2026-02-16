@@ -11,14 +11,14 @@ export const visaInquirySchema = z.object({
   email: z.string().email("Please enter a valid email address"),
   phone: z.string().regex(phoneRegex, "Please enter a valid Indian phone number"),
   city: z.enum(["bangalore", "hyderabad", "delhi", "chennai", "other"], {
-    required_error: "Please select your city",
+    message: "Please select your city",
   }),
 
   // Step 2: Visa Requirements
   destinationCountry: z.string().min(1, "Please select a destination country"),
   visaType: z.enum(
     ["tourist", "business", "student", "work-permit", "transit", "medical", "conference"],
-    { required_error: "Please select a visa type" }
+    { message: "Please select a visa type" }
   ),
   numberOfTravelers: z.number().min(1).max(50).default(1),
   preferredTravelDate: z.string().optional(),
@@ -32,7 +32,7 @@ export const visaInquirySchema = z.object({
 
   // Consent
   privacyConsent: z.literal(true, {
-    errorMap: () => ({ message: "You must agree to the privacy policy" }),
+    message: "You must agree to the privacy policy",
   }),
 });
 
