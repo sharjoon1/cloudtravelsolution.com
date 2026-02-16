@@ -38,7 +38,8 @@ export function HeroLeadForm() {
     trigger,
     formState: { errors },
   } = useForm<HeroLeadFormData>({
-    resolver: zodResolver(heroLeadSchema),
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    resolver: zodResolver(heroLeadSchema) as any,
   });
 
   const goToNextStep = async () => {

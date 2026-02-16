@@ -39,7 +39,8 @@ export function VisaInquiryForm() {
     watch,
     formState: { errors },
   } = useForm<VisaInquiryFormData>({
-    resolver: zodResolver(visaInquirySchema),
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    resolver: zodResolver(visaInquirySchema) as any,
     defaultValues: {
       numberOfTravelers: 1,
       appliedBefore: false,

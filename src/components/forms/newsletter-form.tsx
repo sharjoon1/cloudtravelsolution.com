@@ -16,7 +16,8 @@ export function NewsletterForm() {
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm<NewsletterFormData>({
-    resolver: zodResolver(newsletterSchema),
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    resolver: zodResolver(newsletterSchema) as any,
   });
 
   async function onSubmit(data: NewsletterFormData) {

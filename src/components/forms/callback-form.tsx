@@ -16,7 +16,8 @@ export function CallbackForm() {
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm<CallbackFormData>({
-    resolver: zodResolver(callbackSchema),
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    resolver: zodResolver(callbackSchema) as any,
   });
 
   async function onSubmit(data: CallbackFormData) {
