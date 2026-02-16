@@ -62,7 +62,7 @@ export function Header() {
                 key={item.label}
                 className="relative"
                 onMouseEnter={() =>
-                  item.children ? setActiveDropdown(item.label) : undefined
+                  "children" in item ? setActiveDropdown(item.label) : undefined
                 }
                 onMouseLeave={() => setActiveDropdown(null)}
               >
@@ -73,7 +73,7 @@ export function Header() {
                   )}
                 >
                   {item.label}
-                  {item.children && (
+                  {"children" in item && (
                     <ChevronDown
                       className={cn(
                         "h-3.5 w-3.5 transition-transform",
@@ -84,7 +84,7 @@ export function Header() {
                 </Link>
 
                 {/* Dropdown */}
-                {item.children && activeDropdown === item.label && (
+                {"children" in item && activeDropdown === item.label && (
                   <div className="absolute top-full left-0 pt-1 z-50">
                     <div className="w-56 bg-white rounded-lg shadow-lg border border-border py-2 animate-in fade-in slide-in-from-top-1 duration-150">
                       {item.children.map((child) => (
@@ -141,7 +141,7 @@ export function Header() {
                 >
                   {item.label}
                 </Link>
-                {item.children && (
+                {"children" in item && (
                   <div className="ml-4 space-y-0.5">
                     {item.children.map((child) => (
                       <Link
