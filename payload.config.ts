@@ -55,6 +55,7 @@ export default buildConfig({
         client: {
           url: process.env.DATABASE_URI || "file:./data/dev.db",
         },
+        push: true,
       }),
   plugins: [
     seoPlugin({
