@@ -5,11 +5,11 @@ import { StatsCounter } from "@/components/sections/stats-counter";
 import { LocationsMap } from "@/components/sections/locations-map";
 import { Testimonials } from "@/components/sections/testimonials";
 import { CTABanner } from "@/components/sections/cta-banner";
+import { connection } from "next/server";
 import { getSiteSettings, getHomepageData } from "@/lib/payload-data";
 
-export const dynamic = "force-dynamic";
-
 export default async function HomePage() {
+  await connection();
   const [siteSettings, homepage] = await Promise.all([
     getSiteSettings(),
     getHomepageData(),
