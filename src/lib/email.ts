@@ -1,5 +1,14 @@
 import { Resend } from "resend";
 import type { HeroLeadFormData, VisaInquiryFormData, CallbackFormData, ContactFormData } from "./validations";
+import { POPULAR_COUNTRIES } from "./constants";
+
+const countryNameMap = Object.fromEntries(
+  POPULAR_COUNTRIES.map((c) => [c.slug, c.name])
+);
+
+function countryName(slug: string): string {
+  return countryNameMap[slug] || slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+}
 
 // Lazy-init Resend client
 let resendClient: Resend | null = null;
@@ -89,6 +98,7 @@ function dataTable(rows: string): string {
 // ── Lead Emails ────────────────────────────────────────────────────────
 
 export async function sendLeadNotification(data: HeroLeadFormData): Promise<EmailResult> {
+  const dest = countryName(data.destination);
   const html = emailLayout(
     "New Travel Lead",
     `<p style="color:#374151;font-size:15px;margin:0 0 16px;">A new lead just submitted the hero form.</p>` +
@@ -96,7 +106,7 @@ export async function sendLeadNotification(data: HeroLeadFormData): Promise<Emai
       dataRow("Name", data.fullName) +
       dataRow("Phone", data.phone) +
       dataRow("Email", data.email) +
-      dataRow("Destination", data.destination) +
+      dataRow("Destination", dest) +
       dataRow("Travel Month", data.travelMonth) +
       dataRow("Duration", data.duration) +
       dataRow("Travelers", data.travelers)
@@ -106,20 +116,21 @@ export async function sendLeadNotification(data: HeroLeadFormData): Promise<Emai
 
   return sendEmail({
     to: teamEmail(),
-    subject: `New Lead: ${data.fullName} — ${data.destination}`,
+    subject: `New Lead: ${data.fullName} — ${dest}`,
     html,
   });
 }
 
 export async function sendLeadConfirmation(data: HeroLeadFormData): Promise<EmailResult> {
+  const dest = countryName(data.destination);
   const html = emailLayout(
     `Thanks, ${data.fullName}!`,
     `<p style="color:#374151;font-size:15px;line-height:1.6;margin:0 0 16px;">
-      We received your travel inquiry for <strong>${data.destination}</strong>. Our team will contact you within <strong style="color:#E8963E;">2 hours</strong> to discuss your trip.
+      We received your travel inquiry for <strong>${dest}</strong>. Our team will contact you within <strong style="color:#E8963E;">2 hours</strong> to discuss your trip.
     </p>
     <p style="color:#374151;font-size:15px;line-height:1.6;margin:0 0 16px;">Here's a summary of your request:</p>` +
     dataTable(
-      dataRow("Destination", data.destination) +
+      dataRow("Destination", dest) +
       dataRow("Travel Month", data.travelMonth) +
       dataRow("Duration", data.duration) +
       dataRow("Travelers", data.travelers)
@@ -131,7 +142,7 @@ export async function sendLeadConfirmation(data: HeroLeadFormData): Promise<Emai
 
   return sendEmail({
     to: data.email,
-    subject: `Your ${data.destination} travel inquiry — Cloud Travel Solution`,
+    subject: `Your ${dest} travel inquiry — Cloud Travel Solution`,
     html,
   });
 }
