@@ -31,6 +31,10 @@ const nextConfig: NextConfig = {
             key: "Referrer-Policy",
             value: "origin-when-cross-origin",
           },
+          {
+            key: "CDN-Cache-Control",
+            value: "no-store",
+          },
         ],
       },
     ];

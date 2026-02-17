@@ -187,7 +187,6 @@ export async function getHomepageData(): Promise<HomepageData> {
   try {
     const payload = await getPayload({ config });
     const data = await payload.findGlobal({ slug: "homepage" });
-    console.log("[DEBUG] Homepage data from CMS:", JSON.stringify(data?.hero));
     return {
       hero: {
         badgeText: data.hero?.badgeText || homepageFallback.hero.badgeText,
@@ -232,8 +231,7 @@ export async function getHomepageData(): Promise<HomepageData> {
         testimonialsSubheading: data.sectionHeadings?.testimonialsSubheading || homepageFallback.sectionHeadings.testimonialsSubheading,
       },
     };
-  } catch (err) {
-    console.error("[DEBUG] Homepage fetch error:", err);
+  } catch {
     return homepageFallback;
   }
 }
