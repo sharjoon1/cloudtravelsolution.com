@@ -4,7 +4,7 @@ export const Leads: CollectionConfig = {
   slug: "leads",
   admin: {
     useAsTitle: "fullName",
-    group: "Business",
+    group: "Lead Management",
     defaultColumns: ["fullName", "destination", "phone", "status", "source", "createdAt"],
   },
   access: {
@@ -85,6 +85,14 @@ export const Leads: CollectionConfig = {
       name: "assignedTo",
       type: "relationship",
       relationTo: "users",
+      admin: {
+        position: "sidebar",
+      },
+    },
+    {
+      name: "customer",
+      type: "relationship",
+      relationTo: "customers",
       admin: {
         position: "sidebar",
       },

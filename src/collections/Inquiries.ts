@@ -4,7 +4,7 @@ export const Inquiries: CollectionConfig = {
   slug: "inquiries",
   admin: {
     useAsTitle: "fullName",
-    group: "Business",
+    group: "Lead Management",
     defaultColumns: ["fullName", "type", "destinationCountry", "visaType", "status", "createdAt"],
   },
   access: {
@@ -89,6 +89,19 @@ export const Inquiries: CollectionConfig = {
       ],
     },
     {
+      name: "appliedBefore",
+      type: "checkbox",
+      defaultValue: false,
+    },
+    {
+      name: "preferredCallbackTime",
+      type: "text",
+    },
+    {
+      name: "referralSource",
+      type: "text",
+    },
+    {
       name: "notes",
       type: "textarea",
     },
@@ -96,6 +109,17 @@ export const Inquiries: CollectionConfig = {
       name: "assignedTo",
       type: "relationship",
       relationTo: "users",
+      admin: {
+        position: "sidebar",
+      },
+    },
+    {
+      name: "customer",
+      type: "relationship",
+      relationTo: "customers",
+      admin: {
+        position: "sidebar",
+      },
     },
   ],
 };

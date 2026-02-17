@@ -28,6 +28,7 @@ export const Users: CollectionConfig = {
         { label: "Admin", value: "admin" },
         { label: "Editor", value: "editor" },
         { label: "Location Manager", value: "location-manager" },
+        { label: "Visa Consultant", value: "visa-consultant" },
       ],
     },
   ],

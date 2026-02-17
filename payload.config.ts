@@ -16,6 +16,10 @@ import { Leads } from "./src/collections/Leads";
 import { TeamMembers } from "./src/collections/TeamMembers";
 import { Media } from "./src/collections/Media";
 import { Users } from "./src/collections/Users";
+import { Customers } from "./src/collections/Customers";
+import { VisaApplications } from "./src/collections/VisaApplications";
+import { Payments } from "./src/collections/Payments";
+import { Activities } from "./src/collections/Activities";
 import { SiteSettings } from "./src/globals/SiteSettings";
 import { Homepage } from "./src/globals/Homepage";
 
@@ -41,6 +45,10 @@ export default buildConfig({
     Leads,
     TeamMembers,
     Media,
+    Customers,
+    VisaApplications,
+    Payments,
+    Activities,
   ],
   globals: [SiteSettings, Homepage],
   editor: lexicalEditor(),

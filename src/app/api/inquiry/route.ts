@@ -24,6 +24,9 @@ export async function POST(request: Request) {
         preferredTravelDate: validated.preferredTravelDate,
         purposeOfVisit: validated.purposeOfVisit,
         preferredContactMethod: validated.preferredContactMethod,
+        appliedBefore: validated.appliedBefore,
+        preferredCallbackTime: validated.preferredCallbackTime,
+        referralSource: validated.referralSource,
       },
     });
 
