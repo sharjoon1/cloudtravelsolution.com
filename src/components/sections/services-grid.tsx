@@ -18,17 +18,28 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Building2,
 };
 
-export function ServicesGrid() {
+type ServicesGridProps = {
+  headings?: {
+    servicesHeading?: string;
+    servicesSubheading?: string;
+  };
+};
+
+export function ServicesGrid({ headings }: ServicesGridProps) {
+  const heading = headings?.servicesHeading || "Our Services";
+  const subheading =
+    headings?.servicesSubheading ||
+    "Comprehensive travel and visa services to make your international travel hassle-free.";
+
   return (
     <section className="py-16 lg:py-20 bg-[var(--color-muted)]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-3">
-            Our Services
+            {heading}
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Comprehensive travel and visa services to make your international
-            travel hassle-free.
+            {subheading}
           </p>
         </div>
 

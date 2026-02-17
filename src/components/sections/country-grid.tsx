@@ -3,17 +3,28 @@ import { ArrowRight } from "lucide-react";
 
 import { POPULAR_COUNTRIES } from "@/lib/constants";
 
-export function CountryGrid() {
+type CountryGridProps = {
+  headings?: {
+    countriesHeading?: string;
+    countriesSubheading?: string;
+  };
+};
+
+export function CountryGrid({ headings }: CountryGridProps) {
+  const heading = headings?.countriesHeading || "Popular Visa Destinations";
+  const subheading =
+    headings?.countriesSubheading ||
+    "Expert visa assistance for the most sought-after destinations. Choose your country to get started.";
+
   return (
     <section className="py-16 lg:py-20 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-3">
-            Popular Visa Destinations
+            {heading}
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Expert visa assistance for the most sought-after destinations.
-            Choose your country to get started.
+            {subheading}
           </p>
         </div>
 

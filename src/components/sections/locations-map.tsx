@@ -4,17 +4,28 @@ import { MapPin, ArrowRight, Phone, Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { LOCATIONS } from "@/lib/constants";
 
-export function LocationsMap() {
+type LocationsMapProps = {
+  headings?: {
+    locationsHeading?: string;
+    locationsSubheading?: string;
+  };
+};
+
+export function LocationsMap({ headings }: LocationsMapProps) {
+  const heading = headings?.locationsHeading || "Our Presence Across India";
+  const subheading =
+    headings?.locationsSubheading ||
+    "Visit us at our offices or reach out for a free consultation. We are expanding rapidly to serve you better.";
+
   return (
     <section className="py-16 lg:py-20 bg-[var(--color-muted)]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-3">
-            Our Presence Across India
+            {heading}
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Visit us at our offices or reach out for a free consultation. We
-            are expanding rapidly to serve you better.
+            {subheading}
           </p>
         </div>
 

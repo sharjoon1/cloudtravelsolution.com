@@ -51,8 +51,20 @@ const testimonials = [
   },
 ];
 
-export function Testimonials() {
+type TestimonialsProps = {
+  headings?: {
+    testimonialsHeading?: string;
+    testimonialsSubheading?: string;
+  };
+};
+
+export function Testimonials({ headings }: TestimonialsProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  const heading = headings?.testimonialsHeading || "What Our Clients Say";
+  const subheading =
+    headings?.testimonialsSubheading ||
+    "Trusted by thousands of happy travelers and businesses across India.";
 
   const next = () =>
     setCurrentIndex((prev) => (prev + 1) % testimonials.length);
@@ -68,10 +80,10 @@ export function Testimonials() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-3">
-            What Our Clients Say
+            {heading}
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Trusted by thousands of happy travelers and businesses across India.
+            {subheading}
           </p>
         </div>
 

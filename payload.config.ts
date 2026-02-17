@@ -16,6 +16,8 @@ import { Leads } from "./src/collections/Leads";
 import { TeamMembers } from "./src/collections/TeamMembers";
 import { Media } from "./src/collections/Media";
 import { Users } from "./src/collections/Users";
+import { SiteSettings } from "./src/globals/SiteSettings";
+import { Homepage } from "./src/globals/Homepage";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -40,6 +42,7 @@ export default buildConfig({
     TeamMembers,
     Media,
   ],
+  globals: [SiteSettings, Homepage],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "CHANGE-THIS-TO-A-SECURE-SECRET-MIN-32-CHARS",
   typescript: {

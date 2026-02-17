@@ -7,9 +7,11 @@ import {
   Twitter,
   Instagram,
   Linkedin,
+  Youtube,
 } from "lucide-react";
 
 import { SITE_CONFIG, LOCATIONS, SERVICES } from "@/lib/constants";
+import type { SiteSettingsData } from "@/lib/payload-data";
 
 const quickLinks = [
   { label: "About Us", href: "/about" },
@@ -25,7 +27,29 @@ const legalLinks = [
   { label: "Terms of Service", href: "/terms-of-service" },
 ];
 
-export function Footer() {
+type FooterProps = {
+  siteSettings?: SiteSettingsData;
+};
+
+export function Footer({ siteSettings }: FooterProps) {
+  const tollFree = siteSettings?.businessInfo?.tollFreeNumber || SITE_CONFIG.tollFree;
+  const email = siteSettings?.businessInfo?.email || SITE_CONFIG.email;
+  const footerTagline =
+    siteSettings?.footer?.footerTagline ||
+    "India's trusted visa consulting and travel partner. Expert services across Bangalore, Hyderabad, Delhi, and Chennai with Pan India expansion.";
+  const copyrightText =
+    siteSettings?.footer?.copyrightText ||
+    "CloudTravelSolution. All rights reserved.";
+  const social = siteSettings?.socialLinks || {};
+
+  const socialLinks = [
+    { Icon: Facebook, href: social.facebook, label: "Facebook" },
+    { Icon: Twitter, href: social.twitter, label: "Twitter" },
+    { Icon: Instagram, href: social.instagram, label: "Instagram" },
+    { Icon: Linkedin, href: social.linkedin, label: "LinkedIn" },
+    { Icon: Youtube, href: social.youtube, label: "YouTube" },
+  ].filter((s) => s.href);
+
   return (
     <footer className="bg-[var(--color-primary-dark)] text-white">
       {/* Main footer */}
@@ -47,37 +71,48 @@ export function Footer() {
               </div>
             </Link>
             <p className="text-sm text-white/70 leading-relaxed">
-              India&apos;s trusted visa consulting and travel partner.
-              Expert services across Bangalore, Hyderabad, Delhi, and
-              Chennai with Pan India expansion.
+              {footerTagline}
             </p>
             <div className="space-y-3 text-sm">
               <a
-                href={`tel:${SITE_CONFIG.tollFree}`}
+                href={`tel:${tollFree}`}
                 className="flex items-center gap-2 text-white/80 hover:text-[var(--color-secondary)] transition-colors"
               >
                 <Phone className="h-4 w-4 shrink-0" />
-                {SITE_CONFIG.tollFree}
+                {tollFree}
               </a>
               <a
-                href={`mailto:${SITE_CONFIG.email}`}
+                href={`mailto:${email}`}
                 className="flex items-center gap-2 text-white/80 hover:text-[var(--color-secondary)] transition-colors"
               >
                 <Mail className="h-4 w-4 shrink-0" />
-                {SITE_CONFIG.email}
+                {email}
               </a>
             </div>
             <div className="flex items-center gap-3 pt-1">
-              {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  className="h-9 w-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-[var(--color-secondary)] transition-colors"
-                  aria-label={Icon.displayName || "Social media"}
-                >
-                  <Icon className="h-4 w-4" />
-                </a>
-              ))}
+              {socialLinks.length > 0
+                ? socialLinks.map(({ Icon, href, label }) => (
+                    <a
+                      key={label}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="h-9 w-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-[var(--color-secondary)] transition-colors"
+                      aria-label={label}
+                    >
+                      <Icon className="h-4 w-4" />
+                    </a>
+                  ))
+                : [Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
+                    <a
+                      key={i}
+                      href="#"
+                      className="h-9 w-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-[var(--color-secondary)] transition-colors"
+                      aria-label={Icon.displayName || "Social media"}
+                    >
+                      <Icon className="h-4 w-4" />
+                    </a>
+                  ))}
             </div>
           </div>
 
@@ -181,8 +216,7 @@ export function Footer() {
       <div className="border-t border-white/10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-white/50">
-            &copy; {new Date().getFullYear()} CloudTravelSolution. All rights
-            reserved.
+            &copy; {new Date().getFullYear()} {copyrightText}
           </p>
           <div className="flex items-center gap-4">
             {legalLinks.map((link) => (

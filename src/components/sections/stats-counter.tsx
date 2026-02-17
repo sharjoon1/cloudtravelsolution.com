@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const stats = [
+const defaultStats = [
   { value: 10000, suffix: "+", label: "Visas Processed" },
   { value: 190, suffix: "+", label: "Countries Covered" },
   { value: 98, suffix: "%", label: "Success Rate" },
@@ -61,9 +61,23 @@ function StatItem({
   );
 }
 
-export function StatsCounter() {
+type StatsCounterProps = {
+  statsData?: {
+    heading?: string;
+    subheading?: string;
+  };
+  statsItems?: Array<{ value: number; suffix?: string; label: string }>;
+};
+
+export function StatsCounter({ statsData, statsItems }: StatsCounterProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+
+  const heading = statsData?.heading || "Why Choose CloudTravelSolution?";
+  const subheading =
+    statsData?.subheading ||
+    "Trusted by thousands of travelers across India for reliable, transparent, and expert visa services.";
+  const items = statsItems && statsItems.length > 0 ? statsItems : defaultStats;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -91,17 +105,22 @@ export function StatsCounter() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-3">
-            Why Choose CloudTravelSolution?
+            {heading}
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Trusted by thousands of travelers across India for reliable,
-            transparent, and expert visa services.
+            {subheading}
           </p>
         </div>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-          {stats.map((stat) => (
-            <StatItem key={stat.label} {...stat} isVisible={isVisible} />
+          {items.map((stat) => (
+            <StatItem
+              key={stat.label}
+              value={stat.value}
+              suffix={stat.suffix || ""}
+              label={stat.label}
+              isVisible={isVisible}
+            />
           ))}
         </div>
       </div>

@@ -6,10 +6,18 @@ import { Menu, X, Phone, ChevronDown } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { NAV_ITEMS, SITE_CONFIG } from "@/lib/constants";
+import type { SiteSettingsData } from "@/lib/payload-data";
 
-export function Header() {
+type HeaderProps = {
+  siteSettings?: SiteSettingsData;
+};
+
+export function Header({ siteSettings }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+
+  const tollFree = siteSettings?.businessInfo?.tollFreeNumber || SITE_CONFIG.tollFree;
+  const email = siteSettings?.businessInfo?.email || SITE_CONFIG.email;
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80">
@@ -21,17 +29,17 @@ export function Header() {
           </p>
           <div className="flex items-center gap-4">
             <a
-              href={`tel:${SITE_CONFIG.tollFree}`}
+              href={`tel:${tollFree}`}
               className="flex items-center gap-1.5 hover:text-[var(--color-secondary)] transition-colors"
             >
               <Phone className="h-3.5 w-3.5" />
-              <span>{SITE_CONFIG.tollFree}</span>
+              <span>{tollFree}</span>
             </a>
             <a
-              href={`mailto:${SITE_CONFIG.email}`}
+              href={`mailto:${email}`}
               className="hidden md:block hover:text-[var(--color-secondary)] transition-colors"
             >
-              {SITE_CONFIG.email}
+              {email}
             </a>
           </div>
         </div>

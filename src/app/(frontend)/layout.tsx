@@ -3,17 +3,20 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { WhatsAppButton } from "@/components/ui/whatsapp-button";
 import { ScrollToTop } from "@/components/ui/scroll-to-top";
+import { getSiteSettings } from "@/lib/payload-data";
 
-export default function FrontendLayout({
+export default async function FrontendLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const siteSettings = await getSiteSettings();
+
   return (
     <>
-      <Header />
+      <Header siteSettings={siteSettings} />
       <main className="min-h-screen">{children}</main>
-      <Footer />
+      <Footer siteSettings={siteSettings} />
       <WhatsAppButton />
       <ScrollToTop />
     </>
