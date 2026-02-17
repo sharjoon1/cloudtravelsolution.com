@@ -5,6 +5,8 @@ import { WhatsAppButton } from "@/components/ui/whatsapp-button";
 import { ScrollToTop } from "@/components/ui/scroll-to-top";
 import { getSiteSettings } from "@/lib/payload-data";
 
+export const revalidate = 60;
+
 export default async function FrontendLayout({
   children,
 }: {

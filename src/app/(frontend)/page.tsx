@@ -7,6 +7,8 @@ import { Testimonials } from "@/components/sections/testimonials";
 import { CTABanner } from "@/components/sections/cta-banner";
 import { getSiteSettings, getHomepageData } from "@/lib/payload-data";
 
+export const revalidate = 60;
+
 export default async function HomePage() {
   const [siteSettings, homepage] = await Promise.all([
     getSiteSettings(),
