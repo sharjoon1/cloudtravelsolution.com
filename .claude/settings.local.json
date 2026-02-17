@@ -12,7 +12,26 @@
       "Bash(node --version:*)",
       "Bash(npm --version:*)",
       "Bash(npx --version:*)",
-      "Bash(npx create-next-app@latest:*)"
+      "Bash(npx create-next-app@latest:*)",
+      "Bash(git stash:*)",
+      "Bash(tasklist:*)",
+      "Bash(npm ls:*)",
+      "Bash(npm view:*)",
+      "Bash(node -e:*)",
+      "Bash(npm run dev)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(curl:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push)",
+      "Bash(python3:*)",
+      "Bash(npm install:*)",
+      "Bash(npx tsc:*)",
+      "Bash(npx next build:*)",
+      "Bash(ssh:*)",
+      "Bash(git push:*)",
+      "WebFetch(domain:cloudtravelsolution.com)",
+      "WebFetch(domain:resend.com)"
     ]
   }
 }

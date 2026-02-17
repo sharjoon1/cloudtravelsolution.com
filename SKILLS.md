@@ -1,7 +1,7 @@
 # SKILLS.MD - CloudTravelSolution Project Skills Registry
 
 > **Protocol:** This file is updated after every major project milestone.
-> **Last Updated:** 2026-02-16 | **Phase:** Project Initialization & Planning
+> **Last Updated:** 2026-02-17 | **Phase:** Production Deployment & Email Integration
 
 ---
 
@@ -164,10 +164,12 @@
 | 2026-02-16 | Sprint 0 Complete | Foundation built: Next.js 16 + Payload CMS v3 + Tailwind 4. 10 CMS collections, 9 UI components, 7 page sections, Header/Footer, 19 passing tests. Full design tokens configured. |
 | 2026-02-16 | Sprint 1 Complete | 10 visa country pages, multi-step inquiry form, visa components (VisaTypeTabs, RequirementsChecklist, FeeTable), API routes, location city pages, blog listing, services hub, about, contact pages. Schema.org structured data. |
 | 2026-02-16 | Sprint 2 Complete | 10 more visa countries (20 total), 6 full blog posts with detail pages, 5 individual service pages, FAQ page with search/filter, locations hub + expansion roadmap, privacy policy + terms of service, callback + newsletter forms with API routes, robots.txt + XML sitemap. 25 passing tests, 69 source files, 17 page routes. |
+| 2026-02-17 | **Production Deployment** | Deployed to Debian 11 server (161.97.114.189). Cloned repo, npm install, built Next.js (81 pages). PM2 process manager. Nginx reverse proxy with SSL. SQLite production DB with schema. Fixed 7 build issues: React.useId conditional calls, zodResolver type mismatch, TypeScript nav narrowing, Zod v4 API compat, payload.config.ts relative imports. |
+| 2026-02-17 | **Resend Email Integration** | Connected Resend API (re_X66W...). Verified domain on Cloudflare: DKIM + SPF + DMARC. Emails now sent from hello@cloudtravelsolution.com. Team notifications to sharjoon1@gmail.com. Fixed destination display names in emails (slug→proper name mapping). |
 | - | Competitor Analysis Complete | Section 4 to be updated |
 | - | Design Phase Complete | Section 2 to be updated |
 | - | Testing Complete | Section 6 to be updated |
-| - | Launch | Final assessment |
+| - | Domain Email Setup | Verify cloudtravelsolution.com in Resend, update RESEND_FROM_EMAIL |
 
 ---
 
