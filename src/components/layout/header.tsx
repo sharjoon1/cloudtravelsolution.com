@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -18,6 +19,7 @@ export function Header({ siteSettings }: HeaderProps) {
 
   const tollFree = siteSettings?.businessInfo?.tollFreeNumber || SITE_CONFIG.tollFree;
   const email = siteSettings?.businessInfo?.email || SITE_CONFIG.email;
+  const logoUrl = siteSettings?.branding?.logo?.url;
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80">
@@ -50,17 +52,23 @@ export function Header({ siteSettings }: HeaderProps) {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 shrink-0">
-            <div className="h-9 w-9 rounded-lg bg-[var(--color-primary)] flex items-center justify-center">
-              <span className="text-white font-bold text-lg">C</span>
-            </div>
-            <div className="hidden sm:block">
-              <span className="font-bold text-lg text-[var(--color-primary)]">
-                Cloud
-              </span>
-              <span className="font-bold text-lg text-[var(--color-secondary)]">
-                TravelSolution
-              </span>
-            </div>
+            {logoUrl ? (
+              <Image src={logoUrl} alt={siteSettings?.businessInfo?.siteName || "CloudTravelSolution"} width={180} height={40} className="h-10 w-auto object-contain" priority />
+            ) : (
+              <>
+                <div className="h-9 w-9 rounded-lg bg-[var(--color-primary)] flex items-center justify-center">
+                  <span className="text-white font-bold text-lg">C</span>
+                </div>
+                <div className="hidden sm:block">
+                  <span className="font-bold text-lg text-[var(--color-primary)]">
+                    Cloud
+                  </span>
+                  <span className="font-bold text-lg text-[var(--color-secondary)]">
+                    TravelSolution
+                  </span>
+                </div>
+              </>
+            )}
           </Link>
 
           {/* Desktop navigation */}

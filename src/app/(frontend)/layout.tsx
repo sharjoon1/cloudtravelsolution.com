@@ -19,7 +19,7 @@ export default async function FrontendLayout({
       <Header siteSettings={siteSettings} />
       <main className="min-h-screen">{children}</main>
       <Footer siteSettings={siteSettings} />
-      <WhatsAppButton />
+      <WhatsAppButton whatsappNumber={siteSettings.businessInfo.whatsappNumber} />
       <ScrollToTop />
     </>
   );

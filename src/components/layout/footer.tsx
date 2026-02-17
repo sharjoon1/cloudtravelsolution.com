@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   Phone,
   Mail,
@@ -41,6 +42,7 @@ export function Footer({ siteSettings }: FooterProps) {
     siteSettings?.footer?.copyrightText ||
     "CloudTravelSolution. All rights reserved.";
   const social = siteSettings?.socialLinks || {};
+  const logoUrl = siteSettings?.branding?.logo?.url;
 
   const socialLinks = [
     { Icon: Facebook, href: social.facebook, label: "Facebook" },
@@ -58,17 +60,23 @@ export function Footer({ siteSettings }: FooterProps) {
           {/* Brand & Contact */}
           <div className="space-y-5">
             <Link href="/" className="flex items-center gap-2">
-              <div className="h-9 w-9 rounded-lg bg-white/10 flex items-center justify-center">
-                <span className="text-[var(--color-secondary)] font-bold text-lg">
-                  C
-                </span>
-              </div>
-              <div>
-                <span className="font-bold text-lg text-white">Cloud</span>
-                <span className="font-bold text-lg text-[var(--color-secondary)]">
-                  TravelSolution
-                </span>
-              </div>
+              {logoUrl ? (
+                <Image src={logoUrl} alt={siteSettings?.businessInfo?.siteName || "CloudTravelSolution"} width={180} height={40} className="h-10 w-auto object-contain brightness-0 invert" />
+              ) : (
+                <>
+                  <div className="h-9 w-9 rounded-lg bg-white/10 flex items-center justify-center">
+                    <span className="text-[var(--color-secondary)] font-bold text-lg">
+                      C
+                    </span>
+                  </div>
+                  <div>
+                    <span className="font-bold text-lg text-white">Cloud</span>
+                    <span className="font-bold text-lg text-[var(--color-secondary)]">
+                      TravelSolution
+                    </span>
+                  </div>
+                </>
+              )}
             </Link>
             <p className="text-sm text-white/70 leading-relaxed">
               {footerTagline}

@@ -3,11 +3,15 @@
 import { useState, useEffect } from "react";
 import { MessageCircle, X } from "lucide-react";
 
-const WHATSAPP_NUMBER = "919999999999"; // Replace with actual WhatsApp Business number
+const FALLBACK_NUMBER = "919999999999";
 const DEFAULT_MESSAGE =
   "Hi CloudTravelSolution! I need help with visa/travel services.";
 
-export function WhatsAppButton() {
+type WhatsAppButtonProps = {
+  whatsappNumber?: string;
+};
+
+export function WhatsAppButton({ whatsappNumber }: WhatsAppButtonProps) {
   const [isTooltipOpen, setIsTooltipOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -19,7 +23,8 @@ export function WhatsAppButton() {
 
   if (!isVisible) return null;
 
-  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(DEFAULT_MESSAGE)}`;
+  const number = whatsappNumber?.replace(/[^0-9]/g, "") || FALLBACK_NUMBER;
+  const whatsappUrl = `https://wa.me/${number}?text=${encodeURIComponent(DEFAULT_MESSAGE)}`;
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
