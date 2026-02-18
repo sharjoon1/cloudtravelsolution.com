@@ -32,6 +32,11 @@ export default buildConfig({
     user: Users.slug,
     meta: {
       titleSuffix: "— CloudTravelSolution Admin",
+      openGraph: {
+        title: "CloudTravelSolution Admin",
+        description: "Admin panel for Cloud Travel Solution - Visa consulting & travel services",
+        siteName: "CloudTravelSolution",
+      },
     },
   },
   collections: [
