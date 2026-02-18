@@ -34,7 +34,7 @@ export const SiteSettings: GlobalConfig = {
         {
           name: "tollFreeNumber",
           type: "text",
-          defaultValue: "1800-XXX-XXXX",
+          defaultValue: "+91 8095976543",
         },
         {
           name: "email",

@@ -5,7 +5,7 @@ export const SITE_CONFIG = {
     "India's leading visa consulting and travel agency. Expert visa services for all countries from Bangalore, Hyderabad, Delhi, and Chennai. Pan India presence.",
   url: "https://cloudtravelsolution.com",
   ogImage: "/images/og-image.jpg",
-  tollFree: "1800-XXX-XXXX",
+  tollFree: "+91 8095976543",
   email: "info@cloudtravelsolution.com",
 } as const;
 
@@ -15,7 +15,7 @@ export const LOCATIONS = [
     state: "Karnataka",
     status: "active" as const,
     slug: "bangalore",
-    phone: "+91 80 XXXX XXXX",
+    phone: "+91 8095976543",
     email: "bangalore@cloudtravelsolution.com",
   },
   {
@@ -23,7 +23,7 @@ export const LOCATIONS = [
     state: "Telangana",
     status: "active" as const,
     slug: "hyderabad",
-    phone: "+91 40 XXXX XXXX",
+    phone: "+91 8095976543",
     email: "hyderabad@cloudtravelsolution.com",
   },
   {

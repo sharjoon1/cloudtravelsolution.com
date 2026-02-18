@@ -174,7 +174,7 @@ const faqCategories = [
       {
         question: "How can I contact CloudTravelSolution?",
         answer:
-          "Call our toll-free number 1800-XXX-XXXX, email info@cloudtravelsolution.com, visit our offices in Bangalore or Hyderabad, or submit an inquiry through our website. We respond to all inquiries within 2 business hours.",
+          "Call us at +91 8095976543, email info@cloudtravelsolution.com, visit our offices in Bangalore or Hyderabad, or submit an inquiry through our website. We respond to all inquiries within 2 business hours.",
       },
     ],
   },

@@ -209,7 +209,7 @@ export default async function VisaCountryPage({ params }: PageProps) {
                   </h3>
                   <div className="space-y-2 text-sm">
                     <p className="text-muted-foreground">
-                      <strong>Toll Free:</strong> 1800-XXX-XXXX
+                      <strong>Toll Free:</strong> +91 8095976543
                     </p>
                     <p className="text-muted-foreground">
                       <strong>Email:</strong> visa@cloudtravelsolution.com
