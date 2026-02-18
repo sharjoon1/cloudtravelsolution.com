@@ -55,18 +55,18 @@ export const VISA_TYPES = [
 ] as const;
 
 export const POPULAR_COUNTRIES = [
-  { name: "United States", slug: "united-states", code: "US", flag: "🇺🇸" },
-  { name: "United Kingdom", slug: "united-kingdom", code: "GB", flag: "🇬🇧" },
-  { name: "Canada", slug: "canada", code: "CA", flag: "🇨🇦" },
-  { name: "Australia", slug: "australia", code: "AU", flag: "🇦🇺" },
-  { name: "Schengen (Europe)", slug: "schengen", code: "EU", flag: "🇪🇺" },
-  { name: "Singapore", slug: "singapore", code: "SG", flag: "🇸🇬" },
-  { name: "UAE", slug: "uae", code: "AE", flag: "🇦🇪" },
-  { name: "Malaysia", slug: "malaysia", code: "MY", flag: "🇲🇾" },
-  { name: "Thailand", slug: "thailand", code: "TH", flag: "🇹🇭" },
-  { name: "Japan", slug: "japan", code: "JP", flag: "🇯🇵" },
-  { name: "South Korea", slug: "south-korea", code: "KR", flag: "🇰🇷" },
-  { name: "New Zealand", slug: "new-zealand", code: "NZ", flag: "🇳🇿" },
+  { name: "United States", slug: "united-states", code: "US", flag: "🇺🇸", processingTime: "3-5 weeks", visaFee: "₹14,000" },
+  { name: "United Kingdom", slug: "united-kingdom", code: "GB", flag: "🇬🇧", processingTime: "15 working days", visaFee: "₹10,500" },
+  { name: "Canada", slug: "canada", code: "CA", flag: "🇨🇦", processingTime: "4-8 weeks", visaFee: "₹7,500" },
+  { name: "Australia", slug: "australia", code: "AU", flag: "🇦🇺", processingTime: "15-30 days", visaFee: "₹11,000" },
+  { name: "Schengen (Europe)", slug: "schengen", code: "EU", flag: "🇪🇺", processingTime: "15 calendar days", visaFee: "₹7,000" },
+  { name: "Singapore", slug: "singapore", code: "SG", flag: "🇸🇬", processingTime: "3-5 working days", visaFee: "₹2,500" },
+  { name: "UAE", slug: "uae", code: "AE", flag: "🇦🇪", processingTime: "3-4 working days", visaFee: "₹5,500" },
+  { name: "Malaysia", slug: "malaysia", code: "MY", flag: "🇲🇾", processingTime: "5-7 working days", visaFee: "₹3,000" },
+  { name: "Thailand", slug: "thailand", code: "TH", flag: "🇹🇭", processingTime: "2-3 working days", visaFee: "₹3,500" },
+  { name: "Japan", slug: "japan", code: "JP", flag: "🇯🇵", processingTime: "5-7 working days", visaFee: "₹2,000" },
+  { name: "South Korea", slug: "south-korea", code: "KR", flag: "🇰🇷", processingTime: "5-7 working days", visaFee: "₹3,000" },
+  { name: "New Zealand", slug: "new-zealand", code: "NZ", flag: "🇳🇿", processingTime: "20-25 days", visaFee: "₹12,000" },
 ] as const;
 
 export const NAV_ITEMS = [
@@ -74,11 +74,12 @@ export const NAV_ITEMS = [
     label: "Services",
     href: "/services",
     children: [
-      { label: "Visa Consulting", href: "/services/visa-consulting" },
+      { label: "Visa Appointment", href: "/services/visa-appointment" },
+      { label: "Visa Assistance", href: "/services/visa-assistance" },
       { label: "Travel Insurance", href: "/services/travel-insurance" },
-      { label: "Passport Services", href: "/services/passport-services" },
+      { label: "Flight & Hotel Booking", href: "/services/flight-hotel-booking" },
+      { label: "Passport Service", href: "/services/passport-services" },
       { label: "Document Attestation", href: "/services/document-attestation" },
-      { label: "Corporate Travel", href: "/services/corporate-travel" },
     ],
   },
   {
@@ -137,9 +138,15 @@ export const TRAVELER_COUNTS = [
 
 export const SERVICES = [
   {
-    title: "Visa Consulting",
-    slug: "visa-consulting",
-    description: "Expert visa guidance for 190+ countries. Tourist, business, student, and work visas with high approval rates.",
+    title: "Visa Appointment",
+    slug: "visa-appointment",
+    description: "Hassle-free visa appointment booking for embassies and consulates across all countries.",
+    icon: "CalendarCheck",
+  },
+  {
+    title: "Visa Assistance",
+    slug: "visa-assistance",
+    description: "End-to-end visa application support with document review, form filling, and submission guidance.",
     icon: "FileCheck",
   },
   {
@@ -149,7 +156,13 @@ export const SERVICES = [
     icon: "Shield",
   },
   {
-    title: "Passport Services",
+    title: "Flight & Hotel Booking",
+    slug: "flight-hotel-booking",
+    description: "Best deals on flights and hotel reservations worldwide. Complete travel itinerary planning.",
+    icon: "Plane",
+  },
+  {
+    title: "Passport Service",
     slug: "passport-services",
     description: "New passport applications, renewals, and tatkal services with end-to-end assistance.",
     icon: "BookOpen",
@@ -161,9 +174,15 @@ export const SERVICES = [
     icon: "Stamp",
   },
   {
-    title: "Corporate Travel",
-    slug: "corporate-travel",
-    description: "End-to-end corporate travel management for businesses of all sizes across India.",
-    icon: "Building2",
+    title: "Educational Visa Assistance",
+    slug: "educational-visa-assistance",
+    description: "Specialized visa support for students pursuing education abroad with university-specific guidance.",
+    icon: "GraduationCap",
+  },
+  {
+    title: "Manpower Visa Assistance",
+    slug: "manpower-visa-assistance",
+    description: "Bulk visa processing and work permit assistance for manpower and recruitment agencies.",
+    icon: "Users",
   },
 ] as const;

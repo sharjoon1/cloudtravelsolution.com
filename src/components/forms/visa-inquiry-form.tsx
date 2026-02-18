@@ -18,7 +18,51 @@ import {
   visaInquirySchema,
   type VisaInquiryFormData,
 } from "@/lib/validations";
-import { POPULAR_COUNTRIES, LOCATIONS, VISA_TYPES } from "@/lib/constants";
+import { LOCATIONS, VISA_TYPES } from "@/lib/constants";
+
+const ALL_COUNTRIES = [
+  "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Argentina", "Armenia",
+  "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados",
+  "Belarus", "Belgium", "Belize", "Bhutan", "Bolivia", "Bosnia and Herzegovina",
+  "Botswana", "Brazil", "Brunei", "Bulgaria", "Cambodia", "Cameroon", "Canada",
+  "Chile", "China", "Colombia", "Costa Rica", "Croatia", "Cuba", "Cyprus",
+  "Czech Republic", "Denmark", "Dominican Republic", "Ecuador", "Egypt",
+  "El Salvador", "Estonia", "Ethiopia", "Fiji", "Finland", "France", "Georgia",
+  "Germany", "Ghana", "Greece", "Guatemala", "Honduras", "Hong Kong", "Hungary",
+  "Iceland", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy", "Jamaica",
+  "Japan", "Jordan", "Kazakhstan", "Kenya", "Kuwait", "Kyrgyzstan", "Laos",
+  "Latvia", "Lebanon", "Libya", "Lithuania", "Luxembourg", "Macao", "Madagascar",
+  "Malaysia", "Maldives", "Malta", "Mauritius", "Mexico", "Moldova", "Monaco",
+  "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nepal",
+  "Netherlands", "New Zealand", "Nicaragua", "Nigeria", "North Macedonia", "Norway",
+  "Oman", "Pakistan", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines",
+  "Poland", "Portugal", "Qatar", "Romania", "Russia", "Rwanda", "Saudi Arabia",
+  "Schengen (Europe)", "Senegal", "Serbia", "Seychelles", "Singapore",
+  "Slovakia", "Slovenia", "South Africa", "South Korea", "Spain", "Sri Lanka",
+  "Sweden", "Switzerland", "Taiwan", "Tajikistan", "Tanzania", "Thailand",
+  "Tunisia", "Turkey", "Turkmenistan", "Uganda", "Ukraine", "United Arab Emirates",
+  "United Kingdom", "United States", "Uruguay", "Uzbekistan", "Vatican City",
+  "Venezuela", "Vietnam", "Zambia", "Zimbabwe",
+];
+
+const VISA_CATEGORIES = [
+  { value: "tourist", label: "Tourist" },
+  { value: "business", label: "Business" },
+  { value: "student", label: "Student" },
+  { value: "work-permit", label: "Work Permit" },
+  { value: "medical", label: "Medical" },
+  { value: "transit", label: "Transit" },
+  { value: "conference", label: "Conference" },
+  { value: "family", label: "Family / Dependent" },
+];
+
+const EMPLOYMENT_OPTIONS = [
+  { value: "salaried", label: "Salaried" },
+  { value: "self-employed", label: "Self-Employed" },
+  { value: "student", label: "Student" },
+  { value: "retired", label: "Retired" },
+  { value: "unemployed", label: "Unemployed" },
+];
 
 const steps = [
   { id: 1, title: "Personal Info", icon: User },
@@ -107,6 +151,9 @@ export function VisaInquiryForm() {
     );
   }
 
+  const inputClass =
+    "w-full h-11 px-4 rounded-lg border border-border bg-white text-sm outline-none focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)] transition-colors";
+
   return (
     <div>
       {/* Progress indicator */}
@@ -164,7 +211,7 @@ export function VisaInquiryForm() {
               <input
                 {...register("fullName")}
                 placeholder="Enter your full name"
-                className="w-full h-11 px-4 rounded-lg border border-border bg-white text-sm outline-none focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)] transition-colors"
+                className={inputClass}
               />
               {errors.fullName && (
                 <p className="text-xs text-[var(--color-error)] mt-1">
@@ -181,7 +228,7 @@ export function VisaInquiryForm() {
                 {...register("email")}
                 type="email"
                 placeholder="your@email.com"
-                className="w-full h-11 px-4 rounded-lg border border-border bg-white text-sm outline-none focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)] transition-colors"
+                className={inputClass}
               />
               {errors.email && (
                 <p className="text-xs text-[var(--color-error)] mt-1">
@@ -198,7 +245,7 @@ export function VisaInquiryForm() {
                 {...register("phone")}
                 type="tel"
                 placeholder="+91 98765 43210"
-                className="w-full h-11 px-4 rounded-lg border border-border bg-white text-sm outline-none focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)] transition-colors"
+                className={inputClass}
               />
               {errors.phone && (
                 <p className="text-xs text-[var(--color-error)] mt-1">
@@ -213,7 +260,7 @@ export function VisaInquiryForm() {
               </label>
               <select
                 {...register("city")}
-                className="w-full h-11 px-4 rounded-lg border border-border bg-white text-sm outline-none focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)] transition-colors"
+                className={inputClass}
               >
                 <option value="">Select your city</option>
                 {LOCATIONS.map((loc) => (
@@ -248,12 +295,12 @@ export function VisaInquiryForm() {
               </label>
               <select
                 {...register("destinationCountry")}
-                className="w-full h-11 px-4 rounded-lg border border-border bg-white text-sm outline-none focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)] transition-colors"
+                className={inputClass}
               >
                 <option value="">Select destination country</option>
-                {POPULAR_COUNTRIES.map((c) => (
-                  <option key={c.slug} value={c.slug}>
-                    {c.flag} {c.name}
+                {ALL_COUNTRIES.map((country) => (
+                  <option key={country} value={country.toLowerCase().replace(/\s+/g, "-").replace(/[()]/g, "")}>
+                    {country}
                   </option>
                 ))}
               </select>
@@ -270,7 +317,7 @@ export function VisaInquiryForm() {
               </label>
               <select
                 {...register("visaType")}
-                className="w-full h-11 px-4 rounded-lg border border-border bg-white text-sm outline-none focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)] transition-colors"
+                className={inputClass}
               >
                 <option value="">Select visa type</option>
                 {VISA_TYPES.map((v) => (
@@ -286,6 +333,23 @@ export function VisaInquiryForm() {
               )}
             </div>
 
+            <div>
+              <label className="block text-sm font-medium text-foreground mb-1.5">
+                Category
+              </label>
+              <select
+                {...register("visaCategory")}
+                className={inputClass}
+              >
+                <option value="">Select category</option>
+                {VISA_CATEGORIES.map((c) => (
+                  <option key={c.value} value={c.value}>
+                    {c.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-foreground mb-1.5">
@@ -296,17 +360,46 @@ export function VisaInquiryForm() {
                   type="number"
                   min={1}
                   max={50}
-                  className="w-full h-11 px-4 rounded-lg border border-border bg-white text-sm outline-none focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)] transition-colors"
+                  className={inputClass}
                 />
               </div>
               <div>
                 <label className="block text-sm font-medium text-foreground mb-1.5">
-                  Preferred Travel Date
+                  Employment Status
+                </label>
+                <select
+                  {...register("employmentStatus")}
+                  className={inputClass}
+                >
+                  <option value="">Select status</option>
+                  {EMPLOYMENT_OPTIONS.map((e) => (
+                    <option key={e.value} value={e.value}>
+                      {e.label}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-medium text-foreground mb-1.5">
+                  Travel Start Date
                 </label>
                 <input
                   {...register("preferredTravelDate")}
                   type="date"
-                  className="w-full h-11 px-4 rounded-lg border border-border bg-white text-sm outline-none focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)] transition-colors"
+                  className={inputClass}
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-foreground mb-1.5">
+                  Travel End Date
+                </label>
+                <input
+                  {...register("travelEndDate")}
+                  type="date"
+                  className={inputClass}
                 />
               </div>
             </div>
@@ -382,7 +475,7 @@ export function VisaInquiryForm() {
               </label>
               <select
                 {...register("preferredCallbackTime")}
-                className="w-full h-11 px-4 rounded-lg border border-border bg-white text-sm outline-none focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)] transition-colors"
+                className={inputClass}
               >
                 <option value="">Any time</option>
                 <option value="morning">Morning (9 AM - 12 PM)</option>
@@ -397,7 +490,7 @@ export function VisaInquiryForm() {
               </label>
               <select
                 {...register("referralSource")}
-                className="w-full h-11 px-4 rounded-lg border border-border bg-white text-sm outline-none focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)] transition-colors"
+                className={inputClass}
               >
                 <option value="">Select</option>
                 <option value="google">Google Search</option>
@@ -458,13 +551,26 @@ export function VisaInquiryForm() {
                     <span className="text-muted-foreground">Visa Type:</span>{" "}
                     {watchedValues.visaType}
                   </div>
+                  {watchedValues.visaCategory && (
+                    <div>
+                      <span className="text-muted-foreground">Category:</span>{" "}
+                      {watchedValues.visaCategory}
+                    </div>
+                  )}
                   <div>
                     <span className="text-muted-foreground">Travelers:</span>{" "}
                     {watchedValues.numberOfTravelers}
                   </div>
+                  {watchedValues.employmentStatus && (
+                    <div>
+                      <span className="text-muted-foreground">Employment:</span>{" "}
+                      {watchedValues.employmentStatus}
+                    </div>
+                  )}
                   <div>
                     <span className="text-muted-foreground">Travel Date:</span>{" "}
                     {watchedValues.preferredTravelDate || "Not specified"}
+                    {watchedValues.travelEndDate && ` to ${watchedValues.travelEndDate}`}
                   </div>
                 </div>
               </div>

@@ -20,8 +20,17 @@ export const visaInquirySchema = z.object({
     ["tourist", "business", "student", "work-permit", "transit", "medical", "conference"],
     { message: "Please select a visa type" }
   ),
+  visaCategory: z.enum(
+    ["tourist", "business", "student", "work-permit", "medical", "transit", "conference", "family"],
+    { message: "Please select a category" }
+  ).optional(),
   numberOfTravelers: z.number().min(1).max(50).default(1),
   preferredTravelDate: z.string().optional(),
+  travelEndDate: z.string().optional(),
+  employmentStatus: z.enum(
+    ["salaried", "self-employed", "student", "retired", "unemployed"],
+    { message: "Please select your employment status" }
+  ).optional(),
   appliedBefore: z.boolean().default(false),
 
   // Step 3: Additional Details

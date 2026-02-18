@@ -1,21 +1,27 @@
 import Link from "next/link";
 import {
+  CalendarCheck,
   FileCheck,
   Shield,
+  Plane,
   BookOpen,
   Stamp,
-  Building2,
+  GraduationCap,
+  Users,
   ArrowRight,
 } from "lucide-react";
 
 import { SERVICES } from "@/lib/constants";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+  CalendarCheck,
   FileCheck,
   Shield,
+  Plane,
   BookOpen,
   Stamp,
-  Building2,
+  GraduationCap,
+  Users,
 };
 
 type ServicesGridProps = {
@@ -43,7 +49,7 @@ export function ServicesGrid({ headings }: ServicesGridProps) {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {SERVICES.map((service) => {
             const Icon = iconMap[service.icon] || FileCheck;
             return (

@@ -59,8 +59,37 @@ export const Inquiries: CollectionConfig = {
       defaultValue: 1,
     },
     {
+      name: "visaCategory",
+      type: "select",
+      options: [
+        { label: "Tourist", value: "tourist" },
+        { label: "Business", value: "business" },
+        { label: "Student", value: "student" },
+        { label: "Work Permit", value: "work-permit" },
+        { label: "Medical", value: "medical" },
+        { label: "Transit", value: "transit" },
+        { label: "Conference", value: "conference" },
+        { label: "Family / Dependent", value: "family" },
+      ],
+    },
+    {
       name: "preferredTravelDate",
       type: "text",
+    },
+    {
+      name: "travelEndDate",
+      type: "text",
+    },
+    {
+      name: "employmentStatus",
+      type: "select",
+      options: [
+        { label: "Salaried", value: "salaried" },
+        { label: "Self-Employed", value: "self-employed" },
+        { label: "Student", value: "student" },
+        { label: "Retired", value: "retired" },
+        { label: "Unemployed", value: "unemployed" },
+      ],
     },
     {
       name: "purposeOfVisit",

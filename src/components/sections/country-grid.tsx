@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { Clock, ArrowRight } from "lucide-react";
 
 import { POPULAR_COUNTRIES } from "@/lib/constants";
 
@@ -28,31 +28,37 @@ export function CountryGrid({ headings }: CountryGridProps) {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
           {POPULAR_COUNTRIES.map((country) => (
             <Link
               key={country.slug}
               href={`/visa/${country.slug}`}
-              className="group flex flex-col items-center gap-3 p-5 rounded-xl border border-border bg-white hover:border-[var(--color-primary)]/30 hover:shadow-md transition-all duration-200"
+              className="group relative flex flex-col p-5 rounded-xl border border-border bg-white hover:border-[var(--color-primary)]/30 hover:shadow-lg transition-all duration-200 overflow-hidden"
             >
-              <span className="text-4xl group-hover:scale-110 transition-transform duration-200">
-                {country.flag}
-              </span>
-              <span className="text-sm font-medium text-foreground/80 text-center group-hover:text-[var(--color-primary)] transition-colors">
-                {country.name}
-              </span>
+              <div className="flex items-center gap-3 mb-3">
+                <span className="text-3xl">{country.flag}</span>
+                <div>
+                  <h3 className="text-sm font-semibold text-foreground group-hover:text-[var(--color-primary)] transition-colors">
+                    {country.name}
+                  </h3>
+                  <p className="text-xs text-muted-foreground">Tourist Visa</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4 mt-auto pt-3 border-t border-border/60">
+                <div className="flex items-center gap-1.5">
+                  <Clock className="h-3.5 w-3.5 text-[var(--color-primary)]" />
+                  <span className="text-xs font-medium text-foreground/70">
+                    {country.processingTime}
+                  </span>
+                </div>
+              </div>
+
+              <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                <ArrowRight className="h-4 w-4 text-[var(--color-primary)]" />
+              </div>
             </Link>
           ))}
-        </div>
-
-        <div className="text-center mt-8">
-          <Link
-            href="/visa"
-            className="inline-flex items-center gap-2 text-[var(--color-primary)] font-semibold hover:gap-3 transition-all"
-          >
-            View All 190+ Countries
-            <ArrowRight className="h-4 w-4" />
-          </Link>
         </div>
       </div>
     </section>

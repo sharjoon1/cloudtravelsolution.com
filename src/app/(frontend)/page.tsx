@@ -4,6 +4,7 @@ import { ServicesGrid } from "@/components/sections/services-grid";
 import { StatsCounter } from "@/components/sections/stats-counter";
 import { LocationsMap } from "@/components/sections/locations-map";
 import { Testimonials } from "@/components/sections/testimonials";
+import { InstagramFollow } from "@/components/sections/instagram-follow";
 import { CTABanner } from "@/components/sections/cta-banner";
 import { connection } from "next/server";
 import { getSiteSettings, getHomepageData } from "@/lib/payload-data";
@@ -23,6 +24,7 @@ export default async function HomePage() {
       <StatsCounter statsData={homepage.stats} statsItems={homepage.statsItems} />
       <LocationsMap headings={homepage.sectionHeadings} />
       <Testimonials headings={homepage.sectionHeadings} />
+      <InstagramFollow instagramUrl={siteSettings?.socialLinks?.instagram} />
       <CTABanner ctaData={homepage.cta} siteSettings={siteSettings} />
     </>
   );
