@@ -53,7 +53,7 @@ export function Header({ siteSettings }: HeaderProps) {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 shrink-0">
             {logoUrl ? (
-              <Image src={logoUrl} alt={siteSettings?.businessInfo?.siteName || "CloudTravelSolution"} width={180} height={40} className="h-10 w-auto object-contain" priority />
+              <Image src={logoUrl} alt={siteSettings?.businessInfo?.siteName || "CloudTravelSolution"} width={280} height={56} className="h-10 sm:h-12 w-auto max-w-[200px] sm:max-w-[280px] object-contain" priority unoptimized />
             ) : (
               <>
                 <div className="h-9 w-9 rounded-lg bg-[var(--color-primary)] flex items-center justify-center">
