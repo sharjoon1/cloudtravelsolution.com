@@ -56,6 +56,15 @@ const VISA_CATEGORIES = [
   { value: "family", label: "Family / Dependent" },
 ];
 
+const LANGUAGE_OPTIONS = [
+  { value: "english", label: "English" },
+  { value: "hindi", label: "Hindi" },
+  { value: "kannada", label: "Kannada" },
+  { value: "telugu", label: "Telugu" },
+  { value: "tamil", label: "Tamil" },
+  { value: "malayalam", label: "Malayalam" },
+];
+
 const EMPLOYMENT_OPTIONS = [
   { value: "salaried", label: "Salaried" },
   { value: "self-employed", label: "Self-Employed" },
@@ -275,6 +284,23 @@ export function VisaInquiryForm() {
                   {errors.city.message}
                 </p>
               )}
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-foreground mb-1.5">
+                Language Preference
+              </label>
+              <select
+                {...register("languagePreference")}
+                className={inputClass}
+              >
+                <option value="">Select preferred language</option>
+                {LANGUAGE_OPTIONS.map((lang) => (
+                  <option key={lang.value} value={lang.value}>
+                    {lang.label}
+                  </option>
+                ))}
+              </select>
             </div>
           </div>
         )}
@@ -535,6 +561,12 @@ export function VisaInquiryForm() {
                     <span className="text-muted-foreground">City:</span>{" "}
                     {watchedValues.city}
                   </div>
+                  {watchedValues.languagePreference && (
+                    <div>
+                      <span className="text-muted-foreground">Language:</span>{" "}
+                      {watchedValues.languagePreference}
+                    </div>
+                  )}
                 </div>
               </div>
 

@@ -46,6 +46,18 @@ export const Inquiries: CollectionConfig = {
       type: "text",
     },
     {
+      name: "languagePreference",
+      type: "select",
+      options: [
+        { label: "English", value: "english" },
+        { label: "Hindi", value: "hindi" },
+        { label: "Kannada", value: "kannada" },
+        { label: "Telugu", value: "telugu" },
+        { label: "Tamil", value: "tamil" },
+        { label: "Malayalam", value: "malayalam" },
+      ],
+    },
+    {
       name: "destinationCountry",
       type: "text",
     },

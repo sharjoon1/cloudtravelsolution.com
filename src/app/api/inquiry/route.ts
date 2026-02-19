@@ -18,6 +18,7 @@ export async function POST(request: Request) {
         email: validated.email,
         phone: validated.phone,
         city: validated.city,
+        languagePreference: validated.languagePreference,
         destinationCountry: validated.destinationCountry,
         visaType: validated.visaType,
         visaCategory: validated.visaCategory,

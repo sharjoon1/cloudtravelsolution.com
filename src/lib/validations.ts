@@ -13,6 +13,10 @@ export const visaInquirySchema = z.object({
   city: z.enum(["bangalore", "hyderabad", "delhi", "chennai", "other"], {
     message: "Please select your city",
   }),
+  languagePreference: z.enum(
+    ["english", "hindi", "kannada", "telugu", "tamil", "malayalam"],
+    { message: "Please select your preferred language" }
+  ).optional(),
 
   // Step 2: Visa Requirements
   destinationCountry: z.string().min(1, "Please select a destination country"),
