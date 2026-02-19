@@ -31,7 +31,19 @@
       "Bash(ssh:*)",
       "Bash(git push:*)",
       "WebFetch(domain:cloudtravelsolution.com)",
-      "WebFetch(domain:resend.com)"
+      "WebFetch(domain:resend.com)",
+      "Bash(ls:*)",
+      "Bash(npm run build)",
+      "Bash(sqlite3:*)",
+      "Bash(where sqlite3:*)",
+      "Bash(dir:*)",
+      "Bash(git -C \"D:/QUALITY COLOURS/DEVELOPMENT/Cloud Travel Solution/cloudtravelsolution.com\" log --oneline -3)",
+      "Bash(git -C \"D:/QUALITY COLOURS/DEVELOPMENT/Cloud Travel Solution/cloudtravelsolution.com\" add payload.config.ts)",
+      "Bash(git -C:*)",
+      "Bash(taskkill:*)",
+      "Bash(echo:*)",
+      "Bash(netstat:*)",
+      "Bash(git status:*)"
     ]
   }
 }

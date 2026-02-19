@@ -89,3 +89,59 @@ export const heroLeadSchema = z.object({
 });
 
 export type HeroLeadFormData = z.infer<typeof heroLeadSchema>;
+
+// ── Partner & Tracking Schemas ────────────────────────────────────────
+
+export const partnerLoginSchema = z.object({
+  email: z.string().email("Please enter a valid email address"),
+  password: z.string().min(6, "Password must be at least 6 characters"),
+});
+
+export type PartnerLoginFormData = z.infer<typeof partnerLoginSchema>;
+
+export const serviceRequestSchema = z.object({
+  // Applicant Info
+  applicantName: z
+    .string()
+    .min(2, "Name must be at least 2 characters")
+    .max(100, "Name must be less than 100 characters"),
+  applicantEmail: z.string().email("Please enter a valid email").optional().or(z.literal("")),
+  applicantPhone: z
+    .string()
+    .regex(phoneRegex, "Please enter a valid Indian phone number")
+    .optional()
+    .or(z.literal("")),
+  passportNumber: z.string().min(5, "Please enter a valid passport number"),
+  passportExpiry: z.string().optional(),
+  dateOfBirth: z.string().optional(),
+  nationality: z.string().default("Indian"),
+
+  // Service Details
+  serviceType: z.enum(
+    [
+      "visa-appointment",
+      "visa-assistance",
+      "educational-visa-assistance",
+      "manpower-visa-assistance",
+      "document-attestation",
+    ],
+    { message: "Please select a service type" }
+  ),
+  destinationCountry: z.string().min(1, "Please select a destination country"),
+  visaType: z
+    .enum(["tourist", "business", "student", "work-permit", "transit", "medical", "conference"])
+    .optional(),
+  travelDate: z.string().optional(),
+  numberOfApplicants: z.number().min(1).max(50).default(1),
+  purposeOfVisit: z.string().max(500).optional(),
+  specialInstructions: z.string().max(1000).optional(),
+});
+
+export type ServiceRequestFormData = z.infer<typeof serviceRequestSchema>;
+
+export const trackingSearchSchema = z.object({
+  query: z.string().min(3, "Please enter at least 3 characters"),
+  type: z.enum(["passport", "tracking-code"]),
+});
+
+export type TrackingSearchFormData = z.infer<typeof trackingSearchSchema>;

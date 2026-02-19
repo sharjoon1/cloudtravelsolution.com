@@ -56,6 +56,8 @@ async function sendEmail(opts: {
 
 // ── HTML Template Helpers ──────────────────────────────────────────────
 
+export { sendEmail, emailLayout, dataRow, dataTable };
+
 function emailLayout(title: string, body: string): string {
   return `<!DOCTYPE html>
 <html>

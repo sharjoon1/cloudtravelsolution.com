@@ -101,6 +101,7 @@ export const NAV_ITEMS = [
   { label: "Blog", href: "/blog" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
+  { label: "Track", href: "/track" },
 ] as const;
 
 export const TRAVEL_MONTHS = [
@@ -185,4 +186,28 @@ export const SERVICES = [
     description: "Bulk visa processing and work permit assistance for manpower and recruitment agencies.",
     icon: "Users",
   },
+] as const;
+
+export const SERVICE_REQUEST_STATUSES = [
+  { label: "Received", value: "received" },
+  { label: "Documents Verified", value: "documents-verified" },
+  { label: "Submitted to Embassy", value: "submitted-to-embassy" },
+  { label: "Under Processing", value: "under-processing" },
+  { label: "Approved", value: "approved" },
+  { label: "Rejected", value: "rejected" },
+  { label: "Delivered", value: "delivered" },
+  { label: "On Hold", value: "on-hold" },
+] as const;
+
+export const PARTNER_TYPES = [
+  { label: "Educational Consultancy", value: "educational-consultancy" },
+  { label: "Manpower Company", value: "manpower-company" },
+  { label: "Travel Agency", value: "travel-agency" },
+  { label: "Other", value: "other" },
+] as const;
+
+export const PARTNER_NAV_ITEMS = [
+  { label: "Dashboard", href: "/partner/dashboard" },
+  { label: "Submit Request", href: "/partner/submit" },
+  { label: "Track", href: "/track" },
 ] as const;

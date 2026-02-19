@@ -239,3 +239,90 @@ export interface Service {
   icon: string;
   features?: string[];
 }
+
+// ── B2B Partner & Tracking Types ──────────────────────────────────────
+
+export interface Partner {
+  id: string;
+  partnerCode: string;
+  companyName: string;
+  type: "educational-consultancy" | "manpower-company" | "travel-agency" | "other";
+  contactPerson: string;
+  email: string;
+  phone: string;
+  address?: string;
+  city?: "bangalore" | "hyderabad" | "delhi" | "chennai" | "other";
+  gstNumber?: string;
+  status: "active" | "inactive" | "suspended";
+  assignedManager?: string;
+  notes?: string;
+  totalRequests: number;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface StatusHistoryEntry {
+  status: string;
+  timestamp: string;
+  note?: string;
+  updatedBy?: string;
+}
+
+export type ServiceRequestStatus =
+  | "received"
+  | "documents-verified"
+  | "submitted-to-embassy"
+  | "under-processing"
+  | "approved"
+  | "rejected"
+  | "delivered"
+  | "on-hold";
+
+export interface ServiceRequest {
+  id: string;
+  trackingCode: string;
+  partner: string | Partner;
+  applicantName: string;
+  applicantEmail?: string;
+  applicantPhone?: string;
+  passportNumber?: string;
+  passportExpiry?: string;
+  dateOfBirth?: string;
+  nationality?: string;
+  serviceType: string;
+  destinationCountry: string;
+  visaType?: string;
+  travelDate?: string;
+  numberOfApplicants: number;
+  purposeOfVisit?: string;
+  specialInstructions?: string;
+  status: ServiceRequestStatus;
+  statusHistory?: StatusHistoryEntry[];
+  priority: "normal" | "urgent" | "tatkal";
+  assignedTo?: string;
+  uploadedDocuments?: string[] | { id: string; filename: string; documentType: string; url?: string }[];
+  embassySubmissionDate?: string;
+  expectedCompletionDate?: string;
+  completionDate?: string;
+  embassyReferenceNumber?: string;
+  serviceFee?: number;
+  embassyFee?: number;
+  totalFee?: number;
+  rejectionReason?: string;
+  holdReason?: string;
+  internalNotes?: string;
+  linkedVisaApplication?: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface TrackingResult {
+  trackingCode: string;
+  applicantName: string;
+  serviceType: string;
+  destinationCountry: string;
+  status: ServiceRequestStatus;
+  statusHistory: StatusHistoryEntry[];
+  createdAt: string;
+  updatedAt: string;
+}

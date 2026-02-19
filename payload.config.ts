@@ -20,6 +20,9 @@ import { Customers } from "./src/collections/Customers";
 import { VisaApplications } from "./src/collections/VisaApplications";
 import { Payments } from "./src/collections/Payments";
 import { Activities } from "./src/collections/Activities";
+import { Partners } from "./src/collections/Partners";
+import { Documents } from "./src/collections/Documents";
+import { ServiceRequests } from "./src/collections/ServiceRequests";
 import { SiteSettings } from "./src/globals/SiteSettings";
 import { Homepage } from "./src/globals/Homepage";
 
@@ -55,6 +58,9 @@ export default buildConfig({
     VisaApplications,
     Payments,
     Activities,
+    Partners,
+    Documents,
+    ServiceRequests,
   ],
   globals: [SiteSettings, Homepage],
   editor: lexicalEditor(),
