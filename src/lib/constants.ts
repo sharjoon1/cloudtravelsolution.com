@@ -80,6 +80,8 @@ export const NAV_ITEMS = [
       { label: "Flight & Hotel Booking", href: "/services/flight-hotel-booking" },
       { label: "Passport Service", href: "/services/passport-services" },
       { label: "Document Attestation", href: "/services/document-attestation" },
+      { label: "Educational Visa", href: "/services/educational-visa-assistance" },
+      { label: "Manpower Visa", href: "/services/manpower-visa-assistance" },
     ],
   },
   {

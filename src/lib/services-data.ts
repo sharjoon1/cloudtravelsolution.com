@@ -5,6 +5,7 @@ export interface ServiceDetail {
   slug: string;
   icon: string;
   tagline: string;
+  metaDescription: string;
   description: string;
   features: string[];
   process: { step: number; title: string; description: string }[];
@@ -13,78 +14,150 @@ export interface ServiceDetail {
 
 export const SERVICES_DATA: ServiceDetail[] = [
   {
-    title: "Visa Consulting",
-    slug: "visa-consulting",
+    title: "Visa Appointment Booking",
+    slug: "visa-appointment",
+    icon: "CalendarCheck",
+    tagline:
+      "Hassle-free embassy & consulate visa appointment booking across all countries from India",
+    metaDescription:
+      "Book visa appointments at embassies and consulates across India. Expert appointment scheduling for US, UK, Schengen, Canada, Australia & 190+ countries. Same-day slots available. CloudTravelSolution — trusted visa appointment service in Bangalore, Hyderabad, Delhi & Chennai.",
+    description:
+      "Getting an embassy or consulate appointment can be the most frustrating part of the visa process — slots fill up within minutes and websites crash frequently. Our visa appointment booking service takes this headache off your plate entirely. We monitor appointment availability around the clock, secure the earliest slots for your preferred location, and handle all pre-appointment requirements. Whether it's a US B1/B2 visa appointment, UK visa application centre slot, Schengen VFS appointment, or any other country, we ensure you get your appointment on time without the stress.",
+    features: [
+      "Embassy & consulate appointment booking for 190+ countries",
+      "US visa appointment (B1/B2, H1B, L1, F1) at all Indian consulates",
+      "UK visa application centre (VFS) slot booking",
+      "Schengen VFS Global appointment scheduling",
+      "Canada VAC appointment booking across India",
+      "Australia VFS appointment securing",
+      "Early morning & priority slot monitoring",
+      "Appointment rescheduling and cancellation management",
+      "Pre-appointment document checklist preparation",
+      "Same-day and next-day emergency appointment assistance",
+    ],
+    process: [
+      {
+        step: 1,
+        title: "Share Your Requirements",
+        description:
+          "Tell us the country, visa type, preferred city (Bangalore, Hyderabad, Delhi, Chennai, Mumbai), and your ideal date range for the appointment.",
+      },
+      {
+        step: 2,
+        title: "Slot Monitoring & Booking",
+        description:
+          "Our team monitors the embassy/consulate booking system and secures the earliest available appointment slot matching your preferences.",
+      },
+      {
+        step: 3,
+        title: "Confirmation & Preparation",
+        description:
+          "You receive the confirmed appointment details along with a complete document checklist, dress code guidance, and what to expect on appointment day.",
+      },
+      {
+        step: 4,
+        title: "Appointment Day Support",
+        description:
+          "We provide day-of-appointment guidance including venue directions, reporting time, and a helpline number for any last-minute queries.",
+      },
+    ],
+    faqs: [
+      {
+        question: "How quickly can you get a US visa appointment in India?",
+        answer:
+          "US visa appointment availability varies by season and consulate. We typically secure appointments within 1-4 weeks depending on the visa category. For urgent cases, we monitor cancellation slots daily and can often get earlier dates. B1/B2 tourist/business visas generally have shorter wait times than H1B or student visas.",
+      },
+      {
+        question: "Which cities do you book appointments in?",
+        answer:
+          "We book visa appointments across all major Indian cities including Bangalore, Hyderabad, Delhi, Chennai, Mumbai, Kolkata, Ahmedabad, Pune, Chandigarh, and Kochi. We also handle appointments at VFS Global centres, BLS International, and embassy/consulate offices.",
+      },
+      {
+        question: "Can you help with emergency or urgent appointment booking?",
+        answer:
+          "Yes. We offer emergency appointment assistance for urgent travel needs such as medical emergencies, family emergencies, or last-minute business trips. We monitor cancellation slots and early-release appointments to get you the earliest possible date.",
+      },
+      {
+        question: "What information do I need to provide for appointment booking?",
+        answer:
+          "You'll need your passport details, visa application confirmation number (if already applied online), preferred appointment city, and date range. For some countries, you may also need payment confirmation of the visa fee. We guide you through the complete process.",
+      },
+    ],
+  },
+  {
+    title: "Visa Assistance",
+    slug: "visa-assistance",
     icon: "FileCheck",
     tagline:
-      "Expert visa guidance for 190+ countries with industry-leading approval rates",
+      "End-to-end visa application support with 95%+ approval rate for all countries",
+    metaDescription:
+      "Complete visa assistance for 190+ countries from India. Expert document preparation, application filing, interview coaching & tracking. 95%+ approval rate. Tourist, business, student & work visas. Offices in Bangalore, Hyderabad, Delhi & Chennai.",
     description:
-      "Our experienced visa consultants handle every aspect of your visa application — from document preparation to interview coaching. Whether you need a tourist, business, student, or work visa, our team ensures a smooth, stress-free process with personalized guidance at every step.",
+      "Our comprehensive visa assistance service covers every step of the visa application journey — from initial eligibility assessment to passport delivery after approval. Our experienced visa consultants handle document preparation, form filling, application submission, embassy communication, and interview coaching. Whether you need a tourist visa, business visa, student visa, or work permit, our team ensures a smooth, stress-free process with personalized guidance and a 95%+ approval rate across all visa categories.",
     features: [
       "Visa assistance for 190+ countries worldwide",
-      "Tourist, Business, Student, Work, Transit, and Medical visas",
+      "Tourist, Business, Student, Work, Transit & Medical visas",
       "Thorough document preparation and verification",
+      "Visa application form filling and error-free submission",
       "Embassy appointment scheduling and management",
-      "One-on-one interview preparation coaching",
+      "One-on-one visa interview preparation and mock sessions",
       "Real-time application tracking and status updates",
-      "Express and priority processing options",
-      "Post-visa travel advisory and support",
-      "Dedicated visa specialist assigned to every case",
+      "Express and priority processing options available",
+      "Reapplication support for previously rejected cases",
       "Free initial consultation and eligibility assessment",
     ],
     process: [
       {
         step: 1,
-        title: "Free Consultation",
+        title: "Free Consultation & Eligibility Check",
         description:
-          "Share your travel plans with us. Our visa specialist will assess your eligibility, recommend the best visa type, and outline the complete process.",
+          "Share your travel plans with us. Our visa specialist assesses your eligibility, recommends the best visa type, and outlines the complete process with estimated timeline and costs.",
       },
       {
         step: 2,
-        title: "Document Preparation",
+        title: "Document Preparation & Verification",
         description:
-          "We provide a personalized document checklist and verify every document for accuracy, completeness, and embassy compliance.",
+          "We provide a personalized document checklist and verify every document for accuracy, completeness, and embassy compliance. We flag any missing or weak documents before submission.",
       },
       {
         step: 3,
-        title: "Application Submission",
+        title: "Application Filing & Submission",
         description:
-          "We complete and submit your visa application, schedule embassy appointments, and handle all communication with the visa office.",
+          "We complete and submit your visa application with perfect accuracy, schedule your embassy appointment, and handle all communication with the visa office on your behalf.",
       },
       {
         step: 4,
-        title: "Interview Coaching",
+        title: "Interview Coaching & Preparation",
         description:
-          "For visas requiring interviews, we conduct mock sessions covering likely questions, presentation tips, and confidence-building exercises.",
+          "For visas requiring interviews (US, UK, etc.), we conduct mock sessions covering likely questions, supporting document presentation, and confidence-building exercises.",
       },
       {
         step: 5,
-        title: "Tracking & Delivery",
+        title: "Tracking & Passport Delivery",
         description:
-          "We track your application in real-time and keep you updated. Once approved, we coordinate passport collection and delivery.",
+          "We track your application in real-time and keep you updated at every stage. Once approved, we coordinate passport collection and secure delivery to your address.",
       },
     ],
     faqs: [
       {
-        question: "How long does the visa process take?",
-        answer:
-          "Processing times vary by country and visa type. Tourist visas typically take 5-15 working days, while student and work visas may take 4-12 weeks. We provide estimated timelines during your initial consultation.",
-      },
-      {
         question: "What is your visa approval success rate?",
         answer:
-          "We maintain a 95%+ approval rate across all visa categories. Our thorough document verification and preparation process minimizes the chance of rejection.",
+          "We maintain a 95%+ approval rate across all visa categories. Our thorough document verification, error-free application filing, and interview preparation significantly minimize the chance of rejection.",
       },
       {
         question: "Can you help if my visa was previously rejected?",
         answer:
-          "Yes. We specialize in reapplication cases. We analyze your previous rejection, identify issues, and build a stronger application for your next attempt.",
+          "Absolutely. We specialize in reapplication cases. We analyze your previous rejection reasons, identify gaps in documentation or interview responses, and build a significantly stronger application for your next attempt.",
       },
       {
-        question:
-          "Do you handle group visa applications for families or tours?",
+        question: "How long does the visa process typically take?",
         answer:
-          "Absolutely. We handle group applications for families, corporate groups, and tour groups with dedicated coordinators and bulk processing discounts.",
+          "Processing times vary by country and visa type. Tourist visas typically take 5-15 working days, student visas 4-8 weeks, and work visas 6-12 weeks. We provide accurate estimated timelines during your initial consultation based on your specific case.",
+      },
+      {
+        question: "Do you handle group visa applications?",
+        answer:
+          "Yes. We handle group applications for families, corporate teams, tour groups, and educational institutions with dedicated coordinators, bulk processing, and group discounts.",
       },
     ],
   },
@@ -93,13 +166,15 @@ export const SERVICES_DATA: ServiceDetail[] = [
     slug: "travel-insurance",
     icon: "Shield",
     tagline:
-      "Comprehensive travel insurance packages tailored to your destination and needs",
+      "Comprehensive travel insurance packages from top insurers tailored to your destination",
+    metaDescription:
+      "Buy travel insurance for international trips from India. Schengen-compliant policies, medical coverage up to $500,000, trip cancellation protection. Compare plans from top insurers. Best rates in Bangalore, Hyderabad, Delhi & Chennai.",
     description:
-      "Don't let unexpected events ruin your trip. Our travel insurance packages from leading Indian and international insurers cover medical emergencies, trip cancellation, baggage loss, and more. We help you choose the right plan based on your destination, travel duration, and specific requirements — including Schengen-compliant policies.",
+      "Don't let unexpected events ruin your trip. Our travel insurance packages from leading Indian and international insurers cover medical emergencies, trip cancellation, baggage loss, flight delays, and more. We help you choose the right plan based on your destination, travel duration, and specific requirements — including Schengen-compliant policies mandatory for European visa applications. Every plan includes COVID-19 coverage and 24/7 emergency assistance worldwide.",
     features: [
       "Comprehensive medical coverage up to $500,000",
       "Trip cancellation and interruption protection",
-      "Baggage loss and delay coverage",
+      "Baggage loss, theft, and delay coverage",
       "Emergency medical evacuation and repatriation",
       "Schengen-compliant policies for European travel",
       "Multi-trip annual plans for frequent travelers",
@@ -113,47 +188,118 @@ export const SERVICES_DATA: ServiceDetail[] = [
         step: 1,
         title: "Share Your Travel Details",
         description:
-          "Tell us your destination, travel dates, number of travelers, and any specific coverage requirements.",
+          "Tell us your destination, travel dates, number of travelers, age of travelers, and any specific coverage requirements such as adventure sports or pre-existing conditions.",
       },
       {
         step: 2,
-        title: "Compare Plans",
+        title: "Compare Plans Side-by-Side",
         description:
-          "We present the best insurance options from top providers, comparing coverage limits, premiums, and exclusions side-by-side.",
+          "We present the best insurance options from top providers like TATA AIG, ICICI Lombard, Bajaj Allianz, and others — comparing coverage limits, premiums, and exclusions.",
       },
       {
         step: 3,
         title: "Purchase & Documentation",
         description:
-          "Once you choose a plan, we handle the purchase and provide all documentation needed for your visa application.",
+          "Once you choose a plan, we handle the instant purchase and provide all documentation needed for your visa application, including policy certificate in the required format.",
       },
       {
         step: 4,
         title: "Claims Support",
         description:
-          "If you need to file a claim, our team guides you through the entire process, from documentation to settlement.",
+          "If you need to file a claim during or after your trip, our team guides you through the entire process from documentation to settlement with the insurer.",
       },
     ],
     faqs: [
       {
-        question: "Is travel insurance mandatory for Schengen visa?",
+        question: "Is travel insurance mandatory for Schengen visa from India?",
         answer:
-          "Yes. Schengen visa applications require travel insurance with minimum coverage of EUR 30,000 covering medical expenses, emergency evacuation, and repatriation. All our Schengen plans meet these requirements.",
+          "Yes. Schengen visa applications require travel insurance with minimum coverage of EUR 30,000 (approximately INR 27 lakhs) covering medical expenses, emergency evacuation, and repatriation. All our Schengen plans meet and exceed these requirements.",
+      },
+      {
+        question: "What is the typical cost of travel insurance from India?",
+        answer:
+          "Travel insurance typically costs INR 500-2,000 for a short trip (7-15 days) and INR 3,000-8,000 for longer trips or higher coverage. Schengen-compliant plans start at INR 800 for 15 days. Group and annual plans offer better per-day rates.",
       },
       {
         question: "Can I buy insurance after getting my visa?",
         answer:
-          "For Schengen and some other countries, you need insurance documentation at the time of visa application. For other destinations, you can purchase insurance anytime before travel, but we recommend buying early.",
+          "For Schengen and some other countries, you need insurance documentation at the time of visa application. For other destinations, you can purchase anytime before travel, but we recommend buying early for trip cancellation coverage to be effective.",
       },
       {
-        question: "What is the typical cost of travel insurance?",
+        question: "Are pre-existing medical conditions covered?",
         answer:
-          "Travel insurance typically costs INR 500-2,000 for a short trip (7-15 days) and INR 3,000-8,000 for longer trips or higher coverage. Group and annual plans offer better per-day rates.",
+          "Coverage for pre-existing conditions varies by insurer and plan. We can help you find plans that cover specific conditions — please mention any health concerns during consultation so we can recommend the right policy.",
+      },
+    ],
+  },
+  {
+    title: "Flight & Hotel Booking",
+    slug: "flight-hotel-booking",
+    icon: "Plane",
+    tagline:
+      "Best deals on international flights and hotel bookings with expert travel planning",
+    metaDescription:
+      "Book international flights and hotels at best prices from India. Corporate travel deals, group booking discounts, honeymoon packages & holiday planning. Trusted travel agency in Bangalore, Hyderabad, Delhi & Chennai. CloudTravelSolution.",
+    description:
+      "Planning international travel involves more than just getting a visa. Our flight and hotel booking service ensures you get the best deals on airfare, comfortable accommodation at your destination, and a well-planned itinerary. We work with all major airlines and hotel chains to offer competitive rates, flexible booking options, and personalized travel packages. Whether it's a family holiday, honeymoon, corporate trip, or group tour, we handle all the logistics so you can focus on enjoying your journey.",
+    features: [
+      "International flight bookings at competitive prices",
+      "Hotel reservations across all budget categories",
+      "Complete travel itinerary planning and optimization",
+      "Group booking discounts for 5+ travelers",
+      "Corporate travel rates with major airlines",
+      "Honeymoon and holiday package deals",
+      "Airport transfers and local transport arrangement",
+      "Flexible booking with free cancellation options",
+      "Multi-city and complex routing expertise",
+      "24/7 support for booking changes and emergencies",
+    ],
+    process: [
+      {
+        step: 1,
+        title: "Share Your Travel Plans",
+        description:
+          "Tell us your destination, travel dates, number of travelers, budget range, and any preferences for airlines, hotel star rating, or specific requirements.",
       },
       {
-        question: "Are pre-existing conditions covered?",
+        step: 2,
+        title: "Receive Custom Options",
+        description:
+          "We research and present the best flight and hotel options matching your budget and preferences, with clear pricing, cancellation policies, and our recommendations.",
+      },
+      {
+        step: 3,
+        title: "Book & Confirm",
+        description:
+          "Once you approve, we handle the complete booking process — flights, hotels, transfers, and any add-ons. You receive confirmed e-tickets and hotel vouchers.",
+      },
+      {
+        step: 4,
+        title: "Travel Support",
+        description:
+          "From pre-departure checklists to on-trip support, we're available for any booking changes, cancellations, or travel emergencies throughout your journey.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Can you get better flight prices than online booking sites?",
         answer:
-          "Coverage for pre-existing conditions varies by insurer and plan. We can help you find plans that cover specific conditions — please mention any health concerns during consultation.",
+          "Yes, often we can. We have access to consolidator fares, corporate rates, and group discounts that aren't available on consumer booking websites. For group bookings of 5+ travelers, we almost always offer significantly better rates.",
+      },
+      {
+        question: "Do you book domestic flights and hotels too?",
+        answer:
+          "While our specialty is international travel, we also assist with domestic flights and hotel bookings, especially when they're part of a larger international travel plan or for corporate clients.",
+      },
+      {
+        question: "Can I get a dummy ticket for my visa application?",
+        answer:
+          "We provide confirmed tentative flight itineraries (round-trip) that are accepted by embassies for visa applications. These are actual bookable itineraries, not dummy tickets, and can be confirmed once your visa is approved.",
+      },
+      {
+        question: "What is your cancellation and refund policy?",
+        answer:
+          "Cancellation policies depend on the airline and hotel booked. We always present the cancellation terms before booking. Many of our options include free cancellation up to 24-72 hours before travel. We assist with all refund processing.",
       },
     ],
   },
@@ -162,67 +308,69 @@ export const SERVICES_DATA: ServiceDetail[] = [
     slug: "passport-services",
     icon: "BookOpen",
     tagline:
-      "New passport applications, renewals, and tatkal services with end-to-end assistance",
+      "New passport applications, renewals, and tatkal services with complete assistance",
+    metaDescription:
+      "Passport services in Bangalore, Hyderabad, Delhi & Chennai. New passport application, renewal, tatkal processing, name correction & minor passports. PSK appointment booking. Fast, reliable passport assistance from CloudTravelSolution.",
     description:
-      "Navigate the Indian passport application process with ease. From new applications and renewals to tatkal (urgent) processing and corrections, our team handles the paperwork, appointment scheduling, and follow-ups so you don't have to deal with the complexity of the Passport Seva Kendra process.",
+      "Navigate the Indian passport application process with ease. From new applications and renewals to tatkal (urgent) processing and corrections, our team handles the paperwork, Passport Seva portal form filling, appointment scheduling, and follow-ups so you don't have to deal with the complexity of the process. We've helped thousands of applicants across Bangalore, Hyderabad, Delhi, and Chennai get their passports quickly and without errors.",
     features: [
-      "Fresh/new passport applications",
-      "Passport renewals and reissue",
-      "Tatkal (urgent) processing assistance",
-      "Minor passport applications",
-      "Name, address, and other corrections",
-      "Damaged passport replacement",
-      "Police verification coordination",
-      "Document preparation and form filling",
-      "Passport Seva Kendra appointment booking",
-      "Status tracking and updates",
+      "Fresh/new passport applications (normal & tatkal)",
+      "Passport renewals and reissue processing",
+      "Tatkal (urgent) passport processing assistance",
+      "Minor passport applications (under 18)",
+      "Name, address, and other corrections/changes",
+      "Damaged or lost passport replacement",
+      "Police verification coordination and follow-up",
+      "Document preparation, form filling & verification",
+      "Passport Seva Kendra (PSK) appointment booking",
+      "Real-time application status tracking",
     ],
     process: [
       {
         step: 1,
         title: "Document Assessment",
         description:
-          "We review your current documents, determine the application type (fresh/renewal/reissue), and prepare a personalized checklist.",
+          "We review your documents, determine the application type (fresh/renewal/reissue/tatkal), and prepare a personalized checklist specific to your case.",
       },
       {
         step: 2,
-        title: "Form Filling & Submission",
+        title: "Form Filling & Online Submission",
         description:
-          "We complete the online application form on the Passport Seva portal accurately, ensuring no errors that could cause delays.",
+          "We complete the online application form on the Passport Seva portal with 100% accuracy, ensuring no errors that could cause delays or rejection at the PSK.",
       },
       {
         step: 3,
-        title: "Appointment & Visit",
+        title: "PSK Appointment & Visit Preparation",
         description:
-          "We book the earliest available appointment at your nearest PSK/POPSK and prepare you for the visit with a document folder.",
+          "We book the earliest available appointment at your nearest PSK/POPSK and prepare you with a organized document folder and visit guidelines.",
       },
       {
         step: 4,
         title: "Post-Submission Follow-up",
         description:
-          "We track your application status, coordinate with police verification if needed, and keep you updated until passport delivery.",
+          "We track your application status, coordinate with police verification if needed, and keep you updated via SMS/WhatsApp until your passport is delivered.",
       },
     ],
     faqs: [
       {
-        question: "How long does a new passport take?",
+        question: "How long does a new passport take in India?",
         answer:
-          "Normal processing takes 15-30 working days from the date of appointment. Tatkal applications are typically processed within 1-3 working days, though availability may vary by location.",
+          "Normal processing takes 15-30 working days from the date of PSK appointment. Tatkal applications are typically processed within 1-3 working days, though this depends on police verification requirements and your location.",
       },
       {
         question: "What documents are needed for passport renewal?",
         answer:
-          "You need the original old passport, self-attested copies of the first and last pages, proof of address (if changed), and a recent passport-size photograph. Additional documents may be needed for name changes.",
+          "For passport renewal, you need the original old passport, self-attested copies of the first and last pages, current proof of address (Aadhaar card, utility bill, etc.), and recent passport-size photographs. Additional documents are needed for name or address changes.",
       },
       {
-        question: "Can you help with passport for minors?",
+        question: "Can you help with passport for minors (children under 18)?",
         answer:
-          "Yes. We handle passport applications for minors (under 18) including the additional requirements such as birth certificate, parents' passports, and school ID card.",
+          "Yes. We handle passport applications for minors including the additional requirements such as birth certificate, school ID card, both parents' passports, and consent forms. We also guide parents through the joint visit requirement at the PSK.",
       },
       {
-        question: "What is the difference between reissue and renewal?",
+        question: "What is the difference between passport reissue and renewal?",
         answer:
-          "Renewal applies when your passport validity is expiring or pages are exhausted. Reissue covers cases like name change, address change, or damaged passport. The application process and requirements differ slightly.",
+          "Renewal applies when your passport validity is expiring (within 1 year) or booklet pages are exhausted. Reissue covers cases like name change after marriage, address change, damaged passport, or lost passport. The application process, documents required, and fees differ for each type.",
       },
     ],
   },
@@ -231,136 +379,211 @@ export const SERVICES_DATA: ServiceDetail[] = [
     slug: "document-attestation",
     icon: "Stamp",
     tagline:
-      "Authentication and attestation of documents for embassy submissions and international use",
+      "MEA attestation, apostille, and embassy legalization for international document use",
+    metaDescription:
+      "Document attestation services in India — MEA attestation, apostille, embassy legalization, HRD attestation & certified translation. Fast processing for UAE, Saudi, Qatar, Kuwait & all countries. Offices in Bangalore, Hyderabad, Delhi & Chennai.",
     description:
-      "Many countries require your documents to be attested or apostilled before they can be used internationally. Our document attestation service covers MEA attestation, state HRD attestation, embassy attestation, apostille services, and notarization — ensuring your documents are accepted by any country or institution worldwide.",
+      "Many countries require your documents to be attested, apostilled, or legalized before they can be used internationally — whether for employment, education, business, or immigration purposes. Our document attestation service covers MEA (Ministry of External Affairs) attestation, state HRD attestation, embassy/consulate legalization, apostille services for Hague Convention countries, and certified translation in 20+ languages. We manage the entire attestation chain and ensure your documents are accepted by any country or institution worldwide.",
     features: [
       "MEA (Ministry of External Affairs) attestation",
       "State HRD (Human Resource Department) attestation",
-      "Embassy and consulate attestation",
-      "Apostille services (Hague Convention countries)",
-      "Certified translation services (20+ languages)",
+      "Embassy and consulate legalization/attestation",
+      "Apostille services for Hague Convention countries",
+      "Certified translation services in 20+ languages",
       "Notarization of documents",
-      "Chamber of Commerce attestation",
-      "Educational document verification",
-      "Commercial document attestation",
-      "Power of Attorney attestation",
+      "Chamber of Commerce attestation for commercial docs",
+      "Educational document verification and attestation",
+      "Commercial document attestation (invoices, MOA, etc.)",
+      "Power of Attorney attestation and legalization",
     ],
     process: [
       {
         step: 1,
-        title: "Document Review",
+        title: "Document Review & Assessment",
         description:
-          "Send us your documents (scanned copies). We assess which attestations are needed based on your destination country and purpose.",
+          "Send us scanned copies of your documents. We assess which attestations are needed based on your destination country, purpose (employment, education, business), and specific requirements.",
       },
       {
         step: 2,
         title: "Collection & Processing",
         description:
-          "We collect original documents (with receipt), complete all required attestations in the correct order, from local to national to embassy level.",
+          "We collect original documents from your location (with acknowledgment receipt) and begin the attestation process in the correct order as required by the destination country.",
       },
       {
         step: 3,
-        title: "Attestation Chain",
+        title: "Attestation Chain Completion",
         description:
-          "Documents go through the required chain: Notary → State HRD/Home Department → MEA → Embassy. We manage each step and timeline.",
+          "Documents go through the required chain: Notary → State HRD/Home Department → MEA → Embassy/Consulate. We manage each step, track progress, and handle any queries.",
       },
       {
         step: 4,
-        title: "Delivery",
+        title: "Secure Delivery",
         description:
-          "Attested documents are delivered to your address via secure courier. We maintain copies and tracking records for your reference.",
+          "Fully attested documents are delivered to your address via secure insured courier. We maintain scanned copies and tracking records for your reference.",
       },
     ],
     faqs: [
       {
         question: "What is the difference between attestation and apostille?",
         answer:
-          "Attestation is required for countries that are NOT part of the Hague Convention (e.g., UAE, Saudi Arabia, Qatar). Apostille is accepted by Hague Convention member countries (e.g., most European countries, Australia, USA). The process and cost differ for each.",
+          "Attestation is required for countries NOT part of the Hague Convention (e.g., UAE, Saudi Arabia, Qatar, Kuwait). Apostille is a simplified certification accepted by 125+ Hague Convention member countries (e.g., most European countries, Australia, USA, UK). The process, time, and cost differ for each.",
       },
       {
-        question: "How long does MEA attestation take?",
+        question: "How long does MEA attestation take in India?",
         answer:
-          "Normal MEA attestation takes 7-10 working days. Express processing is available in 2-3 working days for an additional fee. State HRD attestation may add 5-10 days before MEA.",
+          "Normal MEA attestation takes 7-10 working days. Express/tatkal processing is available in 2-3 working days for an additional fee. State HRD attestation may add 5-10 working days before MEA, depending on the state.",
       },
       {
         question: "Which documents can be attested?",
         answer:
-          "Educational documents (degrees, transcripts, marksheets), personal documents (birth certificate, marriage certificate, PCC), and commercial documents (company registration, power of attorney, invoices) can all be attested.",
+          "Educational documents (degrees, diplomas, transcripts, marksheets), personal documents (birth certificate, marriage certificate, PCC, medical certificate), and commercial documents (company registration, power of attorney, invoices, MOA/AOA) can all be attested.",
       },
       {
-        question: "Do you offer document translation services?",
+        question: "Do you provide certified document translation?",
         answer:
-          "Yes. We provide certified translation in 20+ languages including Arabic, French, German, Spanish, Chinese, and Japanese. Translated documents can be notarized and attested as needed.",
+          "Yes. We provide certified translation in 20+ languages including Arabic, French, German, Spanish, Portuguese, Chinese, Japanese, and Korean. Translated documents can be notarized and attested as needed for embassy submission.",
       },
     ],
   },
   {
-    title: "Corporate Travel",
-    slug: "corporate-travel",
-    icon: "Building2",
+    title: "Educational Visa Assistance",
+    slug: "educational-visa-assistance",
+    icon: "GraduationCap",
     tagline:
-      "End-to-end corporate travel management for businesses of all sizes",
+      "Complete student visa support for studying abroad — from admission to arrival",
+    metaDescription:
+      "Student visa assistance from India for USA, UK, Canada, Australia, Germany & more. University admission support, SOP review, financial documentation, visa interview prep. Expert education consultants in Bangalore, Hyderabad, Delhi & Chennai.",
     description:
-      "Streamline your company's travel operations with our corporate travel management services. From flight and hotel bookings to visa processing, travel insurance, and MICE events, we handle everything. Our dedicated corporate desk ensures your team travels efficiently while you maintain full control over travel policy and budget.",
+      "Pursuing education abroad is a life-changing decision, and getting your student visa right is crucial. Our educational visa assistance service supports students and their families through the entire process — from university shortlisting and admission guidance to student visa application, financial documentation, SOP/LOR review, and pre-departure orientation. We work with students heading to the US (F1), UK (Tier 4), Canada (study permit), Australia (subclass 500), Germany, and 50+ other education destinations. Our education counselors have helped thousands of Indian students achieve their study abroad dreams.",
     features: [
-      "Negotiated corporate rates on flights and hotels",
-      "Travel policy management and compliance",
-      "MICE (Meetings, Incentives, Conferences, Exhibitions) organization",
-      "Duty of care and traveler safety services",
-      "Expense reporting and reconciliation",
-      "24/7 dedicated travel support hotline",
-      "Forex services and multi-currency cards",
-      "Group travel coordination",
-      "Visa processing for business travelers",
-      "Monthly MIS reports and analytics",
+      "Student visa applications for 50+ countries",
+      "University shortlisting and admission guidance",
+      "Statement of Purpose (SOP) and LOR review",
+      "Financial documentation and fund proof preparation",
+      "Education loan documentation assistance",
+      "Visa interview preparation for US F1, UK, Canada",
+      "Scholarship search and application support",
+      "I-20, CAS, COE, and admission letter guidance",
+      "Pre-departure orientation and travel planning",
+      "Post-arrival support and accommodation guidance",
     ],
     process: [
       {
         step: 1,
-        title: "Onboarding & Setup",
+        title: "Profile Evaluation & Counseling",
         description:
-          "We understand your company's travel patterns, budget, and policies. A dedicated account manager and corporate travel portal are set up.",
+          "We evaluate your academic profile, budget, career goals, and preferences to recommend the best countries and universities. Our counselors have first-hand knowledge of admission requirements.",
       },
       {
         step: 2,
-        title: "Policy Configuration",
+        title: "Admission & Documentation",
         description:
-          "We configure travel policies, approval workflows, preferred suppliers, and budget limits in our system aligned with your company guidelines.",
+          "We assist with university applications, SOP/LOR drafting, and ensure all admission documentation is complete. Once you receive your offer letter/I-20/CAS, we move to visa preparation.",
       },
       {
         step: 3,
-        title: "Booking & Management",
+        title: "Visa Application & Filing",
         description:
-          "Your team books through our portal or contacts the dedicated desk. All bookings comply with policy, and exceptions route through approval.",
+          "We prepare your complete student visa application — DS-160, financial proof, sponsor documents, form filling, appointment booking, and submission. Every document is verified for embassy compliance.",
       },
       {
         step: 4,
-        title: "Reporting & Optimization",
+        title: "Interview Prep & Visa Stamping",
         description:
-          "Monthly reports cover spend, compliance, savings, and traveler satisfaction. We continuously optimize for better rates and efficiency.",
+          "For countries requiring interviews (US, UK), we conduct thorough mock interview sessions. Post-approval, we assist with visa stamping, travel booking, forex, and pre-departure checklist.",
       },
     ],
     faqs: [
       {
-        question: "What size companies do you work with?",
+        question: "Which countries are best for Indian students to study abroad?",
         answer:
-          "We serve companies of all sizes — from startups with 5-10 travelers per month to large enterprises with hundreds of business travelers. Our solutions scale to your needs.",
+          "The most popular destinations for Indian students are USA, UK, Canada, Australia, Germany, Ireland, and New Zealand. Each offers unique advantages in terms of course quality, post-study work options, tuition costs, and living expenses. We help you choose based on your specific academic and career goals.",
       },
       {
-        question: "Do you handle international visa processing for employees?",
+        question: "How much bank balance is needed for a student visa?",
         answer:
-          "Yes. Business visa processing for employees is a core part of our corporate offering. We handle bulk applications, document collection, and embassy coordination for your team.",
+          "Financial requirements vary by country. US F1 visas require proof of funds covering full tuition + living expenses. UK requires approximately £1,334/month (London) or £1,023/month (outside London) for living costs. Canada requires CAD 20,635/year. We provide exact figures and help arrange financial documentation.",
       },
       {
-        question: "Can you organize MICE events?",
+        question: "Can you help with education loan documentation?",
         answer:
-          "Absolutely. We organize corporate meetings, incentive trips, conferences, and exhibitions both domestically and internationally. Our MICE team handles venue selection, logistics, accommodation, and on-ground coordination.",
+          "Yes. We assist with education loan applications, documentation for banks and NBFCs, collateral assessment, and GIC (Guaranteed Investment Certificate) for Canada. We work with partner banks offering competitive education loan rates for Indian students.",
       },
       {
-        question: "What reporting and analytics do you provide?",
+        question: "What if my student visa gets rejected?",
         answer:
-          "We provide monthly MIS reports covering total spend, per-department breakdowns, policy compliance rates, advance booking statistics, preferred vendor usage, and cost-saving opportunities.",
+          "Student visa rejections are usually due to insufficient financial proof, weak SOP, or unconvincing study plans. We analyze the rejection reason, strengthen your application, and refile. Our reapplication success rate is significantly higher than first-time applicants due to our detailed rejection analysis.",
+      },
+    ],
+  },
+  {
+    title: "Manpower Visa Assistance",
+    slug: "manpower-visa-assistance",
+    icon: "Users",
+    tagline:
+      "Bulk work permit and employment visa processing for manpower recruitment agencies",
+    metaDescription:
+      "Manpower visa and work permit assistance from India. Bulk employment visa processing for Gulf countries (UAE, Saudi, Qatar, Kuwait, Oman, Bahrain), Europe & Asia. MOFA attestation, GAMCA medical, emigration clearance. Partner with CloudTravelSolution.",
+    description:
+      "We provide specialized visa processing services for manpower recruitment agencies and companies sending workers abroad. Our bulk processing capabilities handle employment visas, work permits, and labor visas for Gulf countries (UAE, Saudi Arabia, Qatar, Kuwait, Oman, Bahrain), Southeast Asia, and European countries. We manage the entire process from MOFA attestation and GAMCA medical coordination to emigration clearance and travel arrangements. Our dedicated manpower desk processes hundreds of work visas monthly with fast turnaround and competitive rates for agencies.",
+    features: [
+      "Bulk employment visa processing for recruitment agencies",
+      "Gulf country work visas — UAE, Saudi, Qatar, Kuwait, Oman, Bahrain",
+      "MOFA (Ministry of Foreign Affairs) attestation",
+      "GAMCA medical appointment booking and coordination",
+      "Emigration clearance (EC) from Protector of Emigrants",
+      "Work permit applications for European countries",
+      "Contract attestation and legalization",
+      "Travel arrangements for workers (flights, insurance)",
+      "Dedicated account manager for agency partners",
+      "Real-time batch tracking and status dashboard",
+    ],
+    process: [
+      {
+        step: 1,
+        title: "Agency Onboarding & Requirements",
+        description:
+          "We onboard your recruitment agency with dedicated pricing, assign an account manager, and understand your visa processing volume, destination countries, and specific requirements.",
+      },
+      {
+        step: 2,
+        title: "Document Collection & Verification",
+        description:
+          "We collect worker documents (passport, photos, educational certificates, medical reports), verify all details, and prepare the complete visa application package for each worker.",
+      },
+      {
+        step: 3,
+        title: "Visa Processing & Attestation",
+        description:
+          "We handle MOFA attestation, embassy stamping, contract legalization, and work permit submission in bulk. GAMCA medicals are coordinated at approved centres across India.",
+      },
+      {
+        step: 4,
+        title: "Emigration Clearance & Travel",
+        description:
+          "Post visa approval, we obtain emigration clearance, arrange flights, provide travel insurance, and coordinate departure logistics for individual or group travel.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Which countries do you process manpower visas for?",
+        answer:
+          "We primarily process employment visas for Gulf countries (UAE, Saudi Arabia, Qatar, Kuwait, Oman, Bahrain), Malaysia, Singapore, and select European countries (Poland, Romania, Croatia, Malta). We handle all categories including skilled, semi-skilled, and unskilled worker visas.",
+      },
+      {
+        question: "What is the minimum batch size for bulk processing?",
+        answer:
+          "We offer competitive bulk rates starting from 10+ workers per batch. Larger batches of 50+ workers receive priority processing and the best per-visa rates. We also handle individual work visa applications for companies hiring directly.",
+      },
+      {
+        question: "Do you handle GAMCA medical appointments?",
+        answer:
+          "Yes. We book GAMCA (Gulf Approved Medical Centres Association) medical appointments at approved centres across India, coordinate the medical examination, and collect results. We ensure medicals are completed within the validity period required by the destination country.",
+      },
+      {
+        question: "How long does a Gulf country employment visa take?",
+        answer:
+          "UAE employment visas typically take 3-7 working days after MOFA approval. Saudi work visas take 7-15 working days. Qatar and Kuwait take 10-20 working days. Timelines can vary based on the employer's labor quota and ministry approvals. We provide real-time tracking for every application.",
       },
     ],
   },

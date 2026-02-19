@@ -1,100 +1,61 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
+  CalendarCheck,
   FileCheck,
   Shield,
+  Plane,
   BookOpen,
   Stamp,
-  Building2,
+  GraduationCap,
+  Users,
   ArrowRight,
   CheckCircle2,
 } from "lucide-react";
 
-import { SERVICES } from "@/lib/constants";
+import { SERVICES_DATA } from "@/lib/services-data";
+import { SITE_CONFIG } from "@/lib/constants";
 import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { CTABanner } from "@/components/sections/cta-banner";
 
 export const metadata: Metadata = {
-  title: "Our Services — Visa Consulting, Travel Insurance & More",
+  title: `Visa & Travel Services in India — ${SITE_CONFIG.name}`,
   description:
-    "Comprehensive travel services from CloudTravelSolution: visa consulting for 190+ countries, travel insurance, passport services, document attestation, and corporate travel management.",
+    "Comprehensive visa and travel services from CloudTravelSolution: visa appointment booking, visa assistance for 190+ countries, travel insurance, flight & hotel booking, passport services, document attestation, student visa, and manpower visa services. Offices in Bangalore, Hyderabad, Delhi & Chennai.",
+  keywords: [
+    "visa services India",
+    "visa appointment booking",
+    "visa assistance India",
+    "travel insurance India",
+    "passport services India",
+    "document attestation India",
+    "student visa India",
+    "work visa India",
+    "travel agency Bangalore",
+    "travel agency Hyderabad",
+  ],
+  openGraph: {
+    title: `Visa & Travel Services — ${SITE_CONFIG.name}`,
+    description:
+      "Expert visa and travel services for 190+ countries. Offices in Bangalore, Hyderabad, Delhi & Chennai.",
+    url: `${SITE_CONFIG.url}/services`,
+    siteName: SITE_CONFIG.name,
+  },
+  alternates: {
+    canonical: `${SITE_CONFIG.url}/services`,
+  },
 };
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+  CalendarCheck,
   FileCheck,
   Shield,
+  Plane,
   BookOpen,
   Stamp,
-  Building2,
+  GraduationCap,
+  Users,
 };
-
-const detailedServices = [
-  {
-    ...SERVICES[0],
-    features: [
-      "Visa assistance for 190+ countries",
-      "Tourist, Business, Student, Work, Transit visas",
-      "Document preparation and verification",
-      "Embassy appointment scheduling",
-      "Interview preparation coaching",
-      "Application tracking and follow-up",
-      "Express and priority processing",
-      "Post-visa travel advisory",
-    ],
-  },
-  {
-    ...SERVICES[1],
-    features: [
-      "Comprehensive medical coverage",
-      "Trip cancellation protection",
-      "Baggage loss/delay coverage",
-      "Emergency evacuation",
-      "Schengen-compliant policies",
-      "Multi-trip annual plans",
-      "Corporate group policies",
-      "Claims assistance",
-    ],
-  },
-  {
-    ...SERVICES[2],
-    features: [
-      "New passport applications",
-      "Passport renewals",
-      "Tatkal (urgent) processing",
-      "Minor passport applications",
-      "Name/address corrections",
-      "Additional booklet pages",
-      "Police verification assistance",
-      "Document preparation",
-    ],
-  },
-  {
-    ...SERVICES[3],
-    features: [
-      "MEA (Ministry of External Affairs) attestation",
-      "State HRD attestation",
-      "Embassy attestation",
-      "Apostille services",
-      "Translation services",
-      "Notarization",
-      "Chamber of Commerce attestation",
-      "Educational document verification",
-    ],
-  },
-  {
-    ...SERVICES[4],
-    features: [
-      "Flight and hotel bookings",
-      "Travel policy management",
-      "MICE event organization",
-      "Duty of care services",
-      "Expense reporting integration",
-      "24/7 travel support",
-      "Forex and travel insurance",
-      "Group travel management",
-    ],
-  },
-];
 
 export default function ServicesPage() {
   return (
@@ -114,8 +75,9 @@ export default function ServicesPage() {
               Our Services
             </h1>
             <p className="text-white/70 text-lg max-w-2xl">
-              Comprehensive travel and visa services designed to make your
-              international travel completely hassle-free.
+              Comprehensive visa and travel services designed to make your
+              international travel completely hassle-free. Trusted by thousands
+              across India.
             </p>
           </div>
         </div>
@@ -123,7 +85,7 @@ export default function ServicesPage() {
         {/* Service sections */}
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 lg:py-14">
           <div className="space-y-16">
-            {detailedServices.map((service, index) => {
+            {SERVICES_DATA.map((service, index) => {
               const Icon = iconMap[service.icon] || FileCheck;
               return (
                 <div
@@ -141,7 +103,7 @@ export default function ServicesPage() {
                       {service.title}
                     </h2>
                     <p className="text-muted-foreground leading-relaxed mb-6">
-                      {service.description}
+                      {service.tagline}
                     </p>
                     <div className="flex items-center gap-3">
                       <Link
@@ -168,7 +130,7 @@ export default function ServicesPage() {
                       What&apos;s Included
                     </h3>
                     <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                      {service.features.map((feature) => (
+                      {service.features.slice(0, 8).map((feature) => (
                         <li
                           key={feature}
                           className="flex items-start gap-2 text-sm text-foreground/70"

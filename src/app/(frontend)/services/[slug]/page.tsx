@@ -2,11 +2,14 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
 import {
+  CalendarCheck,
   FileCheck,
   Shield,
+  Plane,
   BookOpen,
   Stamp,
-  Building2,
+  GraduationCap,
+  Users,
   ChevronRight,
   ArrowRight,
   CheckCircle2,
@@ -15,6 +18,7 @@ import {
 import {
   getServiceBySlug,
   getAllServiceSlugs,
+  SERVICES_DATA,
 } from "@/lib/services-data";
 import { generateBreadcrumbSchema } from "@/lib/seo";
 import { SITE_CONFIG } from "@/lib/constants";
@@ -25,11 +29,14 @@ interface PageProps {
 }
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+  CalendarCheck,
   FileCheck,
   Shield,
+  Plane,
   BookOpen,
   Stamp,
-  Building2,
+  GraduationCap,
+  Users,
 };
 
 export function generateStaticParams() {
@@ -43,12 +50,30 @@ export async function generateMetadata({
   const service = getServiceBySlug(slug);
   if (!service) return {};
 
+  const title = `${service.title} in India — ${SITE_CONFIG.name}`;
+  const description = service.metaDescription;
+
   return {
-    title: `${service.title} — ${SITE_CONFIG.name}`,
-    description: service.tagline,
+    title,
+    description,
+    keywords: [
+      service.title,
+      `${service.title} India`,
+      `${service.title} Bangalore`,
+      `${service.title} Hyderabad`,
+      "visa services India",
+      "travel agency India",
+      SITE_CONFIG.name,
+    ],
     openGraph: {
-      title: `${service.title} | ${SITE_CONFIG.name}`,
-      description: service.tagline,
+      title,
+      description,
+      url: `${SITE_CONFIG.url}/services/${service.slug}`,
+      siteName: SITE_CONFIG.name,
+      type: "website",
+    },
+    alternates: {
+      canonical: `${SITE_CONFIG.url}/services/${service.slug}`,
     },
   };
 }
@@ -69,6 +94,48 @@ export default async function ServiceDetailPage({ params }: PageProps) {
     { name: service.title, href: `/services/${service.slug}` },
   ];
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: service.faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: service.title,
+    description: service.description,
+    provider: {
+      "@type": "Organization",
+      name: SITE_CONFIG.name,
+      url: SITE_CONFIG.url,
+      telephone: SITE_CONFIG.tollFree,
+      address: [
+        {
+          "@type": "PostalAddress",
+          addressLocality: "Bangalore",
+          addressRegion: "Karnataka",
+          addressCountry: "IN",
+        },
+        {
+          "@type": "PostalAddress",
+          addressLocality: "Hyderabad",
+          addressRegion: "Telangana",
+          addressCountry: "IN",
+        },
+      ],
+    },
+    areaServed: { "@type": "Country", name: "India" },
+    serviceType: service.title,
+  };
+
   return (
     <>
       <script
@@ -79,20 +146,11 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Service",
-            name: service.title,
-            description: service.description,
-            provider: {
-              "@type": "Organization",
-              name: SITE_CONFIG.name,
-              url: SITE_CONFIG.url,
-            },
-            areaServed: { "@type": "Country", name: "India" },
-          }),
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       <div className="bg-white">
@@ -278,18 +336,8 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                     Other Services
                   </h3>
                   <div className="space-y-2">
-                    {[
-                      { title: "Visa Consulting", slug: "visa-consulting" },
-                      { title: "Travel Insurance", slug: "travel-insurance" },
-                      { title: "Passport Services", slug: "passport-services" },
-                      {
-                        title: "Document Attestation",
-                        slug: "document-attestation",
-                      },
-                      { title: "Corporate Travel", slug: "corporate-travel" },
-                    ]
-                      .filter((s) => s.slug !== service.slug)
-                      .map((s) => (
+                    {SERVICES_DATA.filter((s) => s.slug !== service.slug).map(
+                      (s) => (
                         <Link
                           key={s.slug}
                           href={`/services/${s.slug}`}
@@ -298,7 +346,8 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                           <ArrowRight className="h-3 w-3" />
                           {s.title}
                         </Link>
-                      ))}
+                      )
+                    )}
                   </div>
                 </div>
               </div>
