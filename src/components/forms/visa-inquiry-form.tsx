@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
@@ -11,6 +11,9 @@ import {
   ArrowRight,
   ArrowLeft,
   Loader2,
+  Search,
+  ChevronDown,
+  X,
 } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -85,11 +88,16 @@ export function VisaInquiryForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  const [countrySearch, setCountrySearch] = useState("");
+  const [countryDropdownOpen, setCountryDropdownOpen] = useState(false);
+  const countryDropdownRef = useRef<HTMLDivElement>(null);
+
   const {
     register,
     handleSubmit,
     trigger,
     watch,
+    setValue,
     formState: { errors },
   } = useForm<VisaInquiryFormData>({
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -102,6 +110,21 @@ export function VisaInquiryForm() {
   });
 
   const watchedValues = watch();
+
+  const filteredCountries = ALL_COUNTRIES.filter((c) =>
+    c.toLowerCase().includes(countrySearch.toLowerCase())
+  );
+
+  // Close dropdown on outside click
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (countryDropdownRef.current && !countryDropdownRef.current.contains(e.target as Node)) {
+        setCountryDropdownOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   const goToNextStep = async () => {
     let fieldsToValidate: (keyof VisaInquiryFormData)[] = [];
@@ -315,21 +338,90 @@ export function VisaInquiryForm() {
               Tell us about your travel plans
             </p>
 
-            <div>
+            <div ref={countryDropdownRef} className="relative">
               <label className="block text-sm font-medium text-foreground mb-1.5">
                 Destination Country *
               </label>
-              <select
-                {...register("destinationCountry")}
-                className={inputClass}
+              <input type="hidden" {...register("destinationCountry")} />
+              <button
+                type="button"
+                onClick={() => setCountryDropdownOpen(!countryDropdownOpen)}
+                className={cn(
+                  inputClass,
+                  "flex items-center justify-between text-left cursor-pointer",
+                  !watchedValues.destinationCountry && "text-muted-foreground"
+                )}
               >
-                <option value="">Select destination country</option>
-                {ALL_COUNTRIES.map((country) => (
-                  <option key={country} value={country.toLowerCase().replace(/\s+/g, "-").replace(/[()]/g, "")}>
-                    {country}
-                  </option>
-                ))}
-              </select>
+                <span className="truncate">
+                  {watchedValues.destinationCountry
+                    ? ALL_COUNTRIES.find(
+                        (c) =>
+                          c.toLowerCase().replace(/\s+/g, "-").replace(/[()]/g, "") ===
+                          watchedValues.destinationCountry
+                      ) || "Select destination country"
+                    : "Select destination country"}
+                </span>
+                <div className="flex items-center gap-1 shrink-0">
+                  {watchedValues.destinationCountry && (
+                    <span
+                      role="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setValue("destinationCountry", "");
+                        setCountrySearch("");
+                      }}
+                      className="p-0.5 hover:bg-gray-100 rounded"
+                    >
+                      <X className="h-3.5 w-3.5 text-muted-foreground" />
+                    </span>
+                  )}
+                  <ChevronDown className="h-4 w-4 text-muted-foreground" />
+                </div>
+              </button>
+
+              {countryDropdownOpen && (
+                <div className="absolute z-50 mt-1 w-full bg-white border border-border rounded-lg shadow-lg">
+                  <div className="p-2 border-b border-border">
+                    <div className="relative">
+                      <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                      <input
+                        type="text"
+                        value={countrySearch}
+                        onChange={(e) => setCountrySearch(e.target.value)}
+                        placeholder="Search country..."
+                        className="w-full h-9 pl-9 pr-3 rounded-md border border-border bg-white text-sm outline-none focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)]"
+                        autoFocus
+                      />
+                    </div>
+                  </div>
+                  <ul className="max-h-48 overflow-y-auto py-1">
+                    {filteredCountries.length === 0 ? (
+                      <li className="px-4 py-2 text-sm text-muted-foreground">No countries found</li>
+                    ) : (
+                      filteredCountries.map((country) => {
+                        const value = country.toLowerCase().replace(/\s+/g, "-").replace(/[()]/g, "");
+                        return (
+                          <li
+                            key={country}
+                            onClick={() => {
+                              setValue("destinationCountry", value, { shouldValidate: true });
+                              setCountrySearch("");
+                              setCountryDropdownOpen(false);
+                            }}
+                            className={cn(
+                              "px-4 py-2 text-sm cursor-pointer hover:bg-[var(--color-muted)] transition-colors",
+                              watchedValues.destinationCountry === value &&
+                                "bg-[var(--color-primary)]/10 text-[var(--color-primary)] font-medium"
+                            )}
+                          >
+                            {country}
+                          </li>
+                        );
+                      })
+                    )}
+                  </ul>
+                </div>
+              )}
               {errors.destinationCountry && (
                 <p className="text-xs text-[var(--color-error)] mt-1">
                   {errors.destinationCountry.message}
