@@ -25,21 +25,17 @@ export function Header({ siteSettings }: HeaderProps) {
   const logoUrl = siteSettings?.branding?.logo?.url;
 
   // Close mobile menu on route change
-  useEffect(() => {
-    setMobileMenuOpen(false);
-    setMobileExpanded(null);
-  }, [pathname]);
+  const [prevPathname, setPrevPathname] = useState(pathname);
+  if (pathname !== prevPathname) {
+    setPrevPathname(pathname);
+    if (mobileMenuOpen) setMobileMenuOpen(false);
+    if (mobileExpanded) setMobileExpanded(null);
+  }
 
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
-    if (mobileMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
+    document.body.style.overflow = mobileMenuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
   }, [mobileMenuOpen]);
 
   return (
