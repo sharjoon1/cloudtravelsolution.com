@@ -91,7 +91,7 @@ export function HeroLeadForm() {
   return (
     <div className="bg-white rounded-2xl shadow-2xl p-6 sm:p-8">
       {/* Header */}
-      <h3 className="text-xl font-bold text-gray-900 mb-1">Plan Your Trip</h3>
+      <h3 className="text-xl font-bold text-gray-900 mb-1">Which Country are you applying for?</h3>
       <p className="text-sm text-gray-500 mb-6">
         {currentStep === 1
           ? "Tell us about your travel plans"

@@ -61,7 +61,7 @@ export function Hero({ heroData, trustBadges }: HeroProps) {
 
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
-        <div className="lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center">
+        <div className="lg:grid lg:grid-cols-[1fr_380px] lg:gap-12 lg:items-center">
           {/* Left column: text content */}
           <div>
             {/* Badge */}
