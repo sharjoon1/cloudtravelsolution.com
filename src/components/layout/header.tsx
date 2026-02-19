@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -16,10 +17,30 @@ type HeaderProps = {
 export function Header({ siteSettings }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
+  const pathname = usePathname();
 
   const tollFree = siteSettings?.businessInfo?.tollFreeNumber || SITE_CONFIG.tollFree;
   const email = siteSettings?.businessInfo?.email || SITE_CONFIG.email;
   const logoUrl = siteSettings?.branding?.logo?.url;
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileMenuOpen(false);
+    setMobileExpanded(null);
+  }, [pathname]);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80">
@@ -144,47 +165,98 @@ export function Header({ siteSettings }: HeaderProps) {
         </div>
       </nav>
 
-      {/* Mobile menu */}
+      {/* Mobile menu overlay */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-border bg-white">
-          <div className="px-4 py-4 space-y-1">
-            {NAV_ITEMS.map((item) => (
+        <div
+          className="lg:hidden fixed inset-0 top-[calc(4rem+2.25rem+1px)] bg-black/30 z-40"
+          onClick={() => setMobileMenuOpen(false)}
+        />
+      )}
+
+      {/* Mobile menu panel */}
+      <div
+        className={cn(
+          "lg:hidden fixed top-[calc(4rem+2.25rem+1px)] left-0 right-0 bottom-0 z-50 bg-white transform transition-transform duration-300 ease-in-out overflow-y-auto",
+          mobileMenuOpen ? "translate-x-0" : "translate-x-full"
+        )}
+      >
+        <div className="px-4 py-4 space-y-1">
+          {NAV_ITEMS.map((item) => {
+            const hasChildren = "children" in item;
+            const isExpanded = mobileExpanded === item.label;
+
+            return (
               <div key={item.label}>
-                <Link
-                  href={item.href}
-                  className="block px-3 py-2.5 text-base font-medium text-foreground/80 rounded-md hover:bg-muted hover:text-[var(--color-primary)] transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {item.label}
-                </Link>
-                {"children" in item && (
-                  <div className="ml-4 space-y-0.5">
-                    {item.children.map((child) => (
+                {hasChildren ? (
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setMobileExpanded(isExpanded ? null : item.label)
+                    }
+                    className="flex items-center justify-between w-full px-3 py-3 text-base font-medium text-foreground/80 rounded-md hover:bg-muted transition-colors"
+                  >
+                    {item.label}
+                    <ChevronDown
+                      className={cn(
+                        "h-4 w-4 text-muted-foreground transition-transform duration-200",
+                        isExpanded && "rotate-180"
+                      )}
+                    />
+                  </button>
+                ) : (
+                  <Link
+                    href={item.href}
+                    className="block px-3 py-3 text-base font-medium text-foreground/80 rounded-md hover:bg-muted hover:text-[var(--color-primary)] transition-colors"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                )}
+
+                {/* Accordion children */}
+                {hasChildren && (
+                  <div
+                    className={cn(
+                      "overflow-hidden transition-all duration-200 ease-in-out",
+                      isExpanded ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                    )}
+                  >
+                    <div className="ml-3 pl-3 border-l-2 border-[var(--color-primary)]/20 space-y-0.5 pb-2">
                       <Link
-                        key={child.href}
-                        href={child.href}
-                        className="block px-3 py-2 text-sm text-muted-foreground hover:text-[var(--color-primary)] transition-colors"
+                        href={item.href}
+                        className="block px-3 py-2 text-sm font-medium text-[var(--color-primary)] hover:bg-muted rounded-md transition-colors"
                         onClick={() => setMobileMenuOpen(false)}
                       >
-                        {child.label}
+                        View All {item.label}
                       </Link>
-                    ))}
+                      {item.children.map((child) => (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          className="block px-3 py-2 text-sm text-muted-foreground hover:text-[var(--color-primary)] hover:bg-muted rounded-md transition-colors"
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 )}
               </div>
-            ))}
-            <div className="pt-3 border-t border-border">
-              <Link
-                href="/inquiry/visa"
-                className="block w-full text-center px-5 py-3 text-sm font-semibold text-white bg-[var(--color-secondary)] rounded-lg hover:bg-[var(--color-secondary-dark)] transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Free Consultation
-              </Link>
-            </div>
+            );
+          })}
+
+          <div className="pt-3 mt-2 border-t border-border">
+            <Link
+              href="/inquiry/visa"
+              className="block w-full text-center px-5 py-3 text-sm font-semibold text-white bg-[var(--color-secondary)] rounded-lg hover:bg-[var(--color-secondary-dark)] transition-colors"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Free Consultation
+            </Link>
           </div>
         </div>
-      )}
+      </div>
     </header>
   );
 }
