@@ -61,6 +61,10 @@ export const SiteSettings: GlobalConfig = {
           name: "favicon",
           type: "upload",
           relationTo: "media",
+          admin: {
+            description:
+              "Upload a square PNG (512×512px min) with transparent background",
+          },
         },
         {
           name: "ogImage",
