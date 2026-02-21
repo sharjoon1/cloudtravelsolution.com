@@ -14,8 +14,13 @@ export async function generateMetadata(): Promise<Metadata> {
   if (faviconUrl) {
     return {
       icons: {
-        icon: faviconUrl,
-        apple: faviconUrl,
+        icon: [
+          { url: faviconUrl, sizes: "32x32", type: "image/png" },
+          { url: faviconUrl, sizes: "16x16", type: "image/png" },
+        ],
+        apple: [
+          { url: faviconUrl, sizes: "180x180", type: "image/png" },
+        ],
       },
     };
   }
