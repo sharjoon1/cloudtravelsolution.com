@@ -50,30 +50,36 @@ export function CountryGrid({ headings }: CountryGridProps) {
               <Link
                 key={country.slug}
                 href={`/visa/${country.slug}`}
-                className="group relative flex flex-col rounded-2xl bg-white border border-border/60 hover:border-[var(--color-primary)]/40 hover:shadow-xl transition-all duration-300 overflow-hidden"
+                className="group relative flex flex-col rounded-2xl bg-white border border-border/60 hover:border-[var(--color-primary)]/30 hover:shadow-lg transition-all duration-300 overflow-hidden"
               >
-                {/* Flag banner */}
-                <div className="relative h-28 overflow-hidden bg-gradient-to-br from-[var(--color-primary)]/5 to-[var(--color-primary)]/10">
-                  <img
-                    src={`https://flagcdn.com/w320/${flagCode}.png`}
-                    alt={`${country.name} flag`}
-                    className="w-full h-full object-cover opacity-90 group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                  <div className="absolute bottom-3 left-4">
-                    <h3 className="text-base font-bold text-white drop-shadow-md">
-                      {country.name}
-                    </h3>
-                    <p className="text-xs text-white/85 font-medium">Tourist Visa</p>
-                  </div>
-                  <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm rounded-full px-2.5 py-0.5">
-                    <span className="text-xs font-bold text-[var(--color-primary)]">{country.code}</span>
-                  </div>
-                </div>
+                {/* Top accent bar */}
+                <div className="h-[3px] bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)]" />
 
-                {/* Card body */}
-                <div className="p-4 flex flex-col gap-3">
+                <div className="p-5 flex flex-col gap-3">
+                  {/* Top row: flag + country code */}
                   <div className="flex items-center justify-between">
+                    <img
+                      src={`https://flagcdn.com/w320/${flagCode}.png`}
+                      alt={`${country.name} flag`}
+                      className="w-14 h-14 rounded-full object-cover border-2 border-border/30"
+                    />
+                    <span className="text-xs font-bold text-[var(--color-primary)] bg-[var(--color-primary)]/8 rounded-full px-2.5 py-0.5">
+                      {country.code}
+                    </span>
+                  </div>
+
+                  {/* Country name */}
+                  <h3 className="text-lg font-bold text-foreground">
+                    {country.name}
+                  </h3>
+
+                  {/* Visa type */}
+                  <p className="text-sm text-muted-foreground -mt-1.5">
+                    Tourist Visa
+                  </p>
+
+                  {/* Info row */}
+                  <div className="flex items-center justify-between pt-2 border-t border-border/40">
                     <div className="flex items-center gap-1.5">
                       <Clock className="h-3.5 w-3.5 text-[var(--color-primary)]" />
                       <span className="text-xs font-medium text-foreground/70">
@@ -88,6 +94,7 @@ export function CountryGrid({ headings }: CountryGridProps) {
                     </div>
                   </div>
 
+                  {/* View Details link */}
                   <div className="flex items-center justify-between pt-2 border-t border-border/40">
                     <span className="text-xs font-semibold text-[var(--color-primary)] group-hover:underline">
                       View Details
