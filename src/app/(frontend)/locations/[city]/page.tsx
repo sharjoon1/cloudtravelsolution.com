@@ -220,7 +220,7 @@ export default async function LocationPage({ params }: PageProps) {
                     </p>
                     <Link
                       href="/inquiry/visa"
-                      className="block w-full text-center px-5 py-3 bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-dark)] text-white font-semibold rounded-lg transition-colors text-sm"
+                      className="block w-full text-center px-5 py-3 bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-dark)] text-[var(--color-primary-dark)] font-semibold rounded-lg transition-colors text-sm"
                     >
                       Book Appointment
                     </Link>
@@ -245,7 +245,7 @@ export default async function LocationPage({ params }: PageProps) {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                 <Link
                   href="/inquiry/visa"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-secondary)] text-white font-semibold rounded-lg hover:bg-[var(--color-secondary-dark)] transition-colors"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-secondary)] text-[var(--color-primary-dark)] font-semibold rounded-lg hover:bg-[var(--color-secondary-dark)] transition-colors"
                 >
                   Submit Online Inquiry
                   <ArrowRight className="h-4 w-4" />

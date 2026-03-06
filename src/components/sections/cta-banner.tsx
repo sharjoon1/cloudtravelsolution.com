@@ -35,7 +35,7 @@ export function CTABanner({ ctaData, siteSettings }: CTABannerProps) {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
             href={buttonLink}
-            className="inline-flex items-center gap-2 px-7 py-3.5 bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-dark)] text-white font-semibold rounded-lg transition-colors shadow-lg"
+            className="inline-flex items-center gap-2 px-7 py-3.5 bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-dark)] text-[var(--color-primary-dark)] font-semibold rounded-lg transition-colors shadow-lg"
           >
             {buttonText}
             <ArrowRight className="h-4 w-4" />

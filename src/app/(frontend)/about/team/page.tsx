@@ -289,7 +289,7 @@ export default function TeamPage() {
             </p>
             <a
               href="mailto:careers@cloudtravelsolution.com"
-              className="inline-flex items-center gap-2 px-7 py-3.5 bg-[var(--color-accent)] hover:bg-[var(--color-accent-dark)] text-white font-semibold rounded-lg transition-colors"
+              className="inline-flex items-center gap-2 px-7 py-3.5 bg-[var(--color-accent)] hover:bg-[var(--color-accent-dark)] text-[var(--color-primary-dark)] font-semibold rounded-lg transition-colors"
             >
               <Mail className="h-4 w-4" />
               careers@cloudtravelsolution.com

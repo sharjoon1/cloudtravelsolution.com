@@ -758,7 +758,7 @@ export function VisaInquiryForm() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="flex items-center gap-2 px-6 py-2.5 text-sm font-semibold text-white bg-[var(--color-secondary)] rounded-lg hover:bg-[var(--color-secondary-dark)] transition-colors disabled:opacity-50"
+              className="flex items-center gap-2 px-6 py-2.5 text-sm font-semibold text-[var(--color-primary-dark)] bg-[var(--color-secondary)] rounded-lg hover:bg-[var(--color-secondary-dark)] transition-colors disabled:opacity-50"
             >
               {isSubmitting ? (
                 <>

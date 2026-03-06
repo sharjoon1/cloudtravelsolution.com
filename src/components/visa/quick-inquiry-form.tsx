@@ -119,7 +119,7 @@ export function QuickInquiryForm({
         <button
           type="submit"
           disabled={formState === "submitting"}
-          className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-dark)] disabled:opacity-60 text-white text-sm font-semibold rounded-lg transition-colors"
+          className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-dark)] disabled:opacity-60 text-[var(--color-primary-dark)] text-sm font-semibold rounded-lg transition-colors"
         >
           {formState === "submitting" ? (
             <>

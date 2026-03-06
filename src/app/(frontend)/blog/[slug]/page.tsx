@@ -249,7 +249,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                   </p>
                   <Link
                     href="/inquiry/visa"
-                    className="block w-full text-center px-5 py-3 bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-dark)] text-white font-semibold rounded-lg transition-colors text-sm"
+                    className="block w-full text-center px-5 py-3 bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-dark)] text-[var(--color-primary-dark)] font-semibold rounded-lg transition-colors text-sm"
                   >
                     Book Free Consultation
                   </Link>
@@ -389,7 +389,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/inquiry/visa"
-                className="px-8 py-3 bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-dark)] text-white font-semibold rounded-lg transition-colors text-sm"
+                className="px-8 py-3 bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-dark)] text-[var(--color-primary-dark)] font-semibold rounded-lg transition-colors text-sm"
               >
                 Book Free Consultation
               </Link>

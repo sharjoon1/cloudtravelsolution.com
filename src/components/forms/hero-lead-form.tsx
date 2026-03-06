@@ -226,7 +226,7 @@ export function HeroLeadForm() {
             <button
               type="button"
               onClick={goToNextStep}
-              className="w-full h-11 flex items-center justify-center gap-2 bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-dark)] text-white text-sm font-semibold rounded-lg transition-colors"
+              className="w-full h-11 flex items-center justify-center gap-2 bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-dark)] text-[var(--color-primary-dark)] text-sm font-semibold rounded-lg transition-colors"
             >
               Next
               <ArrowRight className="h-4 w-4" />
@@ -310,7 +310,7 @@ export function HeroLeadForm() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full h-11 flex items-center justify-center gap-2 bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-dark)] text-white text-sm font-semibold rounded-lg transition-colors disabled:opacity-50"
+                className="w-full h-11 flex items-center justify-center gap-2 bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-dark)] text-[var(--color-primary-dark)] text-sm font-semibold rounded-lg transition-colors disabled:opacity-50"
               >
                 {isSubmitting ? (
                   <>

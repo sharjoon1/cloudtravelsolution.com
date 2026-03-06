@@ -140,7 +140,7 @@ export function Header({ siteSettings }: HeaderProps) {
           <div className="flex items-center gap-3">
             <Link
               href="/inquiry/visa"
-              className="hidden sm:inline-flex items-center px-5 py-2.5 text-sm font-semibold text-white bg-[var(--color-secondary)] rounded-lg hover:bg-[var(--color-secondary-dark)] transition-colors shadow-sm"
+              className="hidden sm:inline-flex items-center px-5 py-2.5 text-sm font-semibold text-[var(--color-primary-dark)] bg-[var(--color-secondary)] rounded-lg hover:bg-[var(--color-secondary-dark)] transition-colors shadow-sm"
             >
               Free Consultation
             </Link>
@@ -245,7 +245,7 @@ export function Header({ siteSettings }: HeaderProps) {
           <div className="pt-3 mt-2 border-t border-border">
             <Link
               href="/inquiry/visa"
-              className="block w-full text-center px-5 py-3 text-sm font-semibold text-white bg-[var(--color-secondary)] rounded-lg hover:bg-[var(--color-secondary-dark)] transition-colors"
+              className="block w-full text-center px-5 py-3 text-sm font-semibold text-[var(--color-primary-dark)] bg-[var(--color-secondary)] rounded-lg hover:bg-[var(--color-secondary-dark)] transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
               Free Consultation

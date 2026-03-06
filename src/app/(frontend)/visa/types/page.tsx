@@ -132,7 +132,7 @@ export default function VisaTypesHubPage() {
             </p>
             <Link
               href="/inquiry/visa"
-              className="inline-flex items-center gap-2 px-7 py-3 bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-dark)] text-white font-semibold rounded-lg transition-colors"
+              className="inline-flex items-center gap-2 px-7 py-3 bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-dark)] text-[var(--color-primary-dark)] font-semibold rounded-lg transition-colors"
             >
               Book Free Consultation
               <ArrowRight className="h-4 w-4" />

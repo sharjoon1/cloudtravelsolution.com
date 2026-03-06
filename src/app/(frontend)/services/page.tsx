@@ -108,7 +108,7 @@ export default function ServicesPage() {
                     <div className="flex items-center gap-3">
                       <Link
                         href={`/services/${service.slug}`}
-                        className="inline-flex items-center gap-2 px-5 py-2.5 bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-dark)] text-white font-semibold rounded-lg transition-colors text-sm"
+                        className="inline-flex items-center gap-2 px-5 py-2.5 bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-dark)] text-[var(--color-primary-dark)] font-semibold rounded-lg transition-colors text-sm"
                       >
                         Learn More
                         <ArrowRight className="h-4 w-4" />

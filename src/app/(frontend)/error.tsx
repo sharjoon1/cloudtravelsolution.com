@@ -35,7 +35,7 @@ export default function Error({
           <button
             type="button"
             onClick={reset}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-dark)] text-white font-semibold rounded-lg transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-dark)] text-[var(--color-primary-dark)] font-semibold rounded-lg transition-colors"
           >
             <RefreshCw className="h-4 w-4" />
             Try Again

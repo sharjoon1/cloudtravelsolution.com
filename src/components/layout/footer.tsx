@@ -211,7 +211,7 @@ export function Footer({ siteSettings }: FooterProps) {
               />
               <button
                 type="button"
-                className="px-5 py-2.5 bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-dark)] text-white font-semibold rounded-lg transition-colors text-sm shrink-0"
+                className="px-5 py-2.5 bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-dark)] text-[var(--color-primary-dark)] font-semibold rounded-lg transition-colors text-sm shrink-0"
               >
                 Subscribe
               </button>
