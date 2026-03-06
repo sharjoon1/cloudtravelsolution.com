@@ -122,7 +122,7 @@ export function SubmitForm() {
         <p className="mt-2 text-gray-600">Your service request has been created successfully.</p>
         <div className="mt-6 rounded-xl border border-gray-200 bg-white p-6">
           <p className="text-sm text-gray-500">Tracking Code</p>
-          <p className="mt-1 font-mono text-3xl font-bold text-[#1B4D7A]">
+          <p className="mt-1 font-mono text-3xl font-bold text-[#673de6]">
             {result.trackingCode}
           </p>
           <p className="mt-3 text-xs text-gray-400">
@@ -138,7 +138,7 @@ export function SubmitForm() {
           </a>
           <a
             href="/partner/submit"
-            className="rounded-lg bg-[#E8963E] px-4 py-2 text-sm font-semibold text-white hover:bg-[#d4852f]"
+            className="rounded-lg bg-[#fc5185] px-4 py-2 text-sm font-semibold text-white hover:bg-[#e0446f]"
           >
             Submit Another
           </a>
@@ -148,7 +148,7 @@ export function SubmitForm() {
   }
 
   const inputClass =
-    "block w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm shadow-sm transition-colors focus:border-[#1B4D7A] focus:outline-none focus:ring-1 focus:ring-[#1B4D7A]";
+    "block w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm shadow-sm transition-colors focus:border-[#673de6] focus:outline-none focus:ring-1 focus:ring-[#673de6]";
   const labelClass = "mb-1 block text-sm font-medium text-gray-700";
 
   return (
@@ -161,7 +161,7 @@ export function SubmitForm() {
               <div
                 className={`flex h-8 w-8 items-center justify-center rounded-full text-sm font-semibold ${
                   i <= step
-                    ? "bg-[#1B4D7A] text-white"
+                    ? "bg-[#673de6] text-white"
                     : "bg-gray-200 text-gray-500"
                 }`}
               >
@@ -172,7 +172,7 @@ export function SubmitForm() {
             {i < STEPS.length - 1 && (
               <div
                 className={`mx-2 h-0.5 w-8 sm:w-16 ${
-                  i < step ? "bg-[#1B4D7A]" : "bg-gray-200"
+                  i < step ? "bg-[#673de6]" : "bg-gray-200"
                 }`}
               />
             )}
@@ -370,7 +370,7 @@ export function SubmitForm() {
             <button
               type="button"
               onClick={nextStep}
-              className="flex items-center gap-1.5 rounded-lg bg-[#1B4D7A] px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#163f64]"
+              className="flex items-center gap-1.5 rounded-lg bg-[#673de6] px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#5a31d4]"
             >
               Next
               <ChevronRight className="h-4 w-4" />
@@ -379,7 +379,7 @@ export function SubmitForm() {
             <button
               type="submit"
               disabled={submitting}
-              className="flex items-center gap-1.5 rounded-lg bg-[#E8963E] px-6 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#d4852f] disabled:opacity-60"
+              className="flex items-center gap-1.5 rounded-lg bg-[#fc5185] px-6 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#e0446f] disabled:opacity-60"
             >
               <Send className="h-4 w-4" />
               {submitting ? "Submitting..." : "Submit Request"}

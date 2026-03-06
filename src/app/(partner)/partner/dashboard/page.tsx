@@ -79,7 +79,7 @@ export default function PartnerDashboardPage() {
           </button>
           <Link
             href="/partner/submit"
-            className="flex items-center gap-1.5 rounded-lg bg-[#E8963E] px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#d4852f]"
+            className="flex items-center gap-1.5 rounded-lg bg-[#fc5185] px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#e0446f]"
           >
             <PlusCircle className="h-4 w-4" />
             New Request

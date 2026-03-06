@@ -88,7 +88,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
               !hasError && [
                 "border-gray-300",
                 "hover:border-gray-400",
-                "focus:border-[#1B4D7A] focus:ring-[#1B4D7A]/20",
+                "focus:border-[#673de6] focus:ring-[#673de6]/20",
               ],
               // Error state
               hasError && [
