@@ -41,7 +41,7 @@ export async function sendServiceRequestCreatedEmail(params: {
       <a href="${siteUrl}/track" style="color:#0F6595;font-weight:600;">${siteUrl}/track</a>
     </p>
     <p style="margin:16px 0 0;">
-      <a href="${siteUrl}/partner/dashboard" style="display:inline-block;padding:10px 20px;background:#3EEDC4;color:#ffffff;text-decoration:none;border-radius:6px;font-size:14px;font-weight:600;">View in Partner Portal</a>
+      <a href="${siteUrl}/partner/dashboard" style="display:inline-block;padding:10px 20px;background:#0F6595;color:#ffffff;text-decoration:none;border-radius:6px;font-size:14px;font-weight:600;">View in Partner Portal</a>
     </p>`
   );
 
@@ -64,7 +64,7 @@ export async function sendStatusUpdateEmail(params: {
 
   const statusColor =
     newStatus === "approved" || newStatus === "delivered"
-      ? "#2DE6C8"
+      ? "#0E8A6E"
       : newStatus === "rejected"
         ? "#DC2626"
         : newStatus === "on-hold"
@@ -83,7 +83,7 @@ export async function sendStatusUpdateEmail(params: {
       dataRow("New Status", `<strong style="color:${statusColor};">${statusLabel(newStatus)}</strong>`)
     ) +
     `<p style="margin:16px 0 0;">
-      <a href="${siteUrl}/partner/dashboard" style="display:inline-block;padding:10px 20px;background:#3EEDC4;color:#ffffff;text-decoration:none;border-radius:6px;font-size:14px;font-weight:600;">View Details</a>
+      <a href="${siteUrl}/partner/dashboard" style="display:inline-block;padding:10px 20px;background:#0F6595;color:#ffffff;text-decoration:none;border-radius:6px;font-size:14px;font-weight:600;">View Details</a>
     </p>`
   );
 

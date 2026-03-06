@@ -113,7 +113,7 @@ export async function sendLeadNotification(data: HeroLeadFormData): Promise<Emai
       dataRow("Duration", data.duration) +
       dataRow("Travelers", data.travelers)
     ) +
-    `<p style="margin:16px 0 0;"><a href="${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/admin/collections/leads" style="display:inline-block;padding:10px 20px;background:#3EEDC4;color:#ffffff;text-decoration:none;border-radius:6px;font-size:14px;font-weight:600;">View in Admin</a></p>`
+    `<p style="margin:16px 0 0;"><a href="${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/admin/collections/leads" style="display:inline-block;padding:10px 20px;background:#0F6595;color:#ffffff;text-decoration:none;border-radius:6px;font-size:14px;font-weight:600;">View in Admin</a></p>`
   );
 
   return sendEmail({
@@ -128,7 +128,7 @@ export async function sendLeadConfirmation(data: HeroLeadFormData): Promise<Emai
   const html = emailLayout(
     `Thanks, ${data.fullName}!`,
     `<p style="color:#374151;font-size:15px;line-height:1.6;margin:0 0 16px;">
-      We received your travel inquiry for <strong>${dest}</strong>. Our team will contact you within <strong style="color:#3EEDC4;">2 hours</strong> to discuss your trip.
+      We received your travel inquiry for <strong>${dest}</strong>. Our team will contact you within <strong style="color:#0F6595;">2 hours</strong> to discuss your trip.
     </p>
     <p style="color:#374151;font-size:15px;line-height:1.6;margin:0 0 16px;">Here's a summary of your request:</p>` +
     dataTable(
@@ -169,7 +169,7 @@ export async function sendInquiryNotification(data: VisaInquiryFormData): Promis
       dataRow("Contact Method", data.preferredContactMethod) +
       dataRow("Callback Time", data.preferredCallbackTime)
     ) +
-    `<p style="margin:16px 0 0;"><a href="${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/admin/collections/inquiries" style="display:inline-block;padding:10px 20px;background:#3EEDC4;color:#ffffff;text-decoration:none;border-radius:6px;font-size:14px;font-weight:600;">View in Admin</a></p>`
+    `<p style="margin:16px 0 0;"><a href="${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/admin/collections/inquiries" style="display:inline-block;padding:10px 20px;background:#0F6595;color:#ffffff;text-decoration:none;border-radius:6px;font-size:14px;font-weight:600;">View in Admin</a></p>`
   );
 
   return sendEmail({
@@ -215,7 +215,7 @@ export async function sendCallbackNotification(data: CallbackFormData): Promise<
       dataRow("Preferred Time", data.preferredTime) +
       dataRow("Service", data.service)
     ) +
-    `<p style="color:#3EEDC4;font-size:14px;font-weight:600;margin:16px 0 0;">Please call them as soon as possible.</p>`
+    `<p style="color:#0F6595;font-size:14px;font-weight:600;margin:16px 0 0;">Please call them as soon as possible.</p>`
   );
 
   return sendEmail({
@@ -254,7 +254,7 @@ export async function sendContactConfirmation(data: ContactFormData): Promise<Em
   const html = emailLayout(
     `Thanks for reaching out, ${data.name}!`,
     `<p style="color:#374151;font-size:15px;line-height:1.6;margin:0 0 16px;">
-      We received your message and will respond within <strong style="color:#3EEDC4;">24 hours</strong>.
+      We received your message and will respond within <strong style="color:#0F6595;">24 hours</strong>.
     </p>
     <p style="color:#374151;font-size:15px;line-height:1.6;margin:0 0 16px;">Here's what you sent us:</p>
     <div style="margin:16px 0;padding:16px;background:#f9fafb;border-left:4px solid #0F6595;border-radius:4px;">
