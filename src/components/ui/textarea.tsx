@@ -91,7 +91,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
             !hasError && [
               "border-gray-300",
               "hover:border-gray-400",
-              "focus:border-[#673de6] focus:ring-[#673de6]/20",
+              "focus:border-[#0F6595] focus:ring-[#0F6595]/20",
             ],
             // Error state
             hasError && [

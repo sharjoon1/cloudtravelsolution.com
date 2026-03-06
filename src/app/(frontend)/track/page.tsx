@@ -41,7 +41,7 @@ export default function PublicTrackingPage() {
     <div className="mx-auto max-w-2xl px-4 py-12 sm:px-6">
       {/* Page Header */}
       <div className="mb-8 text-center">
-        <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-[#673de6]">
+        <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-[#0F6595]">
           <Search className="h-7 w-7 text-white" />
         </div>
         <h1 className="text-3xl font-bold text-gray-900">Track Your Application</h1>

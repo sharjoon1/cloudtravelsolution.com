@@ -31,17 +31,17 @@ export async function sendServiceRequestCreatedEmail(params: {
       A new service request has been successfully submitted.
     </p>` +
     dataTable(
-      dataRow("Tracking Code", `<strong style="color:#673de6;font-size:16px;">${trackingCode}</strong>`) +
+      dataRow("Tracking Code", `<strong style="color:#0F6595;font-size:16px;">${trackingCode}</strong>`) +
       dataRow("Applicant", applicantName) +
       dataRow("Service", serviceType.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())) +
       dataRow("Destination", destinationCountry)
     ) +
     `<p style="color:#374151;font-size:15px;line-height:1.6;margin:16px 0 0;">
       You can track the status of this application using the tracking code above at:
-      <a href="${siteUrl}/track" style="color:#673de6;font-weight:600;">${siteUrl}/track</a>
+      <a href="${siteUrl}/track" style="color:#0F6595;font-weight:600;">${siteUrl}/track</a>
     </p>
     <p style="margin:16px 0 0;">
-      <a href="${siteUrl}/partner/dashboard" style="display:inline-block;padding:10px 20px;background:#fc5185;color:#ffffff;text-decoration:none;border-radius:6px;font-size:14px;font-weight:600;">View in Partner Portal</a>
+      <a href="${siteUrl}/partner/dashboard" style="display:inline-block;padding:10px 20px;background:#3EEDC4;color:#ffffff;text-decoration:none;border-radius:6px;font-size:14px;font-weight:600;">View in Partner Portal</a>
     </p>`
   );
 
@@ -64,12 +64,12 @@ export async function sendStatusUpdateEmail(params: {
 
   const statusColor =
     newStatus === "approved" || newStatus === "delivered"
-      ? "#00b090"
+      ? "#2DE6C8"
       : newStatus === "rejected"
         ? "#DC2626"
         : newStatus === "on-hold"
           ? "#F59E0B"
-          : "#673de6";
+          : "#0F6595";
 
   const html = emailLayout(
     "Application Status Update",
@@ -83,7 +83,7 @@ export async function sendStatusUpdateEmail(params: {
       dataRow("New Status", `<strong style="color:${statusColor};">${statusLabel(newStatus)}</strong>`)
     ) +
     `<p style="margin:16px 0 0;">
-      <a href="${siteUrl}/partner/dashboard" style="display:inline-block;padding:10px 20px;background:#fc5185;color:#ffffff;text-decoration:none;border-radius:6px;font-size:14px;font-weight:600;">View Details</a>
+      <a href="${siteUrl}/partner/dashboard" style="display:inline-block;padding:10px 20px;background:#3EEDC4;color:#ffffff;text-decoration:none;border-radius:6px;font-size:14px;font-weight:600;">View Details</a>
     </p>`
   );
 

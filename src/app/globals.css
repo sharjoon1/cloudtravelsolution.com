@@ -4,16 +4,16 @@
 
 /* Old theme backed up in globals.css.old-theme for easy revert */
 :root {
-  /* Brand Colors — Pito-inspired Purple Theme */
-  --color-primary: #673de6;
-  --color-primary-light: #7c5ce7;
-  --color-primary-dark: #5025d1;
-  --color-secondary: #fc5185;
-  --color-secondary-light: #ff7eb3;
-  --color-secondary-dark: #e0446f;
-  --color-accent: #00b090;
-  --color-accent-light: #00c9a7;
-  --color-accent-dark: #009070;
+  /* Brand Colors — Pito-inspired Dark Blue + Cyan Theme */
+  --color-primary: #0F6595;
+  --color-primary-light: #1579B2;
+  --color-primary-dark: #0A5178;
+  --color-secondary: #3EEDC4;
+  --color-secondary-light: #6BF2D6;
+  --color-secondary-dark: #2BC9A2;
+  --color-accent: #2DE6C8;
+  --color-accent-light: #5AEFD5;
+  --color-accent-dark: #1FBF9E;
 
   /* Neutrals */
   --background: #FFFFFF;
@@ -21,13 +21,13 @@
   --muted: #f2f3f6;
   --muted-foreground: #727586;
   --border: #d8dae0;
-  --ring: #673de6;
+  --ring: #0F6595;
 
   /* Semantic */
-  --success: #00b090;
+  --success: #2DE6C8;
   --warning: #ffcd35;
-  --error: #fc5185;
-  --info: #357df9;
+  --error: #DC2626;
+  --info: #1579B2;
 }
 
 @theme inline {

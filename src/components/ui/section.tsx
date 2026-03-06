@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 const sectionVariants = {
   default: "bg-white text-gray-900",
   muted: "bg-gray-50 text-gray-900",
-  primary: "bg-[#673de6] text-white",
+  primary: "bg-[#0F6595] text-white",
   dark: "bg-gray-900 text-white",
 } as const;
 

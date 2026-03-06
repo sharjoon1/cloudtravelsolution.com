@@ -4,23 +4,23 @@
  * and replace hex codes in components (see color-map below)
  *
  * COLOR MAP (New → Old):
- * #673de6 → #1B4D7A  (primary)
- * #7c5ce7 → #2563A0  (primary-light)
- * #5025d1 → #133A5C  (primary-dark)
- * #5a31d4 → #164068  (primary-hover)
- * #4a27b5 → #0F3356  (primary-active)
- * #fc5185 → #E8963E  (secondary)
- * #ff7eb3 → #F0AD60  (secondary-light)
- * #e0446f → #C87A2E  (secondary-dark)
- * #e0446f → #d4852f  (secondary-hover)
- * #c93a5f → #BF7623  (secondary-active)
- * #00b090 → #2A9D6E  (accent)
- * #00c9a7 → #34B87F  (accent-light)
- * #009070 → #1F7A54  (accent-dark)
- * #009a7a → #238A5F  (accent-hover)
- * #008068 → #1D7750  (accent-active)
+ * #0F6595 → #1B4D7A  (primary)
+ * #1579B2 → #2563A0  (primary-light)
+ * #0A5178 → #133A5C  (primary-dark)
+ * #0C5880 → #164068  (primary-hover)
+ * #084868 → #0F3356  (primary-active)
+ * #3EEDC4 → #E8963E  (secondary)
+ * #6BF2D6 → #F0AD60  (secondary-light)
+ * #2BC9A2 → #C87A2E  (secondary-dark/hover)
+ * #20A888 → #BF7623  (secondary-active)
+ * #2DE6C8 → #2A9D6E  (accent)
+ * #5AEFD5 → #34B87F  (accent-light)
+ * #1FBF9E → #1F7A54  (accent-dark)
+ * #25C8A6 → #238A5F  (accent-hover)
+ * #1AAF90 → #1D7750  (accent-active)
  *
- * Ring: #673de6 → #1B4D7A
+ * Ring: #0F6595 → #1B4D7A
+ * Text on cyan buttons: text-[#0A5178] → text-white
  */
 
 :root {

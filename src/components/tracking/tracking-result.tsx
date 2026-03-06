@@ -25,7 +25,7 @@ export function TrackingResults({ results }: TrackingResultProps) {
           <div className="border-b border-gray-100 px-6 py-4">
             <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <p className="font-mono text-xl font-bold text-[#673de6]">
+                <p className="font-mono text-xl font-bold text-[#0F6595]">
                   {result.trackingCode}
                 </p>
                 <p className="text-sm text-gray-500">{result.applicantName}</p>

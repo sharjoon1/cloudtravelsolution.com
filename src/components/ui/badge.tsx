@@ -3,11 +3,11 @@ import { cn } from "@/lib/utils";
 
 const badgeVariants = {
   default:
-    "bg-[#673de6]/10 text-[#673de6] border-[#673de6]/20",
+    "bg-[#0F6595]/10 text-[#0F6595] border-[#0F6595]/20",
   success:
-    "bg-[#00b090]/10 text-[#00b090] border-[#00b090]/20",
+    "bg-[#2DE6C8]/10 text-[#2DE6C8] border-[#2DE6C8]/20",
   warning:
-    "bg-[#fc5185]/10 text-[#fc5185] border-[#fc5185]/20",
+    "bg-[#3EEDC4]/10 text-[#3EEDC4] border-[#3EEDC4]/20",
   error:
     "bg-red-50 text-red-700 border-red-200",
   info:
@@ -25,9 +25,9 @@ export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
 }
 
 const dotColors: Record<BadgeVariant, string> = {
-  default: "bg-[#673de6]",
-  success: "bg-[#00b090]",
-  warning: "bg-[#fc5185]",
+  default: "bg-[#0F6595]",
+  success: "bg-[#2DE6C8]",
+  warning: "bg-[#3EEDC4]",
   error: "bg-red-600",
   info: "bg-sky-600",
   outline: "bg-gray-500",
