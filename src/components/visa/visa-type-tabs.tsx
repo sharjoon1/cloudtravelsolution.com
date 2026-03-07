@@ -59,7 +59,7 @@ export function VisaTypeTabs({ visaTypes, countryName }: VisaTypeTabsProps) {
           </div>
           <Link
             href="/inquiry/visa"
-            className="flex items-center justify-center gap-2 p-4 rounded-lg bg-[#0066FF] text-white font-semibold text-sm hover:bg-[#0050CC] transition-colors"
+            className="flex items-center justify-center gap-2 p-4 rounded-lg bg-[#00E68A] text-[#265ab2] font-semibold text-sm hover:bg-[#00CC7A] transition-colors"
           >
             Apply Now
             <ArrowRight className="h-4 w-4" />
@@ -102,8 +102,8 @@ export function VisaTypeTabs({ visaTypes, countryName }: VisaTypeTabsProps) {
 
         {/* Notes */}
         {activeVisa.notes && (
-          <div className="p-4 rounded-lg bg-[#0066FF]/5 border border-[#0066FF]/10">
-            <p className="text-sm text-[#0A1A44]">
+          <div className="p-4 rounded-lg bg-[#357df9]/5 border border-[#357df9]/10">
+            <p className="text-sm text-[#357df9]">
               <strong>Note:</strong> {activeVisa.notes}
             </p>
           </div>

@@ -64,7 +64,7 @@ export default async function VisaCountryPage({ params }: PageProps) {
 
       <Breadcrumb items={breadcrumbs} />
 
-      <div className="bg-[#f2f3f6]">
+      <div className="bg-[#e3ebf9]">
 
         {/* Country header */}
         <div className="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-dark)] text-white">

@@ -202,7 +202,7 @@ export default function FAQPage() {
     : filteredFaqs;
 
   return (
-    <div className="bg-[#f2f3f6]">
+    <div className="bg-[#e3ebf9]">
       {/* Header */}
       <div className="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-dark)] text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 lg:py-14">
@@ -321,7 +321,7 @@ export default function FAQPage() {
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-7 py-3 border border-border text-foreground font-medium rounded-lg hover:bg-[#f2f3f6] transition-colors"
+              className="inline-flex items-center gap-2 px-7 py-3 border border-border text-foreground font-medium rounded-lg hover:bg-[#e3ebf9] transition-colors"
             >
               Contact Us
             </Link>

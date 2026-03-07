@@ -153,7 +153,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      <div className="bg-[#f2f3f6]">
+      <div className="bg-[#e3ebf9]">
         {/* Breadcrumbs */}
         <div className="border-b border-border">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3">
@@ -292,7 +292,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
             {/* Sidebar */}
             <div className="lg:col-span-1">
               <div className="sticky top-28 space-y-6">
-                <div className="p-6 rounded-xl border border-[#dadce0] bg-[#f2f3f6] shadow-sm">
+                <div className="p-6 rounded-xl border border-[#dadce0] bg-[#e3ebf9] shadow-sm">
                   <h3 className="font-semibold text-foreground mb-1">
                     Get Started Today
                   </h3>

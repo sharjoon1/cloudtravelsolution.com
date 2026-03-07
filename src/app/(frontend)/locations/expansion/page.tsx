@@ -98,7 +98,7 @@ const phases = [
 export default function ExpansionPage() {
   return (
     <>
-      <div className="bg-[#f2f3f6]">
+      <div className="bg-[#e3ebf9]">
         {/* Header */}
         <div className="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-dark)] text-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-20">
@@ -169,7 +169,7 @@ export default function ExpansionPage() {
                   {phase.cities.map((city) => (
                     <div
                       key={city.name}
-                      className="flex items-center gap-3 p-3 rounded-lg bg-[#f2f3f6] border border-[#dadce0]"
+                      className="flex items-center gap-3 p-3 rounded-lg bg-[#e3ebf9] border border-[#dadce0]"
                     >
                       <div
                         className={`h-10 w-10 rounded-lg flex items-center justify-center ${

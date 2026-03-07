@@ -66,7 +66,7 @@ export default function AboutPage() {
         ]}
       />
 
-      <div className="bg-[#f2f3f6]">
+      <div className="bg-[#e3ebf9]">
         {/* Hero */}
         <div className="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-dark)] text-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-20">
@@ -129,7 +129,7 @@ export default function AboutPage() {
               {values.map((value) => (
                 <div
                   key={value.title}
-                  className="p-6 bg-[#f2f3f6] rounded-xl border border-[#dadce0]"
+                  className="p-6 bg-[#e3ebf9] rounded-xl border border-[#dadce0]"
                 >
                   <value.icon className="h-8 w-8 text-[var(--color-primary)] mb-3" />
                   <h3 className="font-semibold text-foreground mb-2">

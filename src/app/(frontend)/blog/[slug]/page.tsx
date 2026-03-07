@@ -130,7 +130,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         }}
       />
 
-      <div className="bg-[#f2f3f6]">
+      <div className="bg-[#e3ebf9]">
         {/* Breadcrumbs */}
         <div className="border-b border-border">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3">
@@ -239,7 +239,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             <div className="lg:col-span-1">
               <div className="sticky top-28 space-y-6">
                 {/* CTA — Book consultation */}
-                <div className="p-6 rounded-xl border border-[#dadce0] bg-[#f2f3f6] shadow-sm">
+                <div className="p-6 rounded-xl border border-[#dadce0] bg-[#e3ebf9] shadow-sm">
                   <h3 className="font-semibold text-foreground mb-1">
                     Need Visa Help?
                   </h3>
@@ -325,7 +325,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                   <Link
                     key={related.slug}
                     href={`/blog/${related.slug}`}
-                    className="group flex flex-col rounded-xl border border-[#dadce0] bg-[#f2f3f6] hover:border-[#0066FF]/30 hover:shadow-lg transition-all overflow-hidden"
+                    className="group flex flex-col rounded-xl border border-[#dadce0] bg-[#e3ebf9] hover:border-[#357df9]/30 hover:shadow-lg transition-all overflow-hidden"
                   >
                     {/* Placeholder image */}
                     <div className="h-40 bg-gradient-to-br from-[var(--color-primary)]/10 to-[var(--color-primary)]/5 flex items-center justify-center">

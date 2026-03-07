@@ -91,7 +91,7 @@ export function DocumentUpload({ files, onChange }: DocumentUploadProps) {
         onClick={() => fileInputRef.current?.click()}
         className={`cursor-pointer rounded-xl border-2 border-dashed p-8 text-center transition-colors ${
           dragActive
-            ? "border-[#0066FF] bg-blue-50/50"
+            ? "border-[#357df9] bg-blue-50/50"
             : "border-gray-300 hover:border-gray-400"
         }`}
       >
@@ -139,7 +139,7 @@ export function DocumentUpload({ files, onChange }: DocumentUploadProps) {
               <select
                 value={item.documentType}
                 onChange={(e) => updateFileType(index, e.target.value)}
-                className="rounded-lg border border-gray-300 px-2 py-1.5 text-xs focus:border-[#0066FF] focus:outline-none"
+                className="rounded-lg border border-gray-300 px-2 py-1.5 text-xs focus:border-[#357df9] focus:outline-none"
               >
                 {DOCUMENT_TYPES.map((dt) => (
                   <option key={dt.value} value={dt.value}>
