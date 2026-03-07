@@ -57,7 +57,7 @@ export function WhatsAppButton({ whatsappNumber }: WhatsAppButtonProps) {
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="block w-full text-center px-4 py-2 bg-[#25D366] hover:bg-[#20BD5A] text-white font-semibold rounded-lg transition-colors text-sm"
+            className="block w-full text-center px-4 py-2 bg-[#0cfcbc] hover:bg-[#0adba5] text-[#094f8a] font-bold rounded-lg transition-colors text-sm"
           >
             Start Chat
           </a>
@@ -68,7 +68,7 @@ export function WhatsAppButton({ whatsappNumber }: WhatsAppButtonProps) {
       <button
         type="button"
         onClick={() => setIsTooltipOpen(!isTooltipOpen)}
-        className="h-14 w-14 rounded-full bg-[#25D366] hover:bg-[#20BD5A] text-white shadow-lg hover:shadow-xl transition-all flex items-center justify-center hover:scale-105 animate-bounce-slow"
+        className="h-14 w-14 rounded-full bg-[#0cfcbc] hover:bg-[#0adba5] text-[#094f8a] shadow-lg hover:shadow-xl transition-all flex items-center justify-center hover:scale-105 animate-bounce-slow"
         aria-label="Chat on WhatsApp"
       >
         <WhatsAppIcon className="h-7 w-7" />
