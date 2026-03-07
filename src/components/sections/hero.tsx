@@ -57,7 +57,7 @@ export function Hero({ heroData, trustBadges }: HeroProps) {
       <HeroSlider />
 
       {/* Fallback gradient (shown while images load) */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[#2f1c6a] via-[#1F1346] to-[#150d35]" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[#0A1A44] via-[#061230] to-[#040E24]" />
 
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
@@ -73,7 +73,7 @@ export function Hero({ heroData, trustBadges }: HeroProps) {
             {/* Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-5">
               {headline}{" "}
-              <span className="text-[#8c85ff]">{highlight}</span>{" "}
+              <span className="text-[#00E68A]">{highlight}</span>{" "}
               {headlineAfter}
             </h1>
 

@@ -69,14 +69,14 @@ export function ServiceRequestTable({
             value={searchInput}
             onChange={(e) => setSearchInput(e.target.value)}
             placeholder="Search name, passport, or code..."
-            className="w-full rounded-lg border border-gray-300 py-2 pl-9 pr-3 text-sm focus:border-[#673de6] focus:outline-none focus:ring-1 focus:ring-[#673de6]"
+            className="w-full rounded-lg border border-gray-300 py-2 pl-9 pr-3 text-sm focus:border-[#0066FF] focus:outline-none focus:ring-1 focus:ring-[#0066FF]"
           />
         </form>
 
         <select
           value={statusFilter}
           onChange={(e) => onStatusFilter(e.target.value)}
-          className="rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-[#673de6] focus:outline-none"
+          className="rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-[#0066FF] focus:outline-none"
         >
           <option value="all">All Statuses</option>
           {Object.entries(STATUS_CONFIG).map(([value, config]) => (
@@ -119,7 +119,7 @@ export function ServiceRequestTable({
                   <td className="px-4 py-3">
                     <Link
                       href={`/partner/track/${req.id}`}
-                      className="font-mono text-sm font-semibold text-[#673de6] hover:underline"
+                      className="font-mono text-sm font-semibold text-[#0066FF] hover:underline"
                     >
                       {req.trackingCode}
                     </Link>

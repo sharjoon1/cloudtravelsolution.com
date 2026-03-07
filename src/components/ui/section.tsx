@@ -4,8 +4,8 @@ import { cn } from "@/lib/utils";
 const sectionVariants = {
   default: "bg-[#f2f3f6] text-[#1d1e20]",
   muted: "bg-[#ebe4ff] text-[#1d1e20]",
-  primary: "bg-[#673de6] text-white",
-  dark: "bg-[#2f1c6a] text-white",
+  primary: "bg-[#0066FF] text-white",
+  dark: "bg-[#0A1A44] text-white",
 } as const;
 
 type SectionVariant = keyof typeof sectionVariants;

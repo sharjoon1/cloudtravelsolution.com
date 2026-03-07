@@ -31,7 +31,7 @@ export function PartnerNavbar({ partner }: PartnerNavbarProps) {
   }
 
   return (
-    <header className="bg-[#2f1c6a] text-white shadow-lg">
+    <header className="bg-[#0A1A44] text-white shadow-lg">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}

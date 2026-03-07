@@ -53,7 +53,7 @@ export function Footer({ siteSettings }: FooterProps) {
   ].filter((s) => s.href);
 
   return (
-    <footer className="bg-[#1F1346] text-white">
+    <footer className="bg-[#061230] text-white">
       {/* Main footer */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
@@ -65,13 +65,13 @@ export function Footer({ siteSettings }: FooterProps) {
               ) : (
                 <>
                   <div className="h-9 w-9 rounded-lg bg-white/10 flex items-center justify-center">
-                    <span className="text-[#8c85ff] font-bold text-lg">
+                    <span className="text-[#00E68A] font-bold text-lg">
                       C
                     </span>
                   </div>
                   <div>
                     <span className="font-bold text-lg text-white">Cloud</span>
-                    <span className="font-bold text-lg text-[#8c85ff]">
+                    <span className="font-bold text-lg text-[#00E68A]">
                       TravelSolution
                     </span>
                   </div>
@@ -84,14 +84,14 @@ export function Footer({ siteSettings }: FooterProps) {
             <div className="space-y-3 text-sm">
               <a
                 href={`tel:${tollFree}`}
-                className="flex items-center gap-2 text-white/80 hover:text-[#8c85ff] transition-colors"
+                className="flex items-center gap-2 text-white/80 hover:text-[#00E68A] transition-colors"
               >
                 <Phone className="h-4 w-4 shrink-0" />
                 {tollFree}
               </a>
               <a
                 href={`mailto:${email}`}
-                className="flex items-center gap-2 text-white/80 hover:text-[#8c85ff] transition-colors"
+                className="flex items-center gap-2 text-white/80 hover:text-[#00E68A] transition-colors"
               >
                 <Mail className="h-4 w-4 shrink-0" />
                 {email}
@@ -105,7 +105,7 @@ export function Footer({ siteSettings }: FooterProps) {
                       href={href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="h-9 w-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#673de6] transition-colors"
+                      className="h-9 w-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#0066FF] transition-colors"
                       aria-label={label}
                     >
                       <Icon className="h-4 w-4" />
@@ -115,7 +115,7 @@ export function Footer({ siteSettings }: FooterProps) {
                     <a
                       key={i}
                       href="#"
-                      className="h-9 w-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#673de6] transition-colors"
+                      className="h-9 w-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#0066FF] transition-colors"
                       aria-label={Icon.displayName || "Social media"}
                     >
                       <Icon className="h-4 w-4" />
@@ -134,7 +134,7 @@ export function Footer({ siteSettings }: FooterProps) {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-white/70 hover:text-[#8c85ff] transition-colors"
+                    className="text-sm text-white/70 hover:text-[#00E68A] transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -153,7 +153,7 @@ export function Footer({ siteSettings }: FooterProps) {
                 <li key={service.slug}>
                   <Link
                     href={`/services/${service.slug}`}
-                    className="text-sm text-white/70 hover:text-[#8c85ff] transition-colors"
+                    className="text-sm text-white/70 hover:text-[#00E68A] transition-colors"
                   >
                     {service.title}
                   </Link>
@@ -172,13 +172,13 @@ export function Footer({ siteSettings }: FooterProps) {
                 <li key={location.slug}>
                   <Link
                     href={`/locations/${location.slug}`}
-                    className="flex items-start gap-2 text-sm text-white/70 hover:text-[#8c85ff] transition-colors"
+                    className="flex items-start gap-2 text-sm text-white/70 hover:text-[#00E68A] transition-colors"
                   >
                     <MapPin className="h-4 w-4 shrink-0 mt-0.5" />
                     <span>
                       {location.city}, {location.state}
                       {location.status === "coming-soon" && (
-                        <span className="ml-1.5 inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-medium bg-[#673de6]/20 text-[#8c85ff]">
+                        <span className="ml-1.5 inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-medium bg-[#0066FF]/20 text-[#00E68A]">
                           Coming Soon
                         </span>
                       )}
@@ -207,11 +207,11 @@ export function Footer({ siteSettings }: FooterProps) {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 md:w-64 px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 text-sm text-white placeholder:text-white/40 outline-none focus:border-[#8c85ff] transition-colors"
+                className="flex-1 md:w-64 px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 text-sm text-white placeholder:text-white/40 outline-none focus:border-[#00E68A] transition-colors"
               />
               <button
                 type="button"
-                className="px-5 py-2.5 bg-[#673de6] hover:bg-[#5025d1] text-white font-semibold rounded-lg transition-colors text-sm shrink-0"
+                className="px-5 py-2.5 bg-[#0066FF] hover:bg-[#0050CC] text-white font-semibold rounded-lg transition-colors text-sm shrink-0"
               >
                 Subscribe
               </button>

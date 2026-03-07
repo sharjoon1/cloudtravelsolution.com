@@ -9,15 +9,15 @@ const spinnerSizes = {
 
 const buttonVariants = {
   primary:
-    "bg-[#673de6] text-white hover:bg-[#5025d1] active:bg-[#4520b5] focus-visible:ring-[#673de6]/40",
+    "bg-[#0066FF] text-white hover:bg-[#0050CC] active:bg-[#004AB3] focus-visible:ring-[#0066FF]/40",
   secondary:
-    "bg-[#673de6] text-white font-semibold hover:bg-[#5025d1] active:bg-[#4520b5] focus-visible:ring-[#673de6]/40",
+    "bg-[#0066FF] text-white font-semibold hover:bg-[#0050CC] active:bg-[#004AB3] focus-visible:ring-[#0066FF]/40",
   accent:
     "bg-[#00b090] text-white font-semibold hover:bg-[#008f75] active:bg-[#007a65] focus-visible:ring-[#00b090]/40",
   outline:
-    "border-2 border-[#673de6] text-[#673de6] bg-transparent hover:bg-[#673de6]/5 active:bg-[#673de6]/10 focus-visible:ring-[#673de6]/40",
+    "border-2 border-[#0066FF] text-[#0066FF] bg-transparent hover:bg-[#0066FF]/5 active:bg-[#0066FF]/10 focus-visible:ring-[#0066FF]/40",
   ghost:
-    "text-[#673de6] bg-transparent hover:bg-[#673de6]/5 active:bg-[#673de6]/10 focus-visible:ring-[#673de6]/40",
+    "text-[#0066FF] bg-transparent hover:bg-[#0066FF]/5 active:bg-[#0066FF]/10 focus-visible:ring-[#0066FF]/40",
   destructive:
     "bg-[#fc5185] text-white hover:bg-[#e8456f] active:bg-[#d63d62] focus-visible:ring-[#fc5185]/40",
 } as const;

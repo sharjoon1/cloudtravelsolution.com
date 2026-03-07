@@ -4,35 +4,35 @@
 
 /* Old theme backed up in globals.css.old-theme for easy revert */
 :root {
-  /* Brand Colors — Pito Purple Theme */
-  --color-primary: #673de6;
-  --color-primary-light: #8c85ff;
-  --color-primary-dark: #5025d1;
-  --color-secondary: #673de6;
-  --color-secondary-light: #8c85ff;
-  --color-secondary-dark: #5025d1;
-  --color-accent: #00b090;
-  --color-accent-light: #33c0a6;
-  --color-accent-dark: #008f75;
+  /* Brand Colors — Pito Blue + Green Theme */
+  --color-primary: #0066FF;
+  --color-primary-light: #3388FF;
+  --color-primary-dark: #0050CC;
+  --color-secondary: #00E68A;
+  --color-secondary-light: #33EEAA;
+  --color-secondary-dark: #00CC7A;
+  --color-accent: #00E68A;
+  --color-accent-light: #33EEAA;
+  --color-accent-dark: #00CC7A;
 
   /* Dark theme colors */
-  --color-dark: #1d1e20;
-  --color-meteorite: #2f1c6a;
-  --color-meteorite-dark: #1F1346;
+  --color-dark: #0A1A44;
+  --color-meteorite: #0A1A44;
+  --color-meteorite-dark: #061230;
 
   /* Neutrals */
   --background: #f2f3f6;
   --foreground: #1d1e20;
-  --muted: #ebe4ff;
+  --muted: #E0EEFF;
   --muted-foreground: #727586;
   --border: #dadce0;
-  --ring: #673de6;
+  --ring: #0066FF;
 
   /* Semantic */
-  --success: #00b090;
+  --success: #00E68A;
   --warning: #ffcd35;
   --error: #fc5185;
-  --info: #357df9;
+  --info: #0066FF;
 }
 
 @theme inline {

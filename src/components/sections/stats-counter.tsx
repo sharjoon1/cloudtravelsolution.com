@@ -50,7 +50,7 @@ function StatItem({
 
   return (
     <div className="text-center">
-      <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#8c85ff] mb-2">
+      <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#00E68A] mb-2">
         {count.toLocaleString("en-IN")}
         {suffix}
       </div>
@@ -100,7 +100,7 @@ export function StatsCounter({ statsData, statsItems }: StatsCounterProps) {
   return (
     <section
       ref={sectionRef}
-      className="py-16 lg:py-20 bg-[#2f1c6a] text-white"
+      className="py-16 lg:py-20 bg-[#0A1A44] text-white"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">

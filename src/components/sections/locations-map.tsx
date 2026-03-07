@@ -37,7 +37,7 @@ export function LocationsMap({ headings }: LocationsMapProps) {
               className={cn(
                 "group relative p-6 rounded-xl border transition-all duration-200",
                 location.status === "active"
-                  ? "bg-[#f2f3f6] border-[#dadce0] hover:border-[#673de6]/30 hover:shadow-lg"
+                  ? "bg-[#f2f3f6] border-[#dadce0] hover:border-[#0066FF]/30 hover:shadow-lg"
                   : "bg-[#f2f3f6]/60 border-dashed border-[#dadce0]/60"
               )}
             >

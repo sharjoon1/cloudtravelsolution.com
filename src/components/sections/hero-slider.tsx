@@ -112,7 +112,7 @@ export function HeroSlider({
       ))}
 
       {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#1F1346]/90 via-[#2f1c6a]/75 to-[#2f1c6a]/50" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#061230]/90 via-[#0A1A44]/75 to-[#0A1A44]/50" />
 
       {/* Navigation arrows */}
       <button
@@ -140,7 +140,7 @@ export function HeroSlider({
             className={cn(
               "h-2 rounded-full transition-all duration-300",
               i === current
-                ? "w-8 bg-[#673de6]"
+                ? "w-8 bg-[#0066FF]"
                 : "w-2 bg-white/40 hover:bg-white/60"
             )}
           />

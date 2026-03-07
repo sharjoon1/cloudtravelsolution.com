@@ -150,8 +150,8 @@ export function CountrySearch({ countries }: CountrySearchProps) {
                 onClick={() => setVisaTypeFilter(v.value)}
                 className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
                   visaTypeFilter === v.value
-                    ? "bg-[#673de6] text-white"
-                    : "bg-[var(--color-muted)] text-foreground/70 hover:bg-[#673de6]/10"
+                    ? "bg-[#0066FF] text-white"
+                    : "bg-[var(--color-muted)] text-foreground/70 hover:bg-[#0066FF]/10"
                 }`}
               >
                 {v.label}
