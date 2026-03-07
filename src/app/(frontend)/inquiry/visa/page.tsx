@@ -21,7 +21,7 @@ export default function VisaInquiryPage() {
           </p>
         </div>
 
-        <div className="bg-[#e3ebf9] rounded-2xl shadow-sm border border-[#dadce0] p-6 sm:p-8">
+        <div className="bg-white rounded-2xl shadow-sm border border-[#dadce0] p-6 sm:p-8">
           <VisaInquiryForm />
         </div>
       </div>

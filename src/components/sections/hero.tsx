@@ -57,7 +57,7 @@ export function Hero({ heroData, trustBadges }: HeroProps) {
       <HeroSlider />
 
       {/* Fallback gradient (shown while images load) */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[#0c6cbc] via-[#0c6cbc] to-[#0a5a9e]" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[#0c6cbc] via-[#0a5a9e] to-[#094f8a]" />
 
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
@@ -65,7 +65,7 @@ export function Hero({ heroData, trustBadges }: HeroProps) {
           {/* Left column: text content */}
           <div>
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur text-sm font-medium mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/15 border border-white/10 backdrop-blur text-sm font-medium mb-6">
               <span className="h-2 w-2 rounded-full bg-[var(--color-accent)] animate-pulse" />
               {badge}
             </div>
@@ -78,7 +78,7 @@ export function Hero({ heroData, trustBadges }: HeroProps) {
             </h1>
 
             {/* Subheadline */}
-            <p className="text-lg sm:text-xl text-white/80 leading-relaxed mb-8 max-w-2xl">
+            <p className="text-lg sm:text-xl text-white/85 leading-relaxed mb-8 max-w-2xl">
               {subheadline}
             </p>
 
@@ -89,9 +89,9 @@ export function Hero({ heroData, trustBadges }: HeroProps) {
                 return (
                   <div
                     key={b.label}
-                    className="flex items-center gap-2 text-white/70"
+                    className="flex items-center gap-2 text-white/90"
                   >
-                    <Icon className="h-4 w-4" />
+                    <Icon className="h-4 w-4 text-[#0cfcbc]" />
                     <span className="text-sm font-medium">{b.label}</span>
                   </div>
                 );

@@ -112,7 +112,7 @@ export function HeroSlider({
       ))}
 
       {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0c6cbc]/90 via-[#0c6cbc]/75 to-[#0c6cbc]/50" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#094f8a]/90 via-[#0c6cbc]/75 to-[#0c6cbc]/50" />
 
       {/* Navigation arrows */}
       <button

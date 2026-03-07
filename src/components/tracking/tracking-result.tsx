@@ -19,7 +19,7 @@ export function TrackingResults({ results }: TrackingResultProps) {
       {results.map((result) => (
         <div
           key={result.trackingCode}
-          className="rounded-xl border border-gray-200 bg-[#e3ebf9] shadow-sm"
+          className="rounded-xl border border-gray-200 bg-white shadow-sm"
         >
           {/* Header */}
           <div className="border-b border-gray-100 px-6 py-4">

@@ -211,7 +211,7 @@ export function CountrySearch({ countries }: CountrySearchProps) {
                     <Link
                       key={country.slug}
                       href={`/visa/${country.slug}`}
-                      className="group flex items-center justify-between p-4 rounded-lg border border-border hover:border-[var(--color-primary)]/30 hover:shadow-sm transition-all bg-[#e3ebf9]"
+                      className="group flex items-center justify-between p-4 rounded-lg border border-border hover:border-[var(--color-primary)]/30 hover:shadow-sm transition-all bg-white shadow-sm"
                     >
                       <div className="flex items-center gap-3">
                         <span className="text-2xl">{country.flag}</span>

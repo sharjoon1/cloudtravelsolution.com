@@ -182,7 +182,7 @@ export default function TeamPage() {
             {leadership.map((member) => (
               <div
                 key={member.name}
-                className="p-8 rounded-xl border border-[#dadce0] bg-[#e3ebf9] hover:shadow-lg transition-shadow"
+                className="p-8 rounded-xl border border-[#dadce0] bg-white shadow-sm hover:shadow-lg transition-shadow"
               >
                 <div className="flex items-center gap-4 mb-5">
                   <div
@@ -235,7 +235,7 @@ export default function TeamPage() {
               {teamMembers.map((member) => (
                 <div
                   key={member.name}
-                  className="p-6 bg-[#e3ebf9] rounded-xl border border-[#dadce0] hover:shadow-md transition-shadow"
+                  className="p-6 bg-white rounded-xl border border-[#dadce0] shadow-sm hover:shadow-md transition-shadow"
                 >
                   <div className="flex items-center gap-3 mb-4">
                     <div

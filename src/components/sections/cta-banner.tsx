@@ -24,12 +24,12 @@ export function CTABanner({ ctaData, siteSettings }: CTABannerProps) {
   const tollFree = siteSettings?.businessInfo?.tollFreeNumber || SITE_CONFIG.tollFree;
 
   return (
-    <section className="py-16 lg:py-20 bg-gradient-to-r from-[#0c6cbc] to-[#0c6cbc] text-white">
+    <section className="py-16 lg:py-20 bg-gradient-to-r from-[#0a5a9e] to-[#094f8a] text-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-3xl sm:text-4xl font-bold mb-4">
           {heading}
         </h2>
-        <p className="text-lg text-white/80 max-w-2xl mx-auto mb-8">
+        <p className="text-lg text-white/85 max-w-2xl mx-auto mb-8">
           {description}
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -42,7 +42,7 @@ export function CTABanner({ ctaData, siteSettings }: CTABannerProps) {
           </Link>
           <a
             href={`tel:${tollFree}`}
-            className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-lg transition-colors backdrop-blur"
+            className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/15 hover:bg-white/25 border border-white/20 text-white font-semibold rounded-lg transition-colors backdrop-blur"
           >
             <Phone className="h-4 w-4" />
             Call {tollFree}

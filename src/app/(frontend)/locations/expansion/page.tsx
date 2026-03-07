@@ -169,7 +169,7 @@ export default function ExpansionPage() {
                   {phase.cities.map((city) => (
                     <div
                       key={city.name}
-                      className="flex items-center gap-3 p-3 rounded-lg bg-[#e3ebf9] border border-[#dadce0]"
+                      className="flex items-center gap-3 p-3 rounded-lg bg-white border border-[#dadce0] shadow-sm"
                     >
                       <div
                         className={`h-10 w-10 rounded-lg flex items-center justify-center ${

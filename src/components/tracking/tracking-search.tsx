@@ -20,7 +20,7 @@ export function TrackingSearch({ onSearch, loading }: TrackingSearchProps) {
   }
 
   return (
-    <div className="rounded-xl border border-gray-200 bg-[#e3ebf9] p-6 shadow-sm">
+    <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
       {/* Tabs */}
       <div className="mb-4 flex rounded-lg bg-gray-100 p-1">
         <button

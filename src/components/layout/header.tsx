@@ -39,9 +39,9 @@ export function Header({ siteSettings }: HeaderProps) {
   }, [mobileMenuOpen]);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-[#0c6cbc]/20 bg-[#0c6cbc] backdrop-blur supports-[backdrop-filter]:bg-[#0c6cbc]/95">
+    <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-[#0c6cbc] backdrop-blur supports-[backdrop-filter]:bg-[#0c6cbc]/98">
       {/* Top bar */}
-      <div className="bg-[#0c6cbc] text-white text-sm">
+      <div className="bg-[#094f8a] text-white text-sm">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between h-9">
           <p className="hidden sm:block">
             Trusted Visa & Travel Partner — Bangalore | Hyderabad | Delhi | Chennai

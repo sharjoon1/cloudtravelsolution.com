@@ -53,7 +53,7 @@ export function Footer({ siteSettings }: FooterProps) {
   ].filter((s) => s.href);
 
   return (
-    <footer className="bg-[#0c6cbc] text-white">
+    <footer className="bg-[#094f8a] text-white">
       {/* Main footer */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
@@ -78,7 +78,7 @@ export function Footer({ siteSettings }: FooterProps) {
                 </>
               )}
             </Link>
-            <p className="text-sm text-white/70 leading-relaxed">
+            <p className="text-sm text-white/80 leading-relaxed">
               {footerTagline}
             </p>
             <div className="space-y-3 text-sm">
@@ -105,7 +105,7 @@ export function Footer({ siteSettings }: FooterProps) {
                       href={href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="h-9 w-9 rounded-full bg-transparent border border-[#0cfcbc] text-[#0cfcbc] flex items-center justify-center hover:bg-[#0cfcbc] hover:text-[#0c6cbc] transition-colors"
+                      className="h-9 w-9 rounded-full bg-transparent border border-[#0cfcbc] text-[#0cfcbc] flex items-center justify-center hover:bg-[#0cfcbc] hover:text-[#094f8a] transition-colors"
                       aria-label={label}
                     >
                       <Icon className="h-4 w-4" />
@@ -115,7 +115,7 @@ export function Footer({ siteSettings }: FooterProps) {
                     <a
                       key={i}
                       href="#"
-                      className="h-9 w-9 rounded-full bg-transparent border border-[#0cfcbc] text-[#0cfcbc] flex items-center justify-center hover:bg-[#0cfcbc] hover:text-[#0c6cbc] transition-colors"
+                      className="h-9 w-9 rounded-full bg-transparent border border-[#0cfcbc] text-[#0cfcbc] flex items-center justify-center hover:bg-[#0cfcbc] hover:text-[#094f8a] transition-colors"
                       aria-label={Icon.displayName || "Social media"}
                     >
                       <Icon className="h-4 w-4" />
@@ -134,7 +134,7 @@ export function Footer({ siteSettings }: FooterProps) {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-white/70 hover:text-[#0cfcbc] transition-colors"
+                    className="text-sm text-white/80 hover:text-[#0cfcbc] transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -153,7 +153,7 @@ export function Footer({ siteSettings }: FooterProps) {
                 <li key={service.slug}>
                   <Link
                     href={`/services/${service.slug}`}
-                    className="text-sm text-white/70 hover:text-[#0cfcbc] transition-colors"
+                    className="text-sm text-white/80 hover:text-[#0cfcbc] transition-colors"
                   >
                     {service.title}
                   </Link>
@@ -172,7 +172,7 @@ export function Footer({ siteSettings }: FooterProps) {
                 <li key={location.slug}>
                   <Link
                     href={`/locations/${location.slug}`}
-                    className="flex items-start gap-2 text-sm text-white/70 hover:text-[#0cfcbc] transition-colors"
+                    className="flex items-start gap-2 text-sm text-white/80 hover:text-[#0cfcbc] transition-colors"
                   >
                     <MapPin className="h-4 w-4 shrink-0 mt-0.5" />
                     <span>
@@ -192,14 +192,14 @@ export function Footer({ siteSettings }: FooterProps) {
       </div>
 
       {/* Newsletter */}
-      <div className="border-t border-white/10">
+      <div className="border-t border-white/15">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div>
               <h3 className="font-semibold text-white text-sm">
                 Subscribe to Our Newsletter
               </h3>
-              <p className="text-xs text-white/60 mt-0.5">
+              <p className="text-xs text-white/70 mt-0.5">
                 Get visa tips, travel guides, and updates delivered to your inbox.
               </p>
             </div>
@@ -221,9 +221,9 @@ export function Footer({ siteSettings }: FooterProps) {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-white/10">
+      <div className="border-t border-white/15">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-white/50">
+          <p className="text-xs text-white/60">
             &copy; {new Date().getFullYear()} {copyrightText}
           </p>
           <div className="flex items-center gap-4">
@@ -231,7 +231,7 @@ export function Footer({ siteSettings }: FooterProps) {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-xs text-white/50 hover:text-white/80 transition-colors"
+                className="text-xs text-white/60 hover:text-white/80 transition-colors"
               >
                 {link.label}
               </Link>

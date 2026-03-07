@@ -88,7 +88,7 @@ export function Testimonials({ headings }: TestimonialsProps) {
         </div>
 
         <div className="max-w-3xl mx-auto">
-          <div className="relative bg-[var(--color-muted)] rounded-2xl p-8 sm:p-10">
+          <div className="relative bg-white rounded-2xl shadow-sm p-8 sm:p-10">
             <Quote className="absolute top-6 left-6 h-8 w-8 text-[var(--color-primary)]/15" />
 
             {/* Stars */}

@@ -63,7 +63,7 @@ export function QuickInquiryForm({
   }
 
   return (
-    <div className="p-6 rounded-xl border border-border bg-[#e3ebf9] shadow-sm">
+    <div className="p-6 rounded-xl border border-border bg-white shadow-sm">
       <h3 className="font-semibold text-foreground mb-1">
         Quick {countryName} Visa Inquiry
       </h3>

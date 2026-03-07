@@ -183,10 +183,10 @@ export default function LocationsPage() {
                   key={phase.phase}
                   className={`p-5 rounded-xl border ${
                     phase.status === "active"
-                      ? "bg-[#e3ebf9] border-[var(--color-accent)]/30"
+                      ? "bg-white shadow-sm border-[var(--color-accent)]/30"
                       : phase.status === "launching"
-                        ? "bg-[#e3ebf9] border-[var(--color-secondary)]/30"
-                        : "bg-[#e3ebf9]/50 border-border"
+                        ? "bg-white shadow-sm border-[var(--color-secondary)]/30"
+                        : "bg-white/50 shadow-sm border-border"
                   }`}
                 >
                   <div className="flex items-center justify-between mb-3">

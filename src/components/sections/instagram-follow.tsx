@@ -11,7 +11,7 @@ export function InstagramFollow({ instagramUrl }: InstagramFollowProps) {
   return (
     <section className="py-16 lg:py-20 bg-gradient-to-br from-[#833ab4]/5 via-[#fd1d1d]/5 to-[#fcb045]/5">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-10 p-8 sm:p-12 rounded-2xl bg-[#e3ebf9] border border-[#dadce0] shadow-sm">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-10 p-8 sm:p-12 rounded-2xl bg-white border border-[#dadce0] shadow-sm">
           {/* Left side: Content */}
           <div className="flex-1 text-center md:text-left">
             <div className="flex items-center gap-3 justify-center md:justify-start mb-4">

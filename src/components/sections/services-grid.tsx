@@ -56,9 +56,9 @@ export function ServicesGrid({ headings }: ServicesGridProps) {
               <Link
                 key={service.slug}
                 href={`/services/${service.slug}`}
-                className="group p-6 bg-[#e3ebf9] rounded-xl border border-[#dadce0] hover:border-[#0c6cbc]/30 hover:shadow-lg transition-all duration-200"
+                className="group p-6 bg-white rounded-xl border border-[#dadce0] shadow-sm hover:border-[#0c6cbc]/30 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200"
               >
-                <div className="h-12 w-12 rounded-lg bg-[var(--color-primary)]/10 flex items-center justify-center mb-4 group-hover:bg-[var(--color-primary)] transition-colors">
+                <div className="h-12 w-12 rounded-lg bg-[#0c6cbc]/8 flex items-center justify-center mb-4 group-hover:bg-[var(--color-primary)] transition-colors">
                   <Icon className="h-6 w-6 text-[var(--color-primary)] group-hover:text-white transition-colors" />
                 </div>
                 <h3 className="text-lg font-semibold text-foreground mb-2">

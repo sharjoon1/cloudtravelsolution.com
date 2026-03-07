@@ -129,7 +129,7 @@ export default function AboutPage() {
               {values.map((value) => (
                 <div
                   key={value.title}
-                  className="p-6 bg-[#e3ebf9] rounded-xl border border-[#dadce0]"
+                  className="p-6 bg-white rounded-xl border border-[#dadce0] shadow-sm"
                 >
                   <value.icon className="h-8 w-8 text-[var(--color-primary)] mb-3" />
                   <h3 className="font-semibold text-foreground mb-2">

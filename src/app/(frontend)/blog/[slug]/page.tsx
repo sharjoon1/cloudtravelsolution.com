@@ -239,7 +239,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             <div className="lg:col-span-1">
               <div className="sticky top-28 space-y-6">
                 {/* CTA — Book consultation */}
-                <div className="p-6 rounded-xl border border-[#dadce0] bg-[#e3ebf9] shadow-sm">
+                <div className="p-6 rounded-xl border border-[#dadce0] bg-white shadow-sm">
                   <h3 className="font-semibold text-foreground mb-1">
                     Need Visa Help?
                   </h3>
@@ -325,7 +325,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                   <Link
                     key={related.slug}
                     href={`/blog/${related.slug}`}
-                    className="group flex flex-col rounded-xl border border-[#dadce0] bg-[#e3ebf9] hover:border-[#0c6cbc]/30 hover:shadow-lg transition-all overflow-hidden"
+                    className="group flex flex-col rounded-xl border border-[#dadce0] bg-white shadow-sm hover:border-[#0c6cbc]/30 hover:shadow-lg transition-all overflow-hidden"
                   >
                     {/* Placeholder image */}
                     <div className="h-40 bg-gradient-to-br from-[var(--color-primary)]/10 to-[var(--color-primary)]/5 flex items-center justify-center">
