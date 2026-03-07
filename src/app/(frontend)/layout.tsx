@@ -4,6 +4,7 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { WhatsAppButton } from "@/components/ui/whatsapp-button";
 import { ScrollToTop } from "@/components/ui/scroll-to-top";
+import ChatWidget from "@/components/ui/chat-widget";
 import { connection } from "next/server";
 import { getSiteSettings } from "@/lib/payload-data";
 
@@ -52,6 +53,7 @@ export default async function FrontendLayout({
       <Header siteSettings={siteSettings} />
       <main className="min-h-screen">{children}</main>
       <Footer siteSettings={siteSettings} />
+      <ChatWidget />
       <WhatsAppButton whatsappNumber={siteSettings.businessInfo.whatsappNumber} />
       <ScrollToTop />
     </>
