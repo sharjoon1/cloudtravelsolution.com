@@ -127,7 +127,7 @@ export default function TeamPage() {
         ]}
       />
 
-      <div className="bg-white">
+      <div className="bg-[#f2f3f6]">
         {/* Hero */}
         <div className="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-dark)] text-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-20">
@@ -182,7 +182,7 @@ export default function TeamPage() {
             {leadership.map((member) => (
               <div
                 key={member.name}
-                className="p-8 rounded-xl border border-border bg-white hover:shadow-lg transition-shadow"
+                className="p-8 rounded-xl border border-[#dadce0] bg-[#f2f3f6] hover:shadow-lg transition-shadow"
               >
                 <div className="flex items-center gap-4 mb-5">
                   <div
@@ -235,7 +235,7 @@ export default function TeamPage() {
               {teamMembers.map((member) => (
                 <div
                   key={member.name}
-                  className="p-6 bg-white rounded-xl border border-border hover:shadow-md transition-shadow"
+                  className="p-6 bg-[#f2f3f6] rounded-xl border border-[#dadce0] hover:shadow-md transition-shadow"
                 >
                   <div className="flex items-center gap-3 mb-4">
                     <div
@@ -289,7 +289,7 @@ export default function TeamPage() {
             </p>
             <a
               href="mailto:careers@cloudtravelsolution.com"
-              className="inline-flex items-center gap-2 px-7 py-3.5 bg-[var(--color-accent)] hover:bg-[var(--color-accent-dark)] text-[var(--color-primary-dark)] font-semibold rounded-lg transition-colors"
+              className="inline-flex items-center gap-2 px-7 py-3.5 bg-[var(--color-accent)] hover:bg-[var(--color-accent-dark)] text-white font-semibold rounded-lg transition-colors"
             >
               <Mail className="h-4 w-4" />
               careers@cloudtravelsolution.com

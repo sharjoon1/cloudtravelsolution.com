@@ -65,7 +65,7 @@ export default function PartnerTrackDetailPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-20">
-        <div className="h-8 w-8 animate-spin rounded-full border-4 border-[#0F6595] border-t-transparent" />
+        <div className="h-8 w-8 animate-spin rounded-full border-4 border-[#673de6] border-t-transparent" />
       </div>
     );
   }
@@ -74,7 +74,7 @@ export default function PartnerTrackDetailPage() {
     return (
       <div className="py-20 text-center">
         <p className="text-gray-500">Service request not found</p>
-        <Link href="/partner/dashboard" className="mt-4 inline-block text-sm text-[#0F6595] hover:underline">
+        <Link href="/partner/dashboard" className="mt-4 inline-block text-sm text-[#673de6] hover:underline">
           Back to Dashboard
         </Link>
       </div>
@@ -102,7 +102,7 @@ export default function PartnerTrackDetailPage() {
       {/* Header */}
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 className="font-mono text-2xl font-bold text-[#0F6595]">
+          <h1 className="font-mono text-2xl font-bold text-[#673de6]">
             {request.trackingCode}
           </h1>
           <p className="text-sm text-gray-500">
@@ -255,7 +255,7 @@ export default function PartnerTrackDetailPage() {
                   <button
                     onClick={handleUpload}
                     disabled={uploading}
-                    className="rounded-lg bg-[#0F6595] px-4 py-2 text-sm font-semibold text-white hover:bg-[#0C5880] disabled:opacity-60"
+                    className="rounded-lg bg-[#673de6] px-4 py-2 text-sm font-semibold text-white hover:bg-[#5025d1] disabled:opacity-60"
                   >
                     {uploading ? "Uploading..." : `Upload ${newFiles.length} file(s)`}
                   </button>

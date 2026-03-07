@@ -202,7 +202,7 @@ export default function FAQPage() {
     : filteredFaqs;
 
   return (
-    <div className="bg-white">
+    <div className="bg-[#f2f3f6]">
       {/* Header */}
       <div className="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-dark)] text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 lg:py-14">
@@ -315,13 +315,13 @@ export default function FAQPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link
               href="/inquiry/visa"
-              className="inline-flex items-center gap-2 px-7 py-3 bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-dark)] text-[var(--color-primary-dark)] font-semibold rounded-lg transition-colors"
+              className="inline-flex items-center gap-2 px-7 py-3 bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-dark)] text-white font-semibold rounded-lg transition-colors"
             >
               Book Free Consultation
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-7 py-3 border border-border text-foreground font-medium rounded-lg hover:bg-white transition-colors"
+              className="inline-flex items-center gap-2 px-7 py-3 border border-border text-foreground font-medium rounded-lg hover:bg-[#f2f3f6] transition-colors"
             >
               Contact Us
             </Link>

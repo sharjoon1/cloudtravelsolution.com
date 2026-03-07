@@ -50,11 +50,11 @@ function StatItem({
 
   return (
     <div className="text-center">
-      <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[var(--color-primary)] mb-2">
+      <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#8c85ff] mb-2">
         {count.toLocaleString("en-IN")}
         {suffix}
       </div>
-      <div className="text-sm sm:text-base text-muted-foreground font-medium">
+      <div className="text-sm sm:text-base text-white/70 font-medium">
         {label}
       </div>
     </div>
@@ -100,14 +100,14 @@ export function StatsCounter({ statsData, statsItems }: StatsCounterProps) {
   return (
     <section
       ref={sectionRef}
-      className="py-16 lg:py-20 bg-white border-y border-border"
+      className="py-16 lg:py-20 bg-[#2f1c6a] text-white"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-3">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3">
             {heading}
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="text-white/70 text-lg max-w-2xl mx-auto">
             {subheading}
           </p>
         </div>

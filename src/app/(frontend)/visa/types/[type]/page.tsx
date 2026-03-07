@@ -82,7 +82,7 @@ export default async function VisaTypeDetailPage({ params }: PageProps) {
     <>
       <Breadcrumb items={breadcrumbs} />
 
-      <div className="bg-white">
+      <div className="bg-[#f2f3f6]">
         {/* Header */}
         <div className="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-dark)] text-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 lg:py-14">
@@ -231,7 +231,7 @@ export default async function VisaTypeDetailPage({ params }: PageProps) {
               </p>
               <Link
                 href="/inquiry/visa"
-                className="inline-flex items-center gap-2 px-6 py-2.5 bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-dark)] text-[var(--color-primary-dark)] font-semibold rounded-lg transition-colors text-sm"
+                className="inline-flex items-center gap-2 px-6 py-2.5 bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-dark)] text-white font-semibold rounded-lg transition-colors text-sm"
               >
                 Get Expert Help
                 <ArrowRight className="h-4 w-4" />
@@ -275,7 +275,7 @@ export default async function VisaTypeDetailPage({ params }: PageProps) {
             </p>
             <Link
               href="/inquiry/visa"
-              className="inline-flex items-center gap-2 px-7 py-3 bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-dark)] text-[var(--color-primary-dark)] font-semibold rounded-lg transition-colors"
+              className="inline-flex items-center gap-2 px-7 py-3 bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-dark)] text-white font-semibold rounded-lg transition-colors"
             >
               Book Free Consultation
               <ArrowRight className="h-4 w-4" />

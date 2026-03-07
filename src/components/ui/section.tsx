@@ -2,10 +2,10 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 
 const sectionVariants = {
-  default: "bg-white text-gray-900",
-  muted: "bg-gray-50 text-gray-900",
-  primary: "bg-[#0F6595] text-white",
-  dark: "bg-gray-900 text-white",
+  default: "bg-[#f2f3f6] text-[#1d1e20]",
+  muted: "bg-[#ebe4ff] text-[#1d1e20]",
+  primary: "bg-[#673de6] text-white",
+  dark: "bg-[#2f1c6a] text-white",
 } as const;
 
 type SectionVariant = keyof typeof sectionVariants;

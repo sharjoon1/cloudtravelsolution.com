@@ -86,7 +86,7 @@ export function StatusProgress({ currentStatus, statusHistory }: StatusProgressP
                 {isCompleted ? (
                   <CheckCircle2
                     className={`h-6 w-6 shrink-0 ${
-                      isCurrent ? "text-[#0F6595]" : "text-green-500"
+                      isCurrent ? "text-[#673de6]" : "text-green-500"
                     }`}
                   />
                 ) : (

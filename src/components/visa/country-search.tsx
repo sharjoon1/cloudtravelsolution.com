@@ -150,8 +150,8 @@ export function CountrySearch({ countries }: CountrySearchProps) {
                 onClick={() => setVisaTypeFilter(v.value)}
                 className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
                   visaTypeFilter === v.value
-                    ? "bg-[var(--color-secondary)] text-[var(--color-primary-dark)]"
-                    : "bg-[var(--color-muted)] text-foreground/70 hover:bg-[var(--color-secondary)]/10"
+                    ? "bg-[#673de6] text-white"
+                    : "bg-[var(--color-muted)] text-foreground/70 hover:bg-[#673de6]/10"
                 }`}
               >
                 {v.label}
@@ -211,7 +211,7 @@ export function CountrySearch({ countries }: CountrySearchProps) {
                     <Link
                       key={country.slug}
                       href={`/visa/${country.slug}`}
-                      className="group flex items-center justify-between p-4 rounded-lg border border-border hover:border-[var(--color-primary)]/30 hover:shadow-sm transition-all bg-white"
+                      className="group flex items-center justify-between p-4 rounded-lg border border-border hover:border-[var(--color-primary)]/30 hover:shadow-sm transition-all bg-[#f2f3f6]"
                     >
                       <div className="flex items-center gap-3">
                         <span className="text-2xl">{country.flag}</span>

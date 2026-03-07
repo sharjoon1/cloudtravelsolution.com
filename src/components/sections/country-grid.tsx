@@ -50,7 +50,7 @@ export function CountryGrid({ headings }: CountryGridProps) {
               <Link
                 key={country.slug}
                 href={`/visa/${country.slug}`}
-                className="group relative flex flex-col rounded-2xl bg-white border border-border/60 hover:border-[var(--color-primary)]/30 hover:shadow-lg transition-all duration-300 overflow-hidden"
+                className="group relative flex flex-col rounded-2xl bg-[#f2f3f6] border border-[#dadce0]/60 hover:border-[#673de6]/30 hover:shadow-lg transition-all duration-300 overflow-hidden"
               >
                 {/* Top accent bar */}
                 <div className="h-[3px] bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)]" />

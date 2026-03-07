@@ -75,11 +75,11 @@ export function HeroLeadForm() {
 
   if (isSubmitted) {
     return (
-      <div className="bg-white rounded-2xl shadow-2xl p-8 text-center">
+      <div className="bg-[#f2f3f6] rounded-2xl shadow-2xl p-8 text-center">
         <div className="h-16 w-16 rounded-full bg-[var(--color-accent)]/10 flex items-center justify-center mx-auto mb-4">
           <CheckCircle2 className="h-8 w-8 text-[var(--color-accent)]" />
         </div>
-        <h3 className="text-xl font-bold text-gray-900 mb-2">Thank You!</h3>
+        <h3 className="text-xl font-bold text-[#1d1e20] mb-2">Thank You!</h3>
         <p className="text-gray-600 text-sm">
           Our travel expert will reach out to you within 2 hours with a
           personalized travel plan.
@@ -89,9 +89,9 @@ export function HeroLeadForm() {
   }
 
   return (
-    <div className="bg-white rounded-2xl shadow-2xl p-6 sm:p-8">
+    <div className="bg-[#f2f3f6] rounded-2xl shadow-2xl p-6 sm:p-8">
       {/* Header */}
-      <h3 className="text-xl font-bold text-gray-900 mb-1">Which Country are you applying for?</h3>
+      <h3 className="text-xl font-bold text-[#1d1e20] mb-1">Which Country are you applying for?</h3>
       <p className="text-sm text-gray-500 mb-6">
         {currentStep === 1
           ? "Tell us about your travel plans"
@@ -226,7 +226,7 @@ export function HeroLeadForm() {
             <button
               type="button"
               onClick={goToNextStep}
-              className="w-full h-11 flex items-center justify-center gap-2 bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-dark)] text-[var(--color-primary-dark)] text-sm font-semibold rounded-lg transition-colors"
+              className="w-full h-11 flex items-center justify-center gap-2 bg-[#673de6] hover:bg-[#5025d1] text-white text-sm font-semibold rounded-lg transition-colors"
             >
               Next
               <ArrowRight className="h-4 w-4" />
@@ -310,7 +310,7 @@ export function HeroLeadForm() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full h-11 flex items-center justify-center gap-2 bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-dark)] text-[var(--color-primary-dark)] text-sm font-semibold rounded-lg transition-colors disabled:opacity-50"
+                className="w-full h-11 flex items-center justify-center gap-2 bg-[#673de6] hover:bg-[#5025d1] text-white text-sm font-semibold rounded-lg transition-colors disabled:opacity-50"
               >
                 {isSubmitting ? (
                   <>
@@ -340,7 +340,7 @@ export function HeroLeadForm() {
           className={cn(
             "h-2 rounded-full transition-all",
             currentStep === 1
-              ? "w-6 bg-[var(--color-secondary)]"
+              ? "w-6 bg-[#673de6]"
               : "w-2 bg-gray-200"
           )}
         />
@@ -348,7 +348,7 @@ export function HeroLeadForm() {
           className={cn(
             "h-2 rounded-full transition-all",
             currentStep === 2
-              ? "w-6 bg-[var(--color-secondary)]"
+              ? "w-6 bg-[#673de6]"
               : "w-2 bg-gray-200"
           )}
         />

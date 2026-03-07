@@ -76,7 +76,7 @@ export function Testimonials({ headings }: TestimonialsProps) {
   const testimonial = testimonials[currentIndex];
 
   return (
-    <section className="py-16 lg:py-20 bg-white">
+    <section className="py-16 lg:py-20 bg-[#f2f3f6]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-3">

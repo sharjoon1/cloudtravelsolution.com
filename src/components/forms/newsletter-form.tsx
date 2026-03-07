@@ -70,7 +70,7 @@ export function NewsletterForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="flex items-center justify-center gap-2 px-5 py-2.5 bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-dark)] text-[var(--color-primary-dark)] font-semibold rounded-lg transition-colors text-sm disabled:opacity-50 shrink-0"
+        className="flex items-center justify-center gap-2 px-5 py-2.5 bg-[#673de6] hover:bg-[#5025d1] text-white font-semibold rounded-lg transition-colors text-sm disabled:opacity-50 shrink-0"
       >
         {isSubmitting ? (
           <Loader2 className="h-4 w-4 animate-spin" />

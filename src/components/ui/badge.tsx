@@ -3,17 +3,17 @@ import { cn } from "@/lib/utils";
 
 const badgeVariants = {
   default:
-    "bg-[#0F6595]/10 text-[#0A5178] border-[#0F6595]/20",
+    "bg-[#673de6]/10 text-[#5025d1] border-[#673de6]/20",
   success:
-    "bg-[#2DE6C8]/10 text-[#1A7A66] border-[#2DE6C8]/20",
+    "bg-[#00b090]/10 text-[#008f75] border-[#00b090]/20",
   warning:
-    "bg-[#3EEDC4]/10 text-[#1A7A66] border-[#3EEDC4]/20",
+    "bg-[#ffcd35]/10 text-[#8a6d00] border-[#ffcd35]/30",
   error:
-    "bg-red-50 text-red-700 border-red-200",
+    "bg-[#fc5185]/10 text-[#d63d62] border-[#fc5185]/20",
   info:
-    "bg-sky-50 text-sky-700 border-sky-200",
+    "bg-[#357df9]/10 text-[#2a63c7] border-[#357df9]/20",
   outline:
-    "bg-transparent text-gray-700 border-gray-300",
+    "bg-transparent text-[#36344d] border-[#dadce0]",
 } as const;
 
 type BadgeVariant = keyof typeof badgeVariants;
@@ -25,12 +25,12 @@ export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
 }
 
 const dotColors: Record<BadgeVariant, string> = {
-  default: "bg-[#0F6595]",
-  success: "bg-[#2DE6C8]",
-  warning: "bg-[#3EEDC4]",
-  error: "bg-red-600",
-  info: "bg-sky-600",
-  outline: "bg-gray-500",
+  default: "bg-[#673de6]",
+  success: "bg-[#00b090]",
+  warning: "bg-[#ffcd35]",
+  error: "bg-[#fc5185]",
+  info: "bg-[#357df9]",
+  outline: "bg-[#727586]",
 };
 
 const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(

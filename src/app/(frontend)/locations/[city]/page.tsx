@@ -76,7 +76,7 @@ export default async function LocationPage({ params }: PageProps) {
         />
       )}
 
-      <div className="bg-white">
+      <div className="bg-[#f2f3f6]">
         {/* Breadcrumbs */}
         <div className="border-b border-border">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3">
@@ -211,7 +211,7 @@ export default async function LocationPage({ params }: PageProps) {
               {/* Sidebar */}
               <div>
                 <div className="sticky top-28 space-y-6">
-                  <div className="p-6 rounded-xl border border-border bg-white shadow-sm">
+                  <div className="p-6 rounded-xl border border-[#dadce0] bg-[#f2f3f6] shadow-sm">
                     <h3 className="font-semibold text-foreground mb-3">
                       Visit Our {location.city} Office
                     </h3>
@@ -220,7 +220,7 @@ export default async function LocationPage({ params }: PageProps) {
                     </p>
                     <Link
                       href="/inquiry/visa"
-                      className="block w-full text-center px-5 py-3 bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-dark)] text-[var(--color-primary-dark)] font-semibold rounded-lg transition-colors text-sm"
+                      className="block w-full text-center px-5 py-3 bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-dark)] text-white font-semibold rounded-lg transition-colors text-sm"
                     >
                       Book Appointment
                     </Link>
@@ -245,7 +245,7 @@ export default async function LocationPage({ params }: PageProps) {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                 <Link
                   href="/inquiry/visa"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-secondary)] text-[var(--color-primary-dark)] font-semibold rounded-lg hover:bg-[var(--color-secondary-dark)] transition-colors"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-secondary)] text-white font-semibold rounded-lg hover:bg-[var(--color-secondary-dark)] transition-colors"
                 >
                   Submit Online Inquiry
                   <ArrowRight className="h-4 w-4" />

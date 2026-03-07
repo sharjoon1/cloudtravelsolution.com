@@ -61,7 +61,7 @@ export default function LocationsPage() {
         ]}
       />
 
-      <div className="bg-white">
+      <div className="bg-[#f2f3f6]">
         {/* Header */}
         <div className="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-dark)] text-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 lg:py-14">
@@ -183,10 +183,10 @@ export default function LocationsPage() {
                   key={phase.phase}
                   className={`p-5 rounded-xl border ${
                     phase.status === "active"
-                      ? "bg-white border-[var(--color-accent)]/30"
+                      ? "bg-[#f2f3f6] border-[var(--color-accent)]/30"
                       : phase.status === "launching"
-                        ? "bg-white border-[var(--color-secondary)]/30"
-                        : "bg-white/50 border-border"
+                        ? "bg-[#f2f3f6] border-[var(--color-secondary)]/30"
+                        : "bg-[#f2f3f6]/50 border-border"
                   }`}
                 >
                   <div className="flex items-center justify-between mb-3">
