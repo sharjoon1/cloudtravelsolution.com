@@ -9,15 +9,15 @@ const spinnerSizes = {
 
 const buttonVariants = {
   primary:
-    "bg-[#0cfcbc] text-[#265ab2] font-bold hover:bg-[#0adba5] active:bg-[#08b88c] focus-visible:ring-[#0cfcbc]/40",
+    "bg-[#0cfcbc] text-[#0c6cbc] font-bold hover:bg-[#0adba5] active:bg-[#08b88c] focus-visible:ring-[#0cfcbc]/40",
   secondary:
-    "bg-[#0cfcbc] text-[#265ab2] font-bold hover:bg-[#0adba5] active:bg-[#08b88c] focus-visible:ring-[#0cfcbc]/40",
+    "bg-[#0cfcbc] text-[#0c6cbc] font-bold hover:bg-[#0adba5] active:bg-[#08b88c] focus-visible:ring-[#0cfcbc]/40",
   accent:
     "bg-[#00b090] text-white font-semibold hover:bg-[#008f75] active:bg-[#007a65] focus-visible:ring-[#00b090]/40",
   outline:
-    "border-2 border-[#265ab2] text-[#265ab2] bg-transparent hover:bg-[#265ab2]/5 active:bg-[#265ab2]/10 focus-visible:ring-[#265ab2]/40",
+    "border-2 border-[#0c6cbc] text-[#0c6cbc] bg-transparent hover:bg-[#0c6cbc]/5 active:bg-[#0c6cbc]/10 focus-visible:ring-[#0c6cbc]/40",
   ghost:
-    "text-[#265ab2] bg-transparent hover:bg-[#265ab2]/5 active:bg-[#265ab2]/10 focus-visible:ring-[#265ab2]/40",
+    "text-[#0c6cbc] bg-transparent hover:bg-[#0c6cbc]/5 active:bg-[#0c6cbc]/10 focus-visible:ring-[#0c6cbc]/40",
   destructive:
     "bg-[#fc5185] text-white hover:bg-[#e8456f] active:bg-[#d63d62] focus-visible:ring-[#fc5185]/40",
 } as const;

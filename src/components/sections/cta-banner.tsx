@@ -24,7 +24,7 @@ export function CTABanner({ ctaData, siteSettings }: CTABannerProps) {
   const tollFree = siteSettings?.businessInfo?.tollFreeNumber || SITE_CONFIG.tollFree;
 
   return (
-    <section className="py-16 lg:py-20 bg-gradient-to-r from-[#265ab2] to-[#265ab2] text-white">
+    <section className="py-16 lg:py-20 bg-gradient-to-r from-[#0c6cbc] to-[#0c6cbc] text-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-3xl sm:text-4xl font-bold mb-4">
           {heading}
@@ -35,7 +35,7 @@ export function CTABanner({ ctaData, siteSettings }: CTABannerProps) {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
             href={buttonLink}
-            className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#0cfcbc] hover:bg-[#0adba5] text-[#265ab2] font-bold rounded-lg transition-colors shadow-lg"
+            className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#0cfcbc] hover:bg-[#0adba5] text-[#0c6cbc] font-bold rounded-lg transition-colors shadow-lg"
           >
             {buttonText}
             <ArrowRight className="h-4 w-4" />

@@ -50,7 +50,7 @@ function LoginForm() {
       <div className="w-full max-w-md">
         {/* Logo */}
         <div className="mb-8 text-center">
-          <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-[#265ab2]">
+          <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-[#0c6cbc]">
             <Plane className="h-7 w-7 text-white" />
           </div>
           <h1 className="text-2xl font-bold text-gray-900">Partner Portal</h1>
@@ -81,7 +81,7 @@ function LoginForm() {
                 type="email"
                 id="email"
                 autoComplete="email"
-                className="block w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm shadow-sm transition-colors focus:border-[#265ab2] focus:outline-none focus:ring-1 focus:ring-[#265ab2]"
+                className="block w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm shadow-sm transition-colors focus:border-[#0c6cbc] focus:outline-none focus:ring-1 focus:ring-[#0c6cbc]"
                 placeholder="partner@company.com"
               />
               {errors.email && (
@@ -99,7 +99,7 @@ function LoginForm() {
                   type={showPassword ? "text" : "password"}
                   id="password"
                   autoComplete="current-password"
-                  className="block w-full rounded-lg border border-gray-300 px-3 py-2.5 pr-10 text-sm shadow-sm transition-colors focus:border-[#265ab2] focus:outline-none focus:ring-1 focus:ring-[#265ab2]"
+                  className="block w-full rounded-lg border border-gray-300 px-3 py-2.5 pr-10 text-sm shadow-sm transition-colors focus:border-[#0c6cbc] focus:outline-none focus:ring-1 focus:ring-[#0c6cbc]"
                   placeholder="Enter your password"
                 />
                 <button
@@ -119,7 +119,7 @@ function LoginForm() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="mt-6 w-full rounded-lg bg-[#0cfcbc] px-4 py-2.5 text-sm font-semibold text-[#265ab2] shadow-sm transition-colors hover:bg-[#0adba5] disabled:opacity-60"
+            className="mt-6 w-full rounded-lg bg-[#0cfcbc] px-4 py-2.5 text-sm font-semibold text-[#0c6cbc] shadow-sm transition-colors hover:bg-[#0adba5] disabled:opacity-60"
           >
             {isSubmitting ? "Signing in..." : "Sign In"}
           </button>
@@ -138,7 +138,7 @@ export default function PartnerLoginPage() {
     <Suspense
       fallback={
         <div className="flex min-h-screen items-center justify-center">
-          <div className="h-8 w-8 animate-spin rounded-full border-4 border-[#265ab2] border-t-transparent" />
+          <div className="h-8 w-8 animate-spin rounded-full border-4 border-[#0c6cbc] border-t-transparent" />
         </div>
       }
     >

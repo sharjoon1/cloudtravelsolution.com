@@ -144,7 +144,7 @@ export function CallbackForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full flex items-center justify-center gap-2 px-5 py-3 bg-[#0cfcbc] hover:bg-[#0adba5] text-[#265ab2] font-semibold rounded-lg transition-colors text-sm disabled:opacity-50"
+        className="w-full flex items-center justify-center gap-2 px-5 py-3 bg-[#0cfcbc] hover:bg-[#0adba5] text-[#0c6cbc] font-semibold rounded-lg transition-colors text-sm disabled:opacity-50"
       >
         {isSubmitting ? (
           <Loader2 className="h-4 w-4 animate-spin" />

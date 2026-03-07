@@ -80,7 +80,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             !hasError && [
               "border-gray-300",
               "hover:border-gray-400",
-              "focus:border-[#265ab2] focus:ring-[#265ab2]/20",
+              "focus:border-[#0c6cbc] focus:ring-[#0c6cbc]/20",
             ],
             // Error state
             hasError && [

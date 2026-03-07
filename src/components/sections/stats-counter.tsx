@@ -100,7 +100,7 @@ export function StatsCounter({ statsData, statsItems }: StatsCounterProps) {
   return (
     <section
       ref={sectionRef}
-      className="py-16 lg:py-20 bg-[#265ab2] text-white"
+      className="py-16 lg:py-20 bg-[#0c6cbc] text-white"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">

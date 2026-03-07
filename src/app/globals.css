@@ -4,10 +4,10 @@
 
 /* Old theme backed up in globals.css.old-theme for easy revert */
 :root {
-  /* Brand Colors — Unified Blue + Cyan-Green Theme */
-  --color-primary: #265ab2;
-  --color-primary-light: #3a7ad4;
-  --color-primary-dark: #1E4E9A;
+  /* Brand Colors — Blue #0c6cbc + Cyan-Green Theme */
+  --color-primary: #0c6cbc;
+  --color-primary-light: #1a82d9;
+  --color-primary-dark: #0a5a9e;
   --color-secondary: #0cfcbc;
   --color-secondary-light: #3dfdc9;
   --color-secondary-dark: #0adba5;
@@ -16,9 +16,9 @@
   --color-accent-dark: #0adba5;
 
   /* Dark theme colors */
-  --color-dark: #1E4E9A;
-  --color-meteorite: #265ab2;
-  --color-meteorite-dark: #1E4E9A;
+  --color-dark: #0a5a9e;
+  --color-meteorite: #0c6cbc;
+  --color-meteorite-dark: #0a5a9e;
 
   /* Neutrals */
   --background: #e3ebf9;
@@ -26,13 +26,13 @@
   --muted: #e3ebf9;
   --muted-foreground: #727586;
   --border: #dadce0;
-  --ring: #265ab2;
+  --ring: #0c6cbc;
 
   /* Semantic */
   --success: #0cfcbc;
   --warning: #ffcd35;
   --error: #fc5185;
-  --info: #265ab2;
+  --info: #0c6cbc;
 }
 
 @theme inline {
