@@ -65,13 +65,13 @@ export function Footer({ siteSettings }: FooterProps) {
               ) : (
                 <>
                   <div className="h-9 w-9 rounded-lg bg-white/10 flex items-center justify-center">
-                    <span className="text-[#00E68A] font-bold text-lg">
+                    <span className="text-[#0cfcbc] font-bold text-lg">
                       C
                     </span>
                   </div>
                   <div>
                     <span className="font-bold text-lg text-white">Cloud</span>
-                    <span className="font-bold text-lg text-[#00E68A]">
+                    <span className="font-bold text-lg text-[#0cfcbc]">
                       TravelSolution
                     </span>
                   </div>
@@ -84,14 +84,14 @@ export function Footer({ siteSettings }: FooterProps) {
             <div className="space-y-3 text-sm">
               <a
                 href={`tel:${tollFree}`}
-                className="flex items-center gap-2 text-white/80 hover:text-[#00E68A] transition-colors"
+                className="flex items-center gap-2 text-white/80 hover:text-[#0cfcbc] transition-colors"
               >
                 <Phone className="h-4 w-4 shrink-0" />
                 {tollFree}
               </a>
               <a
                 href={`mailto:${email}`}
-                className="flex items-center gap-2 text-white/80 hover:text-[#00E68A] transition-colors"
+                className="flex items-center gap-2 text-white/80 hover:text-[#0cfcbc] transition-colors"
               >
                 <Mail className="h-4 w-4 shrink-0" />
                 {email}
@@ -105,7 +105,7 @@ export function Footer({ siteSettings }: FooterProps) {
                       href={href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="h-9 w-9 rounded-full bg-transparent border border-[#00E68A] text-[#00E68A] flex items-center justify-center hover:bg-[#00E68A] hover:text-[#265ab2] transition-colors"
+                      className="h-9 w-9 rounded-full bg-transparent border border-[#0cfcbc] text-[#0cfcbc] flex items-center justify-center hover:bg-[#0cfcbc] hover:text-[#265ab2] transition-colors"
                       aria-label={label}
                     >
                       <Icon className="h-4 w-4" />
@@ -115,7 +115,7 @@ export function Footer({ siteSettings }: FooterProps) {
                     <a
                       key={i}
                       href="#"
-                      className="h-9 w-9 rounded-full bg-transparent border border-[#00E68A] text-[#00E68A] flex items-center justify-center hover:bg-[#00E68A] hover:text-[#265ab2] transition-colors"
+                      className="h-9 w-9 rounded-full bg-transparent border border-[#0cfcbc] text-[#0cfcbc] flex items-center justify-center hover:bg-[#0cfcbc] hover:text-[#265ab2] transition-colors"
                       aria-label={Icon.displayName || "Social media"}
                     >
                       <Icon className="h-4 w-4" />
@@ -134,7 +134,7 @@ export function Footer({ siteSettings }: FooterProps) {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-white/70 hover:text-[#00E68A] transition-colors"
+                    className="text-sm text-white/70 hover:text-[#0cfcbc] transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -153,7 +153,7 @@ export function Footer({ siteSettings }: FooterProps) {
                 <li key={service.slug}>
                   <Link
                     href={`/services/${service.slug}`}
-                    className="text-sm text-white/70 hover:text-[#00E68A] transition-colors"
+                    className="text-sm text-white/70 hover:text-[#0cfcbc] transition-colors"
                   >
                     {service.title}
                   </Link>
@@ -172,13 +172,13 @@ export function Footer({ siteSettings }: FooterProps) {
                 <li key={location.slug}>
                   <Link
                     href={`/locations/${location.slug}`}
-                    className="flex items-start gap-2 text-sm text-white/70 hover:text-[#00E68A] transition-colors"
+                    className="flex items-start gap-2 text-sm text-white/70 hover:text-[#0cfcbc] transition-colors"
                   >
                     <MapPin className="h-4 w-4 shrink-0 mt-0.5" />
                     <span>
                       {location.city}, {location.state}
                       {location.status === "coming-soon" && (
-                        <span className="ml-1.5 inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-medium bg-[#357df9]/20 text-[#00E68A]">
+                        <span className="ml-1.5 inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-medium bg-[#265ab2]/20 text-[#0cfcbc]">
                           Coming Soon
                         </span>
                       )}
@@ -207,11 +207,11 @@ export function Footer({ siteSettings }: FooterProps) {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 md:w-64 px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 text-sm text-white placeholder:text-white/40 outline-none focus:border-[#00E68A] transition-colors"
+                className="flex-1 md:w-64 px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 text-sm text-white placeholder:text-white/40 outline-none focus:border-[#0cfcbc] transition-colors"
               />
               <button
                 type="button"
-                className="px-5 py-2.5 bg-[#00E68A] hover:bg-[#00CC7A] text-[#265ab2] font-bold rounded-lg transition-colors text-sm shrink-0"
+                className="px-5 py-2.5 bg-[#0cfcbc] hover:bg-[#0adba5] text-[#265ab2] font-bold rounded-lg transition-colors text-sm shrink-0"
               >
                 Subscribe
               </button>

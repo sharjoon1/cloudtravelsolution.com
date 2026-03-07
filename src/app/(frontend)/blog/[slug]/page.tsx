@@ -325,7 +325,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                   <Link
                     key={related.slug}
                     href={`/blog/${related.slug}`}
-                    className="group flex flex-col rounded-xl border border-[#dadce0] bg-[#e3ebf9] hover:border-[#357df9]/30 hover:shadow-lg transition-all overflow-hidden"
+                    className="group flex flex-col rounded-xl border border-[#dadce0] bg-[#e3ebf9] hover:border-[#265ab2]/30 hover:shadow-lg transition-all overflow-hidden"
                   >
                     {/* Placeholder image */}
                     <div className="h-40 bg-gradient-to-br from-[var(--color-primary)]/10 to-[var(--color-primary)]/5 flex items-center justify-center">

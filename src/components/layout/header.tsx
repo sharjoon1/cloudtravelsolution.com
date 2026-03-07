@@ -39,7 +39,7 @@ export function Header({ siteSettings }: HeaderProps) {
   }, [mobileMenuOpen]);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-[#357df9]/20 bg-[#357df9] backdrop-blur supports-[backdrop-filter]:bg-[#357df9]/95">
+    <header className="sticky top-0 z-50 w-full border-b border-[#265ab2]/20 bg-[#265ab2] backdrop-blur supports-[backdrop-filter]:bg-[#265ab2]/95">
       {/* Top bar */}
       <div className="bg-[#265ab2] text-white text-sm">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between h-9">
@@ -73,14 +73,14 @@ export function Header({ siteSettings }: HeaderProps) {
               <Image src={logoUrl} alt={siteSettings?.businessInfo?.siteName || "CloudTravelSolution"} width={280} height={56} className="h-10 sm:h-12 w-auto max-w-[200px] sm:max-w-[280px] object-contain" priority unoptimized />
             ) : (
               <>
-                <div className="h-9 w-9 rounded-lg bg-[#357df9] flex items-center justify-center">
+                <div className="h-9 w-9 rounded-lg bg-[#265ab2] flex items-center justify-center">
                   <span className="text-white font-bold text-lg">C</span>
                 </div>
                 <div className="hidden sm:block">
                   <span className="font-bold text-lg text-white">
                     Cloud
                   </span>
-                  <span className="font-bold text-lg text-[#00E68A]">
+                  <span className="font-bold text-lg text-[#0cfcbc]">
                     TravelSolution
                   </span>
                 </div>
@@ -119,7 +119,7 @@ export function Header({ siteSettings }: HeaderProps) {
                 {/* Dropdown */}
                 {"children" in item && activeDropdown === item.label && (
                   <div className="absolute top-full left-0 pt-1 z-50">
-                    <div className="w-56 bg-[#357df9] rounded-lg shadow-lg border border-[#357df9]/20 py-2 animate-in fade-in slide-in-from-top-1 duration-150">
+                    <div className="w-56 bg-[#265ab2] rounded-lg shadow-lg border border-[#265ab2]/20 py-2 animate-in fade-in slide-in-from-top-1 duration-150">
                       {item.children.map((child) => (
                         <Link
                           key={child.href}
@@ -140,7 +140,7 @@ export function Header({ siteSettings }: HeaderProps) {
           <div className="flex items-center gap-3">
             <Link
               href="/inquiry/visa"
-              className="hidden sm:inline-flex items-center px-5 py-2.5 text-sm font-semibold text-[#265ab2] bg-[#00E68A] rounded-lg hover:bg-[#00CC7A] transition-colors shadow-sm"
+              className="hidden sm:inline-flex items-center px-5 py-2.5 text-sm font-semibold text-[#265ab2] bg-[#0cfcbc] rounded-lg hover:bg-[#0adba5] transition-colors shadow-sm"
             >
               Free Consultation
             </Link>
@@ -172,7 +172,7 @@ export function Header({ siteSettings }: HeaderProps) {
       {/* Mobile menu panel */}
       <div
         className={cn(
-          "lg:hidden fixed top-[calc(4rem+2.25rem+1px)] left-0 right-0 bottom-0 z-50 bg-[#357df9] transform transition-transform duration-300 ease-in-out overflow-y-auto",
+          "lg:hidden fixed top-[calc(4rem+2.25rem+1px)] left-0 right-0 bottom-0 z-50 bg-[#265ab2] transform transition-transform duration-300 ease-in-out overflow-y-auto",
           mobileMenuOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
@@ -217,10 +217,10 @@ export function Header({ siteSettings }: HeaderProps) {
                       isExpanded ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
                     )}
                   >
-                    <div className="ml-3 pl-3 border-l-2 border-[#00E68A]/30 space-y-0.5 pb-2">
+                    <div className="ml-3 pl-3 border-l-2 border-[#0cfcbc]/30 space-y-0.5 pb-2">
                       <Link
                         href={item.href}
-                        className="block px-3 py-2 text-sm font-medium text-[#00E68A] hover:bg-white/10 rounded-md transition-colors"
+                        className="block px-3 py-2 text-sm font-medium text-[#0cfcbc] hover:bg-white/10 rounded-md transition-colors"
                         onClick={() => setMobileMenuOpen(false)}
                       >
                         View All {item.label}
@@ -245,7 +245,7 @@ export function Header({ siteSettings }: HeaderProps) {
           <div className="pt-3 mt-2 border-t border-border">
             <Link
               href="/inquiry/visa"
-              className="block w-full text-center px-5 py-3 text-sm font-semibold text-[#265ab2] bg-[#00E68A] rounded-lg hover:bg-[#00CC7A] transition-colors"
+              className="block w-full text-center px-5 py-3 text-sm font-semibold text-[#265ab2] bg-[#0cfcbc] rounded-lg hover:bg-[#0adba5] transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
               Free Consultation

@@ -25,7 +25,7 @@ const LoadingSpinner = React.forwardRef<HTMLDivElement, LoadingSpinnerProps>(
     {
       className,
       size = "md",
-      color = "border-[#357df9]",
+      color = "border-[#265ab2]",
       label = "Loading",
       ...props
     },

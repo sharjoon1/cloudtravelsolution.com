@@ -4,21 +4,21 @@
 
 /* Old theme backed up in globals.css.old-theme for easy revert */
 :root {
-  /* Brand Colors — Pito Azure Blue + Green Theme */
-  --color-primary: #357df9;
-  --color-primary-light: #5a95fa;
-  --color-primary-dark: #265ab2;
-  --color-secondary: #00E68A;
-  --color-secondary-light: #33EEAA;
-  --color-secondary-dark: #00CC7A;
-  --color-accent: #00E68A;
-  --color-accent-light: #33EEAA;
-  --color-accent-dark: #00CC7A;
+  /* Brand Colors — Unified Blue + Cyan-Green Theme */
+  --color-primary: #265ab2;
+  --color-primary-light: #3a7ad4;
+  --color-primary-dark: #1E4E9A;
+  --color-secondary: #0cfcbc;
+  --color-secondary-light: #3dfdc9;
+  --color-secondary-dark: #0adba5;
+  --color-accent: #0cfcbc;
+  --color-accent-light: #3dfdc9;
+  --color-accent-dark: #0adba5;
 
   /* Dark theme colors */
-  --color-dark: #265ab2;
-  --color-meteorite: #357df9;
-  --color-meteorite-dark: #265ab2;
+  --color-dark: #1E4E9A;
+  --color-meteorite: #265ab2;
+  --color-meteorite-dark: #1E4E9A;
 
   /* Neutrals */
   --background: #e3ebf9;
@@ -26,13 +26,13 @@
   --muted: #e3ebf9;
   --muted-foreground: #727586;
   --border: #dadce0;
-  --ring: #357df9;
+  --ring: #265ab2;
 
   /* Semantic */
-  --success: #00E68A;
+  --success: #0cfcbc;
   --warning: #ffcd35;
   --error: #fc5185;
-  --info: #357df9;
+  --info: #265ab2;
 }
 
 @theme inline {

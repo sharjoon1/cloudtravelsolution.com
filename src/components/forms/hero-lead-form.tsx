@@ -226,7 +226,7 @@ export function HeroLeadForm() {
             <button
               type="button"
               onClick={goToNextStep}
-              className="w-full h-11 flex items-center justify-center gap-2 bg-[#00E68A] hover:bg-[#00CC7A] text-[#265ab2] text-sm font-semibold rounded-lg transition-colors"
+              className="w-full h-11 flex items-center justify-center gap-2 bg-[#0cfcbc] hover:bg-[#0adba5] text-[#265ab2] text-sm font-semibold rounded-lg transition-colors"
             >
               Next
               <ArrowRight className="h-4 w-4" />
@@ -310,7 +310,7 @@ export function HeroLeadForm() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full h-11 flex items-center justify-center gap-2 bg-[#00E68A] hover:bg-[#00CC7A] text-[#265ab2] text-sm font-semibold rounded-lg transition-colors disabled:opacity-50"
+                className="w-full h-11 flex items-center justify-center gap-2 bg-[#0cfcbc] hover:bg-[#0adba5] text-[#265ab2] text-sm font-semibold rounded-lg transition-colors disabled:opacity-50"
               >
                 {isSubmitting ? (
                   <>
@@ -340,7 +340,7 @@ export function HeroLeadForm() {
           className={cn(
             "h-2 rounded-full transition-all",
             currentStep === 1
-              ? "w-6 bg-[#357df9]"
+              ? "w-6 bg-[#265ab2]"
               : "w-2 bg-gray-200"
           )}
         />
@@ -348,7 +348,7 @@ export function HeroLeadForm() {
           className={cn(
             "h-2 rounded-full transition-all",
             currentStep === 2
-              ? "w-6 bg-[#357df9]"
+              ? "w-6 bg-[#265ab2]"
               : "w-2 bg-gray-200"
           )}
         />

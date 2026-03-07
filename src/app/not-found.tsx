@@ -6,7 +6,7 @@ export default function NotFound() {
     <div className="min-h-screen bg-[#e3ebf9] flex items-center justify-center">
       <div className="mx-auto max-w-2xl px-4 py-16 text-center">
         {/* 404 Number */}
-        <div className="text-[120px] sm:text-[160px] font-bold leading-none bg-gradient-to-r from-[#357df9] to-[#357df9] bg-clip-text text-transparent">
+        <div className="text-[120px] sm:text-[160px] font-bold leading-none bg-gradient-to-r from-[#265ab2] to-[#265ab2] bg-clip-text text-transparent">
           404
         </div>
 
@@ -22,7 +22,7 @@ export default function NotFound() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-12">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-[#00E68A] hover:bg-[#00CC7A] text-[#265ab2] font-semibold rounded-lg transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-[#0cfcbc] hover:bg-[#0adba5] text-[#265ab2] font-semibold rounded-lg transition-colors"
           >
             <Home className="h-4 w-4" />
             Go to Home

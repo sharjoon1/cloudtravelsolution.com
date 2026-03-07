@@ -56,7 +56,7 @@ export default function PartnerLayout({ children }: { children: React.ReactNode 
     return (
       <div className="flex min-h-screen items-center justify-center bg-gray-50">
         <div className="flex flex-col items-center gap-3">
-          <div className="h-8 w-8 animate-spin rounded-full border-4 border-[#357df9] border-t-transparent" />
+          <div className="h-8 w-8 animate-spin rounded-full border-4 border-[#265ab2] border-t-transparent" />
           <p className="text-sm text-gray-500">Loading partner portal...</p>
         </div>
       </div>

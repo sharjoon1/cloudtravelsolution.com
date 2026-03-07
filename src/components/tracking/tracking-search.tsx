@@ -28,7 +28,7 @@ export function TrackingSearch({ onSearch, loading }: TrackingSearchProps) {
           onClick={() => setSearchType("tracking-code")}
           className={`flex-1 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
             searchType === "tracking-code"
-              ? "bg-white text-[#357df9] shadow-sm"
+              ? "bg-white text-[#265ab2] shadow-sm"
               : "text-gray-500 hover:text-gray-700"
           }`}
         >
@@ -39,7 +39,7 @@ export function TrackingSearch({ onSearch, loading }: TrackingSearchProps) {
           onClick={() => setSearchType("passport")}
           className={`flex-1 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
             searchType === "passport"
-              ? "bg-white text-[#357df9] shadow-sm"
+              ? "bg-white text-[#265ab2] shadow-sm"
               : "text-gray-500 hover:text-gray-700"
           }`}
         >
@@ -60,13 +60,13 @@ export function TrackingSearch({ onSearch, loading }: TrackingSearchProps) {
                 ? "Enter tracking code (e.g. TRK-202602-0001)"
                 : "Enter passport number"
             }
-            className="w-full rounded-lg border border-gray-300 py-2.5 pl-9 pr-3 text-sm focus:border-[#357df9] focus:outline-none focus:ring-1 focus:ring-[#357df9]"
+            className="w-full rounded-lg border border-gray-300 py-2.5 pl-9 pr-3 text-sm focus:border-[#265ab2] focus:outline-none focus:ring-1 focus:ring-[#265ab2]"
           />
         </div>
         <button
           type="submit"
           disabled={loading || query.trim().length < 3}
-          className="rounded-lg bg-[#00E68A] px-6 py-2.5 text-sm font-semibold text-[#265ab2] transition-colors hover:bg-[#00CC7A] disabled:opacity-50"
+          className="rounded-lg bg-[#0cfcbc] px-6 py-2.5 text-sm font-semibold text-[#265ab2] transition-colors hover:bg-[#0adba5] disabled:opacity-50"
         >
           {loading ? "Searching..." : "Search"}
         </button>

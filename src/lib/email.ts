@@ -66,11 +66,11 @@ function emailLayout(title: string, body: string): string {
 <table width="100%" cellpadding="0" cellspacing="0" style="background:#f4f5f7;padding:24px 0;">
 <tr><td align="center">
 <table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:8px;overflow:hidden;max-width:600px;width:100%;">
-  <tr><td style="background:#357df9;padding:24px 32px;">
+  <tr><td style="background:#265ab2;padding:24px 32px;">
     <h1 style="margin:0;color:#ffffff;font-size:20px;font-weight:600;">Cloud Travel Solution</h1>
   </td></tr>
   <tr><td style="padding:32px;">
-    <h2 style="margin:0 0 16px;color:#357df9;font-size:18px;">${title}</h2>
+    <h2 style="margin:0 0 16px;color:#265ab2;font-size:18px;">${title}</h2>
     ${body}
   </td></tr>
   <tr><td style="background:#f8f9fa;padding:20px 32px;border-top:1px solid #e5e7eb;">
@@ -113,7 +113,7 @@ export async function sendLeadNotification(data: HeroLeadFormData): Promise<Emai
       dataRow("Duration", data.duration) +
       dataRow("Travelers", data.travelers)
     ) +
-    `<p style="margin:16px 0 0;"><a href="${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/admin/collections/leads" style="display:inline-block;padding:10px 20px;background:#00E68A;color:#265ab2;text-decoration:none;border-radius:6px;font-size:14px;font-weight:600;">View in Admin</a></p>`
+    `<p style="margin:16px 0 0;"><a href="${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/admin/collections/leads" style="display:inline-block;padding:10px 20px;background:#0cfcbc;color:#265ab2;text-decoration:none;border-radius:6px;font-size:14px;font-weight:600;">View in Admin</a></p>`
   );
 
   return sendEmail({
@@ -128,7 +128,7 @@ export async function sendLeadConfirmation(data: HeroLeadFormData): Promise<Emai
   const html = emailLayout(
     `Thanks, ${data.fullName}!`,
     `<p style="color:#374151;font-size:15px;line-height:1.6;margin:0 0 16px;">
-      We received your travel inquiry for <strong>${dest}</strong>. Our team will contact you within <strong style="color:#357df9;">2 hours</strong> to discuss your trip.
+      We received your travel inquiry for <strong>${dest}</strong>. Our team will contact you within <strong style="color:#265ab2;">2 hours</strong> to discuss your trip.
     </p>
     <p style="color:#374151;font-size:15px;line-height:1.6;margin:0 0 16px;">Here's a summary of your request:</p>` +
     dataTable(
@@ -138,7 +138,7 @@ export async function sendLeadConfirmation(data: HeroLeadFormData): Promise<Emai
       dataRow("Travelers", data.travelers)
     ) +
     `<p style="color:#374151;font-size:15px;line-height:1.6;margin:16px 0 0;">
-      In the meantime, feel free to reach us at <a href="tel:+919876543210" style="color:#357df9;">+91 98765 43210</a> or reply to this email.
+      In the meantime, feel free to reach us at <a href="tel:+919876543210" style="color:#265ab2;">+91 98765 43210</a> or reply to this email.
     </p>`
   );
 
@@ -169,7 +169,7 @@ export async function sendInquiryNotification(data: VisaInquiryFormData): Promis
       dataRow("Contact Method", data.preferredContactMethod) +
       dataRow("Callback Time", data.preferredCallbackTime)
     ) +
-    `<p style="margin:16px 0 0;"><a href="${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/admin/collections/inquiries" style="display:inline-block;padding:10px 20px;background:#00E68A;color:#265ab2;text-decoration:none;border-radius:6px;font-size:14px;font-weight:600;">View in Admin</a></p>`
+    `<p style="margin:16px 0 0;"><a href="${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/admin/collections/inquiries" style="display:inline-block;padding:10px 20px;background:#0cfcbc;color:#265ab2;text-decoration:none;border-radius:6px;font-size:14px;font-weight:600;">View in Admin</a></p>`
   );
 
   return sendEmail({
@@ -192,7 +192,7 @@ export async function sendInquiryConfirmation(data: VisaInquiryFormData): Promis
       dataRow("Travel Date", data.preferredTravelDate)
     ) +
     `<p style="color:#374151;font-size:15px;line-height:1.6;margin:16px 0 0;">
-      We'll reach out via your preferred method: <strong>${data.preferredContactMethod}</strong>. For urgent queries, call us at <a href="tel:+919876543210" style="color:#357df9;">+91 98765 43210</a>.
+      We'll reach out via your preferred method: <strong>${data.preferredContactMethod}</strong>. For urgent queries, call us at <a href="tel:+919876543210" style="color:#265ab2;">+91 98765 43210</a>.
     </p>`
   );
 
@@ -215,7 +215,7 @@ export async function sendCallbackNotification(data: CallbackFormData): Promise<
       dataRow("Preferred Time", data.preferredTime) +
       dataRow("Service", data.service)
     ) +
-    `<p style="color:#357df9;font-size:14px;font-weight:600;margin:16px 0 0;">Please call them as soon as possible.</p>`
+    `<p style="color:#265ab2;font-size:14px;font-weight:600;margin:16px 0 0;">Please call them as soon as possible.</p>`
   );
 
   return sendEmail({
@@ -238,7 +238,7 @@ export async function sendContactNotification(data: ContactFormData): Promise<Em
       dataRow("City", data.city) +
       dataRow("Subject", data.subject)
     ) +
-    `<div style="margin:16px 0;padding:16px;background:#f9fafb;border-left:4px solid #357df9;border-radius:4px;">
+    `<div style="margin:16px 0;padding:16px;background:#f9fafb;border-left:4px solid #265ab2;border-radius:4px;">
       <p style="margin:0;color:#374151;font-size:14px;line-height:1.6;white-space:pre-wrap;">${data.message}</p>
     </div>`
   );
@@ -254,15 +254,15 @@ export async function sendContactConfirmation(data: ContactFormData): Promise<Em
   const html = emailLayout(
     `Thanks for reaching out, ${data.name}!`,
     `<p style="color:#374151;font-size:15px;line-height:1.6;margin:0 0 16px;">
-      We received your message and will respond within <strong style="color:#357df9;">24 hours</strong>.
+      We received your message and will respond within <strong style="color:#265ab2;">24 hours</strong>.
     </p>
     <p style="color:#374151;font-size:15px;line-height:1.6;margin:0 0 16px;">Here's what you sent us:</p>
-    <div style="margin:16px 0;padding:16px;background:#f9fafb;border-left:4px solid #357df9;border-radius:4px;">
+    <div style="margin:16px 0;padding:16px;background:#f9fafb;border-left:4px solid #265ab2;border-radius:4px;">
       <p style="margin:0 0 4px;color:#6b7280;font-size:13px;font-weight:600;">${data.subject}</p>
       <p style="margin:0;color:#374151;font-size:14px;line-height:1.6;white-space:pre-wrap;">${data.message}</p>
     </div>
     <p style="color:#374151;font-size:15px;line-height:1.6;margin:0;">
-      For urgent matters, call us at <a href="tel:+919876543210" style="color:#357df9;">+91 98765 43210</a>.
+      For urgent matters, call us at <a href="tel:+919876543210" style="color:#265ab2;">+91 98765 43210</a>.
     </p>`
   );
 
@@ -289,7 +289,7 @@ export async function sendNewsletterWelcome(email: string): Promise<EmailResult>
       <li>Important policy changes that affect Indian travelers</li>
     </ul>
     <p style="color:#374151;font-size:15px;line-height:1.6;margin:0;">
-      Planning a trip? <a href="${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}" style="color:#357df9;font-weight:600;">Visit our website</a> to get started.
+      Planning a trip? <a href="${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}" style="color:#265ab2;font-weight:600;">Visit our website</a> to get started.
     </p>`
   );
 
