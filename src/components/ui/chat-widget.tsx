@@ -185,7 +185,7 @@ export default function ChatWidget() {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
-            className="fixed bottom-24 right-6 z-40 md:bottom-8 md:right-24"
+            className="fixed bottom-24 right-6 z-[55] md:bottom-8 md:right-24"
           >
             <span className="absolute inset-0 animate-ping rounded-full bg-[#0cfcbc]/30" />
 
@@ -214,7 +214,7 @@ export default function ChatWidget() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ type: "spring", stiffness: 300, damping: 25 }}
-            className="fixed inset-0 z-40 flex flex-col bg-white md:inset-auto md:bottom-8 md:right-24 md:h-[550px] md:w-[400px] md:rounded-2xl md:shadow-2xl"
+            className="fixed inset-0 z-[60] flex flex-col bg-white md:inset-auto md:bottom-8 md:right-24 md:h-[550px] md:w-[400px] md:rounded-2xl md:shadow-2xl"
           >
             {/* Header */}
             <div className="flex flex-shrink-0 items-center justify-between bg-gradient-to-r from-[#0c6cbc] to-[#0a5a9e] px-4 py-3 md:rounded-t-2xl">
