@@ -23,6 +23,7 @@ import { Activities } from "./src/collections/Activities";
 import { Partners } from "./src/collections/Partners";
 import { Documents } from "./src/collections/Documents";
 import { ServiceRequests } from "./src/collections/ServiceRequests";
+import { B2BInquiries } from "./src/collections/B2BInquiries";
 import { SiteSettings } from "./src/globals/SiteSettings";
 import { Homepage } from "./src/globals/Homepage";
 
@@ -34,11 +35,11 @@ export default buildConfig({
   admin: {
     user: Users.slug,
     meta: {
-      titleSuffix: "— CloudTravelSolution Admin",
+      titleSuffix: "— Cloud Travel Solutions Admin",
       openGraph: {
-        title: "CloudTravelSolution Admin",
+        title: "Cloud Travel Solutions Admin",
         description: "Admin panel for Cloud Travel Solution - Visa consulting & travel services",
-        siteName: "CloudTravelSolution",
+        siteName: "Cloud Travel Solutions",
       },
     },
   },
@@ -61,6 +62,7 @@ export default buildConfig({
     Partners,
     Documents,
     ServiceRequests,
+    B2BInquiries,
   ],
   globals: [SiteSettings, Homepage],
   editor: lexicalEditor(),
@@ -85,7 +87,7 @@ export default buildConfig({
       collections: ["blog-posts", "countries"],
       uploadsCollection: "media",
       generateTitle: ({ doc }: { doc: Record<string, unknown> }) =>
-        `${doc.title || doc.name} | CloudTravelSolution`,
+        `${doc.title || doc.name} | Cloud Travel Solutions`,
       generateDescription: ({ doc }: { doc: Record<string, unknown> }) =>
         typeof doc.excerpt === "string" ? doc.excerpt : "",
     }),
