@@ -69,19 +69,36 @@ export const POPULAR_COUNTRIES = [
   { name: "New Zealand", slug: "new-zealand", code: "NZ", flag: "🇳🇿", processingTime: "20-25 days", visaFee: "₹12,000" },
 ] as const;
 
-export const NAV_ITEMS = [
+type NavChild = {
+  label: string;
+  href: string;
+  children?: { label: string; href: string }[];
+};
+
+type NavItem = {
+  label: string;
+  href: string;
+  children?: NavChild[];
+};
+
+export const NAV_ITEMS: NavItem[] = [
   {
     label: "Services",
     href: "/services",
     children: [
       { label: "Visa Appointment", href: "/services/visa-appointment" },
-      { label: "Visa Assistance", href: "/services/visa-assistance" },
+      {
+        label: "Visa Assistance",
+        href: "/services/visa-assistance",
+        children: [
+          { label: "For Education Consultancies", href: "/services/visa-assistance/education-consultancies" },
+          { label: "For Manpower Agencies", href: "/services/visa-assistance/manpower-agencies" },
+        ],
+      },
       { label: "Travel Insurance", href: "/services/travel-insurance" },
       { label: "Flight & Hotel Booking", href: "/services/flight-hotel-booking" },
       { label: "Passport Service", href: "/services/passport-services" },
       { label: "Document Attestation", href: "/services/document-attestation" },
-      { label: "Educational Visa", href: "/services/educational-visa-assistance" },
-      { label: "Manpower Visa", href: "/services/manpower-visa-assistance" },
     ],
   },
   {
@@ -104,7 +121,7 @@ export const NAV_ITEMS = [
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
   { label: "Track", href: "/track" },
-] as const;
+];
 
 export const TRAVEL_MONTHS = [
   "March 2026",
@@ -175,18 +192,6 @@ export const SERVICES = [
     slug: "document-attestation",
     description: "Authentication and attestation of documents for embassy submissions and international use.",
     icon: "Stamp",
-  },
-  {
-    title: "Educational Visa Assistance",
-    slug: "educational-visa-assistance",
-    description: "Specialized visa support for students pursuing education abroad with university-specific guidance.",
-    icon: "GraduationCap",
-  },
-  {
-    title: "Manpower Visa Assistance",
-    slug: "manpower-visa-assistance",
-    description: "Bulk visa processing and work permit assistance for manpower and recruitment agencies.",
-    icon: "Users",
   },
 ] as const;
 
