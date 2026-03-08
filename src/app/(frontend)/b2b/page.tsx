@@ -58,7 +58,7 @@ export default function B2BPage() {
               },
             ].map((item, i) => (
               <div key={i} className="group p-6 bg-[#e3ebf9] rounded-xl text-center hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200">
-                <div className="h-12 w-12 rounded-lg bg-[#0cfcbc]/15 border-2 border-[#0c6cbc]/20 flex items-center justify-center mx-auto mb-4 group-hover:bg-[#0cfcbc] group-hover:border-[#0cfcbc] transition-colors">
+                <div className="h-12 w-12 rounded-lg bg-white border-2 border-[#0c6cbc]/30 flex items-center justify-center mx-auto mb-4 group-hover:bg-[#0cfcbc] group-hover:border-[#0cfcbc] transition-colors">
                   <item.icon className="h-6 w-6 text-[#0cfcbc] group-hover:text-[#094f8a] transition-colors" />
                 </div>
                 <h3 className="font-semibold text-[#0c6cbc] mb-2">
