@@ -115,7 +115,14 @@ export const NAV_ITEMS: NavItem[] = [
     })),
   },
   { label: "Blog", href: "/blog" },
-  { label: "About", href: "/about" },
+  {
+    label: "About",
+    href: "/about",
+    children: [
+      { label: "About Us", href: "/about" },
+      { label: "Our Team", href: "/about/team" },
+    ],
+  },
   { label: "Contact", href: "/contact" },
   { label: "Track", href: "/track" },
 ];
