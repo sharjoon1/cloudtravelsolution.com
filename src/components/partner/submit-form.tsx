@@ -17,8 +17,6 @@ interface UploadedFile {
 const SERVICE_TYPES = [
   { label: "Visa Appointment", value: "visa-appointment" },
   { label: "Visa Assistance", value: "visa-assistance" },
-  { label: "Educational Visa Assistance", value: "educational-visa-assistance" },
-  { label: "Manpower Visa Assistance", value: "manpower-visa-assistance" },
   { label: "Document Attestation", value: "document-attestation" },
 ];
 

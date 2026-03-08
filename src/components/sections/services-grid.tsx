@@ -6,8 +6,6 @@ import {
   Plane,
   BookOpen,
   Stamp,
-  GraduationCap,
-  Users,
   ArrowRight,
 } from "lucide-react";
 
@@ -20,8 +18,6 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Plane,
   BookOpen,
   Stamp,
-  GraduationCap,
-  Users,
 };
 
 type ServicesGridProps = {
