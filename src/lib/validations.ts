@@ -125,8 +125,6 @@ export const serviceRequestSchema = z.object({
     [
       "visa-appointment",
       "visa-assistance",
-      "educational-visa-assistance",
-      "manpower-visa-assistance",
       "document-attestation",
     ],
     { message: "Please select a service type" }
@@ -157,13 +155,11 @@ export const b2bInquirySchema = z.object({
   contactPerson: z.string().min(2, "Name must be at least 2 characters").max(100),
   email: z.string().email("Please enter a valid email address"),
   phone: z.string().regex(phoneRegex, "Please enter a valid Indian phone number"),
-  businessType: z.enum(["education-consultancy", "manpower-agency"], {
+  businessType: z.enum(["education-consultancy", "manpower-agency", "travel-agency", "holidays-service-provider"], {
     message: "Please select a business type",
   }),
   city: z.string().min(2, "City must be at least 2 characters").max(100),
-  expectedVolume: z.enum(["1-10", "10-50", "50-100", "100+"], {
-    message: "Please select expected volume",
-  }),
+  companyAddress: z.string().min(5, "Address must be at least 5 characters").max(500),
   message: z.string().max(2000).optional(),
 });
 

@@ -132,32 +132,32 @@ export function B2BForm() {
         </div>
       </div>
 
-      {/* Business Type + Expected Volume */}
-      <div className="grid sm:grid-cols-2 gap-4">
-        <div>
-          <label className={labelClass}>Business Type *</label>
-          <select {...register("businessType")} className={inputClass}>
-            <option value="">Select business type</option>
-            <option value="education-consultancy">Education Consultancy</option>
-            <option value="manpower-agency">Manpower Agency</option>
-          </select>
-          {errors.businessType && (
-            <p className={errorClass}>{errors.businessType.message}</p>
-          )}
-        </div>
-        <div>
-          <label className={labelClass}>Expected Monthly Volume *</label>
-          <select {...register("expectedVolume")} className={inputClass}>
-            <option value="">Select volume</option>
-            <option value="1-10">1-10 per month</option>
-            <option value="10-50">10-50 per month</option>
-            <option value="50-100">50-100 per month</option>
-            <option value="100+">100+ per month</option>
-          </select>
-          {errors.expectedVolume && (
-            <p className={errorClass}>{errors.expectedVolume.message}</p>
-          )}
-        </div>
+      {/* Company Address */}
+      <div>
+        <label className={labelClass}>Company Address *</label>
+        <input
+          {...register("companyAddress")}
+          placeholder="Full company address"
+          className={inputClass}
+        />
+        {errors.companyAddress && (
+          <p className={errorClass}>{errors.companyAddress.message}</p>
+        )}
+      </div>
+
+      {/* Business Type */}
+      <div>
+        <label className={labelClass}>Business Type *</label>
+        <select {...register("businessType")} className={inputClass}>
+          <option value="">Select business type</option>
+          <option value="education-consultancy">Education Consultancy</option>
+          <option value="manpower-agency">Manpower Agency</option>
+          <option value="travel-agency">Travel Agency</option>
+          <option value="holidays-service-provider">Holidays Service Provider</option>
+        </select>
+        {errors.businessType && (
+          <p className={errorClass}>{errors.businessType.message}</p>
+        )}
       </div>
 
       {/* Message */}

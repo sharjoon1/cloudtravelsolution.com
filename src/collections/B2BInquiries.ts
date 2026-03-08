@@ -25,20 +25,12 @@ export const B2BInquiries: CollectionConfig = {
       options: [
         { label: "Education Consultancy", value: "education-consultancy" },
         { label: "Manpower Agency", value: "manpower-agency" },
+        { label: "Travel Agency", value: "travel-agency" },
+        { label: "Holidays Service Provider", value: "holidays-service-provider" },
       ],
     },
     { name: "city", type: "text", required: true },
-    {
-      name: "expectedVolume",
-      type: "select",
-      required: true,
-      options: [
-        { label: "1-10 per month", value: "1-10" },
-        { label: "10-50 per month", value: "10-50" },
-        { label: "50-100 per month", value: "50-100" },
-        { label: "100+ per month", value: "100+" },
-      ],
-    },
+    { name: "companyAddress", type: "textarea", required: true },
     { name: "message", type: "textarea" },
     {
       name: "status",
