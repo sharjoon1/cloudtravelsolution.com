@@ -273,6 +273,43 @@ export async function sendContactConfirmation(data: ContactFormData): Promise<Em
   });
 }
 
+// ── B2B Inquiry Emails ────────────────────────────────────────────────
+
+export async function sendB2BInquiryNotification(data: {
+  companyName: string;
+  contactPerson: string;
+  email: string;
+  phone: string;
+  businessType: string;
+  city: string;
+  expectedVolume: string;
+  message?: string;
+}): Promise<EmailResult> {
+  const businessTypeLabel = data.businessType === "education-consultancy" ? "Education Consultancy" : "Manpower Agency";
+
+  const html = emailLayout(
+    "New B2B Partner Inquiry",
+    `<p style="color:#374151;font-size:15px;margin:0 0 16px;">A new B2B partner inquiry was submitted.</p>` +
+    dataTable(
+      dataRow("Company", data.companyName) +
+      dataRow("Contact Person", data.contactPerson) +
+      dataRow("Email", data.email) +
+      dataRow("Phone", data.phone) +
+      dataRow("Business Type", businessTypeLabel) +
+      dataRow("City", data.city) +
+      dataRow("Expected Volume", data.expectedVolume + " per month") +
+      dataRow("Message", data.message)
+    ) +
+    `<p style="margin:16px 0 0;"><a href="${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/admin/collections/b2b-inquiries" style="display:inline-block;padding:10px 20px;background:#0cfcbc;color:#0c6cbc;text-decoration:none;border-radius:6px;font-size:14px;font-weight:600;">View in Admin</a></p>`
+  );
+
+  return sendEmail({
+    to: teamEmail(),
+    subject: `New B2B Partner Inquiry — ${data.companyName}`,
+    html,
+  });
+}
+
 // ── Newsletter Emails ──────────────────────────────────────────────────
 
 export async function sendNewsletterWelcome(email: string): Promise<EmailResult> {

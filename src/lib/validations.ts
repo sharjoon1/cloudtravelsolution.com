@@ -149,3 +149,22 @@ export const trackingSearchSchema = z.object({
 });
 
 export type TrackingSearchFormData = z.infer<typeof trackingSearchSchema>;
+
+// ── B2B Inquiry Schema ──────────────────────────────────────────────
+
+export const b2bInquirySchema = z.object({
+  companyName: z.string().min(2, "Company name must be at least 2 characters").max(200),
+  contactPerson: z.string().min(2, "Name must be at least 2 characters").max(100),
+  email: z.string().email("Please enter a valid email address"),
+  phone: z.string().regex(phoneRegex, "Please enter a valid Indian phone number"),
+  businessType: z.enum(["education-consultancy", "manpower-agency"], {
+    message: "Please select a business type",
+  }),
+  city: z.string().min(2, "City must be at least 2 characters").max(100),
+  expectedVolume: z.enum(["1-10", "10-50", "50-100", "100+"], {
+    message: "Please select expected volume",
+  }),
+  message: z.string().max(2000).optional(),
+});
+
+export type B2BInquiryFormData = z.infer<typeof b2bInquirySchema>;
