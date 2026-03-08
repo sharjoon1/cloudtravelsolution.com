@@ -5,6 +5,7 @@ export const Countries: CollectionConfig = {
   admin: {
     useAsTitle: "name",
     group: "Visa Services",
+    defaultColumns: ["name", "code", "showOnHomepage", "processingTime", "visaFee"],
   },
   access: {
     read: () => true,
@@ -37,6 +38,29 @@ export const Countries: CollectionConfig = {
       type: "text",
       admin: {
         description: "Country flag emoji",
+      },
+    },
+    {
+      name: "showOnHomepage",
+      type: "checkbox",
+      defaultValue: false,
+      admin: {
+        description: "Show this country in the Popular Visa Destinations grid on homepage",
+        position: "sidebar",
+      },
+    },
+    {
+      name: "processingTime",
+      type: "text",
+      admin: {
+        description: "E.g. 3-5 weeks, 15 working days",
+      },
+    },
+    {
+      name: "visaFee",
+      type: "text",
+      admin: {
+        description: "Approximate visa fee e.g. ₹14,000",
       },
     },
     {
