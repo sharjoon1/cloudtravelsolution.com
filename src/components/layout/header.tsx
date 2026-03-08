@@ -120,14 +120,28 @@ export function Header({ siteSettings }: HeaderProps) {
                 {"children" in item && activeDropdown === item.label && (
                   <div className="absolute top-full left-0 pt-1 z-50">
                     <div className="w-56 bg-[#0c6cbc] rounded-lg shadow-lg border border-[#0c6cbc]/20 py-2 animate-in fade-in slide-in-from-top-1 duration-150">
-                      {item.children.map((child) => (
-                        <Link
-                          key={child.href}
-                          href={child.href}
-                          className="block px-4 py-2 text-sm text-white/80 hover:bg-white/10 hover:text-white transition-colors"
-                        >
-                          {child.label}
-                        </Link>
+                      {item.children!.map((child) => (
+                        <div key={child.href}>
+                          <Link
+                            href={child.href}
+                            className="block px-4 py-2 text-sm text-white/80 hover:bg-white/10 hover:text-white transition-colors"
+                          >
+                            {child.label}
+                          </Link>
+                          {child.children && (
+                            <div className="ml-3 border-l border-white/20">
+                              {child.children.map((sub) => (
+                                <Link
+                                  key={sub.href}
+                                  href={sub.href}
+                                  className="block px-4 py-1.5 text-xs text-white/60 hover:bg-white/10 hover:text-white transition-colors"
+                                >
+                                  {sub.label}
+                                </Link>
+                              ))}
+                            </div>
+                          )}
+                        </div>
                       ))}
                     </div>
                   </div>
@@ -138,6 +152,12 @@ export function Header({ siteSettings }: HeaderProps) {
 
           {/* CTA + Mobile toggle */}
           <div className="flex items-center gap-3">
+            <Link
+              href="/b2b"
+              className="hidden sm:inline-flex items-center px-5 py-2.5 text-sm font-semibold text-white bg-transparent border border-[#0cfcbc] rounded-lg hover:bg-[#0cfcbc] hover:text-[#094f8a] transition-colors"
+            >
+              B2B Partners
+            </Link>
             <Link
               href="/inquiry/visa"
               className="hidden sm:inline-flex items-center px-5 py-2.5 text-sm font-semibold text-[#0c6cbc] bg-[#0cfcbc] rounded-lg hover:bg-[#0adba5] transition-colors shadow-sm"
@@ -225,15 +245,30 @@ export function Header({ siteSettings }: HeaderProps) {
                       >
                         View All {item.label}
                       </Link>
-                      {item.children.map((child) => (
-                        <Link
-                          key={child.href}
-                          href={child.href}
-                          className="block px-3 py-2 text-sm text-white/60 hover:text-white hover:bg-white/10 rounded-md transition-colors"
-                          onClick={() => setMobileMenuOpen(false)}
-                        >
-                          {child.label}
-                        </Link>
+                      {item.children!.map((child) => (
+                        <div key={child.href}>
+                          <Link
+                            href={child.href}
+                            className="block px-3 py-2 text-sm text-white/60 hover:text-white hover:bg-white/10 rounded-md transition-colors"
+                            onClick={() => setMobileMenuOpen(false)}
+                          >
+                            {child.label}
+                          </Link>
+                          {child.children && (
+                            <div className="ml-3 pl-3 border-l border-white/20 space-y-0.5">
+                              {child.children.map((sub) => (
+                                <Link
+                                  key={sub.href}
+                                  href={sub.href}
+                                  className="block px-3 py-1.5 text-xs text-white/50 hover:text-white hover:bg-white/10 rounded-md transition-colors"
+                                  onClick={() => setMobileMenuOpen(false)}
+                                >
+                                  {sub.label}
+                                </Link>
+                              ))}
+                            </div>
+                          )}
+                        </div>
                       ))}
                     </div>
                   </div>
@@ -249,6 +284,13 @@ export function Header({ siteSettings }: HeaderProps) {
               onClick={() => setMobileMenuOpen(false)}
             >
               Free Consultation
+            </Link>
+            <Link
+              href="/b2b"
+              className="block w-full text-center px-5 py-3 text-sm font-semibold text-white border border-[#0cfcbc] rounded-lg hover:bg-[#0cfcbc] hover:text-[#094f8a] transition-colors mt-2"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              B2B Partners
             </Link>
           </div>
         </div>
