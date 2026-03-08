@@ -23,6 +23,7 @@ export function B2BForm() {
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm<FormData>({
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     resolver: zodResolver(b2bInquirySchema) as any,
   });
 
