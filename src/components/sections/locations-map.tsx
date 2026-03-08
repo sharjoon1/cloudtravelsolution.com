@@ -51,7 +51,7 @@ export function LocationsMap({ headings }: LocationsMapProps) {
                 className={cn(
                   "h-10 w-10 rounded-lg flex items-center justify-center mb-4",
                   location.status === "active"
-                    ? "bg-[#0cfcbc]/15 group-hover:bg-[#0cfcbc] transition-colors"
+                    ? "bg-[#009e7a]/15 group-hover:bg-[#0cfcbc] transition-colors"
                     : "bg-gray-100"
                 )}
               >
@@ -59,7 +59,7 @@ export function LocationsMap({ headings }: LocationsMapProps) {
                   className={cn(
                     "h-5 w-5",
                     location.status === "active"
-                      ? "text-[#0cfcbc] group-hover:text-[#094f8a] transition-colors"
+                      ? "text-[#009e7a] group-hover:text-[#094f8a] transition-colors"
                       : "text-gray-400"
                   )}
                 />
@@ -87,7 +87,7 @@ export function LocationsMap({ headings }: LocationsMapProps) {
                 </div>
               )}
 
-              <div className="mt-4 flex items-center gap-1 text-sm font-medium text-[#0cfcbc] group-hover:gap-2 transition-all">
+              <div className="mt-4 flex items-center gap-1 text-sm font-medium text-[#009e7a] group-hover:gap-2 transition-all">
                 {location.status === "active" ? "Visit Office" : "Learn More"}
                 <ArrowRight className="h-3.5 w-3.5" />
               </div>

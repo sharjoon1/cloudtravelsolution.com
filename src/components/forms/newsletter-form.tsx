@@ -38,7 +38,7 @@ export function NewsletterForm() {
   if (isSubmitted) {
     return (
       <div className="flex items-center gap-2 text-sm">
-        <CheckCircle2 className="h-4 w-4 text-[var(--color-accent)]" />
+        <CheckCircle2 className="h-4 w-4 text-[#009e7a]" />
         <span className="text-foreground/70">
           Subscribed! Check your email for confirmation.
         </span>

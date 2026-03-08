@@ -49,8 +49,8 @@ export function QuickInquiryForm({
 
   if (formState === "success") {
     return (
-      <div className="p-6 rounded-xl border border-[var(--color-accent)]/30 bg-[var(--color-accent)]/5 text-center">
-        <CheckCircle className="h-10 w-10 text-[var(--color-accent)] mx-auto mb-3" />
+      <div className="p-6 rounded-xl border border-[#009e7a]/30 bg-[#009e7a]/5 text-center">
+        <CheckCircle className="h-10 w-10 text-[#009e7a] mx-auto mb-3" />
         <h3 className="font-semibold text-foreground mb-1">
           Inquiry Submitted!
         </h3>

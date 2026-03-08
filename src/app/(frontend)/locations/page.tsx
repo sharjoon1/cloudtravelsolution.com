@@ -90,8 +90,8 @@ export default function LocationsPage() {
               >
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-3">
-                    <div className="h-12 w-12 rounded-lg bg-[var(--color-accent)]/10 flex items-center justify-center">
-                      <MapPin className="h-6 w-6 text-[var(--color-accent)]" />
+                    <div className="h-12 w-12 rounded-lg bg-[#009e7a]/10 flex items-center justify-center">
+                      <MapPin className="h-6 w-6 text-[#009e7a]" />
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-foreground group-hover:text-[var(--color-primary)] transition-colors">
@@ -102,7 +102,7 @@ export default function LocationsPage() {
                       </p>
                     </div>
                   </div>
-                  <span className="px-2.5 py-1 text-xs font-semibold uppercase tracking-wider bg-[var(--color-accent)]/10 text-[var(--color-accent)] rounded-full">
+                  <span className="px-2.5 py-1 text-xs font-semibold uppercase tracking-wider bg-[#009e7a]/10 text-[#009e7a] rounded-full">
                     Open
                   </span>
                 </div>
@@ -203,7 +203,7 @@ export default function LocationsPage() {
                         key={city}
                         className={`px-2 py-0.5 text-xs font-medium rounded-full ${
                           phase.status === "active"
-                            ? "bg-[var(--color-accent)]/10 text-[var(--color-accent)]"
+                            ? "bg-[#009e7a]/10 text-[#009e7a]"
                             : phase.status === "launching"
                               ? "bg-[var(--color-secondary)]/10 text-[var(--color-secondary)]"
                               : "bg-neutral-100 text-muted-foreground"

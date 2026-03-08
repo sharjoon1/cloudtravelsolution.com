@@ -197,7 +197,7 @@ export default function AboutPage() {
                   key={loc.city}
                   className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium ${
                     loc.active
-                      ? "bg-[var(--color-accent)]/10 text-[var(--color-accent)]"
+                      ? "bg-[#009e7a]/10 text-[#009e7a]"
                       : "bg-[var(--color-secondary)]/10 text-[var(--color-secondary)]"
                   }`}
                 >

@@ -129,7 +129,7 @@ export default function ExpansionPage() {
                 key={phase.name}
                 className={`p-8 rounded-2xl border ${
                   phase.status === "completed"
-                    ? "border-[var(--color-accent)]/20 bg-[var(--color-accent)]/5"
+                    ? "border-[#009e7a]/20 bg-[#009e7a]/5"
                     : phase.status === "in-progress"
                       ? "border-[var(--color-secondary)]/20 bg-[var(--color-secondary)]/5"
                       : "border-border bg-[var(--color-muted)]"
@@ -147,7 +147,7 @@ export default function ExpansionPage() {
                   <span
                     className={`px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-full ${
                       phase.status === "completed"
-                        ? "bg-[var(--color-accent)]/10 text-[var(--color-accent)]"
+                        ? "bg-[#009e7a]/10 text-[#009e7a]"
                         : phase.status === "in-progress"
                           ? "bg-[var(--color-secondary)]/10 text-[var(--color-secondary)]"
                           : "bg-neutral-200 text-muted-foreground"
@@ -174,7 +174,7 @@ export default function ExpansionPage() {
                       <div
                         className={`h-10 w-10 rounded-lg flex items-center justify-center ${
                           city.status === "active"
-                            ? "bg-[var(--color-accent)]/10"
+                            ? "bg-[#009e7a]/10"
                             : city.status === "coming-soon"
                               ? "bg-[var(--color-secondary)]/10"
                               : "bg-neutral-100"
@@ -183,7 +183,7 @@ export default function ExpansionPage() {
                         <MapPin
                           className={`h-5 w-5 ${
                             city.status === "active"
-                              ? "text-[var(--color-accent)]"
+                              ? "text-[#009e7a]"
                               : city.status === "coming-soon"
                                 ? "text-[var(--color-secondary)]"
                                 : "text-muted-foreground"

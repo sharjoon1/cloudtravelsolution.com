@@ -208,8 +208,8 @@ export default async function TeamPage() {
         {/* Join Our Team */}
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-20">
           <div className="text-center max-w-2xl mx-auto">
-            <div className="inline-flex items-center justify-center h-14 w-14 rounded-full bg-[var(--color-accent)]/10 mb-5">
-              <Briefcase className="h-7 w-7 text-[var(--color-accent)]" />
+            <div className="inline-flex items-center justify-center h-14 w-14 rounded-full bg-[#009e7a]/10 mb-5">
+              <Briefcase className="h-7 w-7 text-[#009e7a]" />
             </div>
             <h2 className="text-3xl font-bold text-[#0c6cbc] mb-3">
               Join Our Team

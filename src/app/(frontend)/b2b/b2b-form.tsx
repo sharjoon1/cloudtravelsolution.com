@@ -47,7 +47,7 @@ export function B2BForm() {
   if (submitted) {
     return (
       <div className="text-center py-8">
-        <CheckCircle2 className="h-16 w-16 text-[#0cfcbc] mx-auto mb-4" />
+        <CheckCircle2 className="h-16 w-16 text-[#009e7a] mx-auto mb-4" />
         <h3 className="text-xl font-bold text-[#0c6cbc] mb-2">Thank You!</h3>
         <p className="text-muted-foreground">
           Our B2B team will contact you within 24 hours to discuss partnership

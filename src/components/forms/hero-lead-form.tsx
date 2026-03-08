@@ -76,8 +76,8 @@ export function HeroLeadForm() {
   if (isSubmitted) {
     return (
       <div className="bg-white rounded-2xl shadow-2xl p-8 text-center">
-        <div className="h-16 w-16 rounded-full bg-[var(--color-accent)]/10 flex items-center justify-center mx-auto mb-4">
-          <CheckCircle2 className="h-8 w-8 text-[var(--color-accent)]" />
+        <div className="h-16 w-16 rounded-full bg-[#009e7a]/10 flex items-center justify-center mx-auto mb-4">
+          <CheckCircle2 className="h-8 w-8 text-[#009e7a]" />
         </div>
         <h3 className="text-xl font-bold text-[#1d1e20] mb-2">Thank You!</h3>
         <p className="text-gray-600 text-sm">
@@ -340,7 +340,7 @@ export function HeroLeadForm() {
           className={cn(
             "h-2 rounded-full transition-all",
             currentStep === 1
-              ? "w-6 bg-[#0cfcbc]"
+              ? "w-6 bg-[#009e7a]"
               : "w-2 bg-gray-200"
           )}
         />
@@ -348,7 +348,7 @@ export function HeroLeadForm() {
           className={cn(
             "h-2 rounded-full transition-all",
             currentStep === 2
-              ? "w-6 bg-[#0cfcbc]"
+              ? "w-6 bg-[#009e7a]"
               : "w-2 bg-gray-200"
           )}
         />

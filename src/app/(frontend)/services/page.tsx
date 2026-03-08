@@ -135,7 +135,7 @@ export default function ServicesPage() {
                           key={feature}
                           className="flex items-start gap-2 text-sm text-foreground/70"
                         >
-                          <CheckCircle2 className="h-4 w-4 text-[var(--color-accent)] shrink-0 mt-0.5" />
+                          <CheckCircle2 className="h-4 w-4 text-[#009e7a] shrink-0 mt-0.5" />
                           {feature}
                         </li>
                       ))}

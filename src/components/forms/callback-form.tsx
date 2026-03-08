@@ -38,7 +38,7 @@ export function CallbackForm() {
   if (isSubmitted) {
     return (
       <div className="text-center py-6">
-        <CheckCircle2 className="h-10 w-10 text-[var(--color-accent)] mx-auto mb-3" />
+        <CheckCircle2 className="h-10 w-10 text-[#009e7a] mx-auto mb-3" />
         <h3 className="font-semibold text-foreground mb-1">
           Callback Requested!
         </h3>

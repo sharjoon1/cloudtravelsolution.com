@@ -92,7 +92,7 @@ export default function ManpowerAgenciesPage() {
                 key={i}
                 className="flex items-start gap-3 p-4 bg-white rounded-lg"
               >
-                <CheckCircle2 className="h-5 w-5 text-[#0cfcbc] mt-0.5 flex-shrink-0" />
+                <CheckCircle2 className="h-5 w-5 text-[#009e7a] mt-0.5 flex-shrink-0" />
                 <span className="text-sm text-gray-700">{feature}</span>
               </div>
             ))}
@@ -109,7 +109,7 @@ export default function ManpowerAgenciesPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {data.process.map((step, i) => (
               <div key={i} className="relative p-6 bg-[#e3ebf9] rounded-xl">
-                <div className="text-3xl font-bold text-[#0cfcbc]/30 mb-2">
+                <div className="text-3xl font-bold text-[#009e7a]/30 mb-2">
                   {String(i + 1).padStart(2, "0")}
                 </div>
                 <h3 className="font-semibold text-[#0c6cbc] mb-1">

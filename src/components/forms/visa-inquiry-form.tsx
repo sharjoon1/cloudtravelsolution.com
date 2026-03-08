@@ -169,8 +169,8 @@ export function VisaInquiryForm() {
   if (isSubmitted) {
     return (
       <div className="text-center py-12">
-        <div className="h-16 w-16 rounded-full bg-[var(--color-accent)]/10 flex items-center justify-center mx-auto mb-4">
-          <CheckCircle2 className="h-8 w-8 text-[var(--color-accent)]" />
+        <div className="h-16 w-16 rounded-full bg-[#009e7a]/10 flex items-center justify-center mx-auto mb-4">
+          <CheckCircle2 className="h-8 w-8 text-[#009e7a]" />
         </div>
         <h2 className="text-2xl font-bold text-foreground mb-2">
           Thank You!
