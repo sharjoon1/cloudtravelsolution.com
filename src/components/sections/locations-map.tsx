@@ -37,7 +37,7 @@ export function LocationsMap({ headings }: LocationsMapProps) {
               className={cn(
                 "group relative p-6 rounded-xl border transition-all duration-200",
                 location.status === "active"
-                  ? "bg-white border-[#dadce0] shadow-sm hover:border-[#0c6cbc]/30 hover:shadow-lg"
+                  ? "bg-white border-[#dadce0] shadow-sm hover:border-[#0c6cbc]/30 hover:shadow-xl hover:-translate-y-0.5"
                   : "bg-white/60 border-dashed border-[#dadce0]/60"
               )}
             >
@@ -51,7 +51,7 @@ export function LocationsMap({ headings }: LocationsMapProps) {
                 className={cn(
                   "h-10 w-10 rounded-lg flex items-center justify-center mb-4",
                   location.status === "active"
-                    ? "bg-[#0cfcbc]/15"
+                    ? "bg-[#0cfcbc]/15 group-hover:bg-[#0cfcbc] transition-colors"
                     : "bg-gray-100"
                 )}
               >
@@ -59,7 +59,7 @@ export function LocationsMap({ headings }: LocationsMapProps) {
                   className={cn(
                     "h-5 w-5",
                     location.status === "active"
-                      ? "text-[#0cfcbc]"
+                      ? "text-[#0cfcbc] group-hover:text-[#094f8a] transition-colors"
                       : "text-gray-400"
                   )}
                 />
