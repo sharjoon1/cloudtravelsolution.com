@@ -51,7 +51,7 @@ export function LocationsMap({ headings }: LocationsMapProps) {
                 className={cn(
                   "h-10 w-10 rounded-lg flex items-center justify-center mb-4",
                   location.status === "active"
-                    ? "bg-[var(--color-accent)]/10"
+                    ? "bg-[#0cfcbc]/15"
                     : "bg-gray-100"
                 )}
               >
@@ -59,13 +59,13 @@ export function LocationsMap({ headings }: LocationsMapProps) {
                   className={cn(
                     "h-5 w-5",
                     location.status === "active"
-                      ? "text-[var(--color-accent)]"
+                      ? "text-[#0cfcbc]"
                       : "text-gray-400"
                   )}
                 />
               </div>
 
-              <h3 className="text-lg font-semibold text-foreground mb-1">
+              <h3 className="text-lg font-semibold text-[#0c6cbc] mb-1">
                 {location.city}
               </h3>
               <p className="text-sm text-muted-foreground mb-4">
@@ -87,7 +87,7 @@ export function LocationsMap({ headings }: LocationsMapProps) {
                 </div>
               )}
 
-              <div className="mt-4 flex items-center gap-1 text-sm font-medium text-[var(--color-primary)] group-hover:gap-2 transition-all">
+              <div className="mt-4 flex items-center gap-1 text-sm font-medium text-[#0cfcbc] group-hover:gap-2 transition-all">
                 {location.status === "active" ? "Visit Office" : "Learn More"}
                 <ArrowRight className="h-3.5 w-3.5" />
               </div>
