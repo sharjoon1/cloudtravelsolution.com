@@ -242,30 +242,28 @@ function MemberCard({ member, size }: { member: CMSTeamMember; size: "large" | "
 
   if (size === "large") {
     return (
-      <div className="p-8 rounded-xl border border-[#dadce0] bg-white shadow-sm hover:shadow-lg transition-shadow">
-        <div className="flex items-center gap-4 mb-5">
+      <div className="rounded-xl border border-[#dadce0] bg-white shadow-sm hover:shadow-lg transition-shadow overflow-hidden text-center">
+        <div className="pt-8 pb-4 px-8">
           {photoUrl ? (
             <Image
               src={photoUrl}
               alt={member.name}
-              width={80}
-              height={80}
-              className="h-20 w-20 rounded-full object-cover border-2 border-[#0c6cbc]/20"
+              width={200}
+              height={200}
+              className="h-48 w-48 rounded-full object-cover border-4 border-[#0c6cbc]/20 mx-auto mb-5"
             />
           ) : (
-            <div className="h-20 w-20 rounded-full bg-[#0c6cbc] flex items-center justify-center text-white text-xl font-bold shrink-0">
+            <div className="h-48 w-48 rounded-full bg-[#0c6cbc] flex items-center justify-center text-white text-5xl font-bold mx-auto mb-5">
               {getInitials(member.name)}
             </div>
           )}
-          <div>
-            <h3 className="text-lg font-bold text-foreground">{member.name}</h3>
-            <p className="text-sm font-medium text-[#0c6cbc]">{member.role}</p>
-          </div>
+          <h3 className="text-xl font-bold text-foreground">{member.name}</h3>
+          <p className="text-base font-medium text-[#0c6cbc] mt-1">{member.role}</p>
         </div>
         {member.bio && (
-          <p className="text-sm text-muted-foreground leading-relaxed mb-5">{member.bio}</p>
+          <p className="text-sm text-muted-foreground leading-relaxed px-8 mb-4">{member.bio}</p>
         )}
-        <div className="flex flex-wrap items-center gap-4 text-xs text-muted-foreground">
+        <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-muted-foreground px-8 pb-8">
           {locationName && (
             <span className="inline-flex items-center gap-1.5">
               <MapPin className="h-3.5 w-3.5" />
@@ -285,30 +283,28 @@ function MemberCard({ member, size }: { member: CMSTeamMember; size: "large" | "
 
   if (size === "medium") {
     return (
-      <div className="p-6 bg-white rounded-xl border border-[#dadce0] shadow-sm hover:shadow-md transition-shadow">
-        <div className="flex items-center gap-3 mb-4">
+      <div className="rounded-xl border border-[#dadce0] bg-white shadow-sm hover:shadow-md transition-shadow overflow-hidden text-center">
+        <div className="pt-6 pb-4 px-6">
           {photoUrl ? (
             <Image
               src={photoUrl}
               alt={member.name}
-              width={56}
-              height={56}
-              className="h-14 w-14 rounded-full object-cover border-2 border-[#0c6cbc]/20"
+              width={160}
+              height={160}
+              className="h-36 w-36 rounded-full object-cover border-4 border-[#0c6cbc]/20 mx-auto mb-4"
             />
           ) : (
-            <div className="h-14 w-14 rounded-full bg-[#0c6cbc] flex items-center justify-center text-white text-sm font-bold shrink-0">
+            <div className="h-36 w-36 rounded-full bg-[#0c6cbc] flex items-center justify-center text-white text-4xl font-bold mx-auto mb-4">
               {getInitials(member.name)}
             </div>
           )}
-          <div>
-            <h3 className="font-semibold text-foreground">{member.name}</h3>
-            <p className="text-sm text-[#0c6cbc]">{member.role}</p>
-          </div>
+          <h3 className="text-lg font-semibold text-foreground">{member.name}</h3>
+          <p className="text-sm text-[#0c6cbc] mt-1">{member.role}</p>
         </div>
         {member.bio && (
-          <p className="text-sm text-muted-foreground leading-relaxed mb-4">{member.bio}</p>
+          <p className="text-sm text-muted-foreground leading-relaxed px-6 mb-3">{member.bio}</p>
         )}
-        <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
+        <div className="flex flex-wrap items-center justify-center gap-3 text-xs text-muted-foreground px-6 pb-6">
           {locationName && (
             <span className="inline-flex items-center gap-1">
               <MapPin className="h-3 w-3" />
@@ -328,22 +324,24 @@ function MemberCard({ member, size }: { member: CMSTeamMember; size: "large" | "
 
   // small
   return (
-    <div className="p-5 bg-white rounded-xl border border-[#dadce0] shadow-sm hover:shadow-md transition-shadow text-center">
-      {photoUrl ? (
-        <Image
-          src={photoUrl}
-          alt={member.name}
-          width={64}
-          height={64}
-          className="h-16 w-16 rounded-full object-cover border-2 border-[#0c6cbc]/20 mx-auto mb-3"
-        />
-      ) : (
-        <div className="h-16 w-16 rounded-full bg-[#0c6cbc] flex items-center justify-center text-white font-bold mx-auto mb-3">
-          {getInitials(member.name)}
-        </div>
-      )}
-      <h3 className="font-semibold text-foreground text-sm">{member.name}</h3>
-      <p className="text-xs text-[#0c6cbc]">{member.role}</p>
+    <div className="rounded-xl border border-[#dadce0] bg-white shadow-sm hover:shadow-md transition-shadow overflow-hidden text-center">
+      <div className="pt-6 pb-4 px-5">
+        {photoUrl ? (
+          <Image
+            src={photoUrl}
+            alt={member.name}
+            width={128}
+            height={128}
+            className="h-28 w-28 rounded-full object-cover border-3 border-[#0c6cbc]/20 mx-auto mb-3"
+          />
+        ) : (
+          <div className="h-28 w-28 rounded-full bg-[#0c6cbc] flex items-center justify-center text-white text-3xl font-bold mx-auto mb-3">
+            {getInitials(member.name)}
+          </div>
+        )}
+        <h3 className="font-semibold text-foreground">{member.name}</h3>
+        <p className="text-sm text-[#0c6cbc] mt-0.5">{member.role}</p>
+      </div>
     </div>
   );
 }
