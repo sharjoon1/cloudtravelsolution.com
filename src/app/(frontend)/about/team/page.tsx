@@ -16,9 +16,9 @@ import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { CTABanner } from "@/components/sections/cta-banner";
 
 export const metadata: Metadata = {
-  title: "Our Team — Meet the People Behind CloudTravelSolution",
+  title: "Our Team — Meet the People Behind Cloud Travel Solutions",
   description:
-    "Meet the experienced team at CloudTravelSolution. Our visa consultants, travel advisors, and support staff are dedicated to making your international travel seamless.",
+    "Meet the experienced team at Cloud Travel Solutions. Our visa consultants, travel advisors, and support staff are dedicated to making your international travel seamless.",
 };
 
 interface TeamMember {
@@ -36,7 +36,7 @@ const leadership: TeamMember[] = [
     name: "Rajesh Kumar",
     initials: "RK",
     role: "Founder & CEO",
-    bio: "With over 20 years in the travel industry, Rajesh founded CloudTravelSolution in 2004 with a vision to simplify visa processing for Indians. His deep understanding of immigration policies and passion for client success has grown CTS from a single office in Bangalore to a multi-city operation serving thousands of travellers annually.",
+    bio: "With over 20 years in the travel industry, Rajesh founded Cloud Travel Solutions in 2004 with a vision to simplify visa processing for Indians. His deep understanding of immigration policies and passion for client success has grown CTS from a single office in Bangalore to a multi-city operation serving thousands of travellers annually.",
     location: "Bangalore",
     experience: "20+ years",
     color: "var(--color-primary)",
@@ -136,7 +136,7 @@ export default function TeamPage() {
               <p className="text-lg text-white/80 leading-relaxed">
                 Behind every successful visa application and seamless travel
                 experience is a dedicated team of professionals. Meet the people
-                who make CloudTravelSolution India&apos;s trusted travel partner.
+                who make Cloud Travel Solutions India&apos;s trusted travel partner.
               </p>
             </div>
           </div>
@@ -169,7 +169,7 @@ export default function TeamPage() {
         {/* Leadership Section */}
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-20">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-3">
+            <h2 className="text-3xl font-bold text-[#0c6cbc] mb-3">
               Leadership
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -222,7 +222,7 @@ export default function TeamPage() {
         <div className="bg-[var(--color-muted)]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-20">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-foreground mb-3">
+              <h2 className="text-3xl font-bold text-[#0c6cbc] mb-3">
                 Our Specialists
               </h2>
               <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -278,7 +278,7 @@ export default function TeamPage() {
             <div className="inline-flex items-center justify-center h-14 w-14 rounded-full bg-[var(--color-accent)]/10 mb-5">
               <Briefcase className="h-7 w-7 text-[var(--color-accent)]" />
             </div>
-            <h2 className="text-3xl font-bold text-foreground mb-3">
+            <h2 className="text-3xl font-bold text-[#0c6cbc] mb-3">
               Join Our Team
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed mb-6">

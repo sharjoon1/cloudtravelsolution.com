@@ -25,7 +25,7 @@ const blogPosts: BlogPostData[] = [
     excerpt:
       "Everything you need to know about applying for a US B1/B2 visa from India — requirements, documents, interview tips, and common mistakes to avoid.",
     category: "visa-guides",
-    author: "CloudTravelSolution Team",
+    author: "Cloud Travel Solutions Team",
     publishedAt: "2026-02-10",
     readTime: "8 min read",
     tags: [
@@ -147,8 +147,8 @@ const blogPosts: BlogPostData[] = [
   <li><strong>Photo and printing:</strong> INR 200 - INR 500</li>
 </ul>
 
-<h2>How CloudTravelSolution Can Help</h2>
-<p>At CloudTravelSolution, we have helped thousands of Indian applicants secure their US tourist visas. Our services include DS-160 form filling assistance, document preparation, mock interview sessions, and end-to-end application tracking. With offices in Bangalore and Hyderabad, we offer both in-person and online consultation to applicants across India.</p>
+<h2>How Cloud Travel Solutions Can Help</h2>
+<p>At Cloud Travel Solutions, we have helped thousands of Indian applicants secure their US tourist visas. Our services include DS-160 form filling assistance, document preparation, mock interview sessions, and end-to-end application tracking. With offices in Bangalore and Hyderabad, we offer both in-person and online consultation to applicants across India.</p>
 <p>Our US visa specialists have an in-depth understanding of what consular officers look for and can help you present the strongest possible application. <strong>Book a free consultation</strong> today to get started on your American travel dreams.</p>
 `,
   },
@@ -158,7 +158,7 @@ const blogPosts: BlogPostData[] = [
     excerpt:
       "A comprehensive document checklist for Schengen visa applications from India. Covers all 27 countries, photo requirements, and insurance specifications.",
     category: "visa-guides",
-    author: "CloudTravelSolution Team",
+    author: "Cloud Travel Solutions Team",
     publishedAt: "2026-02-05",
     readTime: "6 min read",
     tags: [
@@ -218,7 +218,7 @@ const blogPosts: BlogPostData[] = [
   <li>Coverage for medical emergencies, hospitalisation, and repatriation</li>
   <li>Coverage dates must encompass your entire trip plus a few extra days as buffer</li>
 </ul>
-<p>CloudTravelSolution partners with leading insurance providers to offer Schengen-compliant travel insurance at competitive rates. We ensure your policy meets all embassy requirements.</p>
+<p>Cloud Travel Solutions partners with leading insurance providers to offer Schengen-compliant travel insurance at competitive rates. We ensure your policy meets all embassy requirements.</p>
 
 <h3>3. Proof of Accommodation</h3>
 <ul>
@@ -287,7 +287,7 @@ const blogPosts: BlogPostData[] = [
   <li>Keep a personal copy of every document you submit</li>
 </ul>
 
-<h2>How CloudTravelSolution Helps with Schengen Applications</h2>
+<h2>How Cloud Travel Solutions Helps with Schengen Applications</h2>
 <p>Our Schengen visa specialists handle hundreds of European visa applications every month. We offer complete application assistance including form filling, document review, cover letter drafting, appointment booking, and travel insurance arrangement. Our current approval rate for Schengen visa applications exceeds 95%. Contact us for a <strong>free consultation</strong> and let our experts guide you through the process.</p>
 `,
   },
@@ -297,7 +297,7 @@ const blogPosts: BlogPostData[] = [
     excerpt:
       "What to look for in a visa consultant, red flags to avoid, and how to verify credentials. Your guide to finding trustworthy visa assistance.",
     category: "travel-tips",
-    author: "CloudTravelSolution Team",
+    author: "Cloud Travel Solutions Team",
     publishedAt: "2026-01-28",
     readTime: "5 min read",
     tags: [
@@ -401,8 +401,8 @@ const blogPosts: BlogPostData[] = [
   <li>You need help with interview preparation</li>
 </ul>
 
-<h2>Why Indian Travellers Trust CloudTravelSolution</h2>
-<p>At CloudTravelSolution, we maintain complete transparency in pricing, provide written service agreements, and never make false promises about guaranteed approvals. With offices in Bangalore and Hyderabad and plans for expansion across India, we combine local accessibility with professional expertise. Our team processes visa applications for over 50 countries and maintains a consistently high approval rate backed by genuine client testimonials.</p>
+<h2>Why Indian Travellers Trust Cloud Travel Solutions</h2>
+<p>At Cloud Travel Solutions, we maintain complete transparency in pricing, provide written service agreements, and never make false promises about guaranteed approvals. With offices in Bangalore and Hyderabad and plans for expansion across India, we combine local accessibility with professional expertise. Our team processes visa applications for over 50 countries and maintains a consistently high approval rate backed by genuine client testimonials.</p>
 <p>We believe the best visa consulting is about empowering applicants with the right guidance, not creating dependency. <strong>Book a free consultation</strong> to experience the difference.</p>
 `,
   },
@@ -412,7 +412,7 @@ const blogPosts: BlogPostData[] = [
     excerpt:
       "Discover countries where Indian passport holders can travel without a visa or with visa-on-arrival. Updated for 2026 with the latest policy changes.",
     category: "country-guides",
-    author: "CloudTravelSolution Team",
+    author: "Cloud Travel Solutions Team",
     publishedAt: "2026-01-20",
     readTime: "7 min read",
     tags: [
@@ -503,7 +503,7 @@ const blogPosts: BlogPostData[] = [
 </ul>
 
 <h2>Planning a Trip? We Can Help</h2>
-<p>While visa-free destinations do not require visa consulting, CloudTravelSolution can assist with travel insurance, flight bookings, and itinerary planning for any of these destinations. For countries that do require visas, our expert team handles the entire process from start to finish. <strong>Get in touch</strong> for a personalised travel consultation.</p>
+<p>While visa-free destinations do not require visa consulting, Cloud Travel Solutions can assist with travel insurance, flight bookings, and itinerary planning for any of these destinations. For countries that do require visas, our expert team handles the entire process from start to finish. <strong>Get in touch</strong> for a personalised travel consultation.</p>
 `,
   },
   {
@@ -512,7 +512,7 @@ const blogPosts: BlogPostData[] = [
     excerpt:
       "Compare student visa processes for USA, UK, Canada, Australia, and Germany. Costs, timelines, work rights, and post-study options explained.",
     category: "visa-guides",
-    author: "CloudTravelSolution Team",
+    author: "Cloud Travel Solutions Team",
     publishedAt: "2026-01-15",
     readTime: "10 min read",
     tags: [
@@ -686,7 +686,7 @@ const blogPosts: BlogPostData[] = [
   <li><strong>Best immigration pathway:</strong> Canada (Express Entry with CRS points for Canadian education and work experience)</li>
 </ul>
 
-<h2>How CloudTravelSolution Helps Students</h2>
+<h2>How Cloud Travel Solutions Helps Students</h2>
 <p>Navigating the student visa process while managing university applications, scholarship deadlines, and standardised tests is overwhelming. Our student visa specialists offer end-to-end support — from university shortlisting and application assistance to visa filing, financial documentation, and pre-departure briefings. We have helped hundreds of Indian students secure admissions and visas for all five of these destinations. <strong>Book a free student visa consultation</strong> today.</p>
 `,
   },
@@ -696,7 +696,7 @@ const blogPosts: BlogPostData[] = [
     excerpt:
       "Understanding why visas get rejected and practical steps to strengthen your application. Insights from processing thousands of visa applications.",
     category: "travel-tips",
-    author: "CloudTravelSolution Team",
+    author: "Cloud Travel Solutions Team",
     publishedAt: "2026-01-08",
     readTime: "6 min read",
     tags: [
@@ -714,7 +714,7 @@ const blogPosts: BlogPostData[] = [
     ],
     content: `
 <h2>Why Visa Rejections Happen</h2>
-<p>A visa rejection is one of the most frustrating experiences for any traveller. Beyond the wasted time and money, it can feel like a personal judgement — but it rarely is. Having processed thousands of visa applications at CloudTravelSolution, we have seen clear patterns in why visas get rejected and, more importantly, how these rejections can be prevented.</p>
+<p>A visa rejection is one of the most frustrating experiences for any traveller. Beyond the wasted time and money, it can feel like a personal judgement — but it rarely is. Having processed thousands of visa applications at Cloud Travel Solutions, we have seen clear patterns in why visas get rejected and, more importantly, how these rejections can be prevented.</p>
 <p>Most visa rejections fall into a handful of common categories. Understanding these reasons empowers you to submit a stronger application and significantly improve your chances of approval. Let us examine each one in detail.</p>
 
 <h2>Reason 1: Insufficient Financial Documentation</h2>
@@ -860,7 +860,7 @@ const blogPosts: BlogPostData[] = [
   <li><strong>Wait an appropriate period</strong> — rushing a reapplication without changes rarely leads to a different outcome</li>
 </ul>
 
-<h2>How CloudTravelSolution Prevents Rejections</h2>
+<h2>How Cloud Travel Solutions Prevents Rejections</h2>
 <p>Our application review process is designed to catch and fix common rejection triggers before your application reaches the embassy. We conduct a thorough document audit, verify financial sufficiency, check for information consistency, and prepare you for interviews. For applicants with previous rejections, we offer specialised reassessment services to build a stronger case for reapplication.</p>
 <p>Do not leave your travel plans to chance. <strong>Book a free consultation</strong> with our visa experts and submit your application with confidence.</p>
 `,
@@ -871,7 +871,7 @@ const blogPosts: BlogPostData[] = [
     excerpt:
       "Understand the critical differences between business and tourist visas, when each type is appropriate, common mistakes applicants make, and how to choose the right one for your trip.",
     category: "visa-guides",
-    author: "CloudTravelSolution Team",
+    author: "Cloud Travel Solutions Team",
     publishedAt: "2026-02-16",
     readTime: "6 min read",
     tags: ["business visa", "tourist visa", "visa comparison", "travel tips"],
@@ -882,7 +882,7 @@ const blogPosts: BlogPostData[] = [
     content: `
 <h2>Business Visa vs Tourist Visa: Why It Matters</h2>
 <p>One of the most common mistakes Indian travellers make is applying for the wrong type of visa. Using a tourist visa for business activities — or vice versa — can lead to <strong>visa rejection, entry denial at the border, or even a ban</strong> from future travel to that country. Understanding the differences between these two visa categories is essential for any international traveller, whether you are planning a family holiday or attending a corporate conference abroad.</p>
-<p>At CloudTravelSolution, we regularly encounter applicants who are confused about which visa they need. This guide breaks down the key differences, provides practical scenarios, and helps you determine exactly which visa type suits your travel purpose.</p>
+<p>At Cloud Travel Solutions, we regularly encounter applicants who are confused about which visa they need. This guide breaks down the key differences, provides practical scenarios, and helps you determine exactly which visa type suits your travel purpose.</p>
 
 <h2>What Is a Tourist Visa?</h2>
 <p>A tourist visa, sometimes called a visitor visa or holiday visa, is designed for individuals travelling to a foreign country for <strong>leisure, recreation, sightseeing, or visiting friends and family</strong>. It is the most commonly issued visa type worldwide and is typically the simplest to obtain.</p>
@@ -993,8 +993,8 @@ const blogPosts: BlogPostData[] = [
 <h3>China</h3>
 <p>China maintains strict separation between tourist (L visa) and business (M visa) categories. The documentation requirements and processing times differ significantly. Applying for the wrong category almost always results in rejection.</p>
 
-<h2>How CloudTravelSolution Helps You Choose</h2>
-<p>Determining the right visa type is the first and most important step in your application. At CloudTravelSolution, our visa experts conduct a detailed assessment of your travel purpose, planned activities, and documentation before recommending the appropriate visa category. We ensure your application is categorised correctly from the start, avoiding unnecessary delays and rejections.</p>
+<h2>How Cloud Travel Solutions Helps You Choose</h2>
+<p>Determining the right visa type is the first and most important step in your application. At Cloud Travel Solutions, our visa experts conduct a detailed assessment of your travel purpose, planned activities, and documentation before recommending the appropriate visa category. We ensure your application is categorised correctly from the start, avoiding unnecessary delays and rejections.</p>
 <p>Whether you need a business visa for an upcoming corporate trip or a tourist visa for your dream vacation, our team handles the entire process — from form filling and document preparation to appointment booking and interview coaching. <strong>Contact us today</strong> for a free assessment and let us guide you to the right visa for your needs.</p>
 `,
   },
@@ -1004,7 +1004,7 @@ const blogPosts: BlogPostData[] = [
     excerpt:
       "A universal document checklist that covers the essential paperwork needed for virtually any visa application. Passport, photos, financials, employment proof, and more — all in one place.",
     category: "visa-guides",
-    author: "CloudTravelSolution Team",
+    author: "Cloud Travel Solutions Team",
     publishedAt: "2026-02-16",
     readTime: "7 min read",
     tags: [
@@ -1146,7 +1146,7 @@ const blogPosts: BlogPostData[] = [
 </ul>
 
 <h3>Pro Tip</h3>
-<p>Purchase insurance from a provider recognised by the embassy. Some embassies have a list of approved insurers. CloudTravelSolution can arrange Schengen-compliant and embassy-approved travel insurance at competitive rates.</p>
+<p>Purchase insurance from a provider recognised by the embassy. Some embassies have a list of approved insurers. Cloud Travel Solutions can arrange Schengen-compliant and embassy-approved travel insurance at competitive rates.</p>
 
 <h2>6. Travel Itinerary and Accommodation Proof</h2>
 <p>Embassies want to see that you have a concrete travel plan — not a vague idea of "visiting Europe." Prepare the following:</p>
@@ -1203,8 +1203,8 @@ const blogPosts: BlogPostData[] = [
   <li><strong>Check dates:</strong> Ensure no document is expired. Bank statements older than 3 months, expired medical certificates, and photos older than 6 months are commonly rejected.</li>
 </ul>
 
-<h2>How CloudTravelSolution Simplifies Document Preparation</h2>
-<p>Document preparation is where most visa applicants feel overwhelmed. At CloudTravelSolution, we provide a personalised document checklist tailored to your specific visa type and destination. Our team reviews every document before submission, checking for completeness, consistency, and compliance with embassy standards. We also help draft cover letters, format itineraries, and arrange travel insurance — ensuring your application package is thorough and professionally presented.</p>
+<h2>How Cloud Travel Solutions Simplifies Document Preparation</h2>
+<p>Document preparation is where most visa applicants feel overwhelmed. At Cloud Travel Solutions, we provide a personalised document checklist tailored to your specific visa type and destination. Our team reviews every document before submission, checking for completeness, consistency, and compliance with embassy standards. We also help draft cover letters, format itineraries, and arrange travel insurance — ensuring your application package is thorough and professionally presented.</p>
 <p>Do not risk rejection over a missing document. <strong>Book a free consultation</strong> and let our experts prepare your application for success.</p>
 `,
   },
@@ -1214,7 +1214,7 @@ const blogPosts: BlogPostData[] = [
     excerpt:
       "Learn why travel insurance is a mandatory requirement for many visa applications, what coverage you need, how to choose the right plan, and recommended providers for Indian travellers.",
     category: "travel-tips",
-    author: "CloudTravelSolution Team",
+    author: "Cloud Travel Solutions Team",
     publishedAt: "2026-02-16",
     readTime: "5 min read",
     tags: [
@@ -1343,23 +1343,23 @@ const blogPosts: BlogPostData[] = [
   <li><strong>Verify embassy acceptance:</strong> Before purchasing, confirm that the insurer is accepted by the embassy you are applying to. Some embassies maintain lists of approved providers.</li>
 </ul>
 
-<h2>How CloudTravelSolution Helps with Travel Insurance</h2>
-<p>At CloudTravelSolution, we take the guesswork out of travel insurance. Our team recommends the most suitable plan based on your destination, duration, activities, and budget. We ensure every policy we arrange meets the specific requirements of the embassy you are applying to — so your application is never rejected on insurance grounds.</p>
+<h2>How Cloud Travel Solutions Helps with Travel Insurance</h2>
+<p>At Cloud Travel Solutions, we take the guesswork out of travel insurance. Our team recommends the most suitable plan based on your destination, duration, activities, and budget. We ensure every policy we arrange meets the specific requirements of the embassy you are applying to — so your application is never rejected on insurance grounds.</p>
 <p>We also assist with claims if you need to use your insurance during your trip, providing guidance on the process and documentation required. <strong>Get in touch</strong> for a travel insurance quote tailored to your visa application needs.</p>
 `,
   },
   {
     title:
-      "CloudTravelSolution: Your Trusted Visa Expert in Bangalore & Hyderabad",
+      "Cloud Travel Solutions: Your Trusted Visa Expert in Bangalore & Hyderabad",
     slug: "cloudtravelsolution-visa-expert-bangalore-hyderabad",
     excerpt:
-      "Discover CloudTravelSolution's story, our comprehensive visa services, office locations in Bangalore and Hyderabad, and why thousands of Indian travellers trust us with their visa applications.",
+      "Discover Cloud Travel Solutions's story, our comprehensive visa services, office locations in Bangalore and Hyderabad, and why thousands of Indian travellers trust us with their visa applications.",
     category: "company-news",
-    author: "CloudTravelSolution Team",
+    author: "Cloud Travel Solutions Team",
     publishedAt: "2026-02-16",
     readTime: "4 min read",
     tags: [
-      "CloudTravelSolution",
+      "Cloud Travel Solutions",
       "visa consultant Bangalore",
       "visa consultant Hyderabad",
       "about us",
@@ -1370,12 +1370,12 @@ const blogPosts: BlogPostData[] = [
     ],
     content: `
 <h2>Our Story: From a Vision to India's Trusted Visa Partner</h2>
-<p>CloudTravelSolution (CTS) was founded with a simple but powerful mission: to make international travel accessible, stress-free, and successful for every Indian traveller. Born out of the frustration of navigating complex visa processes and the lack of trustworthy, transparent visa consulting services in India, CTS was built to bridge the gap between aspiring travellers and their global destinations.</p>
+<p>Cloud Travel Solutions (CTS) was founded with a simple but powerful mission: to make international travel accessible, stress-free, and successful for every Indian traveller. Born out of the frustration of navigating complex visa processes and the lack of trustworthy, transparent visa consulting services in India, CTS was built to bridge the gap between aspiring travellers and their global destinations.</p>
 <p>What started as a small team of visa experts in Bangalore has grown into a comprehensive travel solutions company with offices in two of India's most dynamic cities — <strong>Bangalore and Hyderabad</strong>. Today, we serve thousands of clients annually, from first-time passport holders applying for their maiden visa to seasoned business travellers managing multi-country itineraries.</p>
-<p>Our growth has been driven entirely by <strong>client trust and word-of-mouth referrals</strong>. We have never relied on false promises or flashy advertising — instead, we let our results speak for themselves. Every successful visa stamp, every smooth travel experience, and every satisfied client reinforces why CloudTravelSolution exists.</p>
+<p>Our growth has been driven entirely by <strong>client trust and word-of-mouth referrals</strong>. We have never relied on false promises or flashy advertising — instead, we let our results speak for themselves. Every successful visa stamp, every smooth travel experience, and every satisfied client reinforces why Cloud Travel Solutions exists.</p>
 
 <h2>What We Do: Comprehensive Visa and Travel Services</h2>
-<p>CloudTravelSolution offers end-to-end visa assistance for over <strong>50 countries</strong>, covering every major visa category. Our services are designed to handle the entire process so you can focus on planning your trip rather than worrying about paperwork.</p>
+<p>Cloud Travel Solutions offers end-to-end visa assistance for over <strong>50 countries</strong>, covering every major visa category. Our services are designed to handle the entire process so you can focus on planning your trip rather than worrying about paperwork.</p>
 
 <h3>Tourist Visa Services</h3>
 <p>Whether you are dreaming of the Eiffel Tower, the Grand Canyon, or the beaches of Bali, our tourist visa services cover the complete application process:</p>
@@ -1414,7 +1414,7 @@ const blogPosts: BlogPostData[] = [
 <h3>Travel Insurance and Ancillary Services</h3>
 <p>We arrange embassy-compliant travel insurance, assist with forex requirements, and provide guidance on international SIM cards, airport transfers, and other travel logistics.</p>
 
-<h2>Why Thousands of Clients Choose CloudTravelSolution</h2>
+<h2>Why Thousands of Clients Choose Cloud Travel Solutions</h2>
 <p>In an industry plagued by opaque practices and broken promises, CTS stands apart through our commitment to several core principles:</p>
 
 <h3>Transparency in Everything</h3>
@@ -1460,15 +1460,15 @@ const blogPosts: BlogPostData[] = [
 <h3>The Student Dreamer</h3>
 <p>A student from a tier-2 city in Telangana had received admission to a Canadian university but was overwhelmed by the study permit process. Her family had limited experience with international travel and visa processes. We guided the entire family through financial documentation, helped prepare the study plan, and ensured the application met all IRCC requirements. <strong>Result: Canadian study permit approved, and she is now pursuing her Master's degree in Toronto.</strong></p>
 
-<h2>Get Started with CloudTravelSolution</h2>
-<p>Whether you are planning your first international trip or managing complex multi-country business travel, CloudTravelSolution is here to make the process smooth, transparent, and successful. Our free initial consultation allows us to understand your travel goals, assess your profile, and recommend the best path forward — with no obligation.</p>
+<h2>Get Started with Cloud Travel Solutions</h2>
+<p>Whether you are planning your first international trip or managing complex multi-country business travel, Cloud Travel Solutions is here to make the process smooth, transparent, and successful. Our free initial consultation allows us to understand your travel goals, assess your profile, and recommend the best path forward — with no obligation.</p>
 <ul>
   <li><strong>Call us</strong> to speak with a visa expert</li>
   <li><strong>Visit our offices</strong> in Bangalore or Hyderabad for an in-person consultation</li>
   <li><strong>Book online</strong> for a video consultation from anywhere in India</li>
   <li><strong>WhatsApp us</strong> for quick queries and document sharing</li>
 </ul>
-<p>Your next destination is closer than you think. <strong>Let CloudTravelSolution take you there.</strong></p>
+<p>Your next destination is closer than you think. <strong>Let Cloud Travel Solutions take you there.</strong></p>
 `,
   },
 ];

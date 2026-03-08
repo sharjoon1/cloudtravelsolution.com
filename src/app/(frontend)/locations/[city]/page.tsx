@@ -31,7 +31,7 @@ export async function generateMetadata({
 
   return {
     title: `Visa Consultant in ${location.city} — ${SITE_CONFIG.name}`,
-    description: `Visit CloudTravelSolution ${location.city} office for expert visa consulting, passport services, and travel assistance. ${location.state}.`,
+    description: `Visit Cloud Travel Solutions ${location.city} office for expert visa consulting, passport services, and travel assistance. ${location.state}.`,
   };
 }
 
@@ -114,7 +114,7 @@ export default async function LocationPage({ params }: PageProps) {
               )}
             </div>
             <h1 className="text-3xl sm:text-4xl font-bold">
-              CloudTravelSolution {location.city}
+              Cloud Travel Solutions {location.city}
             </h1>
             <p className="text-white/70 mt-2 text-lg">{location.state}, India</p>
           </div>

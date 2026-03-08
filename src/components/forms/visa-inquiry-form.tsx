@@ -718,7 +718,7 @@ export function VisaInquiryForm() {
                 >
                   Privacy Policy
                 </a>{" "}
-                and consent to CloudTravelSolution contacting me regarding my
+                and consent to Cloud Travel Solutions contacting me regarding my
                 inquiry.
               </label>
             </div>

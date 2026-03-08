@@ -16,7 +16,7 @@ import { CTABanner } from "@/components/sections/cta-banner";
 export const metadata: Metadata = {
   title: "Our Locations — Offices Across India",
   description:
-    "Visit CloudTravelSolution offices in Bangalore, Hyderabad, Delhi, and Chennai. Expert visa consulting and travel services with a Pan India presence.",
+    "Visit Cloud Travel Solutions offices in Bangalore, Hyderabad, Delhi, and Chennai. Expert visa consulting and travel services with a Pan India presence.",
 };
 
 const expansionRoadmap = [

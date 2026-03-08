@@ -19,7 +19,7 @@ export function InstagramFollow({ instagramUrl }: InstagramFollowProps) {
                 <Instagram className="h-6 w-6 text-white" />
               </div>
               <div>
-                <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
+                <h2 className="text-2xl sm:text-3xl font-bold text-[#0c6cbc]">
                   Follow Us on Instagram
                 </h2>
                 <p className="text-sm text-muted-foreground">{igHandle}</p>

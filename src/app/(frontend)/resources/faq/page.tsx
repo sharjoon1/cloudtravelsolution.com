@@ -19,7 +19,7 @@ const faqCategories = [
     icon: FileCheck,
     faqs: [
       {
-        question: "How do I start the visa application process with CloudTravelSolution?",
+        question: "How do I start the visa application process with Cloud Travel Solutions?",
         answer:
           "Simply book a free consultation through our website or call our toll-free number. Our visa specialist will assess your travel plans, recommend the right visa type, provide a document checklist, and guide you through the entire process step by step.",
       },
@@ -51,7 +51,7 @@ const faqCategories = [
       {
         question: "What is the difference between a visa consultant and a travel agent?",
         answer:
-          "A visa consultant specializes in visa applications, documentation, embassy procedures, and interview preparation. A travel agent focuses on bookings (flights, hotels, tours). CloudTravelSolution offers both — comprehensive visa consulting combined with full travel services.",
+          "A visa consultant specializes in visa applications, documentation, embassy procedures, and interview preparation. A travel agent focuses on bookings (flights, hotels, tours). Cloud Travel Solutions offers both — comprehensive visa consulting combined with full travel services.",
       },
     ],
   },
@@ -172,7 +172,7 @@ const faqCategories = [
           "Yes, we have a dedicated corporate travel desk that handles business visa processing, flight/hotel bookings, travel policy management, MICE events, and 24/7 travel support for companies of all sizes.",
       },
       {
-        question: "How can I contact CloudTravelSolution?",
+        question: "How can I contact Cloud Travel Solutions?",
         answer:
           "Call us at +91 8095976543, email info@cloudtravelsolution.com, visit our offices in Bangalore or Hyderabad, or submit an inquiry through our website. We respond to all inquiries within 2 business hours.",
       },

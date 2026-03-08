@@ -8,7 +8,7 @@ import { Breadcrumb } from "@/components/ui/breadcrumb";
 export const metadata: Metadata = {
   title: "Blog — Visa Guides, Travel Tips & Industry Updates",
   description:
-    "Expert visa guides, travel tips, country guides, and industry updates from CloudTravelSolution. Stay informed about visa requirements and travel advisories.",
+    "Expert visa guides, travel tips, country guides, and industry updates from Cloud Travel Solutions. Stay informed about visa requirements and travel advisories.",
 };
 
 const categories = [

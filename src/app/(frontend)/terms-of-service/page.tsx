@@ -6,7 +6,7 @@ import { SITE_CONFIG } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Terms of Service",
   description:
-    "CloudTravelSolution terms of service — terms and conditions governing the use of our visa consulting and travel services.",
+    "Cloud Travel Solutions terms of service — terms and conditions governing the use of our visa consulting and travel services.",
 };
 
 export default function TermsOfServicePage() {
@@ -215,7 +215,7 @@ export default function TermsOfServicePage() {
               <strong>Phone:</strong> {SITE_CONFIG.tollFree}
             </li>
             <li>
-              <strong>Office:</strong> CloudTravelSolution, Bangalore,
+              <strong>Office:</strong> Cloud Travel Solutions, Bangalore,
               Karnataka, India
             </li>
           </ul>

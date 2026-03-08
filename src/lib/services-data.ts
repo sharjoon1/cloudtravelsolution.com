@@ -20,7 +20,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     tagline:
       "Hassle-free embassy & consulate visa appointment booking across all countries from India",
     metaDescription:
-      "Book visa appointments at embassies and consulates across India. Expert appointment scheduling for US, UK, Schengen, Canada, Australia & 190+ countries. Same-day slots available. CloudTravelSolution — trusted visa appointment service in Bangalore, Hyderabad, Delhi & Chennai.",
+      "Book visa appointments at embassies and consulates across India. Expert appointment scheduling for US, UK, Schengen, Canada, Australia & 190+ countries. Same-day slots available. Cloud Travel Solutions — trusted visa appointment service in Bangalore, Hyderabad, Delhi & Chennai.",
     description:
       "Getting an embassy or consulate appointment can be the most frustrating part of the visa process — slots fill up within minutes and websites crash frequently. Our visa appointment booking service takes this headache off your plate entirely. We monitor appointment availability around the clock, secure the earliest slots for your preferred location, and handle all pre-appointment requirements. Whether it's a US B1/B2 visa appointment, UK visa application centre slot, Schengen VFS appointment, or any other country, we ensure you get your appointment on time without the stress.",
     features: [
@@ -239,7 +239,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     tagline:
       "Best deals on international flights and hotel bookings with expert travel planning",
     metaDescription:
-      "Book international flights and hotels at best prices from India. Corporate travel deals, group booking discounts, honeymoon packages & holiday planning. Trusted travel agency in Bangalore, Hyderabad, Delhi & Chennai. CloudTravelSolution.",
+      "Book international flights and hotels at best prices from India. Corporate travel deals, group booking discounts, honeymoon packages & holiday planning. Trusted travel agency in Bangalore, Hyderabad, Delhi & Chennai. Cloud Travel Solutions.",
     description:
       "Planning international travel involves more than just getting a visa. Our flight and hotel booking service ensures you get the best deals on airfare, comfortable accommodation at your destination, and a well-planned itinerary. We work with all major airlines and hotel chains to offer competitive rates, flexible booking options, and personalized travel packages. Whether it's a family holiday, honeymoon, corporate trip, or group tour, we handle all the logistics so you can focus on enjoying your journey.",
     features: [
@@ -310,7 +310,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     tagline:
       "New passport applications, renewals, and tatkal services with complete assistance",
     metaDescription:
-      "Passport services in Bangalore, Hyderabad, Delhi & Chennai. New passport application, renewal, tatkal processing, name correction & minor passports. PSK appointment booking. Fast, reliable passport assistance from CloudTravelSolution.",
+      "Passport services in Bangalore, Hyderabad, Delhi & Chennai. New passport application, renewal, tatkal processing, name correction & minor passports. PSK appointment booking. Fast, reliable passport assistance from Cloud Travel Solutions.",
     description:
       "Navigate the Indian passport application process with ease. From new applications and renewals to tatkal (urgent) processing and corrections, our team handles the paperwork, Passport Seva portal form filling, appointment scheduling, and follow-ups so you don't have to deal with the complexity of the process. We've helped thousands of applicants across Bangalore, Hyderabad, Delhi, and Chennai get their passports quickly and without errors.",
     features: [
@@ -523,7 +523,7 @@ export const SERVICES_DATA: ServiceDetail[] = [
     tagline:
       "Bulk work permit and employment visa processing for manpower recruitment agencies",
     metaDescription:
-      "Manpower visa and work permit assistance from India. Bulk employment visa processing for Gulf countries (UAE, Saudi, Qatar, Kuwait, Oman, Bahrain), Europe & Asia. MOFA attestation, GAMCA medical, emigration clearance. Partner with CloudTravelSolution.",
+      "Manpower visa and work permit assistance from India. Bulk employment visa processing for Gulf countries (UAE, Saudi, Qatar, Kuwait, Oman, Bahrain), Europe & Asia. MOFA attestation, GAMCA medical, emigration clearance. Partner with Cloud Travel Solutions.",
     description:
       "We provide specialized visa processing services for manpower recruitment agencies and companies sending workers abroad. Our bulk processing capabilities handle employment visas, work permits, and labor visas for Gulf countries (UAE, Saudi Arabia, Qatar, Kuwait, Oman, Bahrain), Southeast Asia, and European countries. We manage the entire process from MOFA attestation and GAMCA medical coordination to emigration clearance and travel arrangements. Our dedicated manpower desk processes hundreds of work visas monthly with fast turnaround and competitive rates for agencies.",
     features: [

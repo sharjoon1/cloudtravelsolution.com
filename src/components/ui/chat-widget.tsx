@@ -10,7 +10,7 @@ interface Message {
 }
 
 const GREETING =
-  "Hi! I\u2019m CTS-AI, your visa and travel assistant at Cloud Travel Solution. How can I help you today? \u2708\uFE0F";
+  "Hi! I\u2019m CTS-AI, your visa and travel assistant at Cloud Travel Solutions. How can I help you today? \u2708\uFE0F";
 
 const QUICK_PROMPTS = [
   "Visa for USA?",

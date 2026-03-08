@@ -6,7 +6,7 @@ import { SITE_CONFIG } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "CloudTravelSolution privacy policy — how we collect, use, and protect your personal information.",
+    "Cloud Travel Solutions privacy policy — how we collect, use, and protect your personal information.",
 };
 
 export default function PrivacyPolicyPage() {
@@ -175,7 +175,7 @@ export default function PrivacyPolicyPage() {
               <strong>Phone:</strong> {SITE_CONFIG.tollFree}
             </li>
             <li>
-              <strong>Office:</strong> CloudTravelSolution, Bangalore,
+              <strong>Office:</strong> Cloud Travel Solutions, Bangalore,
               Karnataka, India
             </li>
           </ul>

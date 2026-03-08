@@ -40,7 +40,7 @@ export function Footer({ siteSettings }: FooterProps) {
     "India's trusted visa consulting and travel partner. Expert services across Bangalore, Hyderabad, Delhi, and Chennai with Pan India expansion.";
   const copyrightText =
     siteSettings?.footer?.copyrightText ||
-    "CloudTravelSolution. All rights reserved.";
+    "Cloud Travel Solutions. All rights reserved.";
   const social = siteSettings?.socialLinks || {};
   const logoUrl = siteSettings?.branding?.logo?.url;
 
@@ -61,7 +61,7 @@ export function Footer({ siteSettings }: FooterProps) {
           <div className="space-y-5">
             <Link href="/" className="flex items-center gap-2">
               {logoUrl ? (
-                <Image src={logoUrl} alt={siteSettings?.businessInfo?.siteName || "CloudTravelSolution"} width={280} height={56} className="h-10 sm:h-12 w-auto max-w-[280px] object-contain brightness-0 invert" unoptimized />
+                <Image src={logoUrl} alt={siteSettings?.businessInfo?.siteName || "Cloud Travel Solutions"} width={280} height={56} className="h-10 sm:h-12 w-auto max-w-[280px] object-contain brightness-0 invert" unoptimized />
               ) : (
                 <>
                   <div className="h-9 w-9 rounded-lg bg-white/10 flex items-center justify-center">

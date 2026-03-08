@@ -21,7 +21,7 @@ import { CTABanner } from "@/components/sections/cta-banner";
 export const metadata: Metadata = {
   title: `Visa & Travel Services in India — ${SITE_CONFIG.name}`,
   description:
-    "Comprehensive visa and travel services from CloudTravelSolution: visa appointment booking, visa assistance for 190+ countries, travel insurance, flight & hotel booking, passport services, document attestation, student visa, and manpower visa services. Offices in Bangalore, Hyderabad, Delhi & Chennai.",
+    "Comprehensive visa and travel services from Cloud Travel Solutions: visa appointment booking, visa assistance for 190+ countries, travel insurance, flight & hotel booking, passport services, document attestation, student visa, and manpower visa services. Offices in Bangalore, Hyderabad, Delhi & Chennai.",
   keywords: [
     "visa services India",
     "visa appointment booking",

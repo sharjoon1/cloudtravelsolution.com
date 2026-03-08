@@ -41,7 +41,7 @@ async function sendEmail(opts: {
 
   try {
     await resend.emails.send({
-      from: `Cloud Travel Solution <${fromEmail()}>`,
+      from: `Cloud Travel Solutions <${fromEmail()}>`,
       to: opts.to,
       subject: opts.subject,
       html: opts.html,
@@ -67,14 +67,14 @@ function emailLayout(title: string, body: string): string {
 <tr><td align="center">
 <table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:8px;overflow:hidden;max-width:600px;width:100%;">
   <tr><td style="background:#0c6cbc;padding:24px 32px;">
-    <h1 style="margin:0;color:#ffffff;font-size:20px;font-weight:600;">Cloud Travel Solution</h1>
+    <h1 style="margin:0;color:#ffffff;font-size:20px;font-weight:600;">Cloud Travel Solutions</h1>
   </td></tr>
   <tr><td style="padding:32px;">
     <h2 style="margin:0 0 16px;color:#0c6cbc;font-size:18px;">${title}</h2>
     ${body}
   </td></tr>
   <tr><td style="background:#f8f9fa;padding:20px 32px;border-top:1px solid #e5e7eb;">
-    <p style="margin:0;color:#6b7280;font-size:13px;">Cloud Travel Solution | Visa & Travel Services</p>
+    <p style="margin:0;color:#6b7280;font-size:13px;">Cloud Travel Solutions | Visa & Travel Services</p>
     <p style="margin:4px 0 0;color:#6b7280;font-size:13px;">Bangalore | Hyderabad | Delhi | Chennai</p>
     <p style="margin:4px 0 0;color:#6b7280;font-size:12px;">cloudtravelsolution.com</p>
   </td></tr>
@@ -144,7 +144,7 @@ export async function sendLeadConfirmation(data: HeroLeadFormData): Promise<Emai
 
   return sendEmail({
     to: data.email,
-    subject: `Your ${dest} travel inquiry — Cloud Travel Solution`,
+    subject: `Your ${dest} travel inquiry — Cloud Travel Solutions`,
     html,
   });
 }
@@ -198,7 +198,7 @@ export async function sendInquiryConfirmation(data: VisaInquiryFormData): Promis
 
   return sendEmail({
     to: data.email,
-    subject: `Your ${data.destinationCountry} visa inquiry — Cloud Travel Solution`,
+    subject: `Your ${data.destinationCountry} visa inquiry — Cloud Travel Solutions`,
     html,
   });
 }
@@ -268,7 +268,7 @@ export async function sendContactConfirmation(data: ContactFormData): Promise<Em
 
   return sendEmail({
     to: data.email,
-    subject: `We received your message — Cloud Travel Solution`,
+    subject: `We received your message — Cloud Travel Solutions`,
     html,
   });
 }
@@ -277,9 +277,9 @@ export async function sendContactConfirmation(data: ContactFormData): Promise<Em
 
 export async function sendNewsletterWelcome(email: string): Promise<EmailResult> {
   const html = emailLayout(
-    "Welcome to Cloud Travel Solution!",
+    "Welcome to Cloud Travel Solutions!",
     `<p style="color:#374151;font-size:15px;line-height:1.6;margin:0 0 16px;">
-      You're now subscribed to travel tips, visa updates, and exclusive deals from Cloud Travel Solution.
+      You're now subscribed to travel tips, visa updates, and exclusive deals from Cloud Travel Solutions.
     </p>
     <p style="color:#374151;font-size:15px;line-height:1.6;margin:0 0 16px;">Here's what you can expect:</p>
     <ul style="color:#374151;font-size:15px;line-height:1.8;margin:0 0 16px;padding-left:20px;">
@@ -295,7 +295,7 @@ export async function sendNewsletterWelcome(email: string): Promise<EmailResult>
 
   return sendEmail({
     to: email,
-    subject: `Welcome to Cloud Travel Solution updates!`,
+    subject: `Welcome to Cloud Travel Solutions updates!`,
     html,
   });
 }

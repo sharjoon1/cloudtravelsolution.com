@@ -17,7 +17,7 @@ import { CTABanner } from "@/components/sections/cta-banner";
 export const metadata: Metadata = {
   title: "About Us — Our Story, Mission & Vision",
   description:
-    "Learn about CloudTravelSolution — India's trusted visa consulting and travel agency. Our story, mission, team, and commitment to making international travel accessible.",
+    "Learn about Cloud Travel Solutions — India's trusted visa consulting and travel agency. Our story, mission, team, and commitment to making international travel accessible.",
 };
 
 const values = [
@@ -72,7 +72,7 @@ export default function AboutPage() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-20">
             <div className="max-w-3xl">
               <h1 className="text-4xl sm:text-5xl font-bold mb-4">
-                About CloudTravelSolution
+                About Cloud Travel Solutions
               </h1>
               <p className="text-lg text-white/80 leading-relaxed">
                 We started with a simple belief: applying for a visa shouldn&apos;t
@@ -89,7 +89,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="p-8 rounded-2xl bg-[var(--color-primary)]/5 border border-[var(--color-primary)]/10">
               <Target className="h-8 w-8 text-[var(--color-primary)] mb-4" />
-              <h2 className="text-2xl font-bold text-foreground mb-3">
+              <h2 className="text-2xl font-bold text-[#0c6cbc] mb-3">
                 Our Mission
               </h2>
               <p className="text-foreground/70 leading-relaxed">
@@ -101,7 +101,7 @@ export default function AboutPage() {
             </div>
             <div className="p-8 rounded-2xl bg-[var(--color-secondary)]/5 border border-[var(--color-secondary)]/10">
               <Eye className="h-8 w-8 text-[var(--color-secondary)] mb-4" />
-              <h2 className="text-2xl font-bold text-foreground mb-3">
+              <h2 className="text-2xl font-bold text-[#0c6cbc] mb-3">
                 Our Vision
               </h2>
               <p className="text-foreground/70 leading-relaxed">
@@ -118,7 +118,7 @@ export default function AboutPage() {
         <div className="bg-[var(--color-muted)]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-20">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-foreground mb-3">
+              <h2 className="text-3xl font-bold text-[#0c6cbc] mb-3">
                 Our Core Values
               </h2>
               <p className="text-muted-foreground text-lg">
@@ -147,7 +147,7 @@ export default function AboutPage() {
         {/* Timeline */}
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-20">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-3">
+            <h2 className="text-3xl font-bold text-[#0c6cbc] mb-3">
               Our Journey
             </h2>
           </div>
@@ -178,7 +178,7 @@ export default function AboutPage() {
         {/* Locations overview */}
         <div className="bg-[var(--color-muted)]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-20 text-center">
-            <h2 className="text-3xl font-bold text-foreground mb-3">
+            <h2 className="text-3xl font-bold text-[#0c6cbc] mb-3">
               Growing Across India
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-8">

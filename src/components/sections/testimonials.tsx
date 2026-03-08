@@ -11,7 +11,7 @@ const testimonials = [
     company: "TechVision Solutions",
     serviceUsed: "US Business Visa",
     reviewText:
-      "CloudTravelSolution made our US visa process incredibly smooth. Their team handled all the documentation and prep, and our entire team got approved on the first attempt. Highly recommended for corporate travel needs!",
+      "Cloud Travel Solutions made our US visa process incredibly smooth. Their team handled all the documentation and prep, and our entire team got approved on the first attempt. Highly recommended for corporate travel needs!",
     rating: 5,
     city: "Bangalore",
   },
@@ -45,7 +45,7 @@ const testimonials = [
     company: "Patel Industries",
     serviceUsed: "Multiple Country Visas",
     reviewText:
-      "We process 50+ visas annually through CloudTravelSolution. Their consistency, reliability, and professionalism are unmatched. They truly understand the needs of growing Indian businesses.",
+      "We process 50+ visas annually through Cloud Travel Solutions. Their consistency, reliability, and professionalism are unmatched. They truly understand the needs of growing Indian businesses.",
     rating: 5,
     city: "Bangalore",
   },
@@ -79,7 +79,7 @@ export function Testimonials({ headings }: TestimonialsProps) {
     <section className="py-16 lg:py-20 bg-[#e3ebf9]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-3">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#0c6cbc] mb-3">
             {heading}
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">

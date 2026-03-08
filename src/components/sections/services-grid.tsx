@@ -41,7 +41,7 @@ export function ServicesGrid({ headings }: ServicesGridProps) {
     <section className="py-16 lg:py-20 bg-[var(--color-muted)]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-3">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#0c6cbc] mb-3">
             {heading}
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">

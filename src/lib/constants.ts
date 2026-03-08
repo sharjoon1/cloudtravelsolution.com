@@ -1,5 +1,5 @@
 export const SITE_CONFIG = {
-  name: "CloudTravelSolution",
+  name: "Cloud Travel Solutions",
   tagline: "Your Trusted Visa & Travel Partner Across India",
   description:
     "India's leading visa consulting and travel agency. Expert visa services for all countries from Bangalore, Hyderabad, Delhi, and Chennai. Pan India presence.",

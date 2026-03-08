@@ -7,7 +7,7 @@ import { CTABanner } from "@/components/sections/cta-banner";
 export const metadata: Metadata = {
   title: "Pan India Expansion Roadmap",
   description:
-    "CloudTravelSolution expansion plan — bringing expert visa consulting and travel services to every major Indian city. View our growth roadmap.",
+    "Cloud Travel Solutions expansion plan — bringing expert visa consulting and travel services to every major Indian city. View our growth roadmap.",
 };
 
 const phases = [

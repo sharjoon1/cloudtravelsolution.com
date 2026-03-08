@@ -24,8 +24,8 @@ export const metadata: Metadata = {
     process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
   ),
   title: {
-    default: "CloudTravelSolution — Your Trusted Visa & Travel Partner Across India",
-    template: "%s | CloudTravelSolution",
+    default: "Cloud Travel Solutions — Your Trusted Visa & Travel Partner Across India",
+    template: "%s | Cloud Travel Solutions",
   },
   description:
     "India's leading visa consulting and travel agency. Expert visa services for all countries from Bangalore, Hyderabad, Delhi, and Chennai. Pan India presence.",
@@ -41,13 +41,13 @@ export const metadata: Metadata = {
     "student visa",
     "travel agency",
   ],
-  authors: [{ name: "CloudTravelSolution" }],
-  creator: "CloudTravelSolution",
+  authors: [{ name: "Cloud Travel Solutions" }],
+  creator: "Cloud Travel Solutions",
   openGraph: {
     type: "website",
     locale: "en_IN",
-    siteName: "CloudTravelSolution",
-    title: "CloudTravelSolution — Your Trusted Visa & Travel Partner Across India",
+    siteName: "Cloud Travel Solutions",
+    title: "Cloud Travel Solutions — Your Trusted Visa & Travel Partner Across India",
     description:
       "India's leading visa consulting and travel agency. Expert visa services for all countries.",
   },

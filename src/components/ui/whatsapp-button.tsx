@@ -5,7 +5,7 @@ import { X } from "lucide-react";
 
 const FALLBACK_NUMBER = "918095976543";
 const DEFAULT_MESSAGE =
-  "Hi CloudTravelSolution! I need help with visa/travel services.";
+  "Hi Cloud Travel Solutions! I need help with visa/travel services.";
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (

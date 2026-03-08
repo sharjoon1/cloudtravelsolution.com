@@ -55,7 +55,7 @@ function LoginForm() {
           </div>
           <h1 className="text-2xl font-bold text-gray-900">Partner Portal</h1>
           <p className="mt-1 text-sm text-gray-500">
-            Cloud Travel Solution — B2B Partner Access
+            Cloud Travel Solutions — B2B Partner Access
           </p>
         </div>
 
@@ -126,7 +126,7 @@ function LoginForm() {
         </form>
 
         <p className="mt-6 text-center text-xs text-gray-400">
-          Don&apos;t have an account? Contact Cloud Travel Solution to become a partner.
+          Don&apos;t have an account? Contact Cloud Travel Solutions to become a partner.
         </p>
       </div>
     </div>

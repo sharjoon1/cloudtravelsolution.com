@@ -8,7 +8,7 @@ import { Breadcrumb } from "@/components/ui/breadcrumb";
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Get in touch with CloudTravelSolution. Visit our offices in Bangalore, Hyderabad, Delhi, or Chennai. Call us toll-free or submit an online inquiry.",
+    "Get in touch with Cloud Travel Solutions. Visit our offices in Bangalore, Hyderabad, Delhi, or Chennai. Call us toll-free or submit an online inquiry.",
 };
 
 export default function ContactPage() {

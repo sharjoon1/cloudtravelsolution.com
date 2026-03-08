@@ -84,7 +84,7 @@ export const Homepage: GlobalConfig = {
         {
           name: "heading",
           type: "text",
-          defaultValue: "Why Choose CloudTravelSolution?",
+          defaultValue: "Why Choose Cloud Travel Solutions?",
         },
         {
           name: "subheading",

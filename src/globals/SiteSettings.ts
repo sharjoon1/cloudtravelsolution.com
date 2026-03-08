@@ -18,7 +18,7 @@ export const SiteSettings: GlobalConfig = {
         {
           name: "siteName",
           type: "text",
-          defaultValue: "CloudTravelSolution",
+          defaultValue: "Cloud Travel Solutions",
         },
         {
           name: "tagline",
@@ -136,7 +136,7 @@ export const SiteSettings: GlobalConfig = {
         {
           name: "copyrightText",
           type: "text",
-          defaultValue: "CloudTravelSolution. All rights reserved.",
+          defaultValue: "Cloud Travel Solutions. All rights reserved.",
         },
       ],
     },

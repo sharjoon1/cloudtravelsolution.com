@@ -73,7 +73,7 @@ export function StatsCounter({ statsData, statsItems }: StatsCounterProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
-  const heading = statsData?.heading || "Why Choose CloudTravelSolution?";
+  const heading = statsData?.heading || "Why Choose Cloud Travel Solutions?";
   const subheading =
     statsData?.subheading ||
     "Trusted by thousands of travelers across India for reliable, transparent, and expert visa services.";

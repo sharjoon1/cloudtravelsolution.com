@@ -88,7 +88,7 @@ const siteSettingsFallback: SiteSettingsData = {
   footer: {
     footerTagline:
       "India's trusted visa consulting and travel partner. Expert services across Bangalore, Hyderabad, Delhi, and Chennai with Pan India expansion.",
-    copyrightText: "CloudTravelSolution. All rights reserved.",
+    copyrightText: "Cloud Travel Solutions. All rights reserved.",
   },
 };
 
@@ -108,7 +108,7 @@ const homepageFallback: HomepageData = {
     { icon: "Clock", label: "20+ Years Experience" },
   ],
   stats: {
-    heading: "Why Choose CloudTravelSolution?",
+    heading: "Why Choose Cloud Travel Solutions?",
     subheading:
       "Trusted by thousands of travelers across India for reliable, transparent, and expert visa services.",
   },

@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   description:
     "Browse visa categories for Indian passport holders. Find requirements, fees, and processing times for tourist, business, student, work, transit, and medical visas across 30+ countries.",
   openGraph: {
-    title: "Visa Types | CloudTravelSolution",
+    title: "Visa Types | Cloud Travel Solutions",
     description:
       "Explore all visa categories: tourist, business, student, work, transit, and medical visas for Indian citizens.",
   },
