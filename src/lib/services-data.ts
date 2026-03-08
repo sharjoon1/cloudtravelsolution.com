@@ -1,5 +1,11 @@
 // Static service data for launch — will migrate to Payload CMS
 
+export interface ServiceChild {
+  title: string;
+  slug: string;
+  href: string;
+}
+
 export interface ServiceDetail {
   title: string;
   slug: string;
@@ -10,6 +16,7 @@ export interface ServiceDetail {
   features: string[];
   process: { step: number; title: string; description: string }[];
   faqs: { question: string; answer: string }[];
+  children?: ServiceChild[];
 }
 
 export const SERVICES_DATA: ServiceDetail[] = [
@@ -105,6 +112,11 @@ export const SERVICES_DATA: ServiceDetail[] = [
       "Express and priority processing options available",
       "Reapplication support for previously rejected cases",
       "Free initial consultation and eligibility assessment",
+      "Specialized support for education consultancies and manpower agencies",
+    ],
+    children: [
+      { title: "For Education Consultancies", slug: "education-consultancies", href: "/services/visa-assistance/education-consultancies" },
+      { title: "For Manpower Agencies", slug: "manpower-agencies", href: "/services/visa-assistance/manpower-agencies" },
     ],
     process: [
       {
@@ -588,6 +600,150 @@ export const SERVICES_DATA: ServiceDetail[] = [
     ],
   },
 ];
+
+export const EDUCATION_CONSULTANCY_DATA = {
+  slug: "education-consultancies",
+  title: "Visa Assistance for Education Consultancies",
+  icon: "GraduationCap",
+  tagline:
+    "Partner with us for seamless student visa processing — dedicated support for education consultancies",
+  metaDescription:
+    "B2B student visa processing partnership for education consultancies. Dedicated account management, bulk student visa filing, SOP review, interview prep & embassy coordination. Partner with Cloud Travel Solutions for reliable visa assistance.",
+  description:
+    "We partner with education consultancies across India to provide reliable, high-quality student visa processing services. Whether you're a small consultancy or a large education group, our dedicated B2B desk handles the visa side of your business — from document verification and application filing to interview preparation and embassy follow-ups. Focus on student counseling and university admissions while we ensure every visa application is processed accurately and on time. Our partnership model includes dedicated account managers, priority processing, competitive B2B pricing, and real-time status dashboards.",
+  features: [
+    "Student visa applications for 50+ countries",
+    "University shortlisting and admission guidance",
+    "Statement of Purpose (SOP) and LOR review",
+    "Financial documentation and fund proof preparation",
+    "Education loan documentation assistance",
+    "Visa interview preparation for US F1, UK, Canada",
+    "Scholarship search and application support",
+    "I-20, CAS, COE, and admission letter guidance",
+    "Pre-departure orientation and travel planning",
+    "Post-arrival support and accommodation guidance",
+  ],
+  process: [
+    {
+      step: 1,
+      title: "Profile Evaluation & Counseling",
+      description:
+        "We evaluate your academic profile, budget, career goals, and preferences to recommend the best countries and universities. Our counselors have first-hand knowledge of admission requirements.",
+    },
+    {
+      step: 2,
+      title: "Admission & Documentation",
+      description:
+        "We assist with university applications, SOP/LOR drafting, and ensure all admission documentation is complete. Once you receive your offer letter/I-20/CAS, we move to visa preparation.",
+    },
+    {
+      step: 3,
+      title: "Visa Application & Filing",
+      description:
+        "We prepare your complete student visa application — DS-160, financial proof, sponsor documents, form filling, appointment booking, and submission. Every document is verified for embassy compliance.",
+    },
+    {
+      step: 4,
+      title: "Interview Prep & Visa Stamping",
+      description:
+        "For countries requiring interviews (US, UK), we conduct thorough mock interview sessions. Post-approval, we assist with visa stamping, travel booking, forex, and pre-departure checklist.",
+    },
+  ],
+  faqs: [
+    {
+      question: "Which countries are best for Indian students to study abroad?",
+      answer:
+        "The most popular destinations for Indian students are USA, UK, Canada, Australia, Germany, Ireland, and New Zealand. Each offers unique advantages in terms of course quality, post-study work options, tuition costs, and living expenses. We help you choose based on your specific academic and career goals.",
+    },
+    {
+      question: "How much bank balance is needed for a student visa?",
+      answer:
+        "Financial requirements vary by country. US F1 visas require proof of funds covering full tuition + living expenses. UK requires approximately £1,334/month (London) or £1,023/month (outside London) for living costs. Canada requires CAD 20,635/year. We provide exact figures and help arrange financial documentation.",
+    },
+    {
+      question: "Can you help with education loan documentation?",
+      answer:
+        "Yes. We assist with education loan applications, documentation for banks and NBFCs, collateral assessment, and GIC (Guaranteed Investment Certificate) for Canada. We work with partner banks offering competitive education loan rates for Indian students.",
+    },
+    {
+      question: "What if my student visa gets rejected?",
+      answer:
+        "Student visa rejections are usually due to insufficient financial proof, weak SOP, or unconvincing study plans. We analyze the rejection reason, strengthen your application, and refile. Our reapplication success rate is significantly higher than first-time applicants due to our detailed rejection analysis.",
+    },
+  ],
+};
+
+export const MANPOWER_AGENCY_DATA = {
+  slug: "manpower-agencies",
+  title: "Visa Assistance for Manpower Agencies",
+  icon: "Users",
+  tagline:
+    "Bulk visa processing and dedicated account management for manpower recruitment agencies",
+  metaDescription:
+    "B2B work visa and employment visa processing for manpower recruitment agencies. Bulk processing, MOFA attestation, GAMCA coordination, emigration clearance. Dedicated account management. Partner with Cloud Travel Solutions.",
+  description:
+    "We provide dedicated B2B visa processing services for manpower recruitment agencies sending workers to Gulf countries, Southeast Asia, and Europe. Our bulk processing capabilities, dedicated account managers, and competitive agency pricing make us the ideal outsourcing partner for your visa operations. From MOFA attestation and GAMCA medical coordination to emigration clearance and group travel arrangements — we handle the entire visa lifecycle so your agency can focus on recruitment and client relationships. Our real-time tracking dashboard gives you and your clients complete visibility into every application.",
+  features: [
+    "Bulk employment visa processing for recruitment agencies",
+    "Gulf country work visas — UAE, Saudi, Qatar, Kuwait, Oman, Bahrain",
+    "MOFA (Ministry of Foreign Affairs) attestation",
+    "GAMCA medical appointment booking and coordination",
+    "Emigration clearance (EC) from Protector of Emigrants",
+    "Work permit applications for European countries",
+    "Contract attestation and legalization",
+    "Travel arrangements for workers (flights, insurance)",
+    "Dedicated account manager for agency partners",
+    "Real-time batch tracking and status dashboard",
+  ],
+  process: [
+    {
+      step: 1,
+      title: "Agency Onboarding & Requirements",
+      description:
+        "We onboard your recruitment agency with dedicated pricing, assign an account manager, and understand your visa processing volume, destination countries, and specific requirements.",
+    },
+    {
+      step: 2,
+      title: "Document Collection & Verification",
+      description:
+        "We collect worker documents (passport, photos, educational certificates, medical reports), verify all details, and prepare the complete visa application package for each worker.",
+    },
+    {
+      step: 3,
+      title: "Visa Processing & Attestation",
+      description:
+        "We handle MOFA attestation, embassy stamping, contract legalization, and work permit submission in bulk. GAMCA medicals are coordinated at approved centres across India.",
+    },
+    {
+      step: 4,
+      title: "Emigration Clearance & Travel",
+      description:
+        "Post visa approval, we obtain emigration clearance, arrange flights, provide travel insurance, and coordinate departure logistics for individual or group travel.",
+    },
+  ],
+  faqs: [
+    {
+      question: "Which countries do you process manpower visas for?",
+      answer:
+        "We primarily process employment visas for Gulf countries (UAE, Saudi Arabia, Qatar, Kuwait, Oman, Bahrain), Malaysia, Singapore, and select European countries (Poland, Romania, Croatia, Malta). We handle all categories including skilled, semi-skilled, and unskilled worker visas.",
+    },
+    {
+      question: "What is the minimum batch size for bulk processing?",
+      answer:
+        "We offer competitive bulk rates starting from 10+ workers per batch. Larger batches of 50+ workers receive priority processing and the best per-visa rates. We also handle individual work visa applications for companies hiring directly.",
+    },
+    {
+      question: "Do you handle GAMCA medical appointments?",
+      answer:
+        "Yes. We book GAMCA (Gulf Approved Medical Centres Association) medical appointments at approved centres across India, coordinate the medical examination, and collect results. We ensure medicals are completed within the validity period required by the destination country.",
+    },
+    {
+      question: "How long does a Gulf country employment visa take?",
+      answer:
+        "UAE employment visas typically take 3-7 working days after MOFA approval. Saudi work visas take 7-15 working days. Qatar and Kuwait take 10-20 working days. Timelines can vary based on the employer's labor quota and ministry approvals. We provide real-time tracking for every application.",
+    },
+  ],
+};
 
 export function getServiceBySlug(slug: string): ServiceDetail | undefined {
   return SERVICES_DATA.find((s) => s.slug === slug);

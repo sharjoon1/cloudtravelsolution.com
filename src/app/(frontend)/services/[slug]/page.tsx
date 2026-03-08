@@ -356,6 +356,40 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         </div>
       </div>
 
+      {/* Specialized Services (child pages) */}
+      {service.children && service.children.length > 0 && (
+        <div className="bg-[#e3ebf9]">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 lg:py-14">
+            <h2 className="text-2xl font-bold text-foreground mb-2">
+              Specialized Services
+            </h2>
+            <p className="text-muted-foreground mb-6">
+              We offer dedicated visa assistance tailored for specific business
+              partners.
+            </p>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {service.children.map((child) => (
+                <Link
+                  key={child.slug}
+                  href={child.href}
+                  className="group flex items-center justify-between p-5 rounded-xl border border-border bg-white hover:border-[var(--color-primary)] hover:shadow-md transition-all"
+                >
+                  <div>
+                    <h3 className="font-semibold text-foreground group-hover:text-[var(--color-primary)] transition-colors">
+                      {child.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground mt-1">
+                      Learn more about our partnership program
+                    </p>
+                  </div>
+                  <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:text-[var(--color-primary)] transition-colors shrink-0" />
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
       <CTABanner />
     </>
   );
