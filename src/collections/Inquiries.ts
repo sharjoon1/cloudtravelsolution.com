@@ -1,4 +1,5 @@
 import type { CollectionConfig } from "payload";
+import { createSubscriberSyncHook } from "../hooks/subscriberSync";
 
 export const Inquiries: CollectionConfig = {
   slug: "inquiries",
@@ -12,6 +13,22 @@ export const Inquiries: CollectionConfig = {
     create: () => true,
     update: ({ req }) => !!req.user,
     delete: ({ req }) => !!req.user,
+  },
+  hooks: {
+    afterChange: [
+      createSubscriberSyncHook({
+        source: "inquiry-form",
+        getEmail: (doc) => doc.email as string | undefined,
+        getName: (doc) => doc.fullName as string | undefined,
+        getSegments: (doc) => {
+          const segments: string[] = ["inquiry"];
+          if (doc.destinationCountry) segments.push(String(doc.destinationCountry).toLowerCase());
+          if (doc.visaType) segments.push(String(doc.visaType));
+          if (doc.city) segments.push(String(doc.city).toLowerCase());
+          return segments;
+        },
+      }),
+    ],
   },
   fields: [
     {

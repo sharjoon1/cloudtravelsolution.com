@@ -1,4 +1,5 @@
 import type { CollectionConfig } from "payload";
+import { createSubscriberSyncHook } from "../hooks/subscriberSync";
 
 export const Leads: CollectionConfig = {
   slug: "leads",
@@ -12,6 +13,20 @@ export const Leads: CollectionConfig = {
     create: () => true,
     update: ({ req }) => !!req.user,
     delete: ({ req }) => !!req.user,
+  },
+  hooks: {
+    afterChange: [
+      createSubscriberSyncHook({
+        source: "lead-form",
+        getEmail: (doc) => doc.email as string | undefined,
+        getName: (doc) => doc.fullName as string | undefined,
+        getSegments: (doc) => {
+          const segments: string[] = ["lead"];
+          if (doc.destination) segments.push(String(doc.destination));
+          return segments;
+        },
+      }),
+    ],
   },
   fields: [
     {

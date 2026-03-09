@@ -1,4 +1,5 @@
 import type { CollectionConfig } from "payload";
+import { createSubscriberSyncHook } from "../hooks/subscriberSync";
 
 export const B2BInquiries: CollectionConfig = {
   slug: "b2b-inquiries",
@@ -12,6 +13,21 @@ export const B2BInquiries: CollectionConfig = {
     create: () => true,
     update: ({ req }) => !!req.user,
     delete: ({ req }) => !!req.user,
+  },
+  hooks: {
+    afterChange: [
+      createSubscriberSyncHook({
+        source: "b2b-form",
+        getEmail: (doc) => doc.email as string | undefined,
+        getName: (doc) => doc.contactPerson as string | undefined,
+        getSegments: (doc) => {
+          const segments: string[] = ["b2b"];
+          if (doc.businessType) segments.push(String(doc.businessType));
+          if (doc.city) segments.push(String(doc.city).toLowerCase());
+          return segments;
+        },
+      }),
+    ],
   },
   fields: [
     { name: "companyName", type: "text", required: true },

@@ -1,4 +1,5 @@
 import type { CollectionConfig } from "payload";
+import { createSubscriberSyncHook } from "../hooks/subscriberSync";
 
 export const Customers: CollectionConfig = {
   slug: "customers",
@@ -12,6 +13,21 @@ export const Customers: CollectionConfig = {
     create: ({ req }) => !!req.user,
     update: ({ req }) => !!req.user,
     delete: ({ req }) => req.user?.role === "admin",
+  },
+  hooks: {
+    afterChange: [
+      createSubscriberSyncHook({
+        source: "manual",
+        getEmail: (doc) => doc.email as string | undefined,
+        getName: (doc) => doc.fullName as string | undefined,
+        getSegments: (doc) => {
+          const segments: string[] = ["customer"];
+          if (doc.city) segments.push(String(doc.city).toLowerCase());
+          if (doc.status === "vip") segments.push("vip");
+          return segments;
+        },
+      }),
+    ],
   },
   fields: [
     {

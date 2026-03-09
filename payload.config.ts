@@ -24,6 +24,8 @@ import { Partners } from "./src/collections/Partners";
 import { Documents } from "./src/collections/Documents";
 import { ServiceRequests } from "./src/collections/ServiceRequests";
 import { B2BInquiries } from "./src/collections/B2BInquiries";
+import { Subscribers } from "./src/collections/Subscribers";
+import { EmailCampaigns } from "./src/collections/EmailCampaigns";
 import { SiteSettings } from "./src/globals/SiteSettings";
 import { Homepage } from "./src/globals/Homepage";
 
@@ -63,6 +65,8 @@ export default buildConfig({
     Documents,
     ServiceRequests,
     B2BInquiries,
+    Subscribers,
+    EmailCampaigns,
   ],
   globals: [SiteSettings, Homepage],
   editor: lexicalEditor(),
