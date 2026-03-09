@@ -54,7 +54,7 @@ export async function POST(request: Request) {
       }
 
       const result = await sendCampaignEmail({
-        to: user.email,
+        to: user.email || "info@cloudtravelsolution.com",
         subject: `[TEST] ${campaign.subject}`,
         html,
         campaignId: String(campaignId),
