@@ -41,10 +41,13 @@ async function generateUniqueNumber(
   const month = String(now.getMonth() + 1).padStart(2, "0");
   const pattern = `${prefix}-${year}${month}-`;
 
-  // Start from count + 1 (resolves the common case in a single query).
+  // Payload's `find` expects a typed CollectionSlug; this hook is generic, so cast once.
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const slug = collectionSlug as any;
+
+  // Start from count + 1 (resolves the common case in a single query).
   const counted = await req.payload.find({
-    collection: collectionSlug as any,
+    collection: slug,
     where: { [fieldName]: { like: `${pattern}%` } },
     limit: 0,
     depth: 0,
@@ -56,9 +59,8 @@ async function generateUniqueNumber(
   // concurrent-create overlap). Bump until we find an unused number.
   for (let attempt = 0; attempt < 100; attempt++) {
     const candidate = `${pattern}${String(next).padStart(4, "0")}`;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const clash = await req.payload.find({
-      collection: collectionSlug as any,
+      collection: slug,
       where: { [fieldName]: { equals: candidate } },
       limit: 0,
       depth: 0,
