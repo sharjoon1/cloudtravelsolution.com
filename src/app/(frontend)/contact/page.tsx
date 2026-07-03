@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
+import { Phone, Mail, Clock } from "lucide-react";
 
 import { LOCATIONS, SITE_CONFIG } from "@/lib/constants";
 import { Breadcrumb } from "@/components/ui/breadcrumb";
+import { ContactForm } from "@/components/forms/contact-form";
 
 export const metadata: Metadata = {
   title: "Contact Us",
@@ -114,22 +115,28 @@ export default function ContactPage() {
           ))}
         </div>
 
-        {/* Inquiry prompt */}
-        <div className="text-center p-10 rounded-2xl bg-[var(--color-muted)] border border-border">
-          <MessageCircle className="h-10 w-10 text-[var(--color-primary)] mx-auto mb-3" />
-          <h2 className="text-2xl font-bold text-foreground mb-2">
-            Prefer to Submit an Inquiry Online?
-          </h2>
-          <p className="text-muted-foreground mb-6 max-w-lg mx-auto">
-            Fill out our quick form and our visa specialists will get back to
-            you within 2 business hours.
-          </p>
-          <Link
-            href="/inquiry/visa"
-            className="inline-flex items-center gap-2 px-7 py-3 bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-dark)] text-white font-semibold rounded-lg transition-colors"
-          >
-            Book Free Consultation
-          </Link>
+        {/* Contact form */}
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
+          <div className="lg:col-span-2">
+            <h2 className="text-2xl font-bold text-foreground mb-3">Send Us a Message</h2>
+            <p className="text-muted-foreground mb-4">
+              Have a question? Fill out the form and our visa specialists will get back to you within 2 business hours.
+            </p>
+            <div className="rounded-xl border border-border bg-[var(--color-muted)] p-5 text-sm">
+              <p className="font-medium text-foreground mb-1">Need a detailed visa inquiry?</p>
+              <Link
+                href="/inquiry/visa"
+                className="text-[var(--color-primary)] font-medium hover:underline"
+              >
+                Use our full visa inquiry form →
+              </Link>
+            </div>
+          </div>
+          <div className="lg:col-span-3">
+            <div className="rounded-2xl border border-border bg-white p-6 sm:p-8">
+              <ContactForm />
+            </div>
+          </div>
         </div>
       </div>
     </div>
