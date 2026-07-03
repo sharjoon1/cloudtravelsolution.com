@@ -3,9 +3,18 @@ import { getPayload } from "payload";
 import config from "@payload-config";
 import { visaInquirySchema } from "@/lib/validations";
 import { sendInquiryNotification, sendInquiryConfirmation } from "@/lib/email";
+import { getClientIp, rateLimit } from "@/lib/rate-limit";
 
 export async function POST(request: Request) {
   try {
+    const ip = getClientIp(request);
+    if (rateLimit(`inquiry:${ip}`, { intervalMs: 60_000, maxRequests: 5 })) {
+      return NextResponse.json(
+        { success: false, message: "Too many submissions. Please wait a minute and try again." },
+        { status: 429 }
+      );
+    }
+
     const body = await request.json();
     const validated = visaInquirySchema.parse(body);
 

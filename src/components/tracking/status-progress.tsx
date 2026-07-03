@@ -33,6 +33,18 @@ export function StatusProgress({ currentStatus, statusHistory }: StatusProgressP
   const isOnHold = currentStatus === "on-hold";
   const currentIndex = STATUS_ORDER.indexOf(currentStatus);
 
+  // Statuses that have actually been reached (on-hold/rejected are NOT in STATUS_ORDER,
+  // so index math alone breaks — drive completion off real history instead).
+  const reached = new Set(statusHistory.map((h) => h.status));
+
+  // A timeline step is "completed" if it was genuinely reached, OR (for normal linear
+  // progress) the current status is at or past it. Rejected never shows green (alert above).
+  function isStepCompleted(status: string, index: number): boolean {
+    if (isTerminal) return false;
+    if (reached.has(status)) return true;
+    return currentIndex >= 0 && currentIndex >= index;
+  }
+
   // Find history entry for each status
   function getHistoryEntry(status: string) {
     return statusHistory
@@ -75,9 +87,12 @@ export function StatusProgress({ currentStatus, statusHistory }: StatusProgressP
       {/* Timeline */}
       <div className="space-y-0">
         {STATUS_ORDER.map((status, index) => {
-          const isCompleted = !isTerminal && currentIndex >= index;
+          const isCompleted = isStepCompleted(status, index);
           const isCurrent = currentStatus === status;
           const entry = getHistoryEntry(status);
+          const nextCompleted =
+            index < STATUS_ORDER.length - 1 &&
+            isStepCompleted(STATUS_ORDER[index + 1]!, index + 1);
 
           return (
             <div key={status} className="flex gap-3">
@@ -95,9 +110,7 @@ export function StatusProgress({ currentStatus, statusHistory }: StatusProgressP
                 {index < STATUS_ORDER.length - 1 && (
                   <div
                     className={`h-8 w-0.5 ${
-                      isCompleted && currentIndex > index
-                        ? "bg-green-300"
-                        : "bg-gray-200"
+                      nextCompleted ? "bg-green-300" : "bg-gray-200"
                     }`}
                   />
                 )}

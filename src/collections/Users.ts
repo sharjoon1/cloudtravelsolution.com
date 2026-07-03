@@ -8,7 +8,9 @@ export const Users: CollectionConfig = {
     group: "Admin",
   },
   access: {
-    read: () => true,
+    // Authenticated users only — previously `() => true`, which leaked the admin
+    // user list (emails) to the public via the REST/GraphQL API.
+    read: ({ req }) => !!req.user,
     create: ({ req }) => req.user?.role === "admin",
     update: ({ req }) => req.user?.role === "admin",
     delete: ({ req }) => req.user?.role === "admin",

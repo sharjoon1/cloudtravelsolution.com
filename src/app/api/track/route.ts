@@ -1,9 +1,19 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getPayload } from "payload";
 import config from "@payload-config";
+import { getClientIp, rateLimit } from "@/lib/rate-limit";
 
 // GET /api/track?passport=X or ?code=TRK-X — Public tracking lookup
 export async function GET(req: NextRequest) {
+  // Throttle lookups to blunt passport-number enumeration (passport numbers are not secret).
+  const ip = getClientIp(req);
+  if (rateLimit(`track:${ip}`, { intervalMs: 60_000, maxRequests: 10 })) {
+    return NextResponse.json(
+      { error: "Too many lookups. Please wait a minute and try again." },
+      { status: 429 }
+    );
+  }
+
   const { searchParams } = new URL(req.url);
   const passport = searchParams.get("passport");
   const code = searchParams.get("code");
@@ -51,10 +61,10 @@ export async function GET(req: NextRequest) {
       destinationCountry: doc.destinationCountry,
       status: doc.status,
       statusHistory: (doc.statusHistory || []).map(
-        (entry: { status: string; timestamp: string; note?: string }) => ({
+        (entry: { status: string; timestamp: string }) => ({
           status: entry.status,
           timestamp: entry.timestamp,
-          note: entry.note,
+          // NOTE: `note` intentionally omitted — it may contain internal staff notes.
         })
       ),
       createdAt: doc.createdAt,

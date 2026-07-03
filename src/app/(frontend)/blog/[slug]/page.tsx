@@ -254,7 +254,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                     Book Free Consultation
                   </Link>
                   <Link
-                    href="/contact/callback"
+                    href="/contact"
                     className="block w-full text-center px-5 py-3 mt-2 border border-border text-foreground/80 font-medium rounded-lg hover:bg-[var(--color-muted)] transition-colors text-sm"
                   >
                     Request Callback

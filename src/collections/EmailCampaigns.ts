@@ -13,7 +13,8 @@ export const EmailCampaigns: CollectionConfig = {
     read: ({ req }) => !!req.user,
     create: ({ req }) => !!req.user,
     update: ({ req }) => !!req.user,
-    delete: ({ req }) => !!req.user,
+    // Only admins can delete campaigns — previously any logged-in editor could.
+    delete: ({ req }) => req.user?.role === "admin",
   },
   fields: [
     // ─── TABS LAYOUT ───

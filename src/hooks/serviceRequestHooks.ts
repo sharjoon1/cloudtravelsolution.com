@@ -129,6 +129,9 @@ export const serviceRequestAfterChange: CollectionAfterChangeHook = async ({
           collection: "partners",
           id: partnerId,
           data: { totalRequests: (partner.totalRequests || 0) + 1 },
+          // overrideAccess: this runs when a partner submits via the public API
+          // (req.user is undefined/a partner), and Partners.update otherwise denies it.
+          overrideAccess: true,
         });
       } catch {
         // ignore

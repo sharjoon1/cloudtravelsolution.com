@@ -13,13 +13,14 @@ import {
 
 import { SITE_CONFIG, LOCATIONS, SERVICES } from "@/lib/constants";
 import type { SiteSettingsData } from "@/lib/payload-data";
+import { NewsletterForm } from "@/components/forms/newsletter-form";
 
 const quickLinks = [
   { label: "About Us", href: "/about" },
   { label: "Our Team", href: "/about/team" },
   { label: "Blog", href: "/blog" },
   { label: "FAQ", href: "/resources/faq" },
-  { label: "Testimonials", href: "/testimonials" },
+  { label: "Testimonials", href: "/#testimonials" },
   { label: "Contact Us", href: "/contact" },
 ];
 
@@ -203,18 +204,8 @@ export function Footer({ siteSettings }: FooterProps) {
                 Get visa tips, travel guides, and updates delivered to your inbox.
               </p>
             </div>
-            <div className="flex gap-2 w-full md:w-auto">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 md:w-64 px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 text-sm text-white placeholder:text-white/40 outline-none focus:border-[#0cfcbc] transition-colors"
-              />
-              <button
-                type="button"
-                className="px-5 py-2.5 bg-[#0cfcbc] hover:bg-[#0adba5] text-[#0c6cbc] font-bold rounded-lg transition-colors text-sm shrink-0"
-              >
-                Subscribe
-              </button>
+            <div className="w-full md:w-auto md:min-w-[320px]">
+              <NewsletterForm variant="dark" />
             </div>
           </div>
         </div>

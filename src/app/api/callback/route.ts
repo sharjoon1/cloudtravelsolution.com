@@ -3,9 +3,18 @@ import { getPayload } from "payload";
 import config from "@payload-config";
 import { callbackSchema } from "@/lib/validations";
 import { sendCallbackNotification } from "@/lib/email";
+import { getClientIp, rateLimit } from "@/lib/rate-limit";
 
 export async function POST(request: Request) {
   try {
+    const ip = getClientIp(request);
+    if (rateLimit(`callback:${ip}`, { intervalMs: 60_000, maxRequests: 5 })) {
+      return NextResponse.json(
+        { success: false, message: "Too many requests. Please wait a minute and try again." },
+        { status: 429 }
+      );
+    }
+
     const body = await request.json();
     const validated = callbackSchema.parse(body);
 
