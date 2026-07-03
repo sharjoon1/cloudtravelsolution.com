@@ -11,6 +11,7 @@ import {
   Globe,
   HelpCircle,
 } from "lucide-react";
+import { generateFAQSchema } from "@/lib/seo";
 
 const faqCategories = [
   {
@@ -203,6 +204,16 @@ export default function FAQPage() {
 
   return (
     <div className="bg-[#e3ebf9]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateFAQSchema(
+              allFaqs.map((f) => ({ question: f.question, answer: f.answer }))
+            )
+          ),
+        }}
+      />
       {/* Header */}
       <div className="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-dark)] text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 lg:py-14">

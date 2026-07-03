@@ -2,19 +2,10 @@ import type { MetadataRoute } from "next";
 
 import { getAllCountrySlugs } from "@/lib/visa-data";
 import { getAllServiceSlugs } from "@/lib/services-data";
+import { getAllBlogSlugs } from "@/lib/blog-data";
 import { LOCATIONS } from "@/lib/constants";
 
 const baseUrl = "https://cloudtravelsolution.com";
-
-// Blog slugs — static for now, will come from CMS later
-const blogSlugs = [
-  "us-tourist-visa-guide-2026",
-  "schengen-visa-requirements-checklist",
-  "how-to-choose-visa-consultant-india",
-  "visa-free-countries-indian-passport",
-  "student-visa-guide-top-destinations",
-  "common-visa-rejection-reasons",
-];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -69,6 +60,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.6,
     },
+    { url: `${baseUrl}/b2b`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${baseUrl}/about/team`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
+    { url: `${baseUrl}/visa/types`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${baseUrl}/locations/expansion`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
     {
       url: `${baseUrl}/privacy-policy`,
       lastModified: now,
@@ -109,8 +104,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  // Blog posts
-  const blogPages: MetadataRoute.Sitemap = blogSlugs.map((slug) => ({
+  // Blog posts (sourced from blog-data so new posts are picked up automatically)
+  const blogPages: MetadataRoute.Sitemap = getAllBlogSlugs().map((slug) => ({
     url: `${baseUrl}/blog/${slug}`,
     lastModified: now,
     changeFrequency: "monthly" as const,

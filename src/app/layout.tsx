@@ -4,6 +4,7 @@ import "./globals.css";
 
 import { GoogleAnalytics } from "@/components/analytics/google-analytics";
 import { GoogleTagManager, GTMNoScript } from "@/components/analytics/gtm";
+import { SITE_CONFIG } from "@/lib/constants";
 
 const jakarta = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
@@ -20,9 +21,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
-  ),
+  metadataBase: new URL(SITE_CONFIG.url),
   title: {
     default: "Cloud Travel Solutions — Your Trusted Visa & Travel Partner Across India",
     template: "%s | Cloud Travel Solutions",
