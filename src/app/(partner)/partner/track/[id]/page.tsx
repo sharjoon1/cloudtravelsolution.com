@@ -22,6 +22,7 @@ export default function PartnerTrackDetailPage() {
   const [showUpload, setShowUpload] = useState(false);
   const [newFiles, setNewFiles] = useState<UploadedFile[]>([]);
   const [uploading, setUploading] = useState(false);
+  const [uploadError, setUploadError] = useState("");
 
   useEffect(() => {
     async function fetchDetail() {
@@ -42,7 +43,9 @@ export default function PartnerTrackDetailPage() {
   async function handleUpload() {
     if (newFiles.length === 0 || !request) return;
     setUploading(true);
+    setUploadError("");
 
+    let failedUploads = 0;
     for (const item of newFiles) {
       const formData = new FormData();
       formData.append("file", item.file);
@@ -50,11 +53,15 @@ export default function PartnerTrackDetailPage() {
       if (item.description) formData.append("description", item.description);
       formData.append("serviceRequestId", request.id);
 
-      await fetch("/api/partner/documents", { method: "POST", body: formData });
+      const uploadRes = await fetch("/api/partner/documents", { method: "POST", body: formData });
+      if (!uploadRes.ok) failedUploads++;
     }
 
+    if (failedUploads > 0) {
+      setUploadError(`${failedUploads} of ${newFiles.length} file(s) failed to upload. Please try again.`);
+    }
     setNewFiles([]);
-    setShowUpload(false);
+    if (failedUploads === 0) setShowUpload(false);
     setUploading(false);
 
     // Refresh
@@ -259,6 +266,9 @@ export default function PartnerTrackDetailPage() {
                   >
                     {uploading ? "Uploading..." : `Upload ${newFiles.length} file(s)`}
                   </button>
+                )}
+                {uploadError && (
+                  <p className="text-sm text-red-600">{uploadError}</p>
                 )}
               </div>
             )}

@@ -36,7 +36,7 @@ export function SubmitForm() {
   const [step, setStep] = useState(0);
   const [files, setFiles] = useState<UploadedFile[]>([]);
   const [submitting, setSubmitting] = useState(false);
-  const [result, setResult] = useState<{ trackingCode: string } | null>(null);
+  const [result, setResult] = useState<{ trackingCode: string; uploadWarning?: string } | null>(null);
   const [error, setError] = useState("");
 
   const {
@@ -87,7 +87,9 @@ export function SubmitForm() {
 
       const { doc } = await res.json();
 
-      // 2. Upload documents if any
+      // 2. Upload documents if any (track failures — the request is already created,
+      //    so we still hand over the tracking code, but surface any upload failures.)
+      let failedUploads = 0;
       for (const item of files) {
         const formData = new FormData();
         formData.append("file", item.file);
@@ -95,13 +97,20 @@ export function SubmitForm() {
         if (item.description) formData.append("description", item.description);
         formData.append("serviceRequestId", doc.id);
 
-        await fetch("/api/partner/documents", {
+        const uploadRes = await fetch("/api/partner/documents", {
           method: "POST",
           body: formData,
         });
+        if (!uploadRes.ok) failedUploads++;
       }
 
-      setResult({ trackingCode: doc.trackingCode });
+      setResult({
+        trackingCode: doc.trackingCode,
+        uploadWarning:
+          failedUploads > 0
+            ? `${failedUploads} of ${files.length} document(s) failed to upload. You can re-upload them from the tracking page.`
+            : undefined,
+      });
     } catch (err) {
       setError(err instanceof Error ? err.message : "Something went wrong");
     } finally {
@@ -127,6 +136,11 @@ export function SubmitForm() {
             Save this code. You and your client can use it to track the application status.
           </p>
         </div>
+        {result.uploadWarning && (
+          <div className="mt-4 rounded-lg border border-amber-300 bg-amber-50 px-4 py-3 text-left text-sm text-amber-800">
+            <strong>Heads up:</strong> {result.uploadWarning}
+          </div>
+        )}
         <div className="mt-6 flex justify-center gap-3">
           <a
             href="/partner/dashboard"
