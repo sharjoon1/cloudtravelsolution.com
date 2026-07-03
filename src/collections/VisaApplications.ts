@@ -33,6 +33,32 @@ export const VisaApplications: CollectionConfig = {
         return data;
       },
     ],
+    afterChange: [
+      // Keep Customers.totalApplications in sync. overrideAccess so it works no
+      // matter who created the visa application (mirrors the partner counter).
+      async ({ doc, operation, req }) => {
+        if (operation !== "create" || !doc.customer) return doc;
+        const customerId =
+          typeof doc.customer === "object" ? doc.customer.id : doc.customer;
+        try {
+          const customer = await req.payload.findByID({
+            collection: "customers",
+            id: customerId,
+            depth: 0,
+            overrideAccess: true,
+          });
+          await req.payload.update({
+            collection: "customers",
+            id: customerId,
+            data: { totalApplications: (customer?.totalApplications || 0) + 1 },
+            overrideAccess: true,
+          });
+        } catch {
+          // best-effort counter; ignore failures
+        }
+        return doc;
+      },
+    ],
   },
   fields: [
     {
