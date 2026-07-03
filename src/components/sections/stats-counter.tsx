@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 const defaultStats = [
   { value: 10000, suffix: "+", label: "Visas Processed" },
   { value: 190, suffix: "+", label: "Countries Covered" },
-  { value: 98, suffix: "%", label: "Success Rate" },
+  { value: 95, suffix: "%+", label: "Success Rate" },
   { value: 4, suffix: "", label: "Office Locations" },
 ];
 

@@ -8,7 +8,7 @@ ABOUT CLOUD TRAVEL SOLUTION:
 - Offices in Bangalore (HQ), Hyderabad, Delhi (coming soon), Chennai (coming soon)
 - Specializing in visa assistance for 190+ countries
 - Services: Visa Assistance, Visa Appointment Booking, Travel Insurance, Document Attestation, Flight & Hotel Booking, Forex Services, Travel Packages, Immigration Consulting
-- 20+ years combined experience, 98% success rate, 10,000+ visas processed
+- 20+ years combined experience, 95%+ success rate, 10,000+ visas processed
 - IATA Accredited, ISO 9001 Certified
 
 OFFICE CONTACTS:
