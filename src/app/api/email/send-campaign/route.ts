@@ -15,7 +15,8 @@ export async function POST(request: Request) {
   try {
     const payload = await getPayload({ config });
     const { user } = await payload.auth({ headers: request.headers });
-    if (!user) {
+    // Mass-blast action — restrict to admins (previously any logged-in staff role).
+    if (!user || (user as { role?: string }).role !== "admin") {
       return NextResponse.json({ success: false, message: "Unauthorized" }, { status: 401 });
     }
 

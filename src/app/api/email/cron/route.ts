@@ -3,10 +3,19 @@ import { getPayload } from "payload";
 import config from "@payload-config";
 import { sendCampaign } from "@/lib/email-campaigns";
 
-export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url);
-  const secret = searchParams.get("secret");
-  if (secret !== (process.env.CRON_SECRET || "cron-secret-change-me")) {
+export async function POST(request: Request) {
+  // Fail closed if no secret is configured (previously fell back to a guessable
+  // default). Secret travels in a header, not the query string, so it isn't
+  // captured in nginx/CDN access logs. POST so crawlers/prefetch can't trigger it.
+  const expected = process.env.CRON_SECRET;
+  if (!expected) {
+    return NextResponse.json(
+      { success: false, message: "CRON_SECRET not configured" },
+      { status: 503 }
+    );
+  }
+  const provided = request.headers.get("x-cron-secret");
+  if (provided !== expected) {
     return NextResponse.json({ success: false, message: "Unauthorized" }, { status: 401 });
   }
 

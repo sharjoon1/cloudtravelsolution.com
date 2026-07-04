@@ -2,6 +2,7 @@ import type {
   CollectionBeforeChangeHook,
   CollectionAfterChangeHook,
 } from "payload";
+import { atomicIncrement, type CounterPayload } from "../lib/counter-lock";
 
 /**
  * beforeChange hook for ServiceRequests:
@@ -115,24 +116,17 @@ export const serviceRequestAfterChange: CollectionAfterChangeHook = async ({
       });
     }
 
-    // Update partner totalRequests
+    // Update partner totalRequests (atomic — concurrent creates no longer lose increments)
     if (doc.partner) {
       const partnerId =
         typeof doc.partner === "object" ? doc.partner.id : doc.partner;
       try {
-        const partner = await req.payload.findByID({
-          collection: "partners",
-          id: partnerId,
-          depth: 0,
-        });
-        await req.payload.update({
-          collection: "partners",
-          id: partnerId,
-          data: { totalRequests: (partner.totalRequests || 0) + 1 },
-          // overrideAccess: this runs when a partner submits via the public API
-          // (req.user is undefined/a partner), and Partners.update otherwise denies it.
-          overrideAccess: true,
-        });
+        await atomicIncrement(
+          req.payload as unknown as CounterPayload,
+          "partners",
+          partnerId,
+          "totalRequests",
+        );
       } catch {
         // ignore
       }

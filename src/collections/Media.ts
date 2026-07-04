@@ -30,7 +30,9 @@ export const Media: CollectionConfig = {
         position: "centre",
       },
     ],
-    mimeTypes: ["image/png", "image/jpeg", "image/webp", "image/avif", "image/svg+xml"],
+    // image/svg+xml removed: SVG can carry <script> and Media.read is public — a
+    // stored-XSS sink. Re-enable only behind sanitization + attachment serving.
+    mimeTypes: ["image/png", "image/jpeg", "image/webp", "image/avif"],
   },
   fields: [
     {

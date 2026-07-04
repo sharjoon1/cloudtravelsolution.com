@@ -1,5 +1,6 @@
 import type { CollectionConfig } from "payload";
 import { autoNumber } from "../hooks/autoNumber";
+import { atomicIncrement, type CounterPayload } from "../lib/counter-lock";
 
 export const VisaApplications: CollectionConfig = {
   slug: "visa-applications",
@@ -41,18 +42,12 @@ export const VisaApplications: CollectionConfig = {
         const customerId =
           typeof doc.customer === "object" ? doc.customer.id : doc.customer;
         try {
-          const customer = await req.payload.findByID({
-            collection: "customers",
-            id: customerId,
-            depth: 0,
-            overrideAccess: true,
-          });
-          await req.payload.update({
-            collection: "customers",
-            id: customerId,
-            data: { totalApplications: (customer?.totalApplications || 0) + 1 },
-            overrideAccess: true,
-          });
+          await atomicIncrement(
+            req.payload as unknown as CounterPayload,
+            "customers",
+            customerId,
+            "totalApplications",
+          );
         } catch {
           // best-effort counter; ignore failures
         }
