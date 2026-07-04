@@ -6,14 +6,14 @@ import {
 } from "@/lib/services-data";
 
 describe("services-data", () => {
-  it("should have 5 services", () => {
-    expect(SERVICES_DATA).toHaveLength(5);
+  it("should have 6 services", () => {
+    expect(SERVICES_DATA).toHaveLength(6);
   });
 
   it("should return service by valid slug", () => {
-    const service = getServiceBySlug("visa-consulting");
+    const service = getServiceBySlug("visa-appointment");
     expect(service).toBeDefined();
-    expect(service?.title).toBe("Visa Consulting");
+    expect(service?.title).toBe("Visa Appointment Booking");
   });
 
   it("should return undefined for invalid slug", () => {
@@ -22,12 +22,13 @@ describe("services-data", () => {
 
   it("should return all service slugs", () => {
     const slugs = getAllServiceSlugs();
-    expect(slugs).toHaveLength(5);
-    expect(slugs).toContain("visa-consulting");
+    expect(slugs).toHaveLength(6);
+    expect(slugs).toContain("visa-appointment");
+    expect(slugs).toContain("visa-assistance");
     expect(slugs).toContain("travel-insurance");
+    expect(slugs).toContain("flight-hotel-booking");
     expect(slugs).toContain("passport-services");
     expect(slugs).toContain("document-attestation");
-    expect(slugs).toContain("corporate-travel");
   });
 
   it("every service should have required fields", () => {
