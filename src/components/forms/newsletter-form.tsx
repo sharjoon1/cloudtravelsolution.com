@@ -64,6 +64,7 @@ export function NewsletterForm({ variant = "light" }: NewsletterFormProps) {
           type="email"
           placeholder="Enter your email"
           {...register("email")}
+          aria-label="Email address"
           className={cn(
             "w-full px-4 py-2.5 rounded-lg border text-sm outline-none transition-colors",
             variant === "dark"

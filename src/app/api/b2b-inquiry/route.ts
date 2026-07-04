@@ -25,7 +25,14 @@ export async function POST(request: Request) {
       );
     }
 
-    const validated = b2bInquirySchema.parse(body);
+    const parsed = b2bInquirySchema.safeParse(body);
+    if (!parsed.success) {
+      return NextResponse.json(
+        { success: false, message: "Validation failed", errors: parsed.error.flatten().fieldErrors },
+        { status: 400 }
+      );
+    }
+    const validated = parsed.data;
 
     const payload = await getPayload({ config });
     const inquiry = await payload.create({
@@ -43,13 +50,6 @@ export async function POST(request: Request) {
       { status: 201 }
     );
   } catch (error) {
-    if (error instanceof Error && error.name === "ZodError") {
-      return NextResponse.json(
-        { success: false, message: "Validation failed", errors: error },
-        { status: 400 }
-      );
-    }
-
     console.error("B2B inquiry submission error:", error);
     return NextResponse.json(
       { success: false, message: "Internal server error" },

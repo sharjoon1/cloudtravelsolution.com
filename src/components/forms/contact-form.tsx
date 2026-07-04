@@ -127,7 +127,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="inline-flex items-center justify-center gap-2 rounded-lg bg-[var(--color-secondary)] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-secondary-dark)] disabled:opacity-60"
+        className="inline-flex items-center justify-center gap-2 rounded-lg bg-[var(--color-secondary)] px-6 py-3 text-sm font-semibold text-[#094f8a] transition-colors hover:bg-[var(--color-secondary-dark)] disabled:opacity-60"
       >
         {isSubmitting ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
         {isSubmitting ? "Sending..." : "Send Message"}

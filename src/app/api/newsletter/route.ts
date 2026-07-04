@@ -22,7 +22,14 @@ export async function POST(request: Request) {
       return NextResponse.json({ success: true, message: "Subscribed successfully" });
     }
 
-    const validated = newsletterSchema.parse(body);
+    const parsed = newsletterSchema.safeParse(body);
+    if (!parsed.success) {
+      return NextResponse.json(
+        { success: false, message: "Validation failed", errors: parsed.error.flatten().fieldErrors },
+        { status: 400 }
+      );
+    }
+    const validated = parsed.data;
 
     const payload = await getPayload({ config });
 
@@ -66,13 +73,6 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ success: true, message: "Subscribed successfully" });
   } catch (error) {
-    if (error instanceof Error && error.name === "ZodError") {
-      return NextResponse.json(
-        { success: false, message: "Validation failed", errors: error },
-        { status: 400 }
-      );
-    }
-
     console.error("Newsletter subscription error:", error);
     return NextResponse.json(
       { success: false, message: "Internal server error" },

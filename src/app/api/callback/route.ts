@@ -25,7 +25,14 @@ export async function POST(request: Request) {
       );
     }
 
-    const validated = callbackSchema.parse(body);
+    const parsed = callbackSchema.safeParse(body);
+    if (!parsed.success) {
+      return NextResponse.json(
+        { success: false, message: "Validation failed", errors: parsed.error.flatten().fieldErrors },
+        { status: 400 }
+      );
+    }
+    const validated = parsed.data;
 
     const payload = await getPayload({ config });
     await payload.create({
@@ -49,13 +56,6 @@ export async function POST(request: Request) {
       { status: 200 }
     );
   } catch (error) {
-    if (error instanceof Error && error.name === "ZodError") {
-      return NextResponse.json(
-        { success: false, message: "Validation failed", errors: error },
-        { status: 400 }
-      );
-    }
-
     console.error("Callback submission error:", error);
     return NextResponse.json(
       { success: false, message: "Internal server error" },

@@ -112,6 +112,7 @@ export function VisaInquiryForm() {
 
   const watchedValues = watch();
   const hp = useHoneypot();
+  const [submitError, setSubmitError] = useState("");
 
   const filteredCountries = ALL_COUNTRIES.filter((c) =>
     c.toLowerCase().includes(countrySearch.toLowerCase())
@@ -151,6 +152,7 @@ export function VisaInquiryForm() {
 
   const onSubmit = async (data: VisaInquiryFormData) => {
     setIsSubmitting(true);
+    setSubmitError("");
     try {
       const response = await fetch("/api/inquiry", {
         method: "POST",
@@ -160,9 +162,18 @@ export function VisaInquiryForm() {
 
       if (response.ok) {
         setIsSubmitted(true);
+      } else {
+        const err = await response.json().catch(() => ({}));
+        setSubmitError(
+          response.status === 429
+            ? (err.message as string) ||
+                "Too many attempts. Please wait a minute and try again."
+            : (err.message as string) ||
+                "Something went wrong. Please try again or call us."
+        );
       }
     } catch {
-      // Handle error
+      setSubmitError("Network error. Please check your connection and try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -734,6 +745,9 @@ export function VisaInquiryForm() {
         )}
 
         {/* Navigation buttons */}
+        {submitError && currentStep === 4 && (
+          <p className="text-sm text-[var(--color-error)] mt-4">{submitError}</p>
+        )}
         <div className="flex items-center justify-between mt-8 pt-6 border-t border-border">
           {currentStep > 1 ? (
             <button

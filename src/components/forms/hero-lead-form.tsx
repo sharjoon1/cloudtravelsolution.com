@@ -32,6 +32,7 @@ export function HeroLeadForm() {
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState("");
   const hp = useHoneypot();
 
   const {
@@ -58,6 +59,7 @@ export function HeroLeadForm() {
 
   const onSubmit = async (data: HeroLeadFormData) => {
     setIsSubmitting(true);
+    setSubmitError("");
     try {
       const response = await fetch("/api/lead", {
         method: "POST",
@@ -67,9 +69,18 @@ export function HeroLeadForm() {
 
       if (response.ok) {
         setIsSubmitted(true);
+      } else {
+        const err = await response.json().catch(() => ({}));
+        setSubmitError(
+          response.status === 429
+            ? (err.message as string) ||
+                "Too many attempts. Please wait a minute and try again."
+            : (err.message as string) ||
+                "Something went wrong. Please try again or call us."
+        );
       }
     } catch {
-      // Handle error
+      setSubmitError("Network error. Please check your connection and try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -111,6 +122,7 @@ export function HeroLeadForm() {
                 <Globe className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" />
                 <select
                   {...register("destination")}
+                  aria-label="Destination country"
                   defaultValue=""
                   className={cn(
                     "w-full h-11 pl-10 pr-10 rounded-lg border bg-white text-sm text-gray-900 outline-none transition-colors appearance-none cursor-pointer",
@@ -141,6 +153,7 @@ export function HeroLeadForm() {
                 <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" />
                 <select
                   {...register("travelMonth")}
+                  aria-label="Travel month"
                   defaultValue=""
                   className={cn(
                     "w-full h-11 pl-10 pr-10 rounded-lg border bg-white text-sm text-gray-900 outline-none transition-colors appearance-none cursor-pointer",
@@ -171,6 +184,7 @@ export function HeroLeadForm() {
                 <Clock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" />
                 <select
                   {...register("duration")}
+                  aria-label="Trip duration"
                   defaultValue=""
                   className={cn(
                     "w-full h-11 pl-10 pr-10 rounded-lg border bg-white text-sm text-gray-900 outline-none transition-colors appearance-none cursor-pointer",
@@ -201,6 +215,7 @@ export function HeroLeadForm() {
                 <Users className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" />
                 <select
                   {...register("travelers")}
+                  aria-label="Number of travelers"
                   defaultValue=""
                   className={cn(
                     "w-full h-11 pl-10 pr-10 rounded-lg border bg-white text-sm text-gray-900 outline-none transition-colors appearance-none cursor-pointer",
@@ -246,6 +261,7 @@ export function HeroLeadForm() {
                 <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
                 <input
                   {...register("fullName")}
+                  aria-label="Full name"
                   placeholder="Full Name"
                   className={cn(
                     "w-full h-11 pl-10 pr-4 rounded-lg border bg-white text-sm text-gray-900 placeholder:text-gray-400 outline-none transition-colors",
@@ -268,6 +284,7 @@ export function HeroLeadForm() {
                 <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
                 <input
                   {...register("phone")}
+                  aria-label="Phone number"
                   type="tel"
                   placeholder="Phone Number (+91)"
                   className={cn(
@@ -291,6 +308,7 @@ export function HeroLeadForm() {
                 <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
                 <input
                   {...register("email")}
+                  aria-label="Email address"
                   type="email"
                   placeholder="Email Address"
                   className={cn(
@@ -310,6 +328,9 @@ export function HeroLeadForm() {
 
             {/* Back + Submit */}
             <div className="space-y-3">
+              {submitError && (
+                <p className="text-xs text-red-500 text-center">{submitError}</p>
+              )}
               <button
                 type="submit"
                 disabled={isSubmitting}
