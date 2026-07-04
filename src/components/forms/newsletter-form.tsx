@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useHoneypot, HoneypotField } from "@/components/forms/honeypot-field";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Mail, Loader2, CheckCircle2 } from "lucide-react";
 
@@ -15,6 +16,7 @@ interface NewsletterFormProps {
 
 export function NewsletterForm({ variant = "light" }: NewsletterFormProps) {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const hp = useHoneypot();
 
   const {
     register,
@@ -30,7 +32,7 @@ export function NewsletterForm({ variant = "light" }: NewsletterFormProps) {
       const res = await fetch("/api/newsletter", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, [hp.name]: hp.getValue() }),
       });
 
       if (!res.ok) throw new Error("Failed to subscribe");
@@ -56,6 +58,7 @@ export function NewsletterForm({ variant = "light" }: NewsletterFormProps) {
       onSubmit={handleSubmit(onSubmit)}
       className="flex flex-col sm:flex-row gap-2"
     >
+      <HoneypotField inputRef={hp.ref} />
       <div className="flex-1">
         <input
           type="email"

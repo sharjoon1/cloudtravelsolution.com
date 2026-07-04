@@ -4,6 +4,7 @@ import config from "@payload-config";
 import { newsletterSchema } from "@/lib/validations";
 import { sendNewsletterWelcome } from "@/lib/email";
 import { getClientIp, rateLimit } from "@/lib/rate-limit";
+import { isHoneypotTripped } from "@/lib/spam-check";
 
 export async function POST(request: Request) {
   try {
@@ -16,6 +17,11 @@ export async function POST(request: Request) {
     }
 
     const body = await request.json();
+
+    if (isHoneypotTripped(body)) {
+      return NextResponse.json({ success: true, message: "Subscribed successfully" });
+    }
+
     const validated = newsletterSchema.parse(body);
 
     const payload = await getPayload({ config });

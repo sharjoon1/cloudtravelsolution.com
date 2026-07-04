@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { useHoneypot, HoneypotField } from "@/components/forms/honeypot-field";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   User,
@@ -110,6 +111,7 @@ export function VisaInquiryForm() {
   });
 
   const watchedValues = watch();
+  const hp = useHoneypot();
 
   const filteredCountries = ALL_COUNTRIES.filter((c) =>
     c.toLowerCase().includes(countrySearch.toLowerCase())
@@ -153,7 +155,7 @@ export function VisaInquiryForm() {
       const response = await fetch("/api/inquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, [hp.name]: hp.getValue() }),
       });
 
       if (response.ok) {
@@ -226,6 +228,7 @@ export function VisaInquiryForm() {
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)}>
+        <HoneypotField inputRef={hp.ref} />
         {/* Step 1: Personal Info */}
         {currentStep === 1 && (
           <div className="space-y-5">

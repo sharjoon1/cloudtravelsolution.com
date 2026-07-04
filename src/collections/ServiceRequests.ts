@@ -28,7 +28,12 @@ export const ServiceRequests: CollectionConfig = {
       }
       return false;
     },
-    create: ({ req }) => !!req.user,
+    // Only admin (users) can create via Payload's own REST/admin API. The partner
+    // portal creates through the custom /api/partner/service-requests route, which
+    // calls payload.create({ overrideAccess: true }) and so bypasses this gate —
+    // that route enforces the privacyConsent check (DPDP). Restricting here closes
+    // the bypass where an authenticated partner POSTs PII straight to the REST API.
+    create: ({ req }) => req.user?.collection === "users",
     update: ({ req }) => {
       if (req.user?.collection === "users") return true;
       if (req.user?.collection === "partners") {

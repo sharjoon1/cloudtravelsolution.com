@@ -4,6 +4,7 @@ import config from "@payload-config";
 import { heroLeadSchema } from "@/lib/validations";
 import { sendLeadNotification, sendLeadConfirmation } from "@/lib/email";
 import { getClientIp, rateLimit } from "@/lib/rate-limit";
+import { isHoneypotTripped } from "@/lib/spam-check";
 
 export async function POST(request: Request) {
   try {
@@ -16,6 +17,16 @@ export async function POST(request: Request) {
     }
 
     const body = await request.json();
+
+    // Honeypot: a hidden field bots fill — silently drop it (return success so the
+    // bot can't tell, but create no CRM row and send no paid email).
+    if (isHoneypotTripped(body)) {
+      return NextResponse.json(
+        { success: true, message: "Lead submitted successfully" },
+        { status: 201 }
+      );
+    }
+
     const validated = heroLeadSchema.parse(body);
 
     const payload = await getPayload({ config });

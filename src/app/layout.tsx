@@ -3,7 +3,8 @@ import { Plus_Jakarta_Sans, Inter } from "next/font/google";
 import "./globals.css";
 
 import { GoogleAnalytics } from "@/components/analytics/google-analytics";
-import { GoogleTagManager, GTMNoScript } from "@/components/analytics/gtm";
+import { GoogleTagManager } from "@/components/analytics/gtm";
+import { ConsentDefault } from "@/components/analytics/consent-default";
 import { SITE_CONFIG } from "@/lib/constants";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -85,11 +86,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${jakarta.variable} ${inter.variable}`}>
       <head>
+        <ConsentDefault />
         <GoogleAnalytics />
         <GoogleTagManager />
       </head>
       <body className="min-h-screen antialiased">
-        <GTMNoScript />
         {children}
       </body>
     </html>

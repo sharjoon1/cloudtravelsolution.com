@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useHoneypot, HoneypotField } from "@/components/forms/honeypot-field";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Send, CheckCircle2, Loader2 } from "lucide-react";
 import { b2bInquirySchema } from "@/lib/validations";
@@ -17,6 +18,7 @@ const errorClass = "text-xs text-red-500 mt-1";
 export function B2BForm() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
+  const hp = useHoneypot();
 
   const {
     register,
@@ -33,7 +35,7 @@ export function B2BForm() {
       const res = await fetch("/api/b2b-inquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, [hp.name]: hp.getValue() }),
       });
       if (!res.ok) throw new Error("Submission failed");
       setSubmitted(true);
@@ -59,6 +61,7 @@ export function B2BForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+      <HoneypotField inputRef={hp.ref} />
       {error && (
         <div className="p-3 bg-red-50 text-red-600 text-sm rounded-lg">
           {error}

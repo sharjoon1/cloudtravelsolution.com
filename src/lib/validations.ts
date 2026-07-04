@@ -137,6 +137,12 @@ export const serviceRequestSchema = z.object({
   numberOfApplicants: z.number().min(1).max(50).default(1),
   purposeOfVisit: z.string().max(500).optional(),
   specialInstructions: z.string().max(1000).optional(),
+
+  // Consent (DPDP Act 2023): the partner attests they have the applicant's
+  // consent to share officially-issued identifiers + identity documents.
+  privacyConsent: z.literal(true, {
+    message: "You must confirm you have the applicant's consent to proceed",
+  }),
 });
 
 export type ServiceRequestFormData = z.infer<typeof serviceRequestSchema>;

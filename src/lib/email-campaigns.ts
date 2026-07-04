@@ -4,6 +4,7 @@ import { sendCampaignEmail } from "./email";
 import {
   mutateCampaignStats,
   emptyCampaignStats,
+  withCampaignStatsLock,
   type CampaignStatsPayload,
 } from "./campaign-stats";
 import {
@@ -36,6 +37,7 @@ interface CampaignDoc {
   } | null;
   audience: string;
   segmentFilter?: { tag: string }[] | null;
+  status?: string;
 }
 
 interface SubscriberDoc {
@@ -142,20 +144,30 @@ function sleep(ms: number): Promise<void> {
 export async function sendCampaign(campaignId: number): Promise<{ success: boolean; error?: string }> {
   const payload = await getPayload({ config });
 
-  const campaign = await payload.findByID({
-    collection: "email-campaigns",
-    id: campaignId,
-  }) as unknown as CampaignDoc;
+  // Idempotency guard: the check-and-flip is serialized per-campaign via the same
+  // lock used for stats, so a double-click on the admin Send button — or a cron
+  // tick overlapping an admin send — can't both pass the guard and double-blast
+  // the whole subscriber list. If it's already sending or already sent, bail.
+  const campaign = await withCampaignStatsLock(campaignId, async () => {
+    const c = await payload.findByID({
+      collection: "email-campaigns",
+      id: campaignId,
+    }) as unknown as CampaignDoc | null;
+
+    if (!c) return null;
+    if (c.status === "sending" || c.status === "sent") return null;
+
+    await payload.update({
+      collection: "email-campaigns",
+      id: campaignId,
+      data: { status: "sending" },
+    });
+    return c;
+  });
 
   if (!campaign) {
-    return { success: false, error: "Campaign not found" };
+    return { success: false, error: "Campaign not found or already sending/sent" };
   }
-
-  await payload.update({
-    collection: "email-campaigns",
-    id: campaignId,
-    data: { status: "sending" },
-  });
 
   try {
     const subscribers = await getMatchingSubscribers(campaign);

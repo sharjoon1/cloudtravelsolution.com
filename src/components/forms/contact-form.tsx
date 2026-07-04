@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useHoneypot, HoneypotField } from "@/components/forms/honeypot-field";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2, CheckCircle2, Send } from "lucide-react";
 
@@ -11,6 +12,7 @@ import { contactSchema, type ContactFormData } from "@/lib/validations";
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState("");
+  const hp = useHoneypot();
 
   const {
     register,
@@ -28,7 +30,7 @@ export function ContactForm() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, [hp.name]: hp.getValue() }),
       });
       if (!res.ok) throw new Error("Failed to send message");
       setSubmitted(true);
@@ -58,6 +60,7 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+      <HoneypotField inputRef={hp.ref} />
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label className={labelClass}>Name *</label>

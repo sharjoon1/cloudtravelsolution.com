@@ -5,6 +5,7 @@ import { Footer } from "@/components/layout/footer";
 import { WhatsAppButton } from "@/components/ui/whatsapp-button";
 import { ScrollToTop } from "@/components/ui/scroll-to-top";
 import ChatWidget from "@/components/ui/chat-widget";
+import { ConsentBanner } from "@/components/consent-banner";
 import { connection } from "next/server";
 import { getSiteSettings } from "@/lib/payload-data";
 
@@ -56,6 +57,7 @@ export default async function FrontendLayout({
       <ChatWidget />
       <WhatsAppButton whatsappNumber={siteSettings.businessInfo.whatsappNumber} />
       <ScrollToTop />
+      <ConsentBanner />
     </>
   );
 }

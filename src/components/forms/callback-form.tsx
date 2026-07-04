@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useHoneypot, HoneypotField } from "@/components/forms/honeypot-field";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Phone, Loader2, CheckCircle2 } from "lucide-react";
 
@@ -10,6 +11,7 @@ import { callbackSchema, type CallbackFormData } from "@/lib/validations";
 
 export function CallbackForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const hp = useHoneypot();
 
   const {
     register,
@@ -25,7 +27,7 @@ export function CallbackForm() {
       const res = await fetch("/api/callback", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, [hp.name]: hp.getValue() }),
       });
 
       if (!res.ok) throw new Error("Failed to submit");
@@ -51,6 +53,7 @@ export function CallbackForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+      <HoneypotField inputRef={hp.ref} />
       <div>
         <label
           htmlFor="cb-name"

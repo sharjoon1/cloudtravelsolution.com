@@ -359,6 +359,33 @@ export function SubmitForm() {
                 </div>
               )}
 
+              <div className="space-y-2 rounded-lg border border-gray-200 bg-gray-50 p-4">
+                <label className="flex items-start gap-2.5 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    {...register("privacyConsent")}
+                    className="mt-0.5 h-4 w-4 rounded border-gray-300 text-[#0c6cbc] focus:ring-[#0c6cbc]"
+                  />
+                  <span className="text-sm text-gray-700">
+                    I confirm I have the applicant&apos;s consent to share their passport
+                    number, date of birth, and identity documents with Cloud Travel
+                    Solutions for visa processing. I have read the{" "}
+                    <a
+                      href="/privacy-policy"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-medium text-[#0c6cbc] underline"
+                    >
+                      Privacy Policy
+                    </a>
+                    .
+                  </span>
+                </label>
+                {errors.privacyConsent && (
+                  <p className="text-xs text-red-600">{errors.privacyConsent.message}</p>
+                )}
+              </div>
+
               {error && (
                 <div className="rounded-lg bg-red-50 px-3 py-2.5 text-sm text-red-700">{error}</div>
               )}

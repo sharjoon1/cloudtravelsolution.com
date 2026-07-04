@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getPayload } from "payload";
 import config from "@payload-config";
+import { sanitizeServiceRequest } from "@/lib/partner-utils";
 
 async function getPartnerFromToken(req: NextRequest) {
   const token = req.cookies.get("partner-token")?.value;
@@ -50,11 +51,8 @@ export async function GET(
       return NextResponse.json({ error: "Not found" }, { status: 404 });
     }
 
-    // Strip internal fields
-    const { internalNotes, ...safeDoc } = doc;
-    void internalNotes;
-
-    return NextResponse.json(safeDoc);
+    // Strip staff-only fields (internalNotes) before returning to the partner.
+    return NextResponse.json(sanitizeServiceRequest(doc));
   } catch {
     return NextResponse.json({ error: "Service request not found" }, { status: 404 });
   }
@@ -118,7 +116,7 @@ export async function PATCH(
       overrideAccess: true,
     });
 
-    return NextResponse.json({ success: true, doc });
+    return NextResponse.json({ success: true, doc: sanitizeServiceRequest(doc) });
   } catch {
     return NextResponse.json({ error: "Update failed" }, { status: 500 });
   }

@@ -4,6 +4,7 @@ import config from "@payload-config";
 import { callbackSchema } from "@/lib/validations";
 import { sendCallbackNotification } from "@/lib/email";
 import { getClientIp, rateLimit } from "@/lib/rate-limit";
+import { isHoneypotTripped } from "@/lib/spam-check";
 
 export async function POST(request: Request) {
   try {
@@ -16,6 +17,14 @@ export async function POST(request: Request) {
     }
 
     const body = await request.json();
+
+    if (isHoneypotTripped(body)) {
+      return NextResponse.json(
+        { success: true, message: "Callback request submitted successfully" },
+        { status: 200 }
+      );
+    }
+
     const validated = callbackSchema.parse(body);
 
     const payload = await getPayload({ config });

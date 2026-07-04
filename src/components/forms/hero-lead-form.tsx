@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useHoneypot, HoneypotField } from "@/components/forms/honeypot-field";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Globe,
@@ -31,6 +32,7 @@ export function HeroLeadForm() {
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const hp = useHoneypot();
 
   const {
     register,
@@ -60,7 +62,7 @@ export function HeroLeadForm() {
       const response = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, [hp.name]: hp.getValue() }),
       });
 
       if (response.ok) {
@@ -99,6 +101,7 @@ export function HeroLeadForm() {
       </p>
 
       <form onSubmit={handleSubmit(onSubmit)}>
+        <HoneypotField inputRef={hp.ref} />
         {/* Step 1: Travel Details */}
         {currentStep === 1 && (
           <div className="space-y-4">

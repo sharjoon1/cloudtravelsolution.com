@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getPayload } from "payload";
 import config from "@payload-config";
 import { serviceRequestSchema } from "@/lib/validations";
+import { sanitizeServiceRequest } from "@/lib/partner-utils";
 
 async function getPartnerFromToken(req: NextRequest) {
   const token = req.cookies.get("partner-token")?.value;
@@ -62,7 +63,7 @@ export async function GET(req: NextRequest) {
   });
 
   return NextResponse.json({
-    docs: result.docs,
+    docs: result.docs.map(sanitizeServiceRequest),
     totalDocs: result.totalDocs,
     totalPages: result.totalPages,
     page: result.page,
@@ -91,17 +92,26 @@ export async function POST(req: NextRequest) {
 
     const payload = await getPayload({ config });
 
+    // privacyConsent is a validation-only gate (DPDP consent) — ServiceRequests
+    // has no field for it yet, so strip it before create. TODO: persist it for an
+    // audit trail once a `consent` field is added (batch with other migrations).
+    const { privacyConsent: _consent, ...requestData } = parsed.data;
+    void _consent;
+
     const doc = await payload.create({
       collection: "service-requests",
       data: {
-        ...parsed.data,
+        ...requestData,
         partner: partner.id,
         status: "received",
       },
       overrideAccess: true,
     });
 
-    return NextResponse.json({ success: true, doc }, { status: 201 });
+    return NextResponse.json(
+      { success: true, doc: sanitizeServiceRequest(doc) },
+      { status: 201 }
+    );
   } catch (error) {
     const message = error instanceof Error ? error.message : "Failed to create service request";
     return NextResponse.json({ error: message }, { status: 500 });
