@@ -2,12 +2,20 @@ import { getPayload } from "payload";
 import config from "@payload-config";
 import { sendCampaignEmail } from "./email";
 import {
+  mutateCampaignStats,
+  emptyCampaignStats,
+  type CampaignStatsPayload,
+} from "./campaign-stats";
+import {
   renderNewsletterTemplate,
   renderPromotionTemplate,
   renderTravelAlertTemplate,
   renderVisaUpdateTemplate,
   renderCustomTemplate,
 } from "./email-templates";
+
+// Real Payload satisfies this narrow contract; cast inline at each call site so
+// the helper stays unit-testable without booting Payload+SQLite.
 
 const siteUrl = () => process.env.NEXT_PUBLIC_SITE_URL || "https://cloudtravelsolution.com";
 
@@ -153,14 +161,20 @@ export async function sendCampaign(campaignId: number): Promise<{ success: boole
     const subscribers = await getMatchingSubscribers(campaign);
 
     if (subscribers.length === 0) {
+      // Fresh send with no recipients: reset every counter (no webhook can be
+      // racing us since nothing was sent). Goes through the same helper so the
+      // stats shape is always the full six-field object.
+      await mutateCampaignStats(
+        payload as unknown as CampaignStatsPayload,
+        campaignId,
+        (s) => {
+          Object.assign(s, emptyCampaignStats());
+        }
+      );
       await payload.update({
         collection: "email-campaigns",
         id: campaignId,
-        data: {
-          status: "sent",
-          sentAt: new Date().toISOString(),
-          stats: { totalSent: 0, delivered: 0, opened: 0, clicked: 0, bounced: 0, unsubscribed: 0 },
-        },
+        data: { status: "sent", sentAt: new Date().toISOString() },
       });
       return { success: true };
     }
@@ -186,25 +200,33 @@ export async function sendCampaign(campaignId: number): Promise<{ success: boole
 
       totalSent += results.filter((r) => r.status === "fulfilled" && r.value.success).length;
 
-      await payload.update({
-        collection: "email-campaigns",
-        id: campaignId,
-        data: { stats: { totalSent, delivered: 0, opened: 0, clicked: 0, bounced: 0, unsubscribed: 0 } },
-      });
+      // Only touch totalSent; delivered/opened/etc. are owned by the webhook and
+      // must not be zeroed out here. Read-merge-write under the per-campaign lock
+      // so this can't race a concurrent webhook either.
+      await mutateCampaignStats(
+        payload as unknown as CampaignStatsPayload,
+        campaignId,
+        (s) => {
+          s.totalSent = totalSent;
+        }
+      );
 
       if (i + BATCH_SIZE < subscribers.length) {
         await sleep(BATCH_DELAY_MS);
       }
     }
 
+    await mutateCampaignStats(
+      payload as unknown as CampaignStatsPayload,
+      campaignId,
+      (s) => {
+        s.totalSent = totalSent;
+      }
+    );
     await payload.update({
       collection: "email-campaigns",
       id: campaignId,
-      data: {
-        status: "sent",
-        sentAt: new Date().toISOString(),
-        stats: { totalSent, delivered: 0, opened: 0, clicked: 0, bounced: 0, unsubscribed: 0 },
-      },
+      data: { status: "sent", sentAt: new Date().toISOString() },
     });
 
     return { success: true };
