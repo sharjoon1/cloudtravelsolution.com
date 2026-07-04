@@ -70,8 +70,9 @@ export function B2BForm() {
 
       {/* Company Name */}
       <div>
-        <label className={labelClass}>Company Name *</label>
+        <label htmlFor="b2b-company" className={labelClass}>Company Name *</label>
         <input
+          id="b2b-company"
           {...register("companyName")}
           placeholder="Your company name"
           className={inputClass}
@@ -84,8 +85,9 @@ export function B2BForm() {
       {/* Contact Person + Email */}
       <div className="grid sm:grid-cols-2 gap-4">
         <div>
-          <label className={labelClass}>Contact Person *</label>
+          <label htmlFor="b2b-contact" className={labelClass}>Contact Person *</label>
           <input
+            id="b2b-contact"
             {...register("contactPerson")}
             placeholder="Full name"
             className={inputClass}
@@ -95,8 +97,9 @@ export function B2BForm() {
           )}
         </div>
         <div>
-          <label className={labelClass}>Email *</label>
+          <label htmlFor="b2b-email" className={labelClass}>Email *</label>
           <input
+            id="b2b-email"
             {...register("email")}
             type="email"
             placeholder="business@example.com"
@@ -111,8 +114,9 @@ export function B2BForm() {
       {/* Phone + City */}
       <div className="grid sm:grid-cols-2 gap-4">
         <div>
-          <label className={labelClass}>Phone *</label>
+          <label htmlFor="b2b-phone" className={labelClass}>Phone *</label>
           <input
+            id="b2b-phone"
             {...register("phone")}
             type="tel"
             placeholder="+91 80959 76543"
@@ -123,8 +127,9 @@ export function B2BForm() {
           )}
         </div>
         <div>
-          <label className={labelClass}>City *</label>
+          <label htmlFor="b2b-city" className={labelClass}>City *</label>
           <input
+            id="b2b-city"
             {...register("city")}
             placeholder="Your city"
             className={inputClass}
@@ -137,8 +142,9 @@ export function B2BForm() {
 
       {/* Company Address */}
       <div>
-        <label className={labelClass}>Company Address *</label>
+        <label htmlFor="b2b-address" className={labelClass}>Company Address *</label>
         <input
+          id="b2b-address"
           {...register("companyAddress")}
           placeholder="Full company address"
           className={inputClass}
@@ -150,8 +156,8 @@ export function B2BForm() {
 
       {/* Business Type */}
       <div>
-        <label className={labelClass}>Business Type *</label>
-        <select {...register("businessType")} className={inputClass}>
+        <label htmlFor="b2b-type" className={labelClass}>Business Type *</label>
+        <select id="b2b-type" {...register("businessType")} className={inputClass}>
           <option value="">Select business type</option>
           <option value="education-consultancy">Education Consultancy</option>
           <option value="manpower-agency">Manpower Agency</option>
@@ -165,8 +171,9 @@ export function B2BForm() {
 
       {/* Message */}
       <div>
-        <label className={labelClass}>Message (Optional)</label>
+        <label htmlFor="b2b-message" className={labelClass}>Message (Optional)</label>
         <textarea
+          id="b2b-message"
           {...register("message")}
           rows={3}
           placeholder="Tell us about your requirements..."

@@ -63,8 +63,9 @@ export function ContactForm() {
       <HoneypotField inputRef={hp.ref} />
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
-          <label className={labelClass}>Name *</label>
+          <label htmlFor="cf-name" className={labelClass}>Name *</label>
           <input
+            id="cf-name"
             {...register("name")}
             className={cn(inputClass, errors.name && "border-red-500")}
             placeholder="Your name"
@@ -72,8 +73,9 @@ export function ContactForm() {
           {errors.name && <p className="mt-1 text-xs text-red-500">{errors.name.message}</p>}
         </div>
         <div>
-          <label className={labelClass}>Email *</label>
+          <label htmlFor="cf-email" className={labelClass}>Email *</label>
           <input
+            id="cf-email"
             type="email"
             {...register("email")}
             className={cn(inputClass, errors.email && "border-red-500")}
@@ -85,8 +87,9 @@ export function ContactForm() {
 
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
-          <label className={labelClass}>Phone</label>
+          <label htmlFor="cf-phone" className={labelClass}>Phone</label>
           <input
+            id="cf-phone"
             {...register("phone")}
             className={cn(inputClass, errors.phone && "border-red-500")}
             placeholder="+91 98765 43210"
@@ -94,14 +97,15 @@ export function ContactForm() {
           {errors.phone && <p className="mt-1 text-xs text-red-500">{errors.phone.message}</p>}
         </div>
         <div>
-          <label className={labelClass}>City</label>
-          <input {...register("city")} className={inputClass} placeholder="Your city" />
+          <label htmlFor="cf-city" className={labelClass}>City</label>
+          <input id="cf-city" {...register("city")} className={inputClass} placeholder="Your city" />
         </div>
       </div>
 
       <div>
-        <label className={labelClass}>Subject *</label>
+        <label htmlFor="cf-subject" className={labelClass}>Subject *</label>
         <input
+          id="cf-subject"
           {...register("subject")}
           className={cn(inputClass, errors.subject && "border-red-500")}
           placeholder="How can we help?"
@@ -110,8 +114,9 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label className={labelClass}>Message *</label>
+        <label htmlFor="cf-message" className={labelClass}>Message *</label>
         <textarea
+          id="cf-message"
           {...register("message")}
           rows={4}
           className={cn(inputClass, errors.message && "border-red-500")}
