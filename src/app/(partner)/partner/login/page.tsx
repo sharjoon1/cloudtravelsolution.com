@@ -65,7 +65,10 @@ function LoginForm() {
           className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm"
         >
           {error && (
-            <div className="mb-4 flex items-center gap-2 rounded-lg bg-red-50 px-3 py-2.5 text-sm text-red-700">
+            <div
+              role="alert"
+              className="mb-4 flex items-center gap-2 rounded-lg bg-red-50 px-3 py-2.5 text-sm text-red-700"
+            >
               <AlertCircle className="h-4 w-4 shrink-0" />
               {error}
             </div>
@@ -81,11 +84,13 @@ function LoginForm() {
                 type="email"
                 id="email"
                 autoComplete="email"
+                aria-invalid={!!errors.email}
+                aria-describedby={errors.email ? "email-error" : undefined}
                 className="block w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm shadow-sm transition-colors focus:border-[#0c6cbc] focus:outline-none focus:ring-1 focus:ring-[#0c6cbc]"
                 placeholder="partner@company.com"
               />
               {errors.email && (
-                <p className="mt-1 text-xs text-red-600">{errors.email.message}</p>
+                <p id="email-error" className="mt-1 text-xs text-red-600">{errors.email.message}</p>
               )}
             </div>
 
@@ -99,19 +104,22 @@ function LoginForm() {
                   type={showPassword ? "text" : "password"}
                   id="password"
                   autoComplete="current-password"
+                  aria-invalid={!!errors.password}
+                  aria-describedby={errors.password ? "password-error" : undefined}
                   className="block w-full rounded-lg border border-gray-300 px-3 py-2.5 pr-10 text-sm shadow-sm transition-colors focus:border-[#0c6cbc] focus:outline-none focus:ring-1 focus:ring-[#0c6cbc]"
                   placeholder="Enter your password"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
+                  aria-label={showPassword ? "Hide password" : "Show password"}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
                 >
                   {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                 </button>
               </div>
               {errors.password && (
-                <p className="mt-1 text-xs text-red-600">{errors.password.message}</p>
+                <p id="password-error" className="mt-1 text-xs text-red-600">{errors.password.message}</p>
               )}
             </div>
           </div>

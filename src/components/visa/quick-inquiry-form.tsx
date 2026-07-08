@@ -15,6 +15,7 @@ export function QuickInquiryForm({
   const [formState, setFormState] = useState<"idle" | "submitting" | "success">(
     "idle"
   );
+  const [submitError, setSubmitError] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -25,6 +26,7 @@ export function QuickInquiryForm({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormState("submitting");
+    setSubmitError(false);
 
     try {
       const res = await fetch("/api/inquiry", {
@@ -41,9 +43,11 @@ export function QuickInquiryForm({
         setFormState("success");
       } else {
         setFormState("idle");
+        setSubmitError(true);
       }
     } catch {
       setFormState("idle");
+      setSubmitError(true);
     }
   };
 
@@ -71,7 +75,19 @@ export function QuickInquiryForm({
         Fill in your details and our experts will get back to you
       </p>
       <form onSubmit={handleSubmit} className="space-y-3">
+        {submitError && (
+          <p
+            role="alert"
+            className="text-xs text-red-600 bg-red-50 border border-red-200 rounded-lg px-3 py-2"
+          >
+            Something went wrong submitting your inquiry. Please try again.
+          </p>
+        )}
+        <label htmlFor="qi-name" className="sr-only">
+          Full name
+        </label>
         <input
+          id="qi-name"
           type="text"
           placeholder="Full Name *"
           required
@@ -81,7 +97,11 @@ export function QuickInquiryForm({
           }
           className="w-full px-3 py-2.5 text-sm border border-border rounded-lg bg-white text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/20 focus:border-[var(--color-primary)]"
         />
+        <label htmlFor="qi-email" className="sr-only">
+          Email address
+        </label>
         <input
+          id="qi-email"
           type="email"
           placeholder="Email Address *"
           required
@@ -91,7 +111,11 @@ export function QuickInquiryForm({
           }
           className="w-full px-3 py-2.5 text-sm border border-border rounded-lg bg-white text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/20 focus:border-[var(--color-primary)]"
         />
+        <label htmlFor="qi-phone" className="sr-only">
+          Phone number
+        </label>
         <input
+          id="qi-phone"
           type="tel"
           placeholder="Phone Number *"
           required
@@ -102,6 +126,7 @@ export function QuickInquiryForm({
           className="w-full px-3 py-2.5 text-sm border border-border rounded-lg bg-white text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/20 focus:border-[var(--color-primary)]"
         />
         <select
+          aria-label="Visa type"
           value={formData.visaType}
           onChange={(e) =>
             setFormData((prev) => ({ ...prev, visaType: e.target.value }))

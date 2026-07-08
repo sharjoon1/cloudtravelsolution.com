@@ -66,6 +66,8 @@ export function CallbackForm() {
           type="text"
           placeholder="Enter your full name"
           {...register("name")}
+          aria-invalid={!!errors.name}
+          aria-describedby={errors.name ? "cb-name-error" : undefined}
           className={cn(
             "w-full px-4 py-2.5 rounded-lg border text-sm outline-none transition-colors",
             errors.name
@@ -74,7 +76,7 @@ export function CallbackForm() {
           )}
         />
         {errors.name && (
-          <p className="text-xs text-red-500 mt-1">{errors.name.message}</p>
+          <p id="cb-name-error" className="text-xs text-red-500 mt-1">{errors.name.message}</p>
         )}
       </div>
 
@@ -90,6 +92,8 @@ export function CallbackForm() {
           type="tel"
           placeholder="+91 98765 43210"
           {...register("phone")}
+          aria-invalid={!!errors.phone}
+          aria-describedby={errors.phone ? "cb-phone-error" : undefined}
           className={cn(
             "w-full px-4 py-2.5 rounded-lg border text-sm outline-none transition-colors",
             errors.phone
@@ -98,7 +102,7 @@ export function CallbackForm() {
           )}
         />
         {errors.phone && (
-          <p className="text-xs text-red-500 mt-1">{errors.phone.message}</p>
+          <p id="cb-phone-error" className="text-xs text-red-500 mt-1">{errors.phone.message}</p>
         )}
       </div>
 

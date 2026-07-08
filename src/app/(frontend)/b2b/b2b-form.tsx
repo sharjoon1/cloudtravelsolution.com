@@ -63,7 +63,7 @@ export function B2BForm() {
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
       <HoneypotField inputRef={hp.ref} />
       {error && (
-        <div className="p-3 bg-red-50 text-red-600 text-sm rounded-lg">
+        <div role="alert" className="p-3 bg-red-50 text-red-600 text-sm rounded-lg">
           {error}
         </div>
       )}
@@ -74,11 +74,13 @@ export function B2BForm() {
         <input
           id="b2b-company"
           {...register("companyName")}
+          aria-invalid={!!errors.companyName}
+          aria-describedby={errors.companyName ? "companyName-error" : undefined}
           placeholder="Your company name"
           className={inputClass}
         />
         {errors.companyName && (
-          <p className={errorClass}>{errors.companyName.message}</p>
+          <p id="companyName-error" className={errorClass}>{errors.companyName.message}</p>
         )}
       </div>
 
@@ -89,11 +91,13 @@ export function B2BForm() {
           <input
             id="b2b-contact"
             {...register("contactPerson")}
+            aria-invalid={!!errors.contactPerson}
+            aria-describedby={errors.contactPerson ? "contactPerson-error" : undefined}
             placeholder="Full name"
             className={inputClass}
           />
           {errors.contactPerson && (
-            <p className={errorClass}>{errors.contactPerson.message}</p>
+            <p id="contactPerson-error" className={errorClass}>{errors.contactPerson.message}</p>
           )}
         </div>
         <div>
@@ -102,11 +106,13 @@ export function B2BForm() {
             id="b2b-email"
             {...register("email")}
             type="email"
+            aria-invalid={!!errors.email}
+            aria-describedby={errors.email ? "email-error" : undefined}
             placeholder="business@example.com"
             className={inputClass}
           />
           {errors.email && (
-            <p className={errorClass}>{errors.email.message}</p>
+            <p id="email-error" className={errorClass}>{errors.email.message}</p>
           )}
         </div>
       </div>
@@ -119,11 +125,13 @@ export function B2BForm() {
             id="b2b-phone"
             {...register("phone")}
             type="tel"
+            aria-invalid={!!errors.phone}
+            aria-describedby={errors.phone ? "phone-error" : undefined}
             placeholder="+91 80959 76543"
             className={inputClass}
           />
           {errors.phone && (
-            <p className={errorClass}>{errors.phone.message}</p>
+            <p id="phone-error" className={errorClass}>{errors.phone.message}</p>
           )}
         </div>
         <div>
@@ -131,11 +139,13 @@ export function B2BForm() {
           <input
             id="b2b-city"
             {...register("city")}
+            aria-invalid={!!errors.city}
+            aria-describedby={errors.city ? "city-error" : undefined}
             placeholder="Your city"
             className={inputClass}
           />
           {errors.city && (
-            <p className={errorClass}>{errors.city.message}</p>
+            <p id="city-error" className={errorClass}>{errors.city.message}</p>
           )}
         </div>
       </div>
@@ -146,18 +156,26 @@ export function B2BForm() {
         <input
           id="b2b-address"
           {...register("companyAddress")}
+          aria-invalid={!!errors.companyAddress}
+          aria-describedby={errors.companyAddress ? "companyAddress-error" : undefined}
           placeholder="Full company address"
           className={inputClass}
         />
         {errors.companyAddress && (
-          <p className={errorClass}>{errors.companyAddress.message}</p>
+          <p id="companyAddress-error" className={errorClass}>{errors.companyAddress.message}</p>
         )}
       </div>
 
       {/* Business Type */}
       <div>
         <label htmlFor="b2b-type" className={labelClass}>Business Type *</label>
-        <select id="b2b-type" {...register("businessType")} className={inputClass}>
+        <select
+          id="b2b-type"
+          {...register("businessType")}
+          aria-invalid={!!errors.businessType}
+          aria-describedby={errors.businessType ? "businessType-error" : undefined}
+          className={inputClass}
+        >
           <option value="">Select business type</option>
           <option value="education-consultancy">Education Consultancy</option>
           <option value="manpower-agency">Manpower Agency</option>
@@ -165,7 +183,7 @@ export function B2BForm() {
           <option value="holidays-service-provider">Holidays Service Provider</option>
         </select>
         {errors.businessType && (
-          <p className={errorClass}>{errors.businessType.message}</p>
+          <p id="businessType-error" className={errorClass}>{errors.businessType.message}</p>
         )}
       </div>
 
@@ -176,11 +194,13 @@ export function B2BForm() {
           id="b2b-message"
           {...register("message")}
           rows={3}
+          aria-invalid={!!errors.message}
+          aria-describedby={errors.message ? "message-error" : undefined}
           placeholder="Tell us about your requirements..."
           className={inputClass}
         />
         {errors.message && (
-          <p className={errorClass}>{errors.message.message}</p>
+          <p id="message-error" className={errorClass}>{errors.message.message}</p>
         )}
       </div>
 

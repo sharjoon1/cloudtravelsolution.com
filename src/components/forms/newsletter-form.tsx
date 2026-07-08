@@ -65,6 +65,8 @@ export function NewsletterForm({ variant = "light" }: NewsletterFormProps) {
           placeholder="Enter your email"
           {...register("email")}
           aria-label="Email address"
+          aria-invalid={!!errors.email}
+          aria-describedby={errors.email ? "email-error" : undefined}
           className={cn(
             "w-full px-4 py-2.5 rounded-lg border text-sm outline-none transition-colors",
             variant === "dark"
@@ -74,7 +76,7 @@ export function NewsletterForm({ variant = "light" }: NewsletterFormProps) {
           )}
         />
         {errors.email && (
-          <p className="text-xs text-red-500 mt-1">{errors.email.message}</p>
+          <p id="email-error" className="text-xs text-red-500 mt-1">{errors.email.message}</p>
         )}
       </div>
       <button

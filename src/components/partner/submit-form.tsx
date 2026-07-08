@@ -201,42 +201,42 @@ export function SubmitForm() {
 
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
-                  <label className={labelClass}>Full Name *</label>
-                  <input {...register("applicantName")} className={inputClass} placeholder="Full name as per passport" />
-                  {errors.applicantName && <p className="mt-1 text-xs text-red-600">{errors.applicantName.message}</p>}
+                  <label htmlFor="applicantName" className={labelClass}>Full Name *</label>
+                  <input id="applicantName" {...register("applicantName")} aria-invalid={!!errors.applicantName} aria-describedby={errors.applicantName ? "applicantName-error" : undefined} className={inputClass} placeholder="Full name as per passport" />
+                  {errors.applicantName && <p id="applicantName-error" className="mt-1 text-xs text-red-600">{errors.applicantName.message}</p>}
                 </div>
                 <div>
-                  <label className={labelClass}>Passport Number *</label>
-                  <input {...register("passportNumber")} className={inputClass} placeholder="e.g. A1234567" />
-                  {errors.passportNumber && <p className="mt-1 text-xs text-red-600">{errors.passportNumber.message}</p>}
+                  <label htmlFor="passportNumber" className={labelClass}>Passport Number *</label>
+                  <input id="passportNumber" {...register("passportNumber")} aria-invalid={!!errors.passportNumber} aria-describedby={errors.passportNumber ? "passportNumber-error" : undefined} className={inputClass} placeholder="e.g. A1234567" />
+                  {errors.passportNumber && <p id="passportNumber-error" className="mt-1 text-xs text-red-600">{errors.passportNumber.message}</p>}
                 </div>
               </div>
 
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
-                  <label className={labelClass}>Email</label>
-                  <input {...register("applicantEmail")} type="email" className={inputClass} placeholder="applicant@email.com" />
-                  {errors.applicantEmail && <p className="mt-1 text-xs text-red-600">{errors.applicantEmail.message}</p>}
+                  <label htmlFor="applicantEmail" className={labelClass}>Email</label>
+                  <input id="applicantEmail" {...register("applicantEmail")} type="email" aria-invalid={!!errors.applicantEmail} aria-describedby={errors.applicantEmail ? "applicantEmail-error" : undefined} className={inputClass} placeholder="applicant@email.com" />
+                  {errors.applicantEmail && <p id="applicantEmail-error" className="mt-1 text-xs text-red-600">{errors.applicantEmail.message}</p>}
                 </div>
                 <div>
-                  <label className={labelClass}>Phone</label>
-                  <input {...register("applicantPhone")} className={inputClass} placeholder="+91 98765 43210" />
-                  {errors.applicantPhone && <p className="mt-1 text-xs text-red-600">{errors.applicantPhone.message}</p>}
+                  <label htmlFor="applicantPhone" className={labelClass}>Phone</label>
+                  <input id="applicantPhone" {...register("applicantPhone")} aria-invalid={!!errors.applicantPhone} aria-describedby={errors.applicantPhone ? "applicantPhone-error" : undefined} className={inputClass} placeholder="+91 98765 43210" />
+                  {errors.applicantPhone && <p id="applicantPhone-error" className="mt-1 text-xs text-red-600">{errors.applicantPhone.message}</p>}
                 </div>
               </div>
 
               <div className="grid gap-4 sm:grid-cols-3">
                 <div>
-                  <label className={labelClass}>Passport Expiry</label>
-                  <input {...register("passportExpiry")} type="date" className={inputClass} />
+                  <label htmlFor="passportExpiry" className={labelClass}>Passport Expiry</label>
+                  <input id="passportExpiry" {...register("passportExpiry")} type="date" className={inputClass} />
                 </div>
                 <div>
-                  <label className={labelClass}>Date of Birth</label>
-                  <input {...register("dateOfBirth")} type="date" className={inputClass} />
+                  <label htmlFor="dateOfBirth" className={labelClass}>Date of Birth</label>
+                  <input id="dateOfBirth" {...register("dateOfBirth")} type="date" className={inputClass} />
                 </div>
                 <div>
-                  <label className={labelClass}>Nationality</label>
-                  <input {...register("nationality")} className={inputClass} />
+                  <label htmlFor="nationality" className={labelClass}>Nationality</label>
+                  <input id="nationality" {...register("nationality")} className={inputClass} />
                 </div>
               </div>
             </div>
@@ -249,32 +249,32 @@ export function SubmitForm() {
 
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
-                  <label className={labelClass}>Service Type *</label>
-                  <select {...register("serviceType")} className={inputClass}>
+                  <label htmlFor="serviceType" className={labelClass}>Service Type *</label>
+                  <select id="serviceType" {...register("serviceType")} aria-invalid={!!errors.serviceType} aria-describedby={errors.serviceType ? "serviceType-error" : undefined} className={inputClass}>
                     <option value="">Select service</option>
                     {SERVICE_TYPES.map((s) => (
                       <option key={s.value} value={s.value}>{s.label}</option>
                     ))}
                   </select>
-                  {errors.serviceType && <p className="mt-1 text-xs text-red-600">{errors.serviceType.message}</p>}
+                  {errors.serviceType && <p id="serviceType-error" className="mt-1 text-xs text-red-600">{errors.serviceType.message}</p>}
                 </div>
                 <div>
-                  <label className={labelClass}>Destination Country *</label>
-                  <select {...register("destinationCountry")} className={inputClass}>
+                  <label htmlFor="destinationCountry" className={labelClass}>Destination Country *</label>
+                  <select id="destinationCountry" {...register("destinationCountry")} aria-invalid={!!errors.destinationCountry} aria-describedby={errors.destinationCountry ? "destinationCountry-error" : undefined} className={inputClass}>
                     <option value="">Select country</option>
                     {POPULAR_COUNTRIES.map((c) => (
                       <option key={c.slug} value={c.name}>{c.flag} {c.name}</option>
                     ))}
                     <option value="Other">Other</option>
                   </select>
-                  {errors.destinationCountry && <p className="mt-1 text-xs text-red-600">{errors.destinationCountry.message}</p>}
+                  {errors.destinationCountry && <p id="destinationCountry-error" className="mt-1 text-xs text-red-600">{errors.destinationCountry.message}</p>}
                 </div>
               </div>
 
               <div className="grid gap-4 sm:grid-cols-3">
                 <div>
-                  <label className={labelClass}>Visa Type</label>
-                  <select {...register("visaType")} className={inputClass}>
+                  <label htmlFor="visaType" className={labelClass}>Visa Type</label>
+                  <select id="visaType" {...register("visaType")} className={inputClass}>
                     <option value="">Select type</option>
                     {VISA_TYPES.map((v) => (
                       <option key={v.value} value={v.value}>{v.label}</option>
@@ -282,12 +282,13 @@ export function SubmitForm() {
                   </select>
                 </div>
                 <div>
-                  <label className={labelClass}>Travel Date</label>
-                  <input {...register("travelDate")} type="date" className={inputClass} />
+                  <label htmlFor="travelDate" className={labelClass}>Travel Date</label>
+                  <input id="travelDate" {...register("travelDate")} type="date" className={inputClass} />
                 </div>
                 <div>
-                  <label className={labelClass}>No. of Applicants</label>
+                  <label htmlFor="numberOfApplicants" className={labelClass}>No. of Applicants</label>
                   <input
+                    id="numberOfApplicants"
                     {...register("numberOfApplicants", { valueAsNumber: true })}
                     type="number"
                     min={1}
@@ -298,12 +299,12 @@ export function SubmitForm() {
               </div>
 
               <div>
-                <label className={labelClass}>Purpose of Visit</label>
-                <textarea {...register("purposeOfVisit")} rows={2} className={inputClass} placeholder="Brief purpose of travel..." />
+                <label htmlFor="purposeOfVisit" className={labelClass}>Purpose of Visit</label>
+                <textarea id="purposeOfVisit" {...register("purposeOfVisit")} rows={2} className={inputClass} placeholder="Brief purpose of travel..." />
               </div>
               <div>
-                <label className={labelClass}>Special Instructions</label>
-                <textarea {...register("specialInstructions")} rows={2} className={inputClass} placeholder="Any special requirements..." />
+                <label htmlFor="specialInstructions" className={labelClass}>Special Instructions</label>
+                <textarea id="specialInstructions" {...register("specialInstructions")} rows={2} className={inputClass} placeholder="Any special requirements..." />
               </div>
             </div>
           )}
@@ -387,7 +388,7 @@ export function SubmitForm() {
               </div>
 
               {error && (
-                <div className="rounded-lg bg-red-50 px-3 py-2.5 text-sm text-red-700">{error}</div>
+                <div role="alert" className="rounded-lg bg-red-50 px-3 py-2.5 text-sm text-red-700">{error}</div>
               )}
             </div>
           )}

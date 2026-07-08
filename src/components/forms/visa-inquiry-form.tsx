@@ -251,62 +251,74 @@ export function VisaInquiryForm() {
             </p>
 
             <div>
-              <label className="block text-sm font-medium text-foreground mb-1.5">
+              <label htmlFor="fullName" className="block text-sm font-medium text-foreground mb-1.5">
                 Full Name *
               </label>
               <input
+                id="fullName"
                 {...register("fullName")}
                 placeholder="Enter your full name"
                 className={inputClass}
+                aria-invalid={!!errors.fullName}
+                aria-describedby={errors.fullName ? "fullName-error" : undefined}
               />
               {errors.fullName && (
-                <p className="text-xs text-[var(--color-error)] mt-1">
+                <p id="fullName-error" className="text-xs text-[var(--color-error)] mt-1">
                   {errors.fullName.message}
                 </p>
               )}
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-foreground mb-1.5">
+              <label htmlFor="email" className="block text-sm font-medium text-foreground mb-1.5">
                 Email Address *
               </label>
               <input
+                id="email"
                 {...register("email")}
                 type="email"
                 placeholder="your@email.com"
                 className={inputClass}
+                aria-invalid={!!errors.email}
+                aria-describedby={errors.email ? "email-error" : undefined}
               />
               {errors.email && (
-                <p className="text-xs text-[var(--color-error)] mt-1">
+                <p id="email-error" className="text-xs text-[var(--color-error)] mt-1">
                   {errors.email.message}
                 </p>
               )}
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-foreground mb-1.5">
+              <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-1.5">
                 Phone Number *
               </label>
               <input
+                id="phone"
                 {...register("phone")}
                 type="tel"
                 placeholder="+91 98765 43210"
                 className={inputClass}
+                aria-invalid={!!errors.phone}
+                aria-describedby={errors.phone ? "phone-error" : undefined}
               />
               {errors.phone && (
-                <p className="text-xs text-[var(--color-error)] mt-1">
+                <p id="phone-error" className="text-xs text-[var(--color-error)] mt-1">
                   {errors.phone.message}
                 </p>
               )}
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-foreground mb-1.5">
+              <label htmlFor="city" className="block text-sm font-medium text-foreground mb-1.5">
                 Your City *
               </label>
               <select
+                id="city"
                 {...register("city")}
                 className={inputClass}
+                aria-invalid={!!errors.city}
+                aria-describedby={errors.city ? "city-error" : undefined}
               >
                 <option value="">Select your city</option>
                 {LOCATIONS.map((loc) => (
@@ -317,19 +329,21 @@ export function VisaInquiryForm() {
                 <option value="other">Other</option>
               </select>
               {errors.city && (
-                <p className="text-xs text-[var(--color-error)] mt-1">
+                <p id="city-error" className="text-xs text-[var(--color-error)] mt-1">
                   {errors.city.message}
                 </p>
               )}
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-foreground mb-1.5">
+              <label htmlFor="languagePreference" className="block text-sm font-medium text-foreground mb-1.5">
                 Language Preference
               </label>
               <select
+                id="languagePreference"
                 {...register("languagePreference")}
                 className={inputClass}
+                aria-invalid={!!errors.languagePreference}
               >
                 <option value="">Select preferred language</option>
                 {LANGUAGE_OPTIONS.map((lang) => (
@@ -353,13 +367,18 @@ export function VisaInquiryForm() {
             </p>
 
             <div ref={countryDropdownRef} className="relative">
-              <label className="block text-sm font-medium text-foreground mb-1.5">
+              <label id="destinationCountry-label" className="block text-sm font-medium text-foreground mb-1.5">
                 Destination Country *
               </label>
               <input type="hidden" {...register("destinationCountry")} />
               <button
                 type="button"
                 onClick={() => setCountryDropdownOpen(!countryDropdownOpen)}
+                aria-labelledby="destinationCountry-label"
+                aria-haspopup="listbox"
+                aria-expanded={countryDropdownOpen}
+                aria-invalid={!!errors.destinationCountry}
+                aria-describedby={errors.destinationCountry ? "destinationCountry-error" : undefined}
                 className={cn(
                   inputClass,
                   "flex items-center justify-between text-left cursor-pointer",
@@ -379,6 +398,7 @@ export function VisaInquiryForm() {
                   {watchedValues.destinationCountry && (
                     <span
                       role="button"
+                      aria-label="Clear destination country"
                       onClick={(e) => {
                         e.stopPropagation();
                         setValue("destinationCountry", "");
@@ -437,19 +457,22 @@ export function VisaInquiryForm() {
                 </div>
               )}
               {errors.destinationCountry && (
-                <p className="text-xs text-[var(--color-error)] mt-1">
+                <p id="destinationCountry-error" className="text-xs text-[var(--color-error)] mt-1">
                   {errors.destinationCountry.message}
                 </p>
               )}
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-foreground mb-1.5">
+              <label htmlFor="visaType" className="block text-sm font-medium text-foreground mb-1.5">
                 Visa Type *
               </label>
               <select
+                id="visaType"
                 {...register("visaType")}
                 className={inputClass}
+                aria-invalid={!!errors.visaType}
+                aria-describedby={errors.visaType ? "visaType-error" : undefined}
               >
                 <option value="">Select visa type</option>
                 {VISA_TYPES.map((v) => (
@@ -459,19 +482,21 @@ export function VisaInquiryForm() {
                 ))}
               </select>
               {errors.visaType && (
-                <p className="text-xs text-[var(--color-error)] mt-1">
+                <p id="visaType-error" className="text-xs text-[var(--color-error)] mt-1">
                   {errors.visaType.message}
                 </p>
               )}
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-foreground mb-1.5">
+              <label htmlFor="visaCategory" className="block text-sm font-medium text-foreground mb-1.5">
                 Category
               </label>
               <select
+                id="visaCategory"
                 {...register("visaCategory")}
                 className={inputClass}
+                aria-invalid={!!errors.visaCategory}
               >
                 <option value="">Select category</option>
                 {VISA_CATEGORIES.map((c) => (
@@ -484,24 +509,28 @@ export function VisaInquiryForm() {
 
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-foreground mb-1.5">
+                <label htmlFor="numberOfTravelers" className="block text-sm font-medium text-foreground mb-1.5">
                   Number of Travelers
                 </label>
                 <input
+                  id="numberOfTravelers"
                   {...register("numberOfTravelers", { valueAsNumber: true })}
                   type="number"
                   min={1}
                   max={50}
                   className={inputClass}
+                  aria-invalid={!!errors.numberOfTravelers}
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-foreground mb-1.5">
+                <label htmlFor="employmentStatus" className="block text-sm font-medium text-foreground mb-1.5">
                   Employment Status
                 </label>
                 <select
+                  id="employmentStatus"
                   {...register("employmentStatus")}
                   className={inputClass}
+                  aria-invalid={!!errors.employmentStatus}
                 >
                   <option value="">Select status</option>
                   {EMPLOYMENT_OPTIONS.map((e) => (
@@ -515,23 +544,27 @@ export function VisaInquiryForm() {
 
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-foreground mb-1.5">
+                <label htmlFor="preferredTravelDate" className="block text-sm font-medium text-foreground mb-1.5">
                   Travel Start Date
                 </label>
                 <input
+                  id="preferredTravelDate"
                   {...register("preferredTravelDate")}
                   type="date"
                   className={inputClass}
+                  aria-invalid={!!errors.preferredTravelDate}
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-foreground mb-1.5">
+                <label htmlFor="travelEndDate" className="block text-sm font-medium text-foreground mb-1.5">
                   Travel End Date
                 </label>
                 <input
+                  id="travelEndDate"
                   {...register("travelEndDate")}
                   type="date"
                   className={inputClass}
+                  aria-invalid={!!errors.travelEndDate}
                 />
               </div>
             </div>
@@ -564,22 +597,28 @@ export function VisaInquiryForm() {
             </p>
 
             <div>
-              <label className="block text-sm font-medium text-foreground mb-1.5">
+              <label htmlFor="purposeOfVisit" className="block text-sm font-medium text-foreground mb-1.5">
                 Purpose of Visit
               </label>
               <textarea
+                id="purposeOfVisit"
                 {...register("purposeOfVisit")}
                 rows={3}
                 placeholder="Briefly describe your travel purpose..."
                 className="w-full px-4 py-3 rounded-lg border border-border bg-white text-sm outline-none focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)] transition-colors resize-none"
+                aria-invalid={!!errors.purposeOfVisit}
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-foreground mb-1.5">
+              <label id="preferredContactMethod" className="block text-sm font-medium text-foreground mb-1.5">
                 Preferred Contact Method
               </label>
-              <div className="flex gap-3">
+              <div
+                role="radiogroup"
+                aria-labelledby="preferredContactMethod"
+                className="flex gap-3"
+              >
                 {[
                   { value: "call", label: "Phone Call" },
                   { value: "email", label: "Email" },
@@ -602,12 +641,14 @@ export function VisaInquiryForm() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-foreground mb-1.5">
+              <label htmlFor="preferredCallbackTime" className="block text-sm font-medium text-foreground mb-1.5">
                 Preferred Callback Time
               </label>
               <select
+                id="preferredCallbackTime"
                 {...register("preferredCallbackTime")}
                 className={inputClass}
+                aria-invalid={!!errors.preferredCallbackTime}
               >
                 <option value="">Any time</option>
                 <option value="morning">Morning (9 AM - 12 PM)</option>
@@ -617,12 +658,14 @@ export function VisaInquiryForm() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-foreground mb-1.5">
+              <label htmlFor="referralSource" className="block text-sm font-medium text-foreground mb-1.5">
                 How did you hear about us?
               </label>
               <select
+                id="referralSource"
                 {...register("referralSource")}
                 className={inputClass}
+                aria-invalid={!!errors.referralSource}
               >
                 <option value="">Select</option>
                 <option value="google">Google Search</option>
@@ -719,6 +762,8 @@ export function VisaInquiryForm() {
                 {...register("privacyConsent")}
                 type="checkbox"
                 id="privacyConsent"
+                aria-invalid={!!errors.privacyConsent}
+                aria-describedby={errors.privacyConsent ? "privacyConsent-error" : undefined}
                 className="h-4 w-4 rounded border-border text-[var(--color-primary)] mt-0.5"
               />
               <label
@@ -737,7 +782,7 @@ export function VisaInquiryForm() {
               </label>
             </div>
             {errors.privacyConsent && (
-              <p className="text-xs text-[var(--color-error)]">
+              <p id="privacyConsent-error" className="text-xs text-[var(--color-error)]">
                 {errors.privacyConsent.message}
               </p>
             )}
@@ -746,7 +791,7 @@ export function VisaInquiryForm() {
 
         {/* Navigation buttons */}
         {submitError && currentStep === 4 && (
-          <p className="text-sm text-[var(--color-error)] mt-4">{submitError}</p>
+          <p role="alert" className="text-sm text-[var(--color-error)] mt-4">{submitError}</p>
         )}
         <div className="flex items-center justify-between mt-8 pt-6 border-t border-border">
           {currentStep > 1 ? (

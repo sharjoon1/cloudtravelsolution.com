@@ -104,7 +104,7 @@ export function HeroLeadForm() {
   return (
     <div className="bg-white rounded-2xl shadow-2xl p-6 sm:p-8">
       {/* Header */}
-      <h3 className="text-xl font-bold text-[#0c6cbc] mb-1">Which Country are you applying for?</h3>
+      <h2 className="text-xl font-bold text-[#0c6cbc] mb-1">Which Country are you applying for?</h2>
       <p className="text-sm text-gray-500 mb-6">
         {currentStep === 1
           ? "Tell us about your travel plans"
@@ -123,6 +123,8 @@ export function HeroLeadForm() {
                 <select
                   {...register("destination")}
                   aria-label="Destination country"
+                  aria-invalid={!!errors.destination}
+                  aria-describedby={errors.destination ? "destination-error" : undefined}
                   defaultValue=""
                   className={cn(
                     "w-full h-11 pl-10 pr-10 rounded-lg border bg-white text-sm text-gray-900 outline-none transition-colors appearance-none cursor-pointer",
@@ -141,7 +143,7 @@ export function HeroLeadForm() {
                 <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" />
               </div>
               {errors.destination && (
-                <p className="text-xs text-red-500 mt-1">
+                <p id="destination-error" className="text-xs text-red-500 mt-1">
                   {errors.destination.message}
                 </p>
               )}
@@ -154,6 +156,8 @@ export function HeroLeadForm() {
                 <select
                   {...register("travelMonth")}
                   aria-label="Travel month"
+                  aria-invalid={!!errors.travelMonth}
+                  aria-describedby={errors.travelMonth ? "travelMonth-error" : undefined}
                   defaultValue=""
                   className={cn(
                     "w-full h-11 pl-10 pr-10 rounded-lg border bg-white text-sm text-gray-900 outline-none transition-colors appearance-none cursor-pointer",
@@ -172,7 +176,7 @@ export function HeroLeadForm() {
                 <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" />
               </div>
               {errors.travelMonth && (
-                <p className="text-xs text-red-500 mt-1">
+                <p id="travelMonth-error" className="text-xs text-red-500 mt-1">
                   {errors.travelMonth.message}
                 </p>
               )}
@@ -185,6 +189,8 @@ export function HeroLeadForm() {
                 <select
                   {...register("duration")}
                   aria-label="Trip duration"
+                  aria-invalid={!!errors.duration}
+                  aria-describedby={errors.duration ? "duration-error" : undefined}
                   defaultValue=""
                   className={cn(
                     "w-full h-11 pl-10 pr-10 rounded-lg border bg-white text-sm text-gray-900 outline-none transition-colors appearance-none cursor-pointer",
@@ -203,7 +209,7 @@ export function HeroLeadForm() {
                 <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" />
               </div>
               {errors.duration && (
-                <p className="text-xs text-red-500 mt-1">
+                <p id="duration-error" className="text-xs text-red-500 mt-1">
                   {errors.duration.message}
                 </p>
               )}
@@ -216,6 +222,8 @@ export function HeroLeadForm() {
                 <select
                   {...register("travelers")}
                   aria-label="Number of travelers"
+                  aria-invalid={!!errors.travelers}
+                  aria-describedby={errors.travelers ? "travelers-error" : undefined}
                   defaultValue=""
                   className={cn(
                     "w-full h-11 pl-10 pr-10 rounded-lg border bg-white text-sm text-gray-900 outline-none transition-colors appearance-none cursor-pointer",
@@ -234,7 +242,7 @@ export function HeroLeadForm() {
                 <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" />
               </div>
               {errors.travelers && (
-                <p className="text-xs text-red-500 mt-1">
+                <p id="travelers-error" className="text-xs text-red-500 mt-1">
                   {errors.travelers.message}
                 </p>
               )}
@@ -262,6 +270,8 @@ export function HeroLeadForm() {
                 <input
                   {...register("fullName")}
                   aria-label="Full name"
+                  aria-invalid={!!errors.fullName}
+                  aria-describedby={errors.fullName ? "fullName-error" : undefined}
                   placeholder="Full Name"
                   className={cn(
                     "w-full h-11 pl-10 pr-4 rounded-lg border bg-white text-sm text-gray-900 placeholder:text-gray-400 outline-none transition-colors",
@@ -272,7 +282,7 @@ export function HeroLeadForm() {
                 />
               </div>
               {errors.fullName && (
-                <p className="text-xs text-red-500 mt-1">
+                <p id="fullName-error" className="text-xs text-red-500 mt-1">
                   {errors.fullName.message}
                 </p>
               )}
@@ -285,6 +295,8 @@ export function HeroLeadForm() {
                 <input
                   {...register("phone")}
                   aria-label="Phone number"
+                  aria-invalid={!!errors.phone}
+                  aria-describedby={errors.phone ? "phone-error" : undefined}
                   type="tel"
                   placeholder="Phone Number (+91)"
                   className={cn(
@@ -296,7 +308,7 @@ export function HeroLeadForm() {
                 />
               </div>
               {errors.phone && (
-                <p className="text-xs text-red-500 mt-1">
+                <p id="phone-error" className="text-xs text-red-500 mt-1">
                   {errors.phone.message}
                 </p>
               )}
@@ -309,6 +321,8 @@ export function HeroLeadForm() {
                 <input
                   {...register("email")}
                   aria-label="Email address"
+                  aria-invalid={!!errors.email}
+                  aria-describedby={errors.email ? "email-error" : undefined}
                   type="email"
                   placeholder="Email Address"
                   className={cn(
@@ -320,7 +334,7 @@ export function HeroLeadForm() {
                 />
               </div>
               {errors.email && (
-                <p className="text-xs text-red-500 mt-1">
+                <p id="email-error" className="text-xs text-red-500 mt-1">
                   {errors.email.message}
                 </p>
               )}
@@ -329,7 +343,7 @@ export function HeroLeadForm() {
             {/* Back + Submit */}
             <div className="space-y-3">
               {submitError && (
-                <p className="text-xs text-red-500 text-center">{submitError}</p>
+                <p role="alert" className="text-xs text-red-500 text-center">{submitError}</p>
               )}
               <button
                 type="submit"

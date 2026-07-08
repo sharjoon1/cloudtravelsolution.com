@@ -67,10 +67,12 @@ export function ContactForm() {
           <input
             id="cf-name"
             {...register("name")}
+            aria-invalid={!!errors.name}
+            aria-describedby={errors.name ? "name-error" : undefined}
             className={cn(inputClass, errors.name && "border-red-500")}
             placeholder="Your name"
           />
-          {errors.name && <p className="mt-1 text-xs text-red-500">{errors.name.message}</p>}
+          {errors.name && <p id="name-error" className="mt-1 text-xs text-red-500">{errors.name.message}</p>}
         </div>
         <div>
           <label htmlFor="cf-email" className={labelClass}>Email *</label>
@@ -78,10 +80,12 @@ export function ContactForm() {
             id="cf-email"
             type="email"
             {...register("email")}
+            aria-invalid={!!errors.email}
+            aria-describedby={errors.email ? "email-error" : undefined}
             className={cn(inputClass, errors.email && "border-red-500")}
             placeholder="you@email.com"
           />
-          {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email.message}</p>}
+          {errors.email && <p id="email-error" className="mt-1 text-xs text-red-500">{errors.email.message}</p>}
         </div>
       </div>
 
@@ -91,10 +95,12 @@ export function ContactForm() {
           <input
             id="cf-phone"
             {...register("phone")}
+            aria-invalid={!!errors.phone}
+            aria-describedby={errors.phone ? "phone-error" : undefined}
             className={cn(inputClass, errors.phone && "border-red-500")}
             placeholder="+91 98765 43210"
           />
-          {errors.phone && <p className="mt-1 text-xs text-red-500">{errors.phone.message}</p>}
+          {errors.phone && <p id="phone-error" className="mt-1 text-xs text-red-500">{errors.phone.message}</p>}
         </div>
         <div>
           <label htmlFor="cf-city" className={labelClass}>City</label>
@@ -107,10 +113,12 @@ export function ContactForm() {
         <input
           id="cf-subject"
           {...register("subject")}
+          aria-invalid={!!errors.subject}
+          aria-describedby={errors.subject ? "subject-error" : undefined}
           className={cn(inputClass, errors.subject && "border-red-500")}
           placeholder="How can we help?"
         />
-        {errors.subject && <p className="mt-1 text-xs text-red-500">{errors.subject.message}</p>}
+        {errors.subject && <p id="subject-error" className="mt-1 text-xs text-red-500">{errors.subject.message}</p>}
       </div>
 
       <div>
@@ -119,14 +127,16 @@ export function ContactForm() {
           id="cf-message"
           {...register("message")}
           rows={4}
+          aria-invalid={!!errors.message}
+          aria-describedby={errors.message ? "message-error" : undefined}
           className={cn(inputClass, errors.message && "border-red-500")}
           placeholder="Tell us about your travel or visa needs..."
         />
-        {errors.message && <p className="mt-1 text-xs text-red-500">{errors.message.message}</p>}
+        {errors.message && <p id="message-error" className="mt-1 text-xs text-red-500">{errors.message.message}</p>}
       </div>
 
       {submitError && (
-        <p className="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-600">{submitError}</p>
+        <p role="alert" className="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-600">{submitError}</p>
       )}
 
       <button
