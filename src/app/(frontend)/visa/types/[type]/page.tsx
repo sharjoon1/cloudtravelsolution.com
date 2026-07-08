@@ -52,6 +52,7 @@ export async function generateMetadata({
       title: `${category.name} — All Countries | ${SITE_CONFIG.name}`,
       description: `Browse all countries offering ${category.name.toLowerCase()} for Indian passport holders. Compare fees, processing times, and apply with expert guidance.`,
     },
+    alternates: { canonical: `${SITE_CONFIG.url}/visa/types/${category.slug}` },
   };
 }
 

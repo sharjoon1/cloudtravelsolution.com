@@ -15,6 +15,7 @@ import { getPayload } from "payload";
 import config from "@payload-config";
 import { connection } from "next/server";
 
+import { SITE_CONFIG } from "@/lib/constants";
 import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { CTABanner } from "@/components/sections/cta-banner";
 
@@ -22,6 +23,7 @@ export const metadata: Metadata = {
   title: "Our Team — Meet the People Behind Cloud Travel Solutions",
   description:
     "Meet the experienced team at Cloud Travel Solutions. Our visa consultants, travel advisors, and support staff are dedicated to making your international travel seamless.",
+  alternates: { canonical: `${SITE_CONFIG.url}/about/team` },
 };
 
 const stats = [

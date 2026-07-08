@@ -50,6 +50,7 @@ export const metadata: Metadata = {
     title: "Cloud Travel Solutions — Your Trusted Visa & Travel Partner Across India",
     description:
       "India's leading visa consulting and travel agency. Expert visa services for all countries.",
+    images: [{ url: SITE_CONFIG.ogImage, width: 1200, height: 630, alt: SITE_CONFIG.name }],
   },
   twitter: {
     card: "summary_large_image",

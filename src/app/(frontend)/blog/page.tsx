@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { getAllBlogPosts } from "@/lib/blog-data";
+import { SITE_CONFIG } from "@/lib/constants";
 import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { BlogList } from "./blog-list";
 
@@ -8,6 +9,7 @@ export const metadata: Metadata = {
   title: "Blog — Visa Guides, Travel Tips & Industry Updates",
   description:
     "Expert visa guides, travel tips, country guides, and industry updates from Cloud Travel Solutions. Stay informed about visa requirements and travel advisories.",
+  alternates: { canonical: `${SITE_CONFIG.url}/blog` },
 };
 
 export default function BlogPage() {

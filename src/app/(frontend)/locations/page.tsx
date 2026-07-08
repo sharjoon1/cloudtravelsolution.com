@@ -17,6 +17,7 @@ export const metadata: Metadata = {
   title: "Our Locations — Offices Across India",
   description:
     "Visit Cloud Travel Solutions offices in Bangalore, Hyderabad, Delhi, and Chennai. Expert visa consulting and travel services with a Pan India presence.",
+  alternates: { canonical: `${SITE_CONFIG.url}/locations` },
 };
 
 const expansionRoadmap = [

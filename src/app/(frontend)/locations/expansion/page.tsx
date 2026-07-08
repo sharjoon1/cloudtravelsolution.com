@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { MapPin, ArrowRight, Building2, Rocket } from "lucide-react";
 
+import { SITE_CONFIG } from "@/lib/constants";
 import { CTABanner } from "@/components/sections/cta-banner";
 
 export const metadata: Metadata = {
   title: "Pan India Expansion Roadmap",
   description:
     "Cloud Travel Solutions expansion plan — bringing expert visa consulting and travel services to every major Indian city. View our growth roadmap.",
+  alternates: { canonical: `${SITE_CONFIG.url}/locations/expansion` },
 };
 
 const phases = [

@@ -7,11 +7,15 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { EDUCATION_CONSULTANCY_DATA } from "@/lib/services-data";
+import { SITE_CONFIG } from "@/lib/constants";
 import { CTABanner } from "@/components/sections/cta-banner";
 
 export const metadata: Metadata = {
   title: "Visa Assistance for Education Consultancies | Cloud Travel Solutions",
   description: EDUCATION_CONSULTANCY_DATA.metaDescription,
+  alternates: {
+    canonical: `${SITE_CONFIG.url}/services/visa-assistance/education-consultancies`,
+  },
 };
 
 export default function EducationConsultanciesPage() {

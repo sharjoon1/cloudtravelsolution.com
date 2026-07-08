@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { VisaInquiryForm } from "@/components/forms/visa-inquiry-form";
+import { SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Book Free Visa Consultation",
   description:
     "Get expert visa guidance from Cloud Travel Solutions. Fill out our quick form and our visa specialists will contact you within 2 business hours.",
+  alternates: { canonical: `${SITE_CONFIG.url}/inquiry/visa` },
 };
 
 export default function VisaInquiryPage() {

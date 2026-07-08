@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Terms of Service",
   description:
     "Cloud Travel Solutions terms of service — terms and conditions governing the use of our visa consulting and travel services.",
+  alternates: { canonical: `${SITE_CONFIG.url}/terms-of-service` },
 };
 
 export default function TermsOfServicePage() {

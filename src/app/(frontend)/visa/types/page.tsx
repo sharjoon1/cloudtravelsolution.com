@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 
 import { getVisaTypeCategories } from "@/lib/visa-data";
+import { SITE_CONFIG } from "@/lib/constants";
 import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { CTABanner } from "@/components/sections/cta-banner";
 
@@ -24,6 +25,7 @@ export const metadata: Metadata = {
     description:
       "Explore all visa categories: tourist, business, student, work, transit, and medical visas for Indian citizens.",
   },
+  alternates: { canonical: `${SITE_CONFIG.url}/visa/types` },
 };
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {

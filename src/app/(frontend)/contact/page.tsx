@@ -10,11 +10,41 @@ export const metadata: Metadata = {
   title: "Contact Us",
   description:
     "Get in touch with Cloud Travel Solutions. Visit our offices in Bangalore, Hyderabad, Delhi, or Chennai. Call us toll-free or submit an online inquiry.",
+  alternates: {
+    canonical: `${SITE_CONFIG.url}/contact`,
+  },
 };
 
 export default function ContactPage() {
+  const contactSchema = {
+    "@context": "https://schema.org",
+    "@type": "TravelAgency",
+    name: SITE_CONFIG.name,
+    url: `${SITE_CONFIG.url}/contact`,
+    description: SITE_CONFIG.description,
+    telephone: SITE_CONFIG.tollFree,
+    email: SITE_CONFIG.email,
+    openingHours: "Mo-Sa 09:00-18:00",
+    areaServed: "IN",
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        telephone: SITE_CONFIG.tollFree,
+        email: SITE_CONFIG.email,
+        contactType: "customer service",
+        areaServed: "IN",
+        availableLanguage: ["English", "Hindi"],
+        hoursAvailable: "Mo-Sa 09:00-18:00",
+      },
+    ],
+  };
+
   return (
     <>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }}
+    />
     <Breadcrumb
       items={[
         { name: "Home", href: "/" },

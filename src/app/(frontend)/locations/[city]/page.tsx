@@ -14,6 +14,14 @@ import { LOCATIONS, SITE_CONFIG, POPULAR_COUNTRIES } from "@/lib/constants";
 import { generateBreadcrumbSchema, generateLocalBusinessSchema } from "@/lib/seo";
 import { CTABanner } from "@/components/sections/cta-banner";
 
+// city-centroid placeholder; replace with real office coordinates when addresses are provided
+const CITY_CENTROIDS: Record<string, { lat: number; lng: number }> = {
+  bangalore: { lat: 12.9716, lng: 77.5946 },
+  hyderabad: { lat: 17.385, lng: 78.4867 },
+  delhi: { lat: 28.6139, lng: 77.209 },
+  chennai: { lat: 13.0827, lng: 80.2707 },
+};
+
 interface PageProps {
   params: Promise<{ city: string }>;
 }
@@ -32,6 +40,7 @@ export async function generateMetadata({
   return {
     title: `Visa Consultant in ${location.city} — ${SITE_CONFIG.name}`,
     description: `Visit Cloud Travel Solutions ${location.city} office for expert visa consulting, passport services, and travel assistance. ${location.state}.`,
+    alternates: { canonical: `${SITE_CONFIG.url}/locations/${location.slug}` },
   };
 }
 
@@ -68,8 +77,7 @@ export default async function LocationPage({ params }: PageProps) {
                 city: location.city,
                 address: `${location.city}, ${location.state}, India`,
                 phone: location.phone || SITE_CONFIG.tollFree,
-                lat: 12.9716,
-                lng: 77.5946,
+                ...(CITY_CENTROIDS[location.slug] ?? CITY_CENTROIDS.bangalore),
               })
             ),
           }}

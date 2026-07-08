@@ -7,11 +7,15 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { MANPOWER_AGENCY_DATA } from "@/lib/services-data";
+import { SITE_CONFIG } from "@/lib/constants";
 import { CTABanner } from "@/components/sections/cta-banner";
 
 export const metadata: Metadata = {
   title: "Visa Assistance for Manpower Agencies | Cloud Travel Solutions",
   description: MANPOWER_AGENCY_DATA.metaDescription,
+  alternates: {
+    canonical: `${SITE_CONFIG.url}/services/visa-assistance/manpower-agencies`,
+  },
 };
 
 export default function ManpowerAgenciesPage() {

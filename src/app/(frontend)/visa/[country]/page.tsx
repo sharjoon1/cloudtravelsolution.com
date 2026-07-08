@@ -33,6 +33,7 @@ export async function generateMetadata({
       title: `${country.name} Visa from India | ${SITE_CONFIG.name}`,
       description: `Expert ${country.name} visa assistance. Check requirements, fees, and apply with our guidance.`,
     },
+    alternates: { canonical: `${SITE_CONFIG.url}/visa/${country.slug}` },
   };
 }
 

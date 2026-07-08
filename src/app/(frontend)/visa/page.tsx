@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Globe, ArrowRight, BookOpen } from "lucide-react";
 
 import { COUNTRIES_DATA } from "@/lib/visa-data";
+import { SITE_CONFIG } from "@/lib/constants";
 import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { CountrySearch } from "@/components/visa/country-search";
 import { CTABanner } from "@/components/sections/cta-banner";
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
   title: "Visa Services for Indian Citizens — 190+ Countries",
   description:
     "Expert visa consulting for Indian passport holders. Browse visa requirements, fees, and processing times for all countries. Tourist, business, student, and work visas.",
+  alternates: { canonical: `${SITE_CONFIG.url}/visa` },
 };
 
 const visaTypeCards = [

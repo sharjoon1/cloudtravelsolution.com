@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CheckCircle2, XCircle, AlertCircle } from "lucide-react";
+import { SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Unsubscribe — Cloud Travel Solutions",
+  alternates: { canonical: `${SITE_CONFIG.url}/unsubscribe` },
 };
 
 export default async function UnsubscribePage({

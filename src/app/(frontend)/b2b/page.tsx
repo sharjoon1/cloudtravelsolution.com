@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { B2BForm } from "./b2b-form";
 import { Users, Headphones, BarChart3, Percent } from "lucide-react";
+import { SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "B2B Partners — Cloud Travel Solutions",
   description:
     "Partner with Cloud Travel Solutions for bulk visa processing. Special discounts for Education Consultancies and Manpower Agencies. Dedicated account management.",
+  alternates: { canonical: `${SITE_CONFIG.url}/b2b` },
 };
 
 export default function B2BPage() {

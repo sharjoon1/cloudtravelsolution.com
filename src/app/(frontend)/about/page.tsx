@@ -11,6 +11,7 @@ import {
   Eye,
 } from "lucide-react";
 
+import { SITE_CONFIG } from "@/lib/constants";
 import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { CTABanner } from "@/components/sections/cta-banner";
 
@@ -18,6 +19,7 @@ export const metadata: Metadata = {
   title: "About Us — Our Story, Mission & Vision",
   description:
     "Learn about Cloud Travel Solutions — India's trusted visa consulting and travel agency. Our story, mission, team, and commitment to making international travel accessible.",
+  alternates: { canonical: `${SITE_CONFIG.url}/about` },
 };
 
 const values = [
