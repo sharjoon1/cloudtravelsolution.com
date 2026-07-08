@@ -103,7 +103,7 @@ export default function LocationsPage() {
                       </p>
                     </div>
                   </div>
-                  <span className="px-2.5 py-1 text-xs font-semibold uppercase tracking-wider bg-[#009e7a]/10 text-[#009e7a] rounded-full">
+                  <span className="px-2.5 py-1 text-xs font-semibold uppercase tracking-wider bg-[#009e7a]/10 text-[#007a5e] rounded-full">
                     Open
                   </span>
                 </div>

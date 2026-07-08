@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -14,11 +14,22 @@ type HeaderProps = {
   siteSettings?: SiteSettingsData;
 };
 
+// Query focusable descendants of a container for focus-trap management.
+function getFocusable(container: HTMLElement): HTMLElement[] {
+  const selector =
+    'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
+  return Array.from(container.querySelectorAll<HTMLElement>(selector));
+}
+
 export function Header({ siteSettings }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const pathname = usePathname();
+
+  const toggleButtonRef = useRef<HTMLButtonElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
+  const wasOpenRef = useRef(false);
 
   const tollFree = siteSettings?.businessInfo?.tollFreeNumber || SITE_CONFIG.tollFree;
   const email = siteSettings?.businessInfo?.email || SITE_CONFIG.email;
@@ -36,6 +47,22 @@ export function Header({ siteSettings }: HeaderProps) {
   useEffect(() => {
     document.body.style.overflow = mobileMenuOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
+  }, [mobileMenuOpen]);
+
+  // Focus management: move focus into the panel on open, restore to the
+  // toggle button on close. DOM-only (.focus()), no setState in effect.
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      wasOpenRef.current = true;
+      const panel = panelRef.current;
+      if (panel) {
+        const focusable = getFocusable(panel);
+        focusable[0]?.focus();
+      }
+    } else if (wasOpenRef.current) {
+      wasOpenRef.current = false;
+      toggleButtonRef.current?.focus();
+    }
   }, [mobileMenuOpen]);
 
   return (
@@ -98,9 +125,25 @@ export function Header({ siteSettings }: HeaderProps) {
                   "children" in item ? setActiveDropdown(item.label) : undefined
                 }
                 onMouseLeave={() => setActiveDropdown(null)}
+                onFocus={() => {
+                  if ("children" in item) setActiveDropdown(item.label);
+                }}
+                onBlur={(e) => {
+                  // Close only when focus leaves this container entirely.
+                  const next = e.relatedTarget;
+                  if (!(next instanceof Node) || !e.currentTarget.contains(next)) {
+                    setActiveDropdown(null);
+                  }
+                }}
               >
                 <Link
                   href={item.href}
+                  aria-expanded={
+                    "children" in item
+                      ? activeDropdown === item.label
+                      : undefined
+                  }
+                  aria-haspopup={"children" in item ? "true" : undefined}
                   className={cn(
                     "flex items-center gap-1 px-3 py-2 text-sm font-medium text-white/80 rounded-md transition-colors hover:text-white hover:bg-white/10"
                   )}
@@ -165,6 +208,7 @@ export function Header({ siteSettings }: HeaderProps) {
               Free Consultation
             </Link>
             <button
+              ref={toggleButtonRef}
               type="button"
               className="lg:hidden p-2 rounded-md text-white/80 hover:bg-white/10 transition-colors"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -191,10 +235,37 @@ export function Header({ siteSettings }: HeaderProps) {
 
       {/* Mobile menu panel */}
       <div
+        ref={panelRef}
+        inert={!mobileMenuOpen ? true : undefined}
+        aria-hidden={!mobileMenuOpen || undefined}
         className={cn(
           "lg:hidden fixed top-[calc(4rem+2.25rem+1px)] left-0 right-0 bottom-0 z-50 bg-[#0c6cbc] transform transition-transform duration-300 ease-in-out overflow-y-auto",
           mobileMenuOpen ? "translate-x-0" : "translate-x-full"
         )}
+        onKeyDown={(e) => {
+          if (e.key === "Escape") {
+            e.preventDefault();
+            setMobileMenuOpen(false);
+            return;
+          }
+          if (e.key !== "Tab") return;
+          const panel = panelRef.current;
+          if (!panel) return;
+          const focusable = getFocusable(panel);
+          if (focusable.length === 0) return;
+          const first = focusable[0];
+          const last = focusable[focusable.length - 1];
+          const activeEl = document.activeElement;
+          if (e.shiftKey) {
+            if (activeEl === first || !panel.contains(activeEl)) {
+              e.preventDefault();
+              last.focus();
+            }
+          } else if (activeEl === last || !panel.contains(activeEl)) {
+            e.preventDefault();
+            first.focus();
+          }
+        }}
       >
         <div className="px-4 py-4 space-y-1">
           {NAV_ITEMS.map((item) => {

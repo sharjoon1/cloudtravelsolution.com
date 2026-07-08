@@ -12,14 +12,22 @@ export default function PublicTrackingPage() {
   const [error, setError] = useState("");
   const [searched, setSearched] = useState(false);
 
-  async function handleSearch(query: string, type: "passport" | "tracking-code") {
+  async function handleSearch(
+    query: string,
+    type: "passport" | "tracking-code",
+    token: string | null
+  ) {
     setLoading(true);
     setError("");
     setSearched(true);
 
     try {
       const param = type === "tracking-code" ? "code" : "passport";
-      const res = await fetch(`/api/track?${param}=${encodeURIComponent(query)}`);
+      const headers: Record<string, string> = {};
+      if (token) headers["cf-turnstile-response"] = token;
+      const res = await fetch(`/api/track?${param}=${encodeURIComponent(query)}`, {
+        headers,
+      });
       const data = await res.json();
 
       if (!res.ok) {

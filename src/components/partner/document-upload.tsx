@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useId } from "react";
 import { Upload, X, FileText, AlertCircle } from "lucide-react";
 
 interface UploadedFile {
@@ -35,6 +35,7 @@ const MAX_SIZE_MB = 10;
 
 export function DocumentUpload({ files, onChange }: DocumentUploadProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const inputId = useId();
   const [dragActive, setDragActive] = useState(false);
   const [error, setError] = useState("");
 
@@ -89,7 +90,16 @@ export function DocumentUpload({ files, onChange }: DocumentUploadProps) {
         onDragLeave={() => setDragActive(false)}
         onDrop={handleDrop}
         onClick={() => fileInputRef.current?.click()}
-        className={`cursor-pointer rounded-xl border-2 border-dashed p-8 text-center transition-colors ${
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            fileInputRef.current?.click();
+          }
+        }}
+        role="button"
+        tabIndex={0}
+        aria-label="Upload documents — click or press Enter"
+        className={`cursor-pointer rounded-xl border-2 border-dashed p-8 text-center transition-colors focus:outline-none focus:ring-2 focus:ring-[#0c6cbc]/30 ${
           dragActive
             ? "border-[#0c6cbc] bg-blue-50/50"
             : "border-gray-300 hover:border-gray-400"
@@ -102,18 +112,25 @@ export function DocumentUpload({ files, onChange }: DocumentUploadProps) {
         <p className="mt-1 text-xs text-gray-500">
           PDF, DOC, DOCX, PNG, JPEG, WEBP (max {MAX_SIZE_MB}MB each)
         </p>
+        <label htmlFor={inputId} className="sr-only">
+          Upload documents
+        </label>
         <input
           ref={fileInputRef}
+          id={inputId}
           type="file"
           accept={ACCEPTED_TYPES}
           multiple
           onChange={(e) => e.target.files && addFiles(e.target.files)}
-          className="hidden"
+          className="sr-only"
         />
       </div>
 
       {error && (
-        <div className="flex items-center gap-2 rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700">
+        <div
+          role="alert"
+          className="flex items-center gap-2 rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700"
+        >
           <AlertCircle className="h-4 w-4 shrink-0" />
           {error}
         </div>
@@ -137,6 +154,7 @@ export function DocumentUpload({ files, onChange }: DocumentUploadProps) {
                 </p>
               </div>
               <select
+                aria-label={`Document type for ${item.file.name}`}
                 value={item.documentType}
                 onChange={(e) => updateFileType(index, e.target.value)}
                 className="rounded-lg border border-gray-300 px-2 py-1.5 text-xs focus:border-[#0c6cbc] focus:outline-none"
@@ -150,6 +168,7 @@ export function DocumentUpload({ files, onChange }: DocumentUploadProps) {
               <button
                 type="button"
                 onClick={() => removeFile(index)}
+                aria-label={`Remove ${item.file.name}`}
                 className="rounded-lg p-1 text-gray-400 transition-colors hover:bg-gray-100 hover:text-red-500"
               >
                 <X className="h-4 w-4" />

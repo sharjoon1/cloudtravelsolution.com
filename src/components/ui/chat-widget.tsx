@@ -53,6 +53,8 @@ export default function ChatWidget() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const abortRef = useRef<AbortController | null>(null);
+  const modalRef = useRef<HTMLDivElement>(null);
+  const hadOpenRef = useRef(false);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -61,6 +63,21 @@ export default function ChatWidget() {
   useEffect(() => {
     if (isOpen) {
       setTimeout(() => inputRef.current?.focus(), 200);
+    }
+  }, [isOpen]);
+
+  // Restore focus to the opener (chat bubble) when the modal closes.
+  useEffect(() => {
+    if (isOpen) {
+      hadOpenRef.current = true;
+      return;
+    }
+    if (hadOpenRef.current) {
+      hadOpenRef.current = false;
+      const opener = document.querySelector<HTMLButtonElement>(
+        '[data-chat-opener="true"]'
+      );
+      opener?.focus();
     }
   }, [isOpen]);
 
@@ -175,6 +192,36 @@ export default function ChatWidget() {
     }
   };
 
+  // Focus trap + Escape-to-close for the modal.
+  const handleTrapKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === "Escape") {
+      e.preventDefault();
+      setIsOpen(false);
+      return;
+    }
+    if (e.key !== "Tab") return;
+
+    const modal = modalRef.current;
+    if (!modal) return;
+
+    const focusable = modal.querySelectorAll<HTMLElement>(
+      'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    );
+    if (focusable.length === 0) return;
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    const active = document.activeElement;
+
+    if (e.shiftKey && active === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && active === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  };
+
   return (
     <>
       {/* Chat Bubble */}
@@ -193,6 +240,7 @@ export default function ChatWidget() {
               onClick={() => setIsOpen(true)}
               className="group relative flex h-14 w-14 items-center justify-center rounded-full bg-[#0c6cbc] text-white shadow-lg transition-transform hover:scale-105"
               aria-label="Open chat with CTS-AI"
+              data-chat-opener="true"
             >
               <Sparkles className="h-6 w-6" />
 
@@ -210,6 +258,11 @@ export default function ChatWidget() {
         {isOpen && (
           <motion.div
             key="chat-window"
+            ref={modalRef}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Chat with CTS-AI"
+            onKeyDown={handleTrapKeyDown}
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
@@ -263,7 +316,10 @@ export default function ChatWidget() {
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto px-4 py-4 [scrollbar-width:thin]">
+            <div
+              className="flex-1 overflow-y-auto px-4 py-4 [scrollbar-width:thin]"
+              aria-live="polite"
+            >
               <div className="flex flex-col gap-3">
                 {messages.map((msg, i) => (
                   <div
@@ -304,6 +360,7 @@ export default function ChatWidget() {
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
                 placeholder="Ask about visas, documents, fees..."
+                aria-label="Type your message"
                 disabled={isStreaming}
                 rows={1}
                 className="max-h-24 flex-1 resize-none rounded-xl border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-800 placeholder-gray-400 outline-none transition-colors focus:border-[#0c6cbc] focus:bg-white focus:ring-1 focus:ring-[#0c6cbc]/20 disabled:opacity-50"

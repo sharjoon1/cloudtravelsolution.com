@@ -88,7 +88,7 @@ export function CountryGrid({ headings }: CountryGridProps) {
                     </div>
                     <div className="flex items-center gap-0.5">
                       <IndianRupee className="h-3.5 w-3.5 text-[#009e7a]" />
-                      <span className="text-xs font-semibold text-[#009e7a]">
+                      <span className="text-xs font-semibold text-[#007a5e]">
                         {country.visaFee.replace("₹", "")}
                       </span>
                     </div>

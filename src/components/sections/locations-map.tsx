@@ -87,7 +87,7 @@ export function LocationsMap({ headings }: LocationsMapProps) {
                 </div>
               )}
 
-              <div className="mt-4 flex items-center gap-1 text-sm font-medium text-[#009e7a] group-hover:gap-2 transition-all">
+              <div className="mt-4 flex items-center gap-1 text-sm font-medium text-[#007a5e] group-hover:gap-2 transition-all">
                 {location.status === "active" ? "Visit Office" : "Learn More"}
                 <ArrowRight className="h-3.5 w-3.5" />
               </div>

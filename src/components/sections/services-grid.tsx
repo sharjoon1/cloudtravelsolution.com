@@ -63,7 +63,7 @@ export function ServicesGrid({ headings }: ServicesGridProps) {
                 <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                   {service.description}
                 </p>
-                <span className="inline-flex items-center gap-1.5 text-sm font-medium text-[#009e7a] group-hover:gap-2.5 transition-all">
+                <span className="inline-flex items-center gap-1.5 text-sm font-medium text-[#007a5e] group-hover:gap-2.5 transition-all">
                   Learn More
                   <ArrowRight className="h-3.5 w-3.5" />
                 </span>

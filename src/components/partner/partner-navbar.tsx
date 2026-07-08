@@ -75,6 +75,7 @@ export function PartnerNavbar({ partner }: PartnerNavbarProps) {
             <button
               onClick={handleLogout}
               disabled={loggingOut}
+              aria-label="Logout"
               className="flex items-center gap-1.5 rounded-lg bg-white/10 px-3 py-2 text-sm font-medium text-white/80 transition-colors hover:bg-white/20 hover:text-white disabled:opacity-50"
             >
               <LogOut className="h-4 w-4" />

@@ -45,6 +45,7 @@ export function WhatsAppButton({ whatsappNumber }: WhatsAppButtonProps) {
             <button
               type="button"
               onClick={() => setIsTooltipOpen(false)}
+              aria-label="Close"
               className="text-muted-foreground hover:text-foreground"
             >
               <X className="h-3.5 w-3.5" />
