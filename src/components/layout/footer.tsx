@@ -14,6 +14,7 @@ import {
 import { SITE_CONFIG, LOCATIONS, SERVICES } from "@/lib/constants";
 import type { SiteSettingsData } from "@/lib/payload-data";
 import { NewsletterForm } from "@/components/forms/newsletter-form";
+import { CookiePreferencesLink } from "@/components/layout/cookie-preferences-link";
 
 const quickLinks = [
   { label: "About Us", href: "/about" },
@@ -27,6 +28,7 @@ const quickLinks = [
 const legalLinks = [
   { label: "Privacy Policy", href: "/privacy-policy" },
   { label: "Terms of Service", href: "/terms-of-service" },
+  { label: "Refund Policy", href: "/refund-policy" },
 ];
 
 type FooterProps = {
@@ -227,6 +229,7 @@ export function Footer({ siteSettings }: FooterProps) {
                 {link.label}
               </Link>
             ))}
+            <CookiePreferencesLink />
           </div>
         </div>
       </div>

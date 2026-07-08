@@ -100,6 +100,29 @@ export const ServiceRequests: CollectionConfig = {
       defaultValue: "Indian",
     },
 
+    // ── Consent (DPDP) ────────────────────────────────────────
+    // Audit trail proving the partner obtained the applicant's consent before
+    // sharing PII (passport / DOB / identity docs). Populated by the partner
+    // service-request create route (overrideAccess); admin-only so partners
+    // cannot tamper with it. Not required — the public create still succeeds
+    // and the route sets both fields.
+    {
+      name: "privacyConsent",
+      type: "checkbox",
+      access: {
+        read: ({ req }) => req.user?.collection === "users",
+        update: ({ req }) => req.user?.collection === "users",
+      },
+    },
+    {
+      name: "consentAt",
+      type: "date",
+      access: {
+        read: ({ req }) => req.user?.collection === "users",
+        update: ({ req }) => req.user?.collection === "users",
+      },
+    },
+
     // ── Service Details ───────────────────────────────────────
     {
       name: "serviceType",

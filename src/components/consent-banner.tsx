@@ -63,6 +63,23 @@ export function setConsent(granted: boolean): ConsentValues {
   return update;
 }
 
+/**
+ * Re-show the consent banner by clearing the saved choice — fulfils the
+ * DPDP/GDPR "withdraw consent anytime" requirement the banner copy promises.
+ * Reuses the same external store the banner reads via useSyncExternalStore,
+ * so it re-renders without a setState-in-effect (the snapshot returns false
+ * once the key is gone). Backed by the footer "Cookie preferences" link.
+ */
+export function reopenConsent(): void {
+  try {
+    localStorage.removeItem(CONSENT_STORAGE_KEY);
+  } catch {
+    // localStorage unavailable (private mode) — nothing to clear.
+  }
+  // Notify this tab's subscribers (the storage event only fires in OTHER tabs).
+  consentListeners.forEach((l) => l());
+}
+
 export function ConsentBanner() {
   const hasConsent = useSyncExternalStore(
     subscribeConsent,

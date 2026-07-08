@@ -38,6 +38,7 @@ interface CampaignDoc {
   audience: string;
   segmentFilter?: { tag: string }[] | null;
   status?: string;
+  updatedAt?: string;
 }
 
 interface SubscriberDoc {
@@ -137,6 +138,12 @@ function extractNodeText(node: Record<string, unknown>): string {
 const BATCH_SIZE = 50;
 const BATCH_DELAY_MS = 1000;
 
+// Stale-lock reclaim window. If a send dies mid-batch (PM2 restart, OOM-kill),
+// the catch block never runs and status is left stuck at "sending", bricking
+// the campaign — every retry hits the guard and bails. Once updatedAt is older
+// than this threshold we treat the lock as abandoned and let a new send reclaim it.
+const SEND_STALE_TIMEOUT_MS = 30 * 60 * 1000;
+
 function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
@@ -155,7 +162,27 @@ export async function sendCampaign(campaignId: number): Promise<{ success: boole
     }) as unknown as CampaignDoc | null;
 
     if (!c) return null;
-    if (c.status === "sending" || c.status === "sent") return null;
+
+    // Already fully sent: never resend (preserves concurrent-double-send
+    // protection for the terminal state).
+    if (c.status === "sent") return null;
+
+    if (c.status === "sending") {
+      // Stale-guard: a "sending" status usually means another send is in flight
+      // (admin double-click / cron overlap) and we bail to avoid double-blasting
+      // the list. But if the process died mid-batch (PM2 restart, OOM-kill) the
+      // catch block never ran and the lock is abandoned — without this reclaim
+      // the campaign is bricked forever. Treat the lock as stale once updatedAt
+      // is older than SEND_STALE_TIMEOUT_MS; otherwise bail as before.
+      const updatedAtMs = c.updatedAt ? new Date(c.updatedAt).getTime() : 0;
+      const isStale = Date.now() - updatedAtMs > SEND_STALE_TIMEOUT_MS;
+      if (!isStale) return null;
+
+      console.warn(
+        `[email-campaigns] Reclaiming stale "sending" lock for campaign ${campaignId} ` +
+          `(updatedAt=${c.updatedAt ?? "unknown"}). Previous send likely crashed mid-batch.`,
+      );
+    }
 
     await payload.update({
       collection: "email-campaigns",

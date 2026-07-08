@@ -92,11 +92,13 @@ export async function POST(req: NextRequest) {
 
     const payload = await getPayload({ config });
 
-    // privacyConsent is a validation-only gate (DPDP consent) — ServiceRequests
-    // has no field for it yet, so strip it before create. TODO: persist it for an
-    // audit trail once a `consent` field is added (batch with other migrations).
-    const { privacyConsent: _consent, ...requestData } = parsed.data;
-    void _consent;
+    // Persist the DPDP consent attestation (privacyConsent + consentAt) so CTS can
+    // prove the partner obtained the applicant's consent before sharing PII
+    // (passport / DOB / identity docs). Capture the requester IP for traceability.
+    const { privacyConsent, ...requestData } = parsed.data;
+
+    const forwardedFor = req.headers.get("x-forwarded-for");
+    const requesterIp = forwardedFor?.split(",")[0]?.trim();
 
     const doc = await payload.create({
       collection: "service-requests",
@@ -104,6 +106,11 @@ export async function POST(req: NextRequest) {
         ...requestData,
         partner: partner.id,
         status: "received",
+        privacyConsent,
+        consentAt: new Date().toISOString(),
+        ...(requesterIp
+          ? { internalNotes: `Consent submitted from IP ${requesterIp}` }
+          : {}),
       },
       overrideAccess: true,
     });

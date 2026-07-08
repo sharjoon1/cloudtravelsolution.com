@@ -34,6 +34,14 @@ export type SiteSettingsData = {
     footerTagline: string;
     copyrightText: string;
   };
+  legal: {
+    gstin?: string;
+    cin?: string;
+    refundPolicy?: string;
+    grievanceOfficerName?: string;
+    grievanceOfficerEmail?: string;
+    grievanceOfficerPhone?: string;
+  };
 };
 
 export type HomepageData = {
@@ -90,6 +98,7 @@ const siteSettingsFallback: SiteSettingsData = {
       "India's trusted visa consulting and travel partner. Expert services across Bangalore, Hyderabad, Delhi, and Chennai with Pan India expansion.",
     copyrightText: "Cloud Travel Solutions. All rights reserved.",
   },
+  legal: {},
 };
 
 const homepageFallback: HomepageData = {
@@ -176,6 +185,14 @@ export async function getSiteSettings(): Promise<SiteSettingsData> {
       footer: {
         footerTagline: data.footer?.footerTagline || siteSettingsFallback.footer.footerTagline,
         copyrightText: data.footer?.copyrightText || siteSettingsFallback.footer.copyrightText,
+      },
+      legal: {
+        gstin: data.legal?.gstin || undefined,
+        cin: data.legal?.cin || undefined,
+        refundPolicy: data.legal?.refundPolicy || undefined,
+        grievanceOfficerName: data.legal?.grievanceOfficerName || undefined,
+        grievanceOfficerEmail: data.legal?.grievanceOfficerEmail || undefined,
+        grievanceOfficerPhone: data.legal?.grievanceOfficerPhone || undefined,
       },
     };
   } catch {

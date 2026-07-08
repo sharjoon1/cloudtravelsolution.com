@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach } from "vitest";
-import { setConsent, CONSENT_STORAGE_KEY } from "@/components/consent-banner";
+import { setConsent, reopenConsent, CONSENT_STORAGE_KEY } from "@/components/consent-banner";
 
 describe("setConsent", () => {
   beforeEach(() => {
@@ -25,5 +25,25 @@ describe("setConsent", () => {
     expect(result.analytics_storage).toBe("denied");
     const stored = JSON.parse(localStorage.getItem(CONSENT_STORAGE_KEY)!);
     expect(stored.ad_storage).toBe("denied");
+  });
+});
+
+describe("reopenConsent", () => {
+  beforeEach(() => {
+    localStorage.clear();
+  });
+
+  it("clears a previously stored choice so the banner can re-show", () => {
+    setConsent(true);
+    expect(localStorage.getItem(CONSENT_STORAGE_KEY)).not.toBeNull();
+
+    reopenConsent();
+
+    expect(localStorage.getItem(CONSENT_STORAGE_KEY)).toBeNull();
+  });
+
+  it("is a no-op (no throw) when no choice was ever stored", () => {
+    expect(() => reopenConsent()).not.toThrow();
+    expect(localStorage.getItem(CONSENT_STORAGE_KEY)).toBeNull();
   });
 });

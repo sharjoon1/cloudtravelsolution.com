@@ -140,5 +140,57 @@ export const SiteSettings: GlobalConfig = {
         },
       ],
     },
+    {
+      type: "group",
+      name: "legal",
+      label: "Legal & Compliance",
+      fields: [
+        {
+          name: "gstin",
+          type: "text",
+          admin: {
+            description:
+              "GST Identification Number (e.g. 29ABCDE1234F1Z5). Shown on the Refund & Cancellation Policy page when set.",
+          },
+        },
+        {
+          name: "cin",
+          type: "text",
+          admin: {
+            description:
+              "Corporate Identity Number (e.g. U63040KA2020PTC123456). Shown on the Refund & Cancellation Policy page when set.",
+          },
+        },
+        {
+          name: "refundPolicy",
+          type: "textarea",
+          admin: {
+            description:
+              "Optional custom refund & cancellation policy override. Leave blank to use the default policy rendered on /refund-policy.",
+          },
+        },
+        {
+          name: "grievanceOfficerName",
+          type: "text",
+          admin: {
+            description: "Grievance Redressal Officer name.",
+          },
+        },
+        {
+          name: "grievanceOfficerEmail",
+          type: "email",
+          admin: {
+            description: "Grievance Redressal Officer contact email.",
+          },
+        },
+        {
+          name: "grievanceOfficerPhone",
+          type: "text",
+          admin: {
+            description: "Grievance Redressal Officer contact phone.",
+          },
+        },
+      ],
+    },
   ],
 };

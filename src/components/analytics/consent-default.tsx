@@ -10,6 +10,10 @@
  * This is the gating that MUST be in place before the GA4/GTM env vars are enabled
  * (otherwise every visitor is tracked without consent — a DPDP Act 2023 breach).
  */
+import { CONSENT_STORAGE_KEY } from "@/components/consent-banner";
+
+// The key is baked into the inline script at render time so this bootstrap reads
+// exactly the same localStorage key the ConsentBanner writes — they cannot desync.
 const BOOTSTRAP = `
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
@@ -23,7 +27,7 @@ gtag('consent', 'default', {
   wait_for_update: 1000
 });
 try {
-  var s = localStorage.getItem('cts-consent');
+  var s = localStorage.getItem('${CONSENT_STORAGE_KEY}');
   if (s) {
     var c = JSON.parse(s);
     gtag('consent', 'update', {
