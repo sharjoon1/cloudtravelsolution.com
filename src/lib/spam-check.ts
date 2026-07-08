@@ -7,12 +7,19 @@
  * blindly fill every field (including the hidden one) without imposing any UX cost
  * on real humans. It's a stopgap until Cloudflare Turnstile is layered on top.
  *
- * Field name is deliberately innocuous ("company_website") — it is NOT registered
- * with React Hook Form and is NOT in any Zod schema, so it rides along in the raw
- * request body only. Each API route checks it BEFORE schema.parse (Zod would
- * otherwise strip the unknown key).
+ * Field name is deliberately opaque ("ref_hp_token") rather than a semantic name
+ * like "company_website". Chrome's autofill heuristics increasingly ignore
+ * autocomplete="off" and will populate semantically-named hidden fields from a
+ * logged-in user's saved profile, silently dropping legitimate B2B/contact
+ * submissions. The opaque name avoids every common autofill token
+ * (company / website / url / organization), so only bots that blindly fill every
+ * field trip it. The field is NOT registered with React Hook Form and is NOT in
+ * any Zod schema, so it rides along in the raw request body only. Each API route
+ * checks it BEFORE schema.parse (Zod would otherwise strip the unknown key). The
+ * same HONEYPOT_FIELD constant is imported by src/components/forms/honeypot-field.tsx
+ * so the submitted name round-trips exactly to what isHoneypotTripped reads.
  */
-export const HONEYPOT_FIELD = "company_website";
+export const HONEYPOT_FIELD = "ref_hp_token";
 
 /**
  * True if the honeypot field is present and non-empty → a bot filled the hidden

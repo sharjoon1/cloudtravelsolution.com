@@ -28,7 +28,6 @@ export function TrackingResults({ results }: TrackingResultProps) {
                 <p className="font-mono text-xl font-bold text-[#0c6cbc]">
                   {result.trackingCode}
                 </p>
-                <p className="text-sm text-gray-500">{result.applicantName}</p>
               </div>
               <div className="text-right text-sm">
                 <p className="text-gray-500">

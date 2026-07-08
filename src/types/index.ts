@@ -318,7 +318,6 @@ export interface ServiceRequest {
 
 export interface TrackingResult {
   trackingCode: string;
-  applicantName: string;
   serviceType: string;
   destinationCountry: string;
   status: ServiceRequestStatus;

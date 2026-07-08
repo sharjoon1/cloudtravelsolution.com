@@ -1,3 +1,4 @@
+import crypto from "crypto";
 import { NextResponse } from "next/server";
 import { getPayload } from "payload";
 import config from "@payload-config";
@@ -15,7 +16,14 @@ export async function POST(request: Request) {
     );
   }
   const provided = request.headers.get("x-cron-secret");
-  if (provided !== expected) {
+  // Constant-time comparison for parity with the webhook signature path.
+  // crypto.timingSafeEqual throws on length mismatch, so guard that first.
+  const providedBuf = Buffer.from(provided ?? "");
+  const expectedBuf = Buffer.from(expected);
+  const authorized =
+    providedBuf.length === expectedBuf.length &&
+    crypto.timingSafeEqual(providedBuf, expectedBuf);
+  if (!authorized) {
     return NextResponse.json({ success: false, message: "Unauthorized" }, { status: 401 });
   }
 

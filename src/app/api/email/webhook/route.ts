@@ -13,9 +13,17 @@ interface ResendWebhookEvent {
   };
 }
 
-// Soft rollout: warn once per process while the signing secret is unset, so
-// the existing (insecure) flow keeps working until RESEND_WEBHOOK_SECRET lands.
-let warnedUnverifiedSecret = false;
+// RESEND_WEBHOOK_SECRET controls whether inbound Resend webhooks are
+// signature-verified:
+//   - Unset → unverified webhooks are ACCEPTED (dev / soft rollout). A warning
+//     is logged so the gap stays visible, rate-limited to once per
+//     WEBHOOK_UNVERIFIED_WARN_INTERVAL_MS so a busy endpoint can't flood logs.
+//   - Set   → Svix signatures are enforced: a missing/stale/bad signature is
+//     rejected with 401, a valid signature passes through unchanged.
+// Unset RESEND_WEBHOOK_SECRET = unverified webhooks accepted (dev/soft
+// rollout). Set it (Resend → Webhooks → your endpoint) to enforce.
+const WEBHOOK_UNVERIFIED_WARN_INTERVAL_MS = 10 * 60 * 1000; // 10 minutes
+let lastUnverifiedWarnMs = 0;
 
 export async function POST(request: Request) {
   try {
@@ -39,12 +47,18 @@ export async function POST(request: Request) {
           { status: 401 }
         );
       }
-    } else if (!warnedUnverifiedSecret) {
-      warnedUnverifiedSecret = true;
-      console.warn(
-        "[email/webhook] RESEND_WEBHOOK_SECRET is not set — accepting unverified webhooks. " +
-          "Add the signing secret (Resend → Webhooks → your endpoint) to enforce signature verification."
-      );
+    } else {
+      // Soft rollout: secret unset — accept unverified webhooks, but keep the
+      // security gap visible. Rate-limited so high webhook volume can't spam
+      // the logs on every event; the warning recurs so the gap isn't missed.
+      const now = Date.now();
+      if (now - lastUnverifiedWarnMs > WEBHOOK_UNVERIFIED_WARN_INTERVAL_MS) {
+        lastUnverifiedWarnMs = now;
+        console.warn(
+          "[email/webhook] RESEND_WEBHOOK_SECRET is not set — accepting unverified webhooks. " +
+            "Set the signing secret (Resend → Webhooks → your endpoint) to enforce signature verification."
+        );
+      }
     }
 
     const event = JSON.parse(rawBody) as ResendWebhookEvent;

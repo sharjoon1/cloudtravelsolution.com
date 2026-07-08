@@ -243,6 +243,10 @@ export const VisaApplications: CollectionConfig = {
     {
       name: "internalNotes",
       type: "textarea",
+      access: {
+        read: ({ req }) => req.user?.collection === "users",
+        update: ({ req }) => req.user?.collection === "users",
+      },
     },
   ],
 };
